@@ -1,0 +1,34 @@
+project-root/
+│
+├── public/                   # Public directory for Firebase Hosting
+│   ├── index.html            # Main HTML file
+│   ├── css/
+│   │   └── styles.css        # Your CSS styles
+│   ├── js/
+│   │   ├── app.js            # Main JavaScript file
+│   │   ├── contact.js        # JavaScript for handling contact form
+│   ├── images/               # Directory for images
+│   │   └── logo.png
+│   └── other-page.html       # Additional HTML pages
+│
+├── src/                      # Source files
+│   ├── css/                  # Source CSS (if using preprocessors like SASS/SCSS)
+│   ├── js/                   # Source JavaScript files
+│   └── images/               # Source images
+│
+├── functions/                # Firebase Cloud Functions
+│   ├── index.js              # Main file for Cloud Functions
+│   └── package.json          # Dependencies for Cloud Functions
+│
+├── .firebase/                # Firebase configuration files
+│   ├── hosting.cache
+│
+├── .github/                  # GitHub-specific configurations (actions, etc.)
+│   └── workflows/
+│       └── firebase-deploy.yml
+│
+├── .gitignore                # Git ignore file
+├── firebase.json             # Firebase configuration file
+├── .firebaserc               # Firebase project aliases
+├── README.md                 # Documentation
+└── package.json              # Dependencies and scripts for project
