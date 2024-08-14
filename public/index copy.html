@@ -1137,6 +1137,18 @@
       </script>
   <script>
     AOS.init();
+
+    $(document).ready(function() {
+  // Ensure that lightSlider plugin is initialized after the DOM is ready
+  if ($.fn.lightSlider) {
+    $('#yourSliderElement').lightSlider({
+      // Your lightSlider options
+    });
+  } else {
+    console.error('lightSlider plugin is not loaded.');
+  }
+});
+
   </script>
 </body>
 
