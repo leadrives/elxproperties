@@ -1,34 +1,48 @@
 project-root/
 │
-├── public/                   # Public directory for Firebase Hosting
-│   ├── index.html            # Main HTML file
+├── public/                      # Public directory for Firebase Hosting
+│   ├── index.html               # Main HTML file
 │   ├── css/
-│   │   └── styles.css        # Your CSS styles
+│   │   └── styles.css           # Your CSS styles (likely no longer needed as Vue/Vuetify manage styles)
 │   ├── js/
-│   │   ├── app.js            # Main JavaScript file
-│   │   ├── contact.js        # JavaScript for handling contact form
-│   ├── images/               # Directory for images
+│   │   ├── app.js               # Main JavaScript file (might be replaced by Vue)
+│   │   ├── contact.js           # JavaScript for handling contact form
+│   ├── images/                  # Directory for images
 │   │   └── logo.png
-│   └── other-page.html       # Additional HTML pages
+│   └── other-page.html          # Additional HTML pages (likely integrated into Vue components)
 │
-├── src/                      # Source files
-│   ├── css/                  # Source CSS (if using preprocessors like SASS/SCSS)
-│   ├── js/                   # Source JavaScript files
-│   └── images/               # Source images
+├── src/                         # Source files for Vue.js
+│   ├── assets/                  # Static assets (e.g., images, fonts, etc.)
+│   │   ├── logo.png
+│   │   └── other-assets/        # Other assets can go here
+│   ├── components/              # Vue components
+│   │   ├── Header.vue
+│   │   ├── Footer.vue
+│   │   └── OtherComponent.vue   # Other Vue components
+│   ├── views/                   # Vue.js views (pages)
+│   │   ├── Home.vue             # Main homepage (likely replaces index.html)
+│   │   ├── Contact.vue          # Contact page (replaces contact.js functionality)
+│   └── App.vue                  # Root Vue component
+│   └── main.js                  # Entry point for Vue.js
 │
-├── functions/                # Firebase Cloud Functions
-│   ├── index.js              # Main file for Cloud Functions
-│   └── package.json          # Dependencies for Cloud Functions
+├── functions/                   # Firebase Cloud Functions
+│   ├── index.js                 # Main file for Cloud Functions
+│   └── package.json             # Dependencies for Cloud Functions
 │
-├── .firebase/                # Firebase configuration files
+├── .firebase/                   # Firebase configuration files
 │   ├── hosting.cache
 │
-├── .github/                  # GitHub-specific configurations (actions, etc.)
+├── .github/                     # GitHub-specific configurations (actions, etc.)
 │   └── workflows/
-│       └── firebase-deploy.yml
+│       └── firebase-deploy.yml  # Workflow for deploying to Firebase
 │
-├── .gitignore                # Git ignore file
-├── firebase.json             # Firebase configuration file
-├── .firebaserc               # Firebase project aliases
-├── README.md                 # Documentation
-└── package.json              # Dependencies and scripts for project
+├── node_modules/                # Node.js modules (installed via npm)
+│
+├── .gitignore                   # Git ignore file
+├── firebase.json                # Firebase configuration file
+├── .firebaserc                  # Firebase project aliases
+├── README.md                    # Documentation
+├── package.json                 # Dependencies and scripts for project
+└── babel.config.js              # Babel configuration (added with Vue CLI)
+└── vue.config.js                # Vue CLI configuration file
+└── package-lock.json            # Exact versions of dependencies

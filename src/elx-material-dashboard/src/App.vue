@@ -1,23 +1,35 @@
 <template>
   <v-app>
+    <NavigationMenu />
     <v-main>
-      <HelloWorld/>
+      <v-container>
+        <FeaturedCategories />
+        <TrendingSection />
+      </v-container>
     </v-main>
+    <FooterSection />
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavigationMenu from './components/NavigationMenu.vue';
+import FeaturedCategories from './components/FeaturedCategories.vue';
+import TrendingSection from './components/TrendingSection.vue';
+import FooterSection from './components/FooterSection.vue';
 
 export default {
-  name: 'App',
-
   components: {
-    HelloWorld,
+    NavigationMenu,
+    FeaturedCategories,
+    TrendingSection,
+    FooterSection,
   },
-
-  data: () => ({
-    //
-  }),
-}
+};
 </script>
+
+<style>
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+}
+</style>
