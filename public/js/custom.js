@@ -1,327 +1,332 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-  $(window).on('scroll', function() {
+   $(window).on('scroll', function () {
       if ($(this).scrollTop() > 300)
-          $('.scroll-top-arrow').fadeIn('slow');
+         $('.scroll-top-arrow').fadeIn('slow');
       else
-          $('.scroll-top-arrow').fadeOut('3000');
+         $('.scroll-top-arrow').fadeOut('3000');
 
 
 
 
       var scroll = $(window).scrollTop();
       if (scroll <= 0) {
-          $(".nav-coustom").removeClass("bg-white");
-          $(".top-nav-elx-flag").addClass("top-nav-elx-none");
-          $(".bot-nav-elx").show();
-          $(".black-logo").hide();
+         $(".nav-coustom").removeClass("bg-white");
+         $(".top-nav-elx-flag").addClass("top-nav-elx-none");
+         $(".bot-nav-elx").show();
+         $(".black-logo").hide();
       } else {
-          $(".top-nav-elx-flag").removeClass("top-nav-elx-none");
-          $(".bot-nav-elx").hide();
-          $(".black-logo").show();
-          $(".nav-coustom").addClass("bg-white");
+         $(".top-nav-elx-flag").removeClass("top-nav-elx-none");
+         $(".bot-nav-elx").hide();
+         $(".black-logo").show();
+         $(".nav-coustom").addClass("bg-white");
       }
-  });
+   });
 
-  //Click event to scroll to top
-  $(document).on('click', '.scroll-top-arrow', function() {
+   //Click event to scroll to top
+   $(document).on('click', '.scroll-top-arrow', function () {
       $('html, body').animate({
-          scrollTop: 0
+         scrollTop: 0
       }, 800);
       return false;
-  });
+   });
 
-  ////////// 
-  // owlCarousel slider
-  ////////// 
-  (function() {
-   "use strict";
-   var carousels = function() {
-       $(".owl-carousel3").owlCarousel({
-           items: 4,
-           loop: true,
-           margin: 10,
-           autoplay: true,
-           singleItem: true,
-           loop: true,
-           center: true,
-           responsiveClass: true,
-           nav: true,
-           dots : false,
-           navText: [
-             '<i class="fas fa-arrow-left" aria-hidden="true"></i>',
-             '<i class="fas fa-arrow-right" aria-hidden="true"></i>'
-         ],
-           responsive: {
-               0: {
-                   items: 1,
-                   nav: false
-               },
-               680: {
-                   items: 2,
-                   nav: false,
-                   loop: true
-               },
-               1000: {
-                   items: 2,
-                   nav: true,
-                   dots : false,
-               }
-           }
-       });
-   };
-
-   (function($) {
-       carousels();
-   })(jQuery);
-})();
-  (function() {
+   ////////// 
+   // owlCarousel slider
+   ////////// 
+   (function () {
       "use strict";
-      var carousels = function() {
-          $(".owl-carousel1").owlCarousel({
-              items: 4,
-              loop: true,
-              margin: 10,
-              autoplay: true,
-              singleItem: true,
-              loop: true,
-              center: true,
-              responsiveClass: true,
-              nav: true,
-              dots : false,
-              navText: [
-                '<i class="fas fa-arrow-left" aria-hidden="true"></i>',
-                '<i class="fas fa-arrow-right" aria-hidden="true"></i>'
+      var carousels = function () {
+         $(".owl-carousel3").owlCarousel({
+            items: 4,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            singleItem: true,
+            loop: true,
+            center: true,
+            responsiveClass: true,
+            nav: true,
+            dots: false,
+            navText: [
+               '<i class="fas fa-arrow-left" aria-hidden="true"></i>',
+               '<i class="fas fa-arrow-right" aria-hidden="true"></i>'
             ],
-              responsive: {
-                  0: {
-                      items: 1,
-                      nav: false
-                  },
-                  680: {
-                      items: 2,
-                      nav: false,
-                      loop: true
-                  },
-                  1000: {
-                      items: 3,
-                      nav: true,
-                      dots : false,
-                  }
-              }
-          });
-      };
-
-      (function($) {
-          carousels();
-      })(jQuery);
-  })();
-//   owl2
-(function() {
-   "use strict";
-   var carousels = function() {
-       $(".owl-carousel2").owlCarousel({
-           items: 4,
-           loop: true,
-           margin: 10,
-           autoplay: true,
-           singleItem: true,
-           loop: true,
-           center: true,
-           responsiveClass: true,
-           nav: true,
-           dots : false,
-           navText: [
-             '<i class="fas fa-arrow-left" aria-hidden="true"></i>',
-             '<i class="fas fa-arrow-right" aria-hidden="true"></i>'
-         ],
-           responsive: {
+            responsive: {
                0: {
-                   items: 1,
-                   nav: true
-               },
-               680: {
-                   items: 2,
-                   nav: true,
-                   loop: true
-               },
-               1000: {
-                   items: 3,
-                   nav: false,
-                   dots : false,
-                   start:100,
-               }
-           }
-       });
-   };
-
-   (function($) {
-       carousels();
-   })(jQuery);
-})();
-(function() {
-  "use strict";
-  var carousels = function() {
-      $(".owl-carousel3").owlCarousel({
-          items: 4,
-          loop: true,
-          margin: 10,
-          autoplay: true,
-          singleItem: true,
-          loop: true,
-          center: true,
-          responsiveClass: true,
-          nav: true,
-          dots : false,
-          navText: [
-            '<i class="fas fa-arrow-left" aria-hidden="true"></i>',
-            '<i class="fas fa-arrow-right" aria-hidden="true"></i>'
-        ],
-          responsive: {
-              0: {
                   items: 1,
                   nav: false
-              },
-              680: {
+               },
+               680: {
                   items: 2,
                   nav: false,
                   loop: true
-              },
-              1000: {
+               },
+               1000: {
+                  items: 2,
+                  nav: true,
+                  dots: false,
+               }
+            }
+         });
+      };
+
+      (function ($) {
+         carousels();
+      })(jQuery);
+   })();
+   (function () {
+      "use strict";
+      var carousels = function () {
+         $(".owl-carousel1").owlCarousel({
+            items: 4,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            singleItem: true,
+            loop: true,
+            center: true,
+            responsiveClass: true,
+            nav: true,
+            dots: false,
+            navText: [
+               '<i class="fas fa-arrow-left" aria-hidden="true"></i>',
+               '<i class="fas fa-arrow-right" aria-hidden="true"></i>'
+            ],
+            responsive: {
+               0: {
+                  items: 1,
+                  nav: false
+               },
+               680: {
+                  items: 2,
+                  nav: false,
+                  loop: true
+               },
+               1000: {
                   items: 3,
                   nav: true,
-                  dots : false,
-              }
-          }
-      });
-  };
+                  dots: false,
+               }
+            }
+         });
+      };
 
-  (function($) {
-      carousels();
-  })(jQuery);
-})();
-  // owlCarousel slider end
-// single  product slider
-  $('#productSlider').lightSlider({ gallery: true, item: 1, loop: true, slideMargin: 0, thumbItem: 9 });
-  
+      (function ($) {
+         carousels();
+      })(jQuery);
+   })();
+   //   owl2
+   (function () {
+      "use strict";
+      var carousels = function () {
+         $(".owl-carousel2").owlCarousel({
+            items: 4,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            singleItem: true,
+            loop: true,
+            center: true,
+            responsiveClass: true,
+            nav: true,
+            dots: false,
+            navText: [
+               '<i class="fas fa-arrow-left" aria-hidden="true"></i>',
+               '<i class="fas fa-arrow-right" aria-hidden="true"></i>'
+            ],
+            responsive: {
+               0: {
+                  items: 1,
+                  nav: true
+               },
+               680: {
+                  items: 2,
+                  nav: true,
+                  loop: true
+               },
+               1000: {
+                  items: 3,
+                  nav: false,
+                  dots: false,
+                  start: 100,
+               }
+            }
+         });
+      };
+
+      (function ($) {
+         carousels();
+      })(jQuery);
+   })();
+   (function () {
+      "use strict";
+      var carousels = function () {
+         $(".owl-carousel3").owlCarousel({
+            items: 4,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            singleItem: true,
+            loop: true,
+            center: true,
+            responsiveClass: true,
+            nav: true,
+            dots: false,
+            navText: [
+               '<i class="fas fa-arrow-left" aria-hidden="true"></i>',
+               '<i class="fas fa-arrow-right" aria-hidden="true"></i>'
+            ],
+            responsive: {
+               0: {
+                  items: 1,
+                  nav: false
+               },
+               680: {
+                  items: 2,
+                  nav: false,
+                  loop: true
+               },
+               1000: {
+                  items: 3,
+                  nav: true,
+                  dots: false,
+               }
+            }
+         });
+      };
+
+      (function ($) {
+         carousels();
+      })(jQuery);
+   })();
+   // owlCarousel slider end
+   // single  product slider
+   $('#productSlider').lightSlider({ gallery: true, item: 1, loop: true, slideMargin: 0, thumbItem: 9 });
+
 });
 $(document).ready(function () {
-    $('.not-human, .triangle').hide();
-    $('.verify').addClass('disabled');
+   $('.not-human, .triangle').hide();
+   $('.verify').addClass('disabled');
 
-    function human(e) {
+   function human(e) {
       if ($('.checkbox-text').hasClass('robot')) {
-        return;
+         return;
       }
       else {
-        $('.checkbox-text').text("You're human!").css("color", "green").addClass('human');
-        $('.checkbox').addClass('disabled');
-        $('.checkbox').click(function (e) {
-          e.preventDefault();
-        });
+         $('.checkbox-text').text("You're human!").css("color", "green").addClass('human');
+         $('.checkbox').addClass('disabled');
+         $('.checkbox').click(function (e) {
+            e.preventDefault();
+         });
       }
 
       $('.not-human, .triangle').slideUp();
-    }
+   }
 
-    function robot(event) {
+   function robot(event) {
       if ($('.checkbox-text').hasClass('human')) {
-        return;
+         return;
       }
       else {
-        $('.checkbox-text').text("ROBOT").css("color", "red").addClass('robot');
-        $('.checkbox').addClass('disabled');
-        $('.checkbox').click(function (event) {
-          event.preventDefault();
-        });
+         $('.checkbox-text').text("ROBOT").css("color", "red").addClass('robot');
+         $('.checkbox').addClass('disabled');
+         $('.checkbox').click(function (event) {
+            event.preventDefault();
+         });
 
-        $('.not-human, .triangle').slideDown();
+         $('.not-human, .triangle').slideDown();
       }
-    }
+   }
 
-    $('.checkbox').click(function () {
+   $('.checkbox').click(function () {
       if ($('.checkbox').is(":checked")) {
-        $(document).mousemove(function () {
-          window.setTimeout(function () {
-            human();
-          }, 250);
-        });
+         $(document).mousemove(function () {
+            window.setTimeout(function () {
+               human();
+            }, 250);
+         });
 
-        window.setTimeout(function () {
-          robot();
-        }, 500);
+         window.setTimeout(function () {
+            robot();
+         }, 500);
       };
-    });
+   });
 
-    $('.captcha-code').keyup(function (event) {
+   $('.captcha-code').keyup(function (event) {
       if ($('.captcha-code').val().length <= 0) {
-        $('.verify').addClass('disabled');
+         $('.verify').addClass('disabled');
       }
       else {
-        $('.verify').removeClass('disabled');
+         $('.verify').removeClass('disabled');
       };
-    });
+   });
 
-    $('.verify').click(function () {
+   $('.verify').click(function () {
       if ($('.captcha-code').val() == "captcha code") {
-        $('.checkbox-text').removeClass('robot').addClass('human');
-        $('.not-human, .triangle').slideUp();
+         $('.checkbox-text').removeClass('robot').addClass('human');
+         $('.not-human, .triangle').slideUp();
       }
-    });
-    
-    
-    // counter 
-    function visible(partial) {
+   });
+
+
+   // counter 
+   function visible(partial) {
+      // Check if partial is defined and is a valid jQuery object
+      if (!partial || !(partial instanceof jQuery) || partial.length === 0) {
+         console.warn("Warning: `partial` is undefined, not a jQuery object, or is empty:", partial);
+         return false;
+      }
+
       var $t = partial,
-          $w = jQuery(window),
-          viewTop = $w.scrollTop(),
-          viewBottom = viewTop + $w.height(),
-          _top = $t.offset().top,
-          _bottom = _top + $t.height(),
-          compareTop = partial === true ? _bottom : _top,
-          compareBottom = partial === true ? _top : _bottom;
-  
+         $w = jQuery(window),
+         viewTop = $w.scrollTop(),
+         viewBottom = viewTop + $w.height(),
+         _top = $t.offset().top,
+         _bottom = _top + $t.height(),
+         compareTop = partial === true ? _bottom : _top,
+         compareBottom = partial === true ? _top : _bottom;
+
       return ((compareBottom <= viewBottom) && (compareTop >= viewTop) && $t.is(':visible'));
-  
-  }
-  
-  $(window).scroll(function(){
-  
-    if(visible($('.count-digit')))
-      {
-        if($('.count-digit').hasClass('counter-loaded')) return;
-        $('.count-digit').addClass('counter-loaded');
-        
-  $('.count-digit').each(function () {
-    var $this = $(this);
-    jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
-      duration: 1000,
-      easing: 'swing',
-      step: function () {
-        $this.text(Math.ceil(this.Counter));
+   }
+
+
+   $(window).scroll(function () {
+
+      if (visible($('.count-digit'))) {
+         if ($('.count-digit').hasClass('counter-loaded')) return;
+         $('.count-digit').addClass('counter-loaded');
+
+         $('.count-digit').each(function () {
+            var $this = $(this);
+            jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
+               duration: 1000,
+               easing: 'swing',
+               step: function () {
+                  $this.text(Math.ceil(this.Counter));
+               }
+            });
+         });
       }
-    });
-  });
-      }
-  })
-  
-  console.clear();
+   })
 
-  const dropdowns = document.querySelectorAll('.dropdown');
+   console.clear();
 
-  dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('click', (e) => {
-      dropdown.classList.toggle('dropdown__options--visible')
-    })
+   const dropdowns = document.querySelectorAll('.dropdown');
 
-    dropdown.querySelectorAll('.dropdown__options .dropdown__option').forEach(opt => {
-      opt.addEventListener('click', (e) => {
-        dropdown.querySelector('.dropdown__selected').innerHTML = opt.innerHTML;
+   dropdowns.forEach(dropdown => {
+      dropdown.addEventListener('click', (e) => {
+         dropdown.classList.toggle('dropdown__options--visible')
       })
-    })
-  })
-  });
-      var calendar = document.getElementById("calendar-table");
+
+      dropdown.querySelectorAll('.dropdown__options .dropdown__option').forEach(opt => {
+         opt.addEventListener('click', (e) => {
+            dropdown.querySelector('.dropdown__selected').innerHTML = opt.innerHTML;
+         })
+      })
+   })
+});
+var calendar = document.getElementById("calendar-table");
 var gridTable = document.getElementById("table-body");
 var currentDate = new Date();
 var selectedDate = currentDate;
