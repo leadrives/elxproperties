@@ -13,79 +13,26 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="css/aos.css" rel="stylesheet">
     <link href="css/owl.carousel.min.css" rel="stylesheet">
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap CSS -->
+
+    <!-- Bootstrap CSS and JS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Popper.js for Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <!-- Include jQuery -->
+
+
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Include Select2 -->
+
+    <!-- Select2 for searchable dropdowns -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
 
 
     <!-- FontAwesome for Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-    <!-- Custom styles for sidebar -->
-    <style>
-        body {
-            background-color: #fbfbfb;
-        }
-
-        @media (min-width: 991.98px) {
-            main {
-                padding-left: 240px;
-            }
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            padding: 58px 0 0;
-            width: 240px;
-            z-index: 600;
-            background-color: white;
-            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-        }
-
-        @media (max-width: 991.98px) {
-            .sidebar {
-                width: 100%;
-            }
-        }
-
-        .sidebar .active {
-            border-radius: 5px;
-            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-        }
-
-        .sidebar-sticky {
-            position: relative;
-            top: 0;
-            height: calc(100vh - 48px);
-            padding-top: 0.5rem;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
-        .hidden-form {
-            display: none;
-            margin-bottom: 20px;
-        }
-
-        #map {
-            height: 300px;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="fonts/fontawesome-free-6.6.0-web/css/all.min.css">
+    <script src="fonts/fontawesome-free-6.6.0-web/js/all.min.js"></script>
 </head>
 
 <body>
@@ -239,158 +186,293 @@
                 </div>
             </section>
 
-            <!-- Section 1 -->
-            <section id="section1" class="mb-5" style="display:none;">
-                <h2>Property Listings</h2>
+            <!-- Section 1: Property Listings -->
+            <section id="section1" class="mb-5">
+                <h2 class="mb-4">Property Listings</h2>
                 <!-- Add New Property Form (Initially Hidden) -->
-                <div id="add-property-form" class="hidden-form">
-                    <form id="propertyListingForm">
-                        <!-- Type Section -->
-                        <div class="mb-4">
-                            <h5>Type</h5>
-                            <div class="row">
-                                <!-- Property Type -->
-                                <div class="col-md-6">
-                                    <label for="propertyType" class="form-label">Property Type</label>
-                                    <div>
-                                        <input class="form-check-input" type="radio" name="propertyType"
-                                            id="residential" value="Residential">
-                                        <label class="form-check-label" for="residential">Residential</label>
+                <div id="add-property-form" class="card mb-4" style="display: none;">
+                    <div class="card-body">
+                        <form id="propertyListingForm">
+                            <!-- Type Section -->
+                            <div class="mb-4">
+                                <h5>Type</h5>
+                                <div class="row">
+                                    <!-- Property Type -->
+                                    <div class="col-md-6">
+                                        <label for="propertyType" class="form-label">Property Type</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="propertyType"
+                                                id="residential" value="Residential">
+                                            <label class="form-check-label" for="residential">Residential</label>
+                                            <input type="hidden" id="property-id">
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="propertyType"
+                                                id="commercial" value="Commercial">
+                                            <label class="form-check-label" for="commercial">Commercial</label>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <input class="form-check-input" type="radio" name="propertyType" id="commercial"
-                                            value="Commercial">
-                                        <label class="form-check-label" for="commercial">Commercial</label>
-                                    </div>
-                                </div>
-
-                                <!-- Transaction Type -->
-                                <div class="col-md-6">
-                                    <label for="transactionType" class="form-label">Transaction Type</label>
-                                    <div>
-                                        <input class="form-check-input" type="radio" name="transactionType" id="rent"
-                                            value="Rent">
-                                        <label class="form-check-label" for="rent">Rent</label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input" type="radio" name="transactionType" id="sale"
-                                            value="Sale">
-                                        <label class="form-check-label" for="sale">Sale</label>
+                                    <!-- Transaction Type Section -->
+                                    <div class="col-md-6">
+                                        <label for="transactionType" class="form-label">Transaction Type</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="transactionType"
+                                                id="rent" value="Rent" onclick="togglePricingSection()">
+                                            <label class="form-check-label" for="rent">Rent</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="transactionType"
+                                                id="sale" value="Sale" onclick="togglePricingSection()">
+                                            <label class="form-check-label" for="sale">Sale</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Specifications Section -->
-                        <div class="mb-4">
-                            <h5>Specifications</h5>
-                            <div class="row">
-                                <!-- Size -->
-                                <div class="col-md-6">
-                                    <label for="size" class="form-label">Size (sqft)</label>
-                                    <input type="number" class="form-control" id="size" name="size"
-                                        placeholder="Enter size in sqft">
-                                </div>
-
-                                <!-- Bedrooms -->
-                                <div class="col-md-6">
-                                    <label for="bedrooms" class="form-label">No of Bedrooms</label>
-                                    <select class="form-select" id="bedrooms" name="bedrooms">
-                                        <option selected>Select number of bedrooms</option>
-                                        <option value="0">Studio</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </div>
-
-                                <!-- Bathrooms -->
-                                <div class="col-md-6">
-                                    <label for="bathrooms" class="form-label">No of Bathrooms</label>
-                                    <select class="form-select" id="bathrooms" name="bathrooms">
-                                        <option selected>Select number of bathrooms</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </div>
-
-                                <!-- Furnishing Type -->
-                                <div class="col-md-6">
-                                    <label for="furnishingType" class="form-label">Furnishing Type</label>
-                                    <select class="form-select" id="furnishingType" name="furnishingType">
-                                        <option selected>Select furnishing type</option>
-                                        <option value="Unfurnished">Unfurnished</option>
-                                        <option value="Semi-furnished">Semi-furnished</option>
-                                        <option value="Furnished">Furnished</option>
-                                    </select>
-                                </div>
-
-                                <!-- Parking Spaces -->
-                                <div class="col-md-6">
-                                    <label for="parkingSpaces" class="form-label">No of Parking Spaces</label>
-                                    <input type="number" class="form-control" id="parkingSpaces" name="parkingSpaces"
-                                        placeholder="Enter number of parking spaces">
-                                </div>
-
-                                <!-- Plot Size -->
-                                <div class="col-md-6">
-                                    <label for="plotSize" class="form-label">Total Plot Size (sqft)</label>
-                                    <input type="number" class="form-control" id="plotSize" name="plotSize"
-                                        placeholder="Enter plot size in sqft">
-                                </div>
-
-                                <!-- Built-Up Area -->
-                                <div class="col-md-6">
-                                    <label for="builtUpArea" class="form-label">Built-up Area (sqft)</label>
-                                    <input type="number" class="form-control" id="builtUpArea" name="builtUpArea"
-                                        placeholder="Enter built-up area in sqft">
+                            <!-- Specifications Section -->
+                            <div class="mb-4">
+                                <h5>Specifications</h5>
+                                <div class="row g-3">
+                                    <!-- Size -->
+                                    <div class="col-md-6">
+                                        <label for="size" class="form-label">Size (sqft)</label>
+                                        <input type="number" class="form-control" id="size" name="size"
+                                            placeholder="Enter size in sqft">
+                                    </div>
+                                    <!-- Bedrooms -->
+                                    <div class="col-md-6">
+                                        <label for="bedrooms" class="form-label">No of Bedrooms</label>
+                                        <select class="form-select" id="bedrooms" name="bedrooms">
+                                            <option selected>Select number of bedrooms</option>
+                                            <option value="0">Studio</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                    <!-- Bathrooms -->
+                                    <div class="col-md-6">
+                                        <label for="bathrooms" class="form-label">No of Bathrooms</label>
+                                        <select class="form-select" id="bathrooms" name="bathrooms">
+                                            <option selected>Select number of bathrooms</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                    <!-- Furnishing Type -->
+                                    <div class="col-md-6">
+                                        <label for="furnishingType" class="form-label">Furnishing Type</label>
+                                        <select class="form-select" id="furnishingType" name="furnishingType">
+                                            <option selected>Select furnishing type</option>
+                                            <option value="Unfurnished">Unfurnished</option>
+                                            <option value="Semi-furnished">Semi-furnished</option>
+                                            <option value="Furnished">Furnished</option>
+                                        </select>
+                                    </div>
+                                    <!-- Parking Spaces -->
+                                    <div class="col-md-6">
+                                        <label for="parkingSpaces" class="form-label">No of Parking Spaces</label>
+                                        <input type="number" class="form-control" id="parkingSpaces"
+                                            name="parkingSpaces" placeholder="Enter number of parking spaces">
+                                    </div>
+                                    <!-- Plot Size -->
+                                    <div class="col-md-6">
+                                        <label for="plotSize" class="form-label">Total Plot Size (sqft)</label>
+                                        <input type="number" class="form-control" id="plotSize" name="plotSize"
+                                            placeholder="Enter plot size in sqft">
+                                    </div>
+                                    <!-- Built-Up Area -->
+                                    <div class="col-md-6">
+                                        <label for="builtUpArea" class="form-label">Built-up Area (sqft)</label>
+                                        <input type="number" class="form-control" id="builtUpArea" name="builtUpArea"
+                                            placeholder="Enter built-up area in sqft">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Two-Column Layout for Description, Media, Amenities, Floor Plan, and Documents Sections -->
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <!-- Description Section -->
-                                <div class="mycrm-cell mycrm-grid mycrm-panel panel-description panel-prop-description mycrm-sortable ui-sortable-handle ui-sortable ui-sortable-disabled"
-                                    data-item="panel-description" data-group="panel-description"
-                                    data-panel="panel-description" data-sort-parent="property_page_detail_left"
-                                    data-group-level="1">
-
-                                    <!-- Section Header with Language Toggle -->
-                                    <div
-                                        class="mycrm-cell mycrm-cell-12 header d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <h5><i class="material-icons"> Description</i></h5>
+                            <!-- Pricing Section (for Rent) -->
+                            <div id="rentPricingSection" class="card mt-4" style="display:none;">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0"><i class="fas fa-dollar-sign"></i> Rental Pricing</h5>
+                                    <button class="btn btn-sm btn-outline-secondary" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#rentPricingSectionContent"
+                                        aria-expanded="true" aria-controls="rentPricingSectionContent">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </div>
+                                <div id="rentPricingSectionContent" class="collapse show">
+                                    <div class="card-body">
+                                        <!-- Rental Prices -->
+                                        <div class="mb-4">
+                                            <h6>Rental Prices*</h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-3">
+                                                    <label for="price_per_year" class="form-label">Yearly Price
+                                                        (AED)</label>
+                                                    <div class="input-group">
+                                                        <input type="number" id="price_per_year" name="price_per_year"
+                                                            class="form-control" placeholder="Enter yearly price">
+                                                        <span class="input-group-text">AED</span>
+                                                    </div>
+                                                    <div class="form-check mt-2">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="default_price" value="year" id="defaultYear">
+                                                        <label class="form-check-label"
+                                                            for="defaultYear">Default</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="price_per_month" class="form-label">Monthly Price
+                                                        (AED)</label>
+                                                    <div class="input-group">
+                                                        <input type="number" id="price_per_month" name="price_per_month"
+                                                            class="form-control" placeholder="Enter monthly price">
+                                                        <span class="input-group-text">AED</span>
+                                                    </div>
+                                                    <div class="form-check mt-2">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="default_price" value="month" id="defaultMonth">
+                                                        <label class="form-check-label"
+                                                            for="defaultMonth">Default</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="price_per_week" class="form-label">Weekly Price
+                                                        (AED)</label>
+                                                    <div class="input-group">
+                                                        <input type="number" id="price_per_week" name="price_per_week"
+                                                            class="form-control" placeholder="Enter weekly price">
+                                                        <span class="input-group-text">AED</span>
+                                                    </div>
+                                                    <div class="form-check mt-2">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="default_price" value="week" id="defaultWeek">
+                                                        <label class="form-check-label"
+                                                            for="defaultWeek">Default</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="price_per_day" class="form-label">Daily Price
+                                                        (AED)</label>
+                                                    <div class="input-group">
+                                                        <input type="number" id="price_per_day" name="price_per_day"
+                                                            class="form-control" placeholder="Enter daily price">
+                                                        <span class="input-group-text">AED</span>
+                                                    </div>
+                                                    <div class="form-check mt-2">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="default_price" value="day" id="defaultDay">
+                                                        <label class="form-check-label" for="defaultDay">Default</label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <!-- Language Toggle Switch -->
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="languageToggle"
-                                                onchange="toggleLanguage()">
-                                            <label class="form-check-label" for="languageToggle">Arabic</label>
+
+                                        <!-- Cheques -->
+                                        <div class="mb-4">
+                                            <h6>Cheques</h6>
+                                            <label for="cheques" class="form-label">Number of Cheques</label>
+                                            <select id="cheques" name="cheques" class="form-select">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Financial Status -->
+                                        <div class="mb-4">
+                                            <h6>Financial Status</h6>
+                                            <label for="financial_status" class="form-label">Select Financial
+                                                Status</label>
+                                            <select id="financial_status" name="financial_status" class="form-select">
+                                                <option value="mortgage">Mortgaged</option>
+                                                <option value="cash">Cash</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Service Charges -->
+                                        <div class="mb-4">
+                                            <h6>Service Charges (Monthly)</h6>
+                                            <label for="service_charges" class="form-label">Service Charges
+                                                (AED)</label>
+                                            <div class="input-group">
+                                                <input type="number" id="service_charges" name="service_charges"
+                                                    class="form-control" placeholder="Enter monthly service charges">
+                                                <span class="input-group-text">AED</span>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <!-- Content Section -->
-                                    <div class="mycrm-cell content">
-                                        <div class="mycrm-cell mycrm-cell-12 mycrm-grid">
+                            <!-- Sale Price Section -->
+                            <div id="salePricingSection" class="card mt-4" style="display:none;">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-dollar-sign"></i> Sale Pricing
+                                    </h5>
+                                    <button class="btn btn-sm btn-outline-secondary" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#salePricingSectionContent"
+                                        aria-expanded="true" aria-controls="salePricingSectionContent">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </div>
+                                <div id="salePricingSectionContent" class="collapse show">
+                                    <div class="card-body">
+                                        <!-- Sale Price Input Field -->
+                                        <div class="mb-4">
+                                            <label for="sale_price" class="form-label">Price <span
+                                                    class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <input type="number" id="sale_price" name="sale_price"
+                                                    class="form-control" placeholder="Enter sale price" required>
+                                                <span class="input-group-text">AED</span>
+                                            </div>
+                                            <div class="form-text text-danger d-none" id="salePriceError">This field is
+                                                required.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                                            <!-- English Title and Description -->
+                            <!-- Two-Column Layout for Description, Media, Amenities, Floor Plan, and Documents Sections -->
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <!-- Description Section -->
+                                    <div class="card mb-4">
+                                        <div class="card-header d-flex justify-content-between align-items-center">
+                                            <h5><i class="fas fa-info-circle"></i> Description</h5>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="languageToggle"
+                                                    onchange="toggleLanguage()">
+                                                <label class="form-check-label" for="languageToggle">Arabic</label>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
                                             <div id="englishContent">
                                                 <!-- Title in English -->
                                                 <div class="mb-3">
@@ -407,8 +489,6 @@
                                                         placeholder="Enter description in English"></textarea>
                                                 </div>
                                             </div>
-
-                                            <!-- Arabic Title and Description (Initially Hidden) -->
                                             <div id="arabicContent" style="display: none;">
                                                 <!-- Title in Arabic -->
                                                 <div class="mb-3">
@@ -426,352 +506,291 @@
                                                         placeholder="أدخل الوصف بالعربية"></textarea>
                                                 </div>
                                             </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Amenities Section -->
-                                <div class="mycrm-cell mycrm-grid mycrm-panel panel-amenities panel-prop-amenities mycrm-sortable ui-sortable-handle ui-sortable ui-sortable-disabled"
-                                    data-item="panel-amenities" data-group="panel-amenities"
-                                    data-panel="panel-amenities" data-sort-parent="property_page_detail_left"
-                                    data-group-level="1">
-
-                                    <!-- Section Header -->
-                                    <div
-                                        class="mycrm-cell mycrm-cell-12 header d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <h5><i class="material-icons"></i> Amenities</h5>
                                         </div>
                                     </div>
 
-                                    <!-- Dotted Box with Centered Button -->
-                                    <div
-                                        class="dotted-box mycrm-cell mycrm-cell-12 mt-3 d-flex justify-content-center align-items-center">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#amenitiesModal">Add Amenities</button>
-                                    </div>
-
-
-                                    <!-- Selected Amenities Display -->
-                                    <div id="selected-amenities" class="mycrm-cell mycrm-cell-12 mt-3">
-                                        <!-- Selected amenities will appear here -->
-                                    </div>
-                                </div>
-                                <!-- Management Section -->
-                                <div class="mycrm-cell mycrm-grid mycrm-panel panel-management panel-prop-management mycrm-sortable ui-sortable-handle ui-sortable ui-sortable-disabled"
-                                    data-item="panel-management" data-group="panel-management"
-                                    data-panel="panel-management" data-sort-parent="property_page_detail_left"
-                                    data-group-level="1">
-
-                                    <!-- Section Header -->
-                                    <div
-                                        class="mycrm-cell mycrm-cell-12 header d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <h5><i class="material-icons"></i> Management</h5>
+                                    <!-- Amenities Section -->
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h5><i class="fas fa-clipboard-list"></i> Amenities</h5>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#amenitiesModal">Add Amenities</button>
+                                        </div>
+                                        <div id="selected-amenities" class="card-body">
+                                            <!-- Selected amenities will appear here -->
                                         </div>
                                     </div>
 
-                                    <!-- Management Content -->
-                                    <div class="mycrm-cell content mt-3">
-                                        <!-- Reference Input -->
-                                        <div class="mb-4">
-                                            <label for="reference" class="form-label">Reference</label>
-                                            <input type="text" class="form-control" id="reference"
-                                                placeholder="Enter reference ID">
+                                    <!-- Management Section -->
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h5><i class="fas fa-user-tie"></i> Management</h5>
                                         </div>
-
-                                        <!-- Assigned User Dropdown -->
-                                        <div class="mb-4">
-                                            <label for="assignedUser" class="form-label">Assigned User</label>
-                                            <select id="assignedUser" class="form-select searchable-dropdown">
-                                                <!-- Options will be dynamically generated -->
-                                            </select>
-                                        </div>
-
-                                        <!-- Owner Dropdown -->
-                                        <div class="mb-4">
-                                            <label for="owner" class="form-label">Owner</label>
-                                            <select id="owner" class="form-select searchable-dropdown">
-                                                <!-- Options will be dynamically generated -->
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Property Permit Section -->
-                                <div class="mycrm-cell mycrm-grid mycrm-panel panel-permit panel-prop-permit mycrm-sortable ui-sortable-handle ui-sortable ui-sortable-disabled"
-                                    data-item="panel-permit" data-group="panel-permit" data-panel="panel-permit"
-                                    data-sort-parent="property_page_detail_left" data-group-level="1">
-
-                                    <!-- Section Header -->
-                                    <div
-                                        class="mycrm-cell mycrm-cell-12 header d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <h5><i class="material-icons"></i> Property Permit</h5>
-                                        </div>
-                                    </div>
-
-                                    <!-- Radio Buttons for RERA and DTCM -->
-                                    <div class="mb-4">
-                                        <label for="permitType" class="form-label">Permit Type</label>
-                                        <div id="permitType">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="permitType" id="rera"
-                                                    value="RERA" onclick="togglePermitFields()">
-                                                <label class="form-check-label" for="rera">RERA</label>
+                                        <div class="card-body">
+                                            <!-- Reference Input -->
+                                            <div class="mb-4">
+                                                <label for="reference" class="form-label">Reference</label>
+                                                <input type="text" class="form-control" id="reference" name="reference"
+                                                    placeholder="Enter reference ID">
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="permitType" id="dtcm"
-                                                    value="DTCM" onclick="togglePermitFields()">
-                                                <label class="form-check-label" for="dtcm">DTCM</label>
+                                            <!-- Assigned User Dropdown -->
+                                            <div class="mb-4">
+                                                <label for="assignedUser" class="form-label">Assigned User</label>
+                                                <select id="assignedUser" name="assignedUser"
+                                                    class="form-select searchable-dropdown">
+                                                    <!-- Options will be dynamically generated -->
+                                                </select>
+                                            </div>
+                                            <!-- Owner Dropdown -->
+                                            <div class="mb-4">
+                                                <label for="owner" class="form-label">Owner</label>
+                                                <select id="owner" name="owner" class="form-select searchable-dropdown">
+                                                    <!-- Options will be dynamically generated -->
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <!-- Conditional Text Box for RERA Listing Number -->
-                                    <div class="mb-4" id="reraListingNoField" style="display:none;">
-                                        <label for="reraListingNo" class="form-label">RERA Listing No</label>
-                                        <input type="text" class="form-control" id="reraListingNo"
-                                            placeholder="Enter RERA Listing No">
-                                    </div>
-
-                                    <!-- Conditional Text Box and Date Pickers for DTCM Permit -->
-                                    <div id="dtcmFields" style="display:none;">
-                                        <!-- DTCM Permit Number -->
-                                        <div class="mb-4">
-                                            <label for="dtcmPermitNo" class="form-label">DTCM Permit No</label>
-                                            <input type="text" class="form-control" id="dtcmPermitNo"
-                                                placeholder="Enter DTCM Permit No">
+                                    <!-- Property Permit Section -->
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h5><i class="fas fa-file-alt"></i> Property Permit</h5>
                                         </div>
-
-                                        <!-- Date Pickers for From and To Dates -->
-                                        <div class="mb-4">
-                                            <label for="permitFromDate" class="form-label">From</label>
-                                            <input type="date" class="form-control" id="permitFromDate">
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label for="permitToDate" class="form-label">To</label>
-                                            <input type="date" class="form-control" id="permitToDate">
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                            <div class="col-lg-6">
-                                <!-- Media Section -->
-                                <div class="mycrm-cell mycrm-grid mycrm-panel panel-media panel-prop-media mycrm-sortable ui-sortable-handle ui-sortable ui-sortable-disabled"
-                                    data-item="panel-media" data-group="panel-media" data-panel="panel-media"
-                                    data-sort-parent="property_page_detail_left" data-group-level="1">
-
-                                    <!-- Section Header -->
-                                    <div
-                                        class="mycrm-cell mycrm-cell-12 header d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <h5><i class="material-icons"></i> Media</h5>
-                                        </div>
-                                    </div>
-                                    <!-- Notice -->
-                                    <div class="alert alert-warning mt-3" role="alert">
-                                        <strong>Notice:</strong> Please upload images in our recommended 4:3 ratio. Any
-                                        duplicate
-                                        images will affect your Quality Score.
-                                    </div>
-                                    <!-- Media Content -->
-                                    <div class="mycrm-cell content mt-3">
-
-                                        <!-- Image Upload Section -->
-                                        <div class="mb-4">
-                                            <label for="propertyImages" class="form-label">Upload Images</label>
-                                            <input type="file" class="form-control" id="propertyImages" multiple
-                                                accept="image/*" onchange="handleImageUpload(this)">
-                                            <div id="imageThumbnails" class="mt-3 d-flex flex-wrap">
-                                                <!-- Thumbnails will be shown here after upload -->
+                                        <div class="card-body">
+                                            <!-- Radio Buttons for RERA and DTCM -->
+                                            <div class="mb-4">
+                                                <label for="permitType" class="form-label">Permit Type</label>
+                                                <div id="permitType">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="permitType"
+                                                            id="rera" value="RERA" onclick="togglePermitFields()">
+                                                        <label class="form-check-label" for="rera">RERA</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="permitType"
+                                                            id="dtcm" value="DTCM" onclick="togglePermitFields()">
+                                                        <label class="form-check-label" for="dtcm">DTCM</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Conditional Text Box for RERA Listing Number -->
+                                            <div class="mb-4" id="reraListingNoField" style="display: none;">
+                                                <label for="reraListingNo" class="form-label">RERA Listing No</label>
+                                                <input type="text" class="form-control" id="reraListingNo"
+                                                    name="reraListingNo" placeholder="Enter RERA Listing No">
+                                            </div>
+                                            <!-- Conditional Text Box and Date Pickers for DTCM Permit -->
+                                            <div id="dtcmFields" style="display: none;">
+                                                <!-- DTCM Permit Number -->
+                                                <div class="mb-4">
+                                                    <label for="dtcmPermitNo" class="form-label">DTCM Permit No</label>
+                                                    <input type="text" class="form-control" id="dtcmPermitNo"
+                                                        name="dtcmPermitNo" placeholder="Enter DTCM Permit No">
+                                                </div>
+                                                <!-- Date Pickers for From and To Dates -->
+                                                <div class="mb-4">
+                                                    <label for="permitFromDate" class="form-label">From</label>
+                                                    <input type="date" class="form-control" id="permitFromDate"
+                                                        name="permitFromDate">
+                                                </div>
+                                                <div class="mb-4">
+                                                    <label for="permitToDate" class="form-label">To</label>
+                                                    <input type="date" class="form-control" id="permitToDate"
+                                                        name="permitToDate">
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <!-- 360 URL Link -->
-                                        <div class="mb-3">
-                                            <label for="tour360Url" class="form-label">360° Tour URL</label>
-                                            <input type="url" class="form-control" id="tour360Url"
-                                                placeholder="Enter 360° tour URL">
-                                        </div>
-
-                                        <!-- Video Tour URL Link -->
-                                        <div class="mb-3">
-                                            <label for="videoTourUrl" class="form-label">Video Tour URL</label>
-                                            <input type="url" class="form-control" id="videoTourUrl"
-                                                placeholder="Enter video tour URL">
-                                        </div>
-
                                     </div>
                                 </div>
 
-                                <!-- Floor Plan Section -->
-                                <div class="mycrm-cell mycrm-grid mycrm-panel panel-floor-plan panel-prop-floor-plan mycrm-sortable ui-sortable-handle ui-sortable ui-sortable-disabled"
-                                    data-item="panel-floor-plan" data-group="panel-floor-plan"
-                                    data-panel="panel-floor-plan" data-sort-parent="property_page_detail_left"
-                                    data-group-level="1">
-
-                                    <!-- Section Header -->
-                                    <div
-                                        class="mycrm-cell mycrm-cell-12 header d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <h5><i class="material-icons"></i> Floor Plan</h5>
+                                <div class="col-lg-6">
+                                    <!-- Media Section -->
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h5><i class="fas fa-camera"></i> Media</h5>
                                         </div>
-                                    </div>
-                                    <!-- Notice -->
-                                    <div class="alert alert-warning mt-3" role="alert">
-                                        <strong>Notice:</strong> Please upload floor plan documents in PDF format.
-                                        Ensure the
-                                        documents are clear and properly labeled.
-                                    </div>
-                                    <!-- Floor Plan Content -->
-                                    <div class="mycrm-cell content mt-3">
-
-                                        <!-- Floor Plan Upload Section -->
-                                        <div class="mb-4">
-                                            <label for="floorPlanDocuments" class="form-label">Upload Floor Plan</label>
-                                            <input type="file" class="form-control" id="floorPlanDocuments" multiple
-                                                accept=".pdf" onchange="handleFloorPlanUpload(this)">
-                                            <div id="floorPlanThumbnails" class="mt-3 d-flex flex-wrap">
-                                                <!-- Thumbnails or file names will be shown here after upload -->
+                                        <div class="card-body">
+                                            <!-- Notice -->
+                                            <div class="alert alert-warning mt-3" role="alert">
+                                                <strong>Notice:</strong> Please upload images in our recommended 4:3
+                                                ratio. Any duplicate images will affect your Quality Score.
+                                            </div>
+                                            <!-- Image Upload Section -->
+                                            <div class="mb-4">
+                                                <label for="propertyImages" class="form-label">Upload Images</label>
+                                                <input type="file" class="form-control" id="propertyImages"
+                                                    name="propertyImages" multiple accept="image/*"
+                                                    onchange="handleImageUpload(this)">
+                                                <div id="imageThumbnails" class="mt-3 d-flex flex-wrap">
+                                                    <!-- Thumbnails will be shown here after upload -->
+                                                </div>
+                                            </div>
+                                            <!-- 360 URL Link -->
+                                            <div class="mb-3">
+                                                <label for="tour360Url" class="form-label">360° Tour URL</label>
+                                                <input type="url" class="form-control" id="tour360Url" name="tour360Url"
+                                                    placeholder="Enter 360° tour URL">
+                                            </div>
+                                            <!-- Video Tour URL Link -->
+                                            <div class="mb-3">
+                                                <label for="videoTourUrl" class="form-label">Video Tour URL</label>
+                                                <input type="url" class="form-control" id="videoTourUrl"
+                                                    name="videoTourUrl" placeholder="Enter video tour URL">
                                             </div>
                                         </div>
-
-                                    </div>
-                                </div>
-                                <!-- Availability -->
-                                <div id="availability-section" class="availability-section mt-5">
-                                    <h2>Availability</h2>
-
-                                    <!-- Availability Options -->
-                                    <div class="btn-group-toggle mb-3" data-toggle="buttons">
-                                        <label class="btn btn-outline-success" id="available-option">
-                                            <input type="radio" name="availability" id="available" value="available">
-                                            Available
-                                        </label>
-                                        <label class="btn btn-outline-info" id="under-offer-option">
-                                            <input type="radio" name="availability" id="under-offer"
-                                                value="under offer"> Under Offer
-                                        </label>
-                                        <label class="btn btn-outline-warning" id="reserved-option">
-                                            <input type="radio" name="availability" id="reserved" value="reserved">
-                                            Reserved
-                                        </label>
-                                        <label class="btn btn-outline-secondary is-disabled" id="rented-option">
-                                            <input type="radio" name="availability" id="rented" value="rented" disabled>
-                                            Rented
-                                        </label>
                                     </div>
 
-                                    <!-- Date Picker for Available From -->
-                                    <div class="form-group">
-                                        <label for="availableFrom">Available from:</label>
-                                        <input type="date" class="form-control" id="availableFrom" name="availableFrom">
-                                    </div>
-
-                                    <!-- Exclusivity Checkbox -->
-                                    <div class="form-check mt-3">
-                                        <input type="checkbox" class="form-check-input" id="exclusivity">
-                                        <label class="form-check-label" for="exclusivity">Exclusivity</label>
-                                    </div>
-
-                                    <!-- Start Date and Expiry Date (Initially Hidden) -->
-                                    <div id="exclusivity-dates" style="display: none;">
-                                        <div class="form-group mt-3">
-                                            <label for="startDate">Start Date:</label>
-                                            <input type="date" class="form-control" id="startDate" name="startDate">
+                                    <!-- Floor Plan Section -->
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h5><i class="fas fa-map"></i> Floor Plan</h5>
                                         </div>
-                                        <div class="form-group mt-3">
-                                            <label for="expiryDate">Expiry Date:</label>
-                                            <input type="date" class="form-control" id="expiryDate" name="expiryDate">
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                            <!-- Document Upload Section -->
-                            <div class="col-lg-6 mt-4">
-                                <div class="mycrm-cell mycrm-grid mycrm-panel panel-documents panel-prop-documents mycrm-sortable ui-sortable-handle ui-sortable ui-sortable-disabled"
-                                    data-item="panel-documents" data-group="panel-documents"
-                                    data-panel="panel-documents" data-sort-parent="property_page_detail_left"
-                                    data-group-level="1">
-
-                                    <!-- Section Header -->
-                                    <div
-                                        class="mycrm-cell mycrm-cell-12 header d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <h5><i class="material-icons"></i> Documents</h5>
-                                        </div>
-                                    </div>
-
-                                    <!-- Document Upload Content -->
-                                    <div class="mycrm-cell content mt-3">
-
-                                        <!-- Document Upload Section -->
-                                        <div class="mb-4">
-                                            <label for="propertyDocuments" class="form-label">Upload Documents</label>
-                                            <input type="file" class="form-control" id="propertyDocuments" multiple
-                                                accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt"
-                                                onchange="handleDocumentUpload(this)">
-                                            <div id="documentThumbnails" class="mt-3 d-flex flex-wrap">
-                                                <!-- Document thumbnails or icons will be shown here after upload -->
+                                        <div class="card-body">
+                                            <!-- Notice -->
+                                            <div class="alert alert-warning mt-3" role="alert">
+                                                <strong>Notice:</strong> Please upload floor plan documents in PDF
+                                                format. Ensure the documents are clear and properly labeled.
+                                            </div>
+                                            <!-- Floor Plan Upload Section -->
+                                            <div class="mb-4">
+                                                <label for="floorPlanDocuments" class="form-label">Upload Floor
+                                                    Plan</label>
+                                                <input type="file" class="form-control" id="floorPlanDocuments"
+                                                    name="floorPlanDocuments" multiple accept=".pdf"
+                                                    onchange="handleFloorPlanUpload(this)">
+                                                <div id="floorPlanThumbnails" class="mt-3 d-flex flex-wrap">
+                                                    <!-- Thumbnails or file names will be shown here after upload -->
+                                                </div>
                                             </div>
                                         </div>
+                                    </div>
 
+                                    <!-- Availability Section -->
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h5><i class="fas fa-calendar-alt"></i> Availability</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="btn-group-toggle mb-3" data-toggle="buttons">
+                                                <label class="btn btn-outline-success" id="available-option">
+                                                    <input type="radio" name="availability" id="available"
+                                                        value="available"> Available
+                                                </label>
+                                                <label class="btn btn-outline-info" id="under-offer-option">
+                                                    <input type="radio" name="availability" id="under-offer"
+                                                        value="under offer"> Under Offer
+                                                </label>
+                                                <label class="btn btn-outline-warning" id="reserved-option">
+                                                    <input type="radio" name="availability" id="reserved"
+                                                        value="reserved"> Reserved
+                                                </label>
+                                                <label class="btn btn-outline-secondary is-disabled" id="rented-option">
+                                                    <input type="radio" name="availability" id="rented" value="rented"
+                                                        disabled> Rented
+                                                </label>
+                                            </div>
+                                            <!-- Date Picker for Available From -->
+                                            <div class="form-group">
+                                                <label for="availableFrom">Available from:</label>
+                                                <input type="date" class="form-control" id="availableFrom"
+                                                    name="availableFrom">
+                                            </div>
+                                            <!-- Exclusivity Checkbox -->
+                                            <div class="form-check mt-3">
+                                                <input type="checkbox" class="form-check-input" id="exclusivity"
+                                                    name="exclusivity">
+                                                <label class="form-check-label" for="exclusivity">Exclusivity</label>
+                                            </div>
+                                            <!-- Start Date and Expiry Date (Initially Hidden) -->
+                                            <div id="exclusivity-dates" style="display: none;">
+                                                <div class="form-group mt-3">
+                                                    <label for="startDate">Start Date:</label>
+                                                    <input type="date" class="form-control" id="startDate"
+                                                        name="startDate">
+                                                </div>
+                                                <div class="form-group mt-3">
+                                                    <label for="expiryDate">Expiry Date:</label>
+                                                    <input type="date" class="form-control" id="expiryDate"
+                                                        name="expiryDate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Documents Section -->
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h5><i class="fas fa-file-alt"></i> Documents</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-4">
+                                                <label for="propertyDocuments" class="form-label">Upload
+                                                    Documents</label>
+                                                <input type="file" class="form-control" id="propertyDocuments"
+                                                    name="propertyDocuments" multiple
+                                                    accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt"
+                                                    onchange="handleDocumentUpload(this)">
+                                                <div id="documentThumbnails" class="mt-3 d-flex flex-wrap">
+                                                    <!-- Document thumbnails or icons will be shown here after upload -->
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Location Section -->
-                        <div id="location-section" class="location-section mt-5">
-                            <h2>Location</h2>
-                            <div class="row">
-                                <!-- Map -->
-                                <div class="col-md-6">
-                                    <div id="map"></div>
+                            <!-- Location Section -->
+                            <div id="location-section" class="card mt-4">
+                                <div class="card-header">
+                                    <h5><i class="fas fa-map-marker-alt"></i> Location</h5>
                                 </div>
-                                <!-- Searchable Dropdown and Additional Fields -->
-                                <div class="col-md-6">
-                                    <!-- Searchable Dropdown for Location -->
-                                    <div class="mb-4">
-                                        <label for="locationSearch" class="form-label">Search Location</label>
-                                        <input type="text" id="locationSearch" class="form-control"
-                                            placeholder="Search for a building, villa, or office in the UAE">
-                                    </div>
-
-                                    <!-- Notice about typing exact location -->
-                                    <div class="alert alert-info">
-                                        <strong>Notice:</strong> Please ensure you type the exact location with details
-                                        to maintain quality score.
-                                    </div>
-
-                                    <!-- Unit Number -->
-                                    <div class="mb-4">
-                                        <label for="unitNumber" class="form-label">Unit Number</label>
-                                        <input type="text" class="form-control" id="unitNumber"
-                                            placeholder="Enter Unit Number">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- Map -->
+                                        <div class="col-md-6">
+                                            <div id="map"></div>
+                                        </div>
+                                        <!-- Searchable Dropdown and Additional Fields -->
+                                        <div class="col-md-6">
+                                            <!-- Searchable Dropdown for Location -->
+                                            <div class="mb-4">
+                                                <label for="locationSearch" class="form-label">Search Location</label>
+                                                <input type="text" id="locationSearch" name="locationSearch"
+                                                    class="form-control"
+                                                    placeholder="Search for a building, villa, or office in the UAE">
+                                            </div>
+                                            <!-- Notice about typing exact location -->
+                                            <div class="alert alert-info">
+                                                <strong>Notice:</strong> Please ensure you type the exact location with
+                                                details to maintain quality score.
+                                            </div>
+                                            <!-- Unit Number -->
+                                            <div class="mb-4">
+                                                <label for="unitNumber" class="form-label">Unit Number</label>
+                                                <input type="text" class="form-control" id="unitNumber"
+                                                    name="unitNumber" placeholder="Enter Unit Number">
+                                            </div>
+                                            <!-- Hidden inputs to store lat and lng -->
+                                            <input type="hidden" id="geoLat" name="geoLat">
+                                            <input type="hidden" id="geoLng" name="geoLng">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Save Button -->
-                        <div class="text-center mt-4">
-                            <button id="savePropertyListing" type="submit" class="btn btn-primary btn-lg">Save Property
-                                Listing</button>
-                        </div>
+                            <!-- Save Button -->
+                            <div class="text-center mt-4">
+                                <button id="savePropertyListing" type="submit" class="btn btn-primary btn-lg">Save
+                                    Property Listing</button>
 
-                        <!-- Placeholder for messages -->
-                        <div id="formMessage" class="text-center mt-4"></div>
+                            </div>
 
-                    </form>
+                            <!-- Placeholder for messages -->
+                            <div id="formMessage" class="text-center mt-4"></div>
+                        </form>
+                    </div>
                 </div>
 
                 <!-- Button to Show Form -->
@@ -797,11 +816,39 @@
                 </table>
             </section>
 
-
             <!-- Section 2 -->
             <section id="section2" class="mb-5" style="display:none;">
-                <h2>Section 2 Content</h2>
-                <!-- Add content here -->
+                <div class="container">
+                    <h2>Upload or Paste XML Data</h2>
+
+                    <!-- Option 1: Upload XML File -->
+                    <div class="mb-3">
+                        <label for="xmlFile" class="form-label">Upload XML File:</label>
+                        <input type="file" class="form-control" id="xmlFile" accept=".xml">
+                    </div>
+
+                    <!-- Option 2: Paste XML Content -->
+                    <div class="mb-3">
+                        <label for="xmlContent" class="form-label">Or Paste XML Content:</label>
+                        <textarea class="form-control" id="xmlContent" rows="10"
+                            placeholder="Paste XML content here"></textarea>
+                    </div>
+
+                    <!-- Button to Start Parsing and Insertion -->
+                    <button class="btn btn-primary" id="addPropertiesButton">Add Properties</button>
+
+                    <!-- Progress Bar -->
+                    <div class="progress mt-3" style="height: 25px;">
+                        <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+                    </div>
+
+                    <!-- Display Added Properties -->
+                    <div id="resultContainer" class="mt-3">
+                        <h4>Added Properties:</h4>
+                        <ul id="addedPropertiesList" class="list-group"></ul>
+                    </div>
+                </div>
+
             </section>
         </div>
     </main>
@@ -886,14 +933,630 @@
         </div>
     </div>
 
+
+
+    <!-- Modal for Editing Property -->
+    <div class="modal fade" id="editPropertyModal" tabindex="-1" aria-labelledby="editPropertyModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editPropertyModalLabel">Edit Property Listing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editPropertyForm">
+                        <!-- Type Section -->
+                        <div class="mb-4">
+                            <h5>Type</h5>
+                            <div class="row">
+                                <!-- Property Type -->
+                                <div class="col-md-6">
+                                    <label for="editPropertyType" class="form-label">Property Type</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="editPropertyType"
+                                            id="editResidential" value="Residential">
+                                        <label class="form-check-label" for="editResidential">Residential</label>
+                                        <input type="hidden" id="editPropertyId">
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="editPropertyType"
+                                            id="editCommercial" value="Commercial">
+                                        <label class="form-check-label" for="editCommercial">Commercial</label>
+                                    </div>
+                                </div>
+                                <!-- Transaction Type Section -->
+                                <div class="col-md-6">
+                                    <label for="editTransactionType" class="form-label">Transaction Type</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="editTransactionType"
+                                            id="editRent" value="Rent" onclick="togglePricingSection()">
+                                        <label class="form-check-label" for="editRent">Rent</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="editTransactionType"
+                                            id="editSale" value="Sale" onclick="togglePricingSection()">
+                                        <label class="form-check-label" for="editSale">Sale</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Specifications Section -->
+                        <div class="mb-4">
+                            <h5>Specifications</h5>
+                            <div class="row g-3">
+                                <!-- Size -->
+                                <div class="col-md-6">
+                                    <label for="editSize" class="form-label">Size (sqft)</label>
+                                    <input type="number" class="form-control" id="editSize" name="editSize"
+                                        placeholder="Enter size in sqft">
+                                </div>
+                                <!-- Bedrooms -->
+                                <div class="col-md-6">
+                                    <label for="editBedrooms" class="form-label">No of Bedrooms</label>
+                                    <select class="form-select" id="editBedrooms" name="editBedrooms">
+                                        <option selected>Select number of bedrooms</option>
+                                        <option value="0">Studio</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <!-- Bathrooms -->
+                                <div class="col-md-6">
+                                    <label for="editBathrooms" class="form-label">No of Bathrooms</label>
+                                    <select class="form-select" id="editBathrooms" name="editBathrooms">
+                                        <option selected>Select number of bathrooms</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <!-- Furnishing Type -->
+                                <div class="col-md-6">
+                                    <label for="editFurnishingType" class="form-label">Furnishing Type</label>
+                                    <select class="form-select" id="editFurnishingType" name="editFurnishingType">
+                                        <option selected>Select furnishing type</option>
+                                        <option value="Unfurnished">Unfurnished</option>
+                                        <option value="Semi-furnished">Semi-furnished</option>
+                                        <option value="Furnished">Furnished</option>
+                                    </select>
+                                </div>
+                                <!-- Parking Spaces -->
+                                <div class="col-md-6">
+                                    <label for="editParkingSpaces" class="form-label">No of Parking Spaces</label>
+                                    <input type="number" class="form-control" id="editParkingSpaces"
+                                        name="editParkingSpaces" placeholder="Enter number of parking spaces">
+                                </div>
+                                <!-- Plot Size -->
+                                <div class="col-md-6">
+                                    <label for="editPlotSize" class="form-label">Total Plot Size (sqft)</label>
+                                    <input type="number" class="form-control" id="editPlotSize" name="editPlotSize"
+                                        placeholder="Enter plot size in sqft">
+                                </div>
+                                <!-- Built-Up Area -->
+                                <div class="col-md-6">
+                                    <label for="editBuiltUpArea" class="form-label">Built-up Area (sqft)</label>
+                                    <input type="number" class="form-control" id="editBuiltUpArea"
+                                        name="editBuiltUpArea" placeholder="Enter built-up area in sqft">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pricing Section (for Rent) -->
+                        <div id="editRentPricingSection" class="card mt-4" style="display:none;">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-dollar-sign"></i> Rental Pricing</h5>
+                                <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#editRentPricingSectionContent" aria-expanded="true"
+                                    aria-controls="editRentPricingSectionContent">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div id="editRentPricingSectionContent" class="collapse show">
+                                <div class="card-body">
+                                    <!-- Rental Prices -->
+                                    <div class="mb-4">
+                                        <h6>Rental Prices*</h6>
+                                        <div class="row g-3">
+                                            <div class="col-md-3">
+                                                <label for="editPricePerYear" class="form-label">Yearly Price
+                                                    (AED)</label>
+                                                <div class="input-group">
+                                                    <input type="number" id="editPricePerYear" name="editPricePerYear"
+                                                        class="form-control" placeholder="Enter yearly price">
+                                                    <span class="input-group-text">AED</span>
+                                                </div>
+                                                <div class="form-check mt-2">
+                                                    <input class="form-check-input" type="radio" name="editDefaultPrice"
+                                                        value="year" id="editDefaultYear">
+                                                    <label class="form-check-label"
+                                                        for="editDefaultYear">Default</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="editPricePerMonth" class="form-label">Monthly Price
+                                                    (AED)</label>
+                                                <div class="input-group">
+                                                    <input type="number" id="editPricePerMonth" name="editPricePerMonth"
+                                                        class="form-control" placeholder="Enter monthly price">
+                                                    <span class="input-group-text">AED</span>
+                                                </div>
+                                                <div class="form-check mt-2">
+                                                    <input class="form-check-input" type="radio" name="editDefaultPrice"
+                                                        value="month" id="editDefaultMonth">
+                                                    <label class="form-check-label"
+                                                        for="editDefaultMonth">Default</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="editPricePerWeek" class="form-label">Weekly Price
+                                                    (AED)</label>
+                                                <div class="input-group">
+                                                    <input type="number" id="editPricePerWeek" name="editPricePerWeek"
+                                                        class="form-control" placeholder="Enter weekly price">
+                                                    <span class="input-group-text">AED</span>
+                                                </div>
+                                                <div class="form-check mt-2">
+                                                    <input class="form-check-input" type="radio" name="editDefaultPrice"
+                                                        value="week" id="editDefaultWeek">
+                                                    <label class="form-check-label"
+                                                        for="editDefaultWeek">Default</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="editPricePerDay" class="form-label">Daily Price
+                                                    (AED)</label>
+                                                <div class="input-group">
+                                                    <input type="number" id="editPricePerDay" name="editPricePerDay"
+                                                        class="form-control" placeholder="Enter daily price">
+                                                    <span class="input-group-text">AED</span>
+                                                </div>
+                                                <div class="form-check mt-2">
+                                                    <input class="form-check-input" type="radio" name="editDefaultPrice"
+                                                        value="day" id="editDefaultDay">
+                                                    <label class="form-check-label" for="editDefaultDay">Default</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Cheques -->
+                                    <div class="mb-4">
+                                        <h6>Cheques</h6>
+                                        <label for="editCheques" class="form-label">Number of Cheques</label>
+                                        <select id="editCheques" name="editCheques" class="form-select">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Financial Status -->
+                                    <div class="mb-4">
+                                        <h6>Financial Status</h6>
+                                        <label for="editFinancialStatus" class="form-label">Select Financial
+                                            Status</label>
+                                        <select id="editFinancialStatus" name="editFinancialStatus" class="form-select">
+                                            <option value="mortgage">Mortgaged</option>
+                                            <option value="cash">Cash</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Service Charges -->
+                                    <div class="mb-4">
+                                        <h6>Service Charges (Monthly)</h6>
+                                        <label for="editServiceCharges" class="form-label">Service Charges
+                                            (AED)</label>
+                                        <div class="input-group">
+                                            <input type="number" id="editServiceCharges" name="editServiceCharges"
+                                                class="form-control" placeholder="Enter monthly service charges">
+                                            <span class="input-group-text">AED</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sale Price Section -->
+                        <div id="editSalePricingSection" class="card mt-4" style="display:none;">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-dollar-sign"></i> Sale Pricing
+                                </h5>
+                                <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#editSalePricingSectionContent" aria-expanded="true"
+                                    aria-controls="editSalePricingSectionContent">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div id="editSalePricingSectionContent" class="collapse show">
+                                <div class="card-body">
+                                    <!-- Sale Price Input Field -->
+                                    <div class="mb-4">
+                                        <label for="editSalePrice" class="form-label">Price <span
+                                                class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <input type="number" id="editSalePrice" name="editSalePrice"
+                                                class="form-control" placeholder="Enter sale price" required>
+                                            <span class="input-group-text">AED</span>
+                                        </div>
+                                        <div class="form-text text-danger d-none" id="editSalePriceError">This field is
+                                            required.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Two-Column Layout for Description, Media, Amenities, Floor Plan, and Documents Sections -->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <!-- Description Section -->
+                                <div class="card mb-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5><i class="fas fa-info-circle"></i> Description</h5>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="editLanguageToggle"
+                                                onchange="toggleLanguage()">
+                                            <label class="form-check-label" for="editLanguageToggle">Arabic</label>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="editEnglishContent">
+                                            <!-- Title in English -->
+                                            <div class="mb-3">
+                                                <label for="editEnglishTitle" class="form-label">Title (English)</label>
+                                                <input type="text" class="form-control" id="editEnglishTitle"
+                                                    name="editEnglishTitle" placeholder="Enter title in English">
+                                            </div>
+                                            <!-- Description in English -->
+                                            <div class="mb-3">
+                                                <label for="editEnglishDescription" class="form-label">Description
+                                                    (English)</label>
+                                                <textarea class="form-control" id="editEnglishDescription"
+                                                    name="editEnglishDescription" rows="4"
+                                                    placeholder="Enter description in English"></textarea>
+                                            </div>
+                                        </div>
+                                        <div id="editArabicContent" style="display: none;">
+                                            <!-- Title in Arabic -->
+                                            <div class="mb-3">
+                                                <label for="editArabicTitle" class="form-label">عنوان (Arabic
+                                                    Title)</label>
+                                                <input type="text" class="form-control" id="editArabicTitle"
+                                                    name="editArabicTitle" placeholder="أدخل العنوان بالعربية">
+                                            </div>
+                                            <!-- Description in Arabic -->
+                                            <div class="mb-3">
+                                                <label for="editArabicDescription" class="form-label">الوصف (Arabic
+                                                    Description)</label>
+                                                <textarea class="form-control" id="editArabicDescription"
+                                                    name="editArabicDescription" rows="4"
+                                                    placeholder="أدخل الوصف بالعربية"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Amenities Section -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5><i class="fas fa-clipboard-list"></i> Amenities</h5>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#amenitiesModal">Add Amenities</button>
+                                    </div>
+                                    <div id="editSelectedAmenities" class="card-body">
+                                        <!-- Selected amenities will appear here -->
+                                    </div>
+                                </div>
+
+                                <!-- Management Section -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5><i class="fas fa-user-tie"></i> Management</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Reference Input -->
+                                        <div class="mb-4">
+                                            <label for="editReference" class="form-label">Reference</label>
+                                            <input type="text" class="form-control" id="editReference"
+                                                name="editReference" placeholder="Enter reference ID">
+                                        </div>
+                                        <!-- Assigned User Dropdown -->
+                                        <div class="mb-4">
+                                            <label for="editAssignedUser" class="form-label">Assigned User</label>
+                                            <select id="editAssignedUser" name="editAssignedUser"
+                                                class="form-select searchable-dropdown">
+                                                <!-- Options will be dynamically generated -->
+                                            </select>
+                                        </div>
+                                        <!-- Owner Dropdown -->
+                                        <div class="mb-4">
+                                            <label for="editOwner" class="form-label">Owner</label>
+                                            <select id="editOwner" name="editOwner"
+                                                class="form-select searchable-dropdown">
+                                                <!-- Options will be dynamically generated -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Property Permit Section -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5><i class="fas fa-file-alt"></i> Property Permit</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Radio Buttons for RERA and DTCM -->
+                                        <div class="mb-4">
+                                            <label for="editPermitType" class="form-label">Permit Type</label>
+                                            <div id="editPermitType">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="editPermitType"
+                                                        id="editRera" value="RERA" onclick="togglePermitFields()">
+                                                    <label class="form-check-label" for="editRera">RERA</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="editPermitType"
+                                                        id="editDtcm" value="DTCM" onclick="togglePermitFields()">
+                                                    <label class="form-check-label" for="editDtcm">DTCM</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Conditional Text Box for RERA Listing Number -->
+                                        <div class="mb-4" id="editReraListingNoField" style="display: none;">
+                                            <label for="editReraListingNo" class="form-label">RERA Listing No</label>
+                                            <input type="text" class="form-control" id="editReraListingNo"
+                                                name="editReraListingNo" placeholder="Enter RERA Listing No">
+                                        </div>
+                                        <!-- Conditional Text Box and Date Pickers for DTCM Permit -->
+                                        <div id="editDtcmFields" style="display: none;">
+                                            <!-- DTCM Permit Number -->
+                                            <div class="mb-4">
+                                                <label for="editDtcmPermitNo" class="form-label">DTCM Permit No</label>
+                                                <input type="text" class="form-control" id="editDtcmPermitNo"
+                                                    name="editDtcmPermitNo" placeholder="Enter DTCM Permit No">
+                                            </div>
+                                            <!-- Date Pickers for From and To Dates -->
+                                            <div class="mb-4">
+                                                <label for="editPermitFromDate" class="form-label">From</label>
+                                                <input type="date" class="form-control" id="editPermitFromDate"
+                                                    name="editPermitFromDate">
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="editPermitToDate" class="form-label">To</label>
+                                                <input type="date" class="form-control" id="editPermitToDate"
+                                                    name="editPermitToDate">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <!-- Media Section -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5><i class="fas fa-camera"></i> Media</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Notice -->
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            <strong>Notice:</strong> Please upload images in our recommended 4:3
+                                            ratio. Any duplicate images will affect your Quality Score.
+                                        </div>
+                                        <!-- Image Upload Section -->
+                                        <div class="mb-4">
+                                            <label for="editPropertyImages" class="form-label">Upload Images</label>
+                                            <input type="file" class="form-control" id="editPropertyImages"
+                                                name="editPropertyImages" multiple accept="image/*"
+                                                onchange="handleImageUpload(this)">
+                                            <div id="editImageThumbnails" class="mt-3 d-flex flex-wrap">
+                                                <!-- Thumbnails will be shown here after upload -->
+                                            </div>
+                                        </div>
+                                        <!-- 360 URL Link -->
+                                        <div class="mb-3">
+                                            <label for="editTour360Url" class="form-label">360° Tour URL</label>
+                                            <input type="url" class="form-control" id="editTour360Url"
+                                                name="editTour360Url" placeholder="Enter 360° tour URL">
+                                        </div>
+                                        <!-- Video Tour URL Link -->
+                                        <div class="mb-3">
+                                            <label for="editVideoTourUrl" class="form-label">Video Tour URL</label>
+                                            <input type="url" class="form-control" id="editVideoTourUrl"
+                                                name="editVideoTourUrl" placeholder="Enter video tour URL">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Floor Plan Section -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5><i class="fas fa-map"></i> Floor Plan</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Notice -->
+                                        <div class="alert alert-warning mt-3" role="alert">
+                                            <strong>Notice:</strong> Please upload floor plan documents in PDF
+                                            format. Ensure the documents are clear and properly labeled.
+                                        </div>
+                                        <!-- Floor Plan Upload Section -->
+                                        <div class="mb-4">
+                                            <label for="editFloorPlanDocuments" class="form-label">Upload Floor
+                                                Plan</label>
+                                            <input type="file" class="form-control" id="editFloorPlanDocuments"
+                                                name="editFloorPlanDocuments" multiple accept=".pdf"
+                                                onchange="handleFloorPlanUpload(this)">
+                                            <div id="editFloorPlanThumbnails" class="mt-3 d-flex flex-wrap">
+                                                <!-- Thumbnails or file names will be shown here after upload -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Availability Section -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5><i class="fas fa-calendar-alt"></i> Availability</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="btn-group-toggle mb-3" data-toggle="buttons">
+                                            <label class="btn btn-outline-success" id="editAvailableOption">
+                                                <input type="radio" name="editAvailability" id="editAvailable"
+                                                    value="available"> Available
+                                            </label>
+                                            <label class="btn btn-outline-info" id="editUnderOfferOption">
+                                                <input type="radio" name="editAvailability" id="editUnderOffer"
+                                                    value="under offer"> Under Offer
+                                            </label>
+                                            <label class="btn btn-outline-warning" id="editReservedOption">
+                                                <input type="radio" name="editAvailability" id="editReserved"
+                                                    value="reserved"> Reserved
+                                            </label>
+                                            <label class="btn btn-outline-secondary is-disabled" id="editRentedOption">
+                                                <input type="radio" name="editAvailability" id="editRented"
+                                                    value="rented" disabled> Rented
+                                            </label>
+                                        </div>
+                                        <!-- Date Picker for Available From -->
+                                        <div class="form-group">
+                                            <label for="editAvailableFrom">Available from:</label>
+                                            <input type="date" class="form-control" id="editAvailableFrom"
+                                                name="editAvailableFrom">
+                                        </div>
+                                        <!-- Exclusivity Checkbox -->
+                                        <div class="form-check mt-3">
+                                            <input type="checkbox" class="form-check-input" id="editExclusivity"
+                                                name="editExclusivity">
+                                            <label class="form-check-label" for="editExclusivity">Exclusivity</label>
+                                        </div>
+                                        <!-- Start Date and Expiry Date (Initially Hidden) -->
+                                        <div id="editExclusivityDates" style="display: none;">
+                                            <div class="form-group mt-3">
+                                                <label for="editStartDate">Start Date:</label>
+                                                <input type="date" class="form-control" id="editStartDate"
+                                                    name="editStartDate">
+                                            </div>
+                                            <div class="form-group mt-3">
+                                                <label for="editExpiryDate">Expiry Date:</label>
+                                                <input type="date" class="form-control" id="editExpiryDate"
+                                                    name="editExpiryDate">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Documents Section -->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5><i class="fas fa-file-alt"></i> Documents</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-4">
+                                            <label for="editPropertyDocuments" class="form-label">Upload
+                                                Documents</label>
+                                            <input type="file" class="form-control" id="editPropertyDocuments"
+                                                name="editPropertyDocuments" multiple
+                                                accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt"
+                                                onchange="handleDocumentUpload(this)">
+                                            <div id="editDocumentThumbnails" class="mt-3 d-flex flex-wrap">
+                                                <!-- Document thumbnails or icons will be shown here after upload -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location Section -->
+                        <div id="editLocationSection" class="card mt-4">
+                            <div class="card-header">
+                                <h5><i class="fas fa-map-marker-alt"></i> Location</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <!-- Map -->
+                                    <div class="col-md-6">
+                                        <div id="editMap"></div>
+                                    </div>
+                                    <!-- Searchable Dropdown and Additional Fields -->
+                                    <div class="col-md-6">
+                                        <!-- Searchable Dropdown for Location -->
+                                        <div class="mb-4">
+                                            <label for="editLocationSearch" class="form-label">Search Location</label>
+                                            <input type="text" id="editLocationSearch" name="editLocationSearch"
+                                                class="form-control"
+                                                placeholder="Search for a building, villa, or office in the UAE">
+                                        </div>
+                                        <!-- Notice about typing exact location -->
+                                        <div class="alert alert-info">
+                                            <strong>Notice:</strong> Please ensure you type the exact location with
+                                            details to maintain quality score.
+                                        </div>
+                                        <!-- Unit Number -->
+                                        <div class="mb-4">
+                                            <label for="editUnitNumber" class="form-label">Unit Number</label>
+                                            <input type="text" class="form-control" id="editUnitNumber"
+                                                name="editUnitNumber" placeholder="Enter Unit Number">
+                                        </div>
+                                        <!-- Hidden inputs to store lat and lng -->
+                                        <input type="hidden" id="editGeoLat" name="editGeoLat">
+                                        <input type="hidden" id="editGeoLng" name="editGeoLng">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Save Button -->
+                        <div class="text-center mt-4">
+                            <button id="saveEditedPropertyListing" type="submit" class="btn btn-primary btn-lg">Save
+                                Changes</button>
+                        </div>
+
+                        <!-- Placeholder for messages -->
+                        <div id="editFormMessage" class="text-center mt-4"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-
+    <!-- Custom Scripts -->
     <script>
         // Firebase Configuration
         const firebaseConfig = {
@@ -911,93 +1574,79 @@
 
         // Initialize Firestore and Storage
         const db = firebase.firestore();
-        const storage = firebase.storage();  // Correctly initialize Firebase Storage
+        const storage = firebase.storage();
 
+        // Function to show selected section
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
 
+        document.addEventListener('DOMContentLoaded', function () {
+            const exclusivityCheckbox = document.getElementById('exclusivity');
+            const exclusivityDates = document.getElementById('exclusivity-dates');
+
+            exclusivityCheckbox.addEventListener('change', function () {
+                exclusivityDates.style.display = this.checked ? 'block' : 'none';
+            });
+
+            const buttons = document.querySelectorAll('.btn-group-toggle label');
+            const hiddenInput = document.querySelector('input[name="availability"]');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    buttons.forEach(btn => btn.classList.remove('active', 'btn-primary', 'btn-info', 'btn-warning', 'btn-secondary', 'btn-success'));
+                    this.classList.add('active');
+                    this.classList.add(`btn-${this.classList.contains('btn-outline-success') ? 'success' :
+                        this.classList.contains('btn-outline-info') ? 'info' :
+                            this.classList.contains('btn-outline-warning') ? 'warning' :
+                                'secondary'}`);
+                    hiddenInput.value = this.querySelector('input').value;
+                });
+            });
+        });
+
+        // Load admin data for regions, cities, property types, and searches
+        function loadAdminData() {
+            loadCollectionData('topRegions', 'top-regions-list-admin');
+            loadCollectionData('topCities', 'top-cities-list-admin');
+            loadCollectionData('propertyTypes', 'property-types-list-admin');
+            loadCollectionData('topSearches', 'top-searches-list-admin');
+        }
+
+        // Load data from Firestore collections
+        function loadCollectionData(collectionName, elementId) {
+            db.collection(collectionName).get().then((querySnapshot) => {
+                let collectionHTML = '';
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    collectionHTML += `
+                    <tr>
+                        <td>${data.name}</td>
+                        <td>${data.url}</td>
+                        <td>
+                            <button onclick="editEntry('${collectionName}', '${doc.id}', '${data.name}', '${data.url}')" class="btn btn-sm btn-warning">Edit</button>
+                            <button onclick="deleteEntry('${collectionName}', '${doc.id}')" class="btn btn-sm btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                });
+                document.getElementById(elementId).innerHTML = collectionHTML;
+            }).catch(error => {
+                console.error('Error loading data: ', error);
+                alert('Failed to load data. Please try again.');
+            });
+        }
+
+        // Handle add/edit operations in the modal
         const collectionModal = new bootstrap.Modal(document.getElementById('collectionModal'));
         const collectionForm = document.getElementById('collection-form');
         const entryNameInput = document.getElementById('entry-name');
         const entryUrlInput = document.getElementById('entry-url');
         const entryIdInput = document.getElementById('entry-id');
         const collectionTypeInput = document.getElementById('collection-type');
-
-        function loadAdminData() {
-            // Load Top Regions
-            db.collection('topRegions').get().then((querySnapshot) => {
-                let regionsHTML = '';
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    regionsHTML += `
-                        <tr>
-                            <td>${data.name}</td>
-                            <td>${data.url}</td>
-                            <td>
-                                <button onclick="editEntry('topRegions', '${doc.id}', '${data.name}', '${data.url}')" class="btn btn-sm btn-warning">Edit</button>
-                                <button onclick="deleteEntry('topRegions', '${doc.id}')" class="btn btn-sm btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                    `;
-                });
-                document.getElementById('top-regions-list-admin').innerHTML = regionsHTML;
-            });
-
-            // Load Top Cities
-            db.collection('topCities').get().then((querySnapshot) => {
-                let citiesHTML = '';
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    citiesHTML += `
-                        <tr>
-                            <td>${data.name}</td>
-                            <td>${data.url}</td>
-                            <td>
-                                <button onclick="editEntry('topCities', '${doc.id}', '${data.name}', '${data.url}')" class="btn btn-sm btn-warning">Edit</button>
-                                <button onclick="deleteEntry('topCities', '${doc.id}')" class="btn btn-sm btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                    `;
-                });
-                document.getElementById('top-cities-list-admin').innerHTML = citiesHTML;
-            });
-
-            // Load Property Types
-            db.collection('propertyTypes').get().then((querySnapshot) => {
-                let typesHTML = '';
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    typesHTML += `
-                        <tr>
-                            <td>${data.name}</td>
-                            <td>${data.url}</td>
-                            <td>
-                                <button onclick="editEntry('propertyTypes', '${doc.id}', '${data.name}', '${data.url}')" class="btn btn-sm btn-warning">Edit</button>
-                                <button onclick="deleteEntry('propertyTypes', '${doc.id}')" class="btn btn-sm btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                    `;
-                });
-                document.getElementById('property-types-list-admin').innerHTML = typesHTML;
-            });
-
-            // Load Top Searches
-            db.collection('topSearches').get().then((querySnapshot) => {
-                let searchesHTML = '';
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    searchesHTML += `
-                        <tr>
-                            <td>${data.name}</td>
-                            <td>${data.url}</td>
-                            <td>
-                                <button onclick="editEntry('topSearches', '${doc.id}', '${data.name}', '${data.url}')" class="btn btn-sm btn-warning">Edit</button>
-                                <button onclick="deleteEntry('topSearches', '${doc.id}')" class="btn btn-sm btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                    `;
-                });
-                document.getElementById('top-searches-list-admin').innerHTML = searchesHTML;
-            });
-        }
 
         function openAddModal(collectionType) {
             collectionForm.reset();
@@ -1018,6 +1667,9 @@
             if (confirm('Do you really want to delete this entry?')) {
                 db.collection(collectionType).doc(id).delete().then(() => {
                     loadAdminData();
+                }).catch(error => {
+                    console.error('Error deleting entry: ', error);
+                    alert('Failed to delete entry. Please try again.');
                 });
             }
         }
@@ -1037,6 +1689,9 @@
                 }).then(() => {
                     collectionModal.hide();
                     loadAdminData();
+                }).catch(error => {
+                    console.error('Error updating entry: ', error);
+                    alert('Failed to update entry. Please try again.');
                 });
             } else {
                 // Add new entry
@@ -1046,25 +1701,15 @@
                 }).then(() => {
                     collectionModal.hide();
                     loadAdminData();
+                }).catch(error => {
+                    console.error('Error adding entry: ', error);
+                    alert('Failed to add entry. Please try again.');
                 });
             }
         });
 
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('section').forEach(section => {
-                section.style.display = 'none';
-            });
-
-            // Show the selected section
-            document.getElementById(sectionId).style.display = 'block';
-        }
-
-        // Load data into the admin panel on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            loadAdminData();
-            showSection('navigation-bar-section');
-        });
+        // Load property listings
+        document.addEventListener('DOMContentLoaded', loadPropertyListings);
 
         function loadPropertyListings() {
             db.collection('propertyListings').get().then((querySnapshot) => {
@@ -1073,21 +1718,26 @@
                 querySnapshot.forEach((doc) => {
                     count++;
                     const data = doc.data();
+                    const price = data.pricing?.price || 'N/A';
+
                     propertiesHTML += `
                     <tr>
                         <td>${count}</td>
                         <td>${data.title}</td>
                         <td>${data.propertyType}</td>
                         <td>${data.transactionType}</td>
-                        <td>${data.price}</td>
+                        <td>${price}</td>
                         <td>
-                            <button onclick="editProperty('${doc.id}', '${data.title}', '${data.propertyType}', '${data.transactionType}', '${data.price}')" class="btn btn-sm btn-warning">Edit</button>
+                            <button onclick="editPropertyListings('${doc.id}')" class="btn btn-sm btn-warning">Edit</button>
                             <button onclick="deleteProperty('${doc.id}')" class="btn btn-sm btn-danger">Delete</button>
                         </td>
                     </tr>
                 `;
                 });
                 document.getElementById('property-listings-admin').innerHTML = propertiesHTML;
+            }).catch(error => {
+                console.error('Error loading property listings: ', error);
+                alert('Failed to load property listings. Please try again.');
             });
         }
 
@@ -1095,58 +1745,288 @@
             const form = document.getElementById('add-property-form');
             form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
             document.getElementById('propertyListingForm').reset();
+            document.getElementById('savePropertyListing').textContent = 'Save Property Listing';
+            document.getElementById('property-id').value = '';
         }
+        function editPropertyListings(id) {
+            db.collection('propertyListings').doc(id).get().then((doc) => {
+                if (doc.exists) {
+                    const data = doc.data();
 
-        function editProperty(id, title, propertyType, transactionType, price) {
-            togglePropertyForm();
-            document.getElementById('englishTitle').value = title;
-            document.getElementById('listingPropertyType').querySelectorAll('input[name="propertyType"]').forEach(input => {
-                input.checked = input.value === propertyType;
+                    // Convert the data to a JSON string and log it for debugging
+                    console.log('Firebase Response Data (JSON):', JSON.stringify(data, null, 2));
+
+                    // Set the form fields with the current data
+                    document.getElementById('editEnglishTitle').value = data.title || '';
+
+                    document.querySelectorAll('input[name="editPropertyType"]').forEach(input => {
+                        input.checked = input.value === data.propertyType;
+                    });
+                    document.querySelectorAll('input[name="editTransactionType"]').forEach(input => {
+                        input.checked = input.value === data.transactionType;
+                    });
+
+                    // Handle pricing based on transaction type
+                    if (data.transactionType === 'Rent') {
+                        document.getElementById('editPricePerYear').value = data.pricing?.yearlyPrice || '';
+                        document.getElementById('editPricePerMonth').value = data.pricing?.monthlyPrice || '';
+                        document.getElementById('editPricePerWeek').value = data.pricing?.weeklyPrice || '';
+                        document.getElementById('editPricePerDay').value = data.pricing?.dailyPrice || '';
+                        document.querySelector(`input[name="editDefaultPrice"][value="${data.pricing?.defaultPrice}"]`).checked = true;
+                        document.getElementById('editCheques').value = data.pricing?.cheques || '';
+                        document.getElementById('editFinancialStatus').value = data.pricing?.financialStatus || '';
+                        document.getElementById('editServiceCharges').value = data.pricing?.serviceCharges || '';
+                        togglePricingSection(); // Adjust the visibility of pricing sections
+                    } else if (data.transactionType === 'Sale') {
+                        document.getElementById('editSalePrice').value = data.pricing?.salePrice || '';
+                        togglePricingSection(); // Adjust the visibility of pricing sections
+                    }
+
+                    // Set the specifications
+                    document.getElementById('editSize').value = data.size || '';
+                    document.getElementById('editBedrooms').value = data.bedrooms || '';
+                    document.getElementById('editBathrooms').value = data.bathrooms || '';
+                    document.getElementById('editFurnishingType').value = data.furnishingType || '';
+                    document.getElementById('editParkingSpaces').value = data.parkingSpaces || '';
+                    document.getElementById('editPlotSize').value = data.plotSize || '';
+                    document.getElementById('editBuiltUpArea').value = data.builtUpArea || '';
+                    document.getElementById('editEnglishDescription').value = data.description || '';
+
+                    // Handle amenities
+                    const selectedAmenities = document.getElementById('editSelectedAmenities');
+                    selectedAmenities.innerHTML = '';
+                    if (data.amenities) {
+                        data.amenities.forEach(amenity => {
+                            const newAmenity = document.createElement('div');
+                            newAmenity.className = 'badge bg-primary m-1';
+                            newAmenity.textContent = amenity;
+                            selectedAmenities.appendChild(newAmenity);
+                        });
+                    }
+
+                    // Handle availability
+                    const availabilityElement = document.querySelector(`input[name="editAvailability"][value="${data.availability}"]`);
+                    if (availabilityElement) {
+                        availabilityElement.checked = true;
+                    }
+                    document.getElementById('editAvailableFrom').value = data.availabilityFrom || '';
+                    document.getElementById('editExclusivity').checked = data.exclusivity?.status || false;
+                    document.getElementById('editStartDate').value = data.exclusivity?.startDate || '';
+                    document.getElementById('editExpiryDate').value = data.exclusivity?.expiryDate || '';
+
+                    // Handle permit information
+                    if (data.permit && data.permit.type) {
+                        const permitTypeElement = document.querySelector(`input[name="editPermitType"][value="${data.permit.type}"]`);
+                        if (permitTypeElement) {
+                            permitTypeElement.checked = true;
+                        }
+                    }
+                    document.getElementById('editReraListingNo').value = data.permit?.reraListingNo || '';
+                    document.getElementById('editDtcmPermitNo').value = data.permit?.dtcmPermitNo || '';
+                    document.getElementById('editPermitFromDate').value = data.permit?.permitFromDate || '';
+                    document.getElementById('editPermitToDate').value = data.permit?.permitToDate || '';
+                    togglePermitFields(); // Adjust the visibility of permit fields
+
+                    // Handle management information
+                    document.getElementById('editAssignedUser').value = data.management?.assignedUser || '';
+                    document.getElementById('editOwner').value = data.management?.owner || '';
+
+                    // Handle location information
+                    document.getElementById('editLocationSearch').value = data.location?.address || '';
+                    document.getElementById('editUnitNumber').value = data.location?.unitNo || '';
+                    document.getElementById('editGeoLat').value = data.location?.geoPoint?.lat || '';
+                    document.getElementById('editGeoLng').value = data.location?.geoPoint?.lng || '';
+
+                    // Handle media information
+                    document.getElementById('editTour360Url').value = data.media?.tour360 || '';
+                    document.getElementById('editVideoTourUrl').value = data.media?.videoTour || '';
+
+                    // Set property ID
+                    document.getElementById('editPropertyId').value = id;
+
+                    // Show the modal
+                    const editPropertyModal = new bootstrap.Modal(document.getElementById('editPropertyModal'));
+                    editPropertyModal.show();
+                } else {
+                    alert('No such property!');
+                }
+            }).catch(error => {
+                console.error('Error loading property:', error);
+                alert('Failed to load property. Please try again.');
             });
-            document.getElementById('listingTransactionType').querySelectorAll('input[name="transactionType"]').forEach(input => {
-                input.checked = input.value === transactionType;
-            });
-            document.getElementById('price').value = price;
         }
-
-        function deleteProperty(id) {
-            if (confirm('Do you really want to delete this property?')) {
-                db.collection('propertyListings').doc(id).delete().then(() => {
-                    loadPropertyListings();
-                });
-            }
-        }
-
+        // Handle form submission
         document.getElementById('propertyListingForm').addEventListener('submit', function (event) {
             event.preventDefault();
-            const title = document.getElementById('englishTitle').value;
-            const propertyType = document.querySelector('input[name="propertyType"]:checked').value;
-            const transactionType = document.querySelector('input[name="transactionType"]:checked').value;
-            const price = document.getElementById('price').value;
 
-            db.collection('propertyListings').add({
+            const title = getDummyValue(document.getElementById('englishTitle').value, 'Dummy Title');
+            const propertyType = getDummyValue(document.querySelector('input[name="propertyType"]:checked').value, 'Residential');
+            const transactionType = getDummyValue(document.querySelector('input[name="transactionType"]:checked').value, 'Sale');
+
+            let pricing = { price: null };
+
+            if (transactionType === 'Rent') {
+                const defaultPriceType = document.querySelector('input[name="default_price"]:checked').value;
+
+                pricing = {
+                    yearlyPrice: getDummyValue(parseInt(document.getElementById('price_per_year').value, 10), 100000),
+                    monthlyPrice: getDummyValue(parseInt(document.getElementById('price_per_month').value, 10), 10000),
+                    weeklyPrice: getDummyValue(parseInt(document.getElementById('price_per_week').value, 10), 2500),
+                    dailyPrice: getDummyValue(parseInt(document.getElementById('price_per_day').value, 10), 500),
+                    cheques: getDummyValue(parseInt(document.getElementById('cheques').value, 10), 1),
+                    financialStatus: getDummyValue(document.getElementById('financial_status').value, 'Cash'),
+                    serviceCharges: getDummyValue(parseInt(document.getElementById('service_charges').value, 10), 100),
+                    defaultPrice: defaultPriceType,
+                };
+
+                pricing.price = pricing[`${defaultPriceType}lyPrice`];
+            } else if (transactionType === 'Sale') {
+                pricing = {
+                    salePrice: getDummyValue(parseInt(document.getElementById('sale_price').value, 10), 500000),
+                    price: getDummyValue(parseInt(document.getElementById('sale_price').value, 10), 500000)
+                };
+            }
+
+            const size = getDummyValue(parseInt(document.getElementById('size').value, 10), 1000);
+            const bedrooms = getDummyValue(parseInt(document.getElementById('bedrooms').value, 10), 2);
+            const bathrooms = getDummyValue(parseInt(document.getElementById('bathrooms').value, 10), 2);
+            const furnishingType = getDummyValue(document.getElementById('furnishingType').value, 'Unfurnished');
+            const parkingSpaces = getDummyValue(parseInt(document.getElementById('parkingSpaces').value, 10), 1);
+            const plotSize = getDummyValue(parseInt(document.getElementById('plotSize').value, 10), 1500);
+            const builtUpArea = getDummyValue(parseInt(document.getElementById('builtUpArea').value, 10), 1200);
+            const description = getDummyValue(document.getElementById('englishDescription').value, 'No description provided');
+            const amenities = getDummyValue(Array.from(document.getElementById('selected-amenities').children).map(child => child.textContent.trim()), ['Basic Amenities']);
+            const availability = getDummyValue(document.querySelector('input[name="availability"]:checked').value, 'Available');
+            const exclusivity = {
+                status: getDummyValue(document.getElementById('exclusivity').checked, false),
+                startDate: getDummyValue(document.getElementById('startDate').value, null),
+                expiryDate: getDummyValue(document.getElementById('expiryDate').value, null)
+            };
+            const permit = {
+                type: getDummyValue(document.querySelector('input[name="permitType"]:checked').value, 'RERA'),
+                reraListingNo: getDummyValue(document.getElementById('reraListingNo').value, 'N/A'),
+                dtcmPermitNo: getDummyValue(document.getElementById('dtcmPermitNo').value, 'N/A'),
+                permitFromDate: getDummyValue(document.getElementById('permitFromDate').value, null),
+                permitToDate: getDummyValue(document.getElementById('permitToDate').value, null)
+            };
+            const management = {
+                assignedUser: getDummyValue(document.getElementById('assignedUser').value, 'Admin'),
+                owner: getDummyValue(document.getElementById('owner').value, 'Company')
+            };
+            const location = {
+                address: getDummyValue(document.getElementById('locationSearch').value, 'Dubai'),
+                unitNo: getDummyValue(document.getElementById('unitNumber').value, 'Unit 1'),
+                geoPoint: {
+                    lat: getDummyValue(parseFloat(document.getElementById('geoLat').value), 25.276987),
+                    lng: getDummyValue(parseFloat(document.getElementById('geoLng').value), 55.296249)
+                }
+            };
+
+            const media = {
+                images: (document.getElementById('propertyImages').dataset.urls || '').split(',').filter(url => url) || ['dummy-image-url'],
+                videoTour: getDummyValue(document.getElementById('videoTourUrl').value, null),
+                tour360: getDummyValue(document.getElementById('tour360Url').value, null),
+                floorPlans: (document.getElementById('floorPlanDocuments').dataset.urls || '').split(',').filter(url => url) || ['dummy-floorplan-url'],
+                documents: (document.getElementById('propertyDocuments').dataset.urls || '').split(',').filter(url => url) || ['dummy-document-url']
+            };
+
+            const propertyData = {
                 title,
                 propertyType,
                 transactionType,
-                price
-            }).then(() => {
-                togglePropertyForm();
-                loadPropertyListings();
-            });
+                pricing,
+                size,
+                bedrooms,
+                bathrooms,
+                furnishingType,
+                parkingSpaces,
+                plotSize,
+                builtUpArea,
+                description,
+                amenities,
+                availability,
+                exclusivity,
+                permit,
+                management,
+                location,
+                media,
+                creationDate: new Date().toISOString(),
+                lastUpdateDate: new Date().toISOString(),
+                createdBy: 'Admin User'
+            };
+
+            const propertyId = document.getElementById('property-id').value;
+
+            if (propertyId) {
+                // Update existing property listing
+                db.collection('propertyListings').doc(propertyId).update(propertyData).then(() => {
+                    console.log('Property updated successfully!');
+                    document.getElementById('formMessage').innerHTML = '<div class="alert alert-success">Property updated successfully!</div>';
+                    togglePropertyForm();
+                    loadPropertyListings();
+                }).catch(error => {
+                    console.error('Error updating property:', error);
+                    document.getElementById('formMessage').innerHTML = '<div class="alert alert-danger">Failed to update property. Please try again or contact the admin.</div>';
+                });
+            } else {
+                // Add new property listing
+                db.collection('propertyListings').add(propertyData).then(() => {
+                    console.log('Property added successfully!');
+                    document.getElementById('formMessage').innerHTML = '<div class="alert alert-success">Property added successfully!</div>';
+                    togglePropertyForm();
+                    loadPropertyListings();
+                }).catch(error => {
+                    console.error('Error adding property:', error);
+                    document.getElementById('formMessage').innerHTML = '<div class="alert alert-danger">Failed to add property. Please try again or contact the admin.</div>';
+                });
+            }
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            loadPropertyListings();
-        });
-
-        // Handle language toggle
-        function toggleLanguage() {
-            const isArabic = document.getElementById("languageToggle").checked;
-            document.getElementById("englishContent").style.display = isArabic ? "none" : "block";
-            document.getElementById("arabicContent").style.display = isArabic ? "block" : "none";
+        function getDummyValue(value, dummy) {
+            return value ? value : dummy;
         }
 
-        // JSON array of amenities
+        // Toggle pricing sections
+        function togglePricingSection() {
+            const rentPricingSection = document.getElementById('rentPricingSection');
+            const salePricingSection = document.getElementById('salePricingSection');
+            const salePriceInput = document.getElementById('sale_price');
+
+            const transactionType = document.querySelector('input[name="transactionType"]:checked').value;
+
+            if (transactionType === 'Rent') {
+                rentPricingSection.style.display = 'block';
+                salePricingSection.style.display = 'none';
+                salePriceInput.removeAttribute('required');
+            } else if (transactionType === 'Sale') {
+                rentPricingSection.style.display = 'none';
+                salePricingSection.style.display = 'block';
+                salePriceInput.setAttribute('required', 'required');
+            }
+        }
+
+        function togglePermitFields() {
+            const reraField = document.getElementById('reraListingNoField');
+            const dtcmFields = document.getElementById('dtcmFields');
+
+            if (document.getElementById('rera').checked) {
+                reraField.style.display = 'block';
+                dtcmFields.style.display = 'none';
+            } else if (document.getElementById('dtcm').checked) {
+                reraField.style.display = 'none';
+                dtcmFields.style.display = 'block';
+            } else {
+                reraField.style.display = 'none';
+                dtcmFields.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            togglePermitFields();
+            document.getElementById('rera').addEventListener('click', togglePermitFields);
+            document.getElementById('dtcm').addEventListener('click', togglePermitFields);
+        });
+
         const amenities = [
             "BALCONY", "CABLE-READY", "CENTRAL AIR CONDITIONING", "CONFERENCE ROOM", "COVERED PARKING",
             "LOBBY IN BUILDING", "PANTRY", "PRIVATE GARDEN", "PRIVATE POOL", "SEA/WATER VIEW", "SECURITY",
@@ -1158,7 +2038,6 @@
             "VISITORS PARKING", "WEST ORIENTATION"
         ];
 
-        // Load amenities into the modal
         const amenitiesList = document.getElementById('amenities-list');
         amenities.forEach(amenity => {
             const button = document.createElement('button');
@@ -1168,7 +2047,6 @@
             amenitiesList.appendChild(button);
         });
 
-        // Toggle amenity selection
         function toggleAmenity(element) {
             const amenity = element.textContent.trim();
             const selectedAmenities = document.getElementById('selected-amenities');
@@ -1177,14 +2055,12 @@
                 element.classList.remove('btn-primary');
                 element.classList.add('btn-outline-primary');
 
-                // Remove from selected amenities
                 const removeAmenity = Array.from(selectedAmenities.children).find(child => child.textContent.trim() === amenity);
                 if (removeAmenity) selectedAmenities.removeChild(removeAmenity);
             } else {
                 element.classList.remove('btn-outline-primary');
                 element.classList.add('btn-primary');
 
-                // Add to selected amenities
                 const newAmenity = document.createElement('div');
                 newAmenity.className = 'badge bg-primary m-1';
                 newAmenity.textContent = amenity;
@@ -1192,29 +2068,14 @@
             }
         }
 
-    </script>
-    <!-- Custom CSS for the Dotted Box -->
-    <style>
-        .dotted-box {
-            border: 2px dotted #000;
-            padding: 20px;
-            text-align: center;
-            margin-top: 15px;
-            background-color: #f9f9f9;
+        function toggleLanguage() {
+            const isArabic = document.getElementById("languageToggle").checked;
+            document.getElementById("englishContent").style.display = isArabic ? "none" : "block";
+            document.getElementById("arabicContent").style.display = isArabic ? "block" : "none";
         }
 
-        .dotted-box .btn {
-            margin: 0;
-        }
-    </style>
-
-    <!-- Script for Google Maps and Searchable Dropdown -->
-    <script>
-        // Initialize and add the map
         function initMap() {
-            // The location of Dubai, UAE
             const dubai = { lat: 25.276987, lng: 55.296249 };
-            // The map, centered at Dubai
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 10,
                 center: dubai,
@@ -1224,12 +2085,10 @@
                 map: map,
             });
 
-            // Autocomplete for the searchable dropdown
             const input = document.getElementById("locationSearch");
             const autocomplete = new google.maps.places.Autocomplete(input);
             autocomplete.bindTo('bounds', map);
 
-            // When the user selects a location from the dropdown, update the map and marker
             autocomplete.addListener('place_changed', () => {
                 const place = autocomplete.getPlace();
                 if (!place.geometry || !place.geometry.location) {
@@ -1243,10 +2102,11 @@
                     map.setZoom(17);
                 }
                 marker.setPosition(place.geometry.location);
+                document.getElementById('geoLat').value = place.geometry.location.lat();
+                document.getElementById('geoLng').value = place.geometry.location.lng();
             });
         }
 
-        // Load the Google Maps script
         function loadGoogleMaps() {
             const script = document.createElement("script");
             script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCvfYNuZy5x4nYFZI0t3rCY6ePdU2ss9nk&libraries=places&callback=initMap`;
@@ -1256,11 +2116,26 @@
         }
 
         document.addEventListener('DOMContentLoaded', loadGoogleMaps);
-    </script>
 
+        document.addEventListener('DOMContentLoaded', function () {
+            populateDropdown('assignedUser', agents);
+            populateDropdown('owner', owners);
 
-    <!-- Sample JSON Data for Assigned Users and Owners -->
-    <script>
+            if (typeof $.fn.select2 === 'function') {
+                $('#assignedUser').select2({
+                    placeholder: 'Select Assigned User',
+                    allowClear: true
+                });
+
+                $('#owner').select2({
+                    placeholder: 'Select Owner',
+                    allowClear: true
+                });
+            } else {
+                console.error("Select2 is not loaded. Please check if the Select2 library is included correctly.");
+            }
+        });
+
         const agents = [
             { id: 'agent1', name: 'John Doe' },
             { id: 'agent2', name: 'Jane Smith' },
@@ -1287,7 +2162,6 @@
             { id: 'owner10', name: 'Barbara Allen' }
         ];
 
-        // Populate the dropdowns
         function populateDropdown(dropdownId, data) {
             const dropdown = document.getElementById(dropdownId);
             data.forEach(item => {
@@ -1298,83 +2172,9 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
-            populateDropdown('assignedUser', agents);
-            populateDropdown('owner', owners);
-
-            // Initialize Select2 for searchable dropdown functionality
-            $('#assignedUser').select2({
-                placeholder: 'Select Assigned User',
-                allowClear: true
-            });
-
-            $('#owner').select2({
-                placeholder: 'Select Owner',
-                allowClear: true
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const exclusivityCheckbox = document.getElementById('exclusivity');
-            const exclusivityDates = document.getElementById('exclusivity-dates');
-
-            exclusivityCheckbox.addEventListener('change', function () {
-                if (this.checked) {
-                    exclusivityDates.style.display = 'block';
-                } else {
-                    exclusivityDates.style.display = 'none';
-                }
-            });
-
-            const buttons = document.querySelectorAll('.btn-group-toggle label');
-            const hiddenInput = document.querySelector('input[name="availability"]');
-
-            buttons.forEach(button => {
-                button.addEventListener('click', function () {
-                    buttons.forEach(btn => btn.classList.remove('active', 'btn-primary', 'btn-info', 'btn-warning', 'btn-secondary', 'btn-success'));
-                    this.classList.add('active');
-                    this.classList.add(`btn-${this.classList.contains('btn-outline-success') ? 'success' :
-                        this.classList.contains('btn-outline-info') ? 'info' :
-                            this.classList.contains('btn-outline-warning') ? 'warning' :
-                                'secondary'}`);
-                    hiddenInput.value = this.querySelector('input').value;
-                });
-            });
-        });
-
-
-    </script>
-    <style>
-        .is-disabled {
-            pointer-events: none;
-            opacity: 0.6;
-        }
-    </style>
-    <script>
-        function togglePermitFields() {
-            const reraField = document.getElementById('reraListingNoField');
-            const dtcmFields = document.getElementById('dtcmFields');
-
-            if (document.getElementById('rera').checked) {
-                reraField.style.display = 'block';
-                dtcmFields.style.display = 'none';
-            } else if (document.getElementById('dtcm').checked) {
-                dtcmFields.style.display = 'block';
-                reraField.style.display = 'none';
-            } else {
-                reraField.style.display = 'none';
-                dtcmFields.style.display = 'none';
-            }
-        }
-
-    </script>
-    <script>
-
-        // Function to handle image upload
         function handleImageUpload(input) {
             const imageThumbnails = document.getElementById('imageThumbnails');
-            imageThumbnails.innerHTML = ''; // Clear previous thumbnails
+            imageThumbnails.innerHTML = '';
             const fileArray = Array.from(input.files);
 
             fileArray.forEach(file => {
@@ -1411,17 +2211,15 @@
                         thumbnail.appendChild(removeButton);
                         imageThumbnails.appendChild(thumbnail);
 
-                        // Store the download URL in the hidden input for later submission
                         document.getElementById('propertyImages').dataset.urls = (document.getElementById('propertyImages').dataset.urls || '') + downloadURL + ',';
                     });
                 });
             });
         }
 
-        // Function to handle floor plan upload
         function handleFloorPlanUpload(input) {
             const floorPlanThumbnails = document.getElementById('floorPlanThumbnails');
-            floorPlanThumbnails.innerHTML = ''; // Clear previous uploads
+            floorPlanThumbnails.innerHTML = '';
             const fileArray = Array.from(input.files);
 
             fileArray.forEach(file => {
@@ -1456,17 +2254,15 @@
                         fileItem.appendChild(removeButton);
                         floorPlanThumbnails.appendChild(fileItem);
 
-                        // Store the download URL in the hidden input for later submission
                         document.getElementById('floorPlanDocuments').dataset.urls = (document.getElementById('floorPlanDocuments').dataset.urls || '') + downloadURL + ',';
                     });
                 });
             });
         }
 
-        // Function to handle document upload
         function handleDocumentUpload(input) {
             const documentThumbnails = document.getElementById('documentThumbnails');
-            documentThumbnails.innerHTML = ''; // Clear previous thumbnails
+            documentThumbnails.innerHTML = '';
             const fileArray = Array.from(input.files);
 
             fileArray.forEach(file => {
@@ -1507,110 +2303,383 @@
                         thumbnail.appendChild(removeButton);
                         documentThumbnails.appendChild(thumbnail);
 
-                        // Store the download URL in the hidden input for later submission
                         document.getElementById('propertyDocuments').dataset.urls = (document.getElementById('propertyDocuments').dataset.urls || '') + downloadURL + ',';
                     });
                 });
             });
         }
-        document.getElementById('propertyListingForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent form submission
-            alert("propertyListingForm");
-            // Function to provide dummy values if fields are null or empty
-            function getDummyValue(value, dummy) {
-                return value ? value : dummy;
+        //Update submiisson
+        document.addEventListener('DOMContentLoaded', function () {
+            const saveButton = document.getElementById('saveEditProperty');
+            if (saveButton) {
+                saveButton.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    const id = document.getElementById('editPropertyId').value;
+                    const transactionType = document.querySelector('input[name="editTransactionType"]:checked').value;
+
+                    const updatedData = {
+                        title: document.getElementById('editEnglishTitle').value,
+                        propertyType: document.querySelector('input[name="editPropertyType"]:checked').value,
+                        transactionType: transactionType,
+                        size: parseInt(document.getElementById('editSize').value, 10) || 0,
+                        bedrooms: parseInt(document.getElementById('editBedrooms').value, 10) || 0,
+                        bathrooms: parseInt(document.getElementById('editBathrooms').value, 10) || 0,
+                        furnishingType: document.getElementById('editFurnishingType').value,
+                        parkingSpaces: parseInt(document.getElementById('editParkingSpaces').value, 10) || 0,
+                        plotSize: parseInt(document.getElementById('editPlotSize').value, 10) || 0,
+                        builtUpArea: parseInt(document.getElementById('editBuiltUpArea').value, 10) || 0,
+                        description: document.getElementById('editEnglishDescription').value,
+                        amenities: Array.from(document.getElementById('editSelectedAmenities').children).map(child => child.textContent.trim()),
+                        availability: document.querySelector('input[name="editAvailability"]:checked').value,
+                        availabilityFrom: document.getElementById('editAvailableFrom').value,
+                        exclusivity: {
+                            status: document.getElementById('editExclusivity').checked,
+                            startDate: document.getElementById('editStartDate').value,
+                            expiryDate: document.getElementById('editExpiryDate').value
+                        },
+                        permit: {
+                            type: document.querySelector('input[name="editPermitType"]:checked').value,
+                            reraListingNo: document.getElementById('editReraListingNo').value,
+                            dtcmPermitNo: document.getElementById('editDtcmPermitNo').value,
+                            permitFromDate: document.getElementById('editPermitFromDate').value,
+                            permitToDate: document.getElementById('editPermitToDate').value
+                        },
+                        management: {
+                            assignedUser: document.getElementById('editAssignedUser').value,
+                            owner: document.getElementById('editOwner').value
+                        },
+                        location: {
+                            address: document.getElementById('editLocationSearch').value,
+                            unitNo: document.getElementById('editUnitNumber').value,
+                            geoPoint: {
+                                lat: parseFloat(document.getElementById('editGeoLat').value),
+                                lng: parseFloat(document.getElementById('editGeoLng').value)
+                            }
+                        },
+                        media: {
+                            tour360: document.getElementById('editTour360Url').value,
+                            videoTour: document.getElementById('editVideoTourUrl').value
+                        }
+                    };
+
+                    if (transactionType === 'Rent') {
+                        updatedData.pricing = {
+                            yearlyPrice: parseInt(document.getElementById('editPricePerYear').value, 10) || 0,
+                            monthlyPrice: parseInt(document.getElementById('editPricePerMonth').value, 10) || 0,
+                            weeklyPrice: parseInt(document.getElementById('editPricePerWeek').value, 10) || 0,
+                            dailyPrice: parseInt(document.getElementById('editPricePerDay').value, 10) || 0,
+                            defaultPrice: document.querySelector('input[name="editDefaultPrice"]:checked').value,
+                            cheques: parseInt(document.getElementById('editCheques').value, 10) || 1,
+                            financialStatus: document.getElementById('editFinancialStatus').value,
+                            serviceCharges: parseInt(document.getElementById('editServiceCharges').value, 10) || 0
+                        };
+                    } else if (transactionType === 'Sale') {
+                        updatedData.pricing = {
+                            salePrice: parseInt(document.getElementById('editSalePrice').value, 10) || 0
+                        };
+                    }
+
+                    db.collection('propertyListings').doc(id).update(updatedData).then(() => {
+                        alert('Property updated successfully!');
+                        const editPropertyModal = bootstrap.Modal.getInstance(document.getElementById('editPropertyModal'));
+                        editPropertyModal.hide();
+                        loadPropertyListings(); // Reload the property listings to reflect changes
+                    }).catch(error => {
+                        console.error('Error updating property:', error);
+                        alert('Failed to update property. Please try again.');
+                    });
+                });
+            }
+        });
+        const amenitiesMapping = {
+            "BA": "Balcony",
+            "BP": "Basement parking",
+            "BB": "BBQ area",
+            "AN": "Cable-ready",
+            "BW": "Built in wardrobes",
+            "CA": "Carpets",
+            "AC": "Central air conditioning",
+            "CP": "Covered parking",
+            "DR": "Drivers room",
+            "FF": "Fully fitted kitchen",
+            "GZ": "Gazebo",
+            "PY": "Private Gym",
+            "PJ": "Jacuzzi",
+            "BK": "Kitchen Appliances",
+            "MR": "Maids Room",
+            "MB": "Marble floors",
+            "HF": "On high floor",
+            "LF": "On low floor",
+            "MF": "On mid floor",
+            "PA": "Pets allowed",
+            "GA": "Private garage",
+            "PG": "Garden",
+            "PP": "Swimming pool",
+            "SA": "Sauna",
+            "SP": "Shared swimming pool",
+            "WF": "Wood flooring",
+            "SR": "Steam room",
+            "ST": "Study",
+            "UI": "Upgraded interior",
+            "GR": "Garden view",
+            "VW": "Sea/Water view",
+            "SE": "Security",
+            "MT": "Maintenance",
+            "IC": "Within a Compound",
+            "IS": "Indoor swimming pool",
+            "SF": "Separate entrance for females",
+            "BT": "Basement",
+            "SG": "Storage room",
+            "CV": "Community view",
+            "GV": "Golf view",
+            "CW": "City view",
+            "NO": "North orientation",
+            "SO": "South orientation",
+            "EO": "East orientation",
+            "WO": "West orientation",
+            "NS": "Near school",
+            "HO": "Near hospital",
+            "TR": "Terrace",
+            "NM": "Near mosque",
+            "SM": "Near supermarket",
+            "ML": "Near mall",
+            "PT": "Near public transportation",
+            "MO": "Near metro",
+            "VT": "Near veterinary",
+            "BC": "Beach access",
+            "PK": "Public parks",
+            "RT": "Near restaurants",
+            "NG": "Near Golf",
+            "AP": "Near airport",
+            "CS": "Concierge Service",
+            "SS": "Spa",
+            "SY": "Shared Gym",
+            "MS": "Maid Service",
+            "WC": "Walk-in Closet",
+            "HT": "Heating",
+            "GF": "Ground floor",
+            "SV": "Server room",
+            "DN": "Pantry",
+            "RA": "Reception area",
+            "VP": "Visitors parking",
+            "OP": "Office partitions",
+            "SH": "Core and Shell",
+            "CD": "Children daycare",
+            "CL": "Cleaning services",
+            "NH": "Near Hotel",
+            "CR": "conference room",
+            "BL": "View of Landmark",
+            "PR": "Children Play Area",
+            "BH": "Beach Access"
+        };
+        document.getElementById('addPropertiesButton').addEventListener('click', async () => {
+            const fileInput = document.getElementById('xmlFile');
+            const textArea = document.getElementById('xmlContent');
+            let xmlString = '';
+
+            if (fileInput.files.length > 0) {
+                // Read the XML file if uploaded
+                const file = fileInput.files[0];
+                xmlString = await file.text();
+            } else if (textArea.value.trim()) {
+                // Use the pasted XML content
+                xmlString = textArea.value.trim();
+            } else {
+                alert('Please upload an XML file or paste XML content.');
+                return;
             }
 
-            // Extract values from the form and provide dummy values if necessary
-            const title = getDummyValue(document.getElementById('englishTitle').value, 'Dummy Title');
-            const propertyType = getDummyValue(document.querySelector('input[name="propertyType"]:checked')?.value, 'Residential');
-            const transactionType = getDummyValue(document.querySelector('input[name="transactionType"]:checked')?.value, 'Sale');
-            const price = getDummyValue(parseInt(document.getElementById('price')?.value, 10), 100000); // Default price
-            const size = getDummyValue(parseInt(document.getElementById('size')?.value, 10), 1000); // Default size in sqft
-            const bedrooms = getDummyValue(parseInt(document.getElementById('bedrooms')?.value, 10), 2); // Default bedrooms
-            const bathrooms = getDummyValue(parseInt(document.getElementById('bathrooms')?.value, 10), 2); // Default bathrooms
-            const furnishingType = getDummyValue(document.getElementById('furnishingType')?.value, 'Unfurnished');
-            const parkingSpaces = getDummyValue(parseInt(document.getElementById('parkingSpaces')?.value, 10), 1); // Default parking spaces
-            const plotSize = getDummyValue(parseInt(document.getElementById('plotSize')?.value, 10), 1500); // Default plot size in sqft
-            const builtUpArea = getDummyValue(parseInt(document.getElementById('builtUpArea')?.value, 10), 1200); // Default built-up area in sqft
-            const description = getDummyValue(document.getElementById('englishDescription')?.value, 'No description provided');
-            const amenities = getDummyValue(Array.from(document.getElementById('selected-amenities').children).map(child => child.textContent.trim()), ['Basic Amenities']);
-            const availability = getDummyValue(document.querySelector('input[name="availability"]:checked')?.value, 'Available');
-            const exclusivity = {
-                status: getDummyValue(document.getElementById('exclusivity')?.checked, false),
-                startDate: getDummyValue(document.getElementById('startDate')?.value, null),
-                expiryDate: getDummyValue(document.getElementById('expiryDate')?.value, null)
-            };
-            const permit = {
-                type: getDummyValue(document.querySelector('input[name="permitType"]:checked')?.value, 'RERA'),
-                reraListingNo: getDummyValue(document.getElementById('reraListingNo')?.value, 'N/A'),
-                dtcmPermitNo: getDummyValue(document.getElementById('dtcmPermitNo')?.value, 'N/A'),
-                permitFromDate: getDummyValue(document.getElementById('permitFromDate')?.value, null),
-                permitToDate: getDummyValue(document.getElementById('permitToDate')?.value, null)
-            };
-            const management = {
-                assignedUser: getDummyValue(document.getElementById('assignedUser')?.value, 'Admin'),
-                owner: getDummyValue(document.getElementById('owner')?.value, 'Company')
-            };
-            const location = {
-                address: getDummyValue(document.getElementById('locationSearch')?.value, 'Dubai'),
-                unitNo: getDummyValue(document.getElementById('unitNumber')?.value, 'Unit 1'),
-                geoPoint: {
-                    lat: getDummyValue(parseFloat(document.getElementById('geoLat')?.value), 25.276987),
-                    lng: getDummyValue(parseFloat(document.getElementById('geoLng')?.value), 55.296249)
+            try {
+                // Parse XML and extract properties
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+                const properties = xmlDoc.getElementsByTagName('property');
+
+                // Initialize Firebase batch write
+                const batch = db.batch();
+
+                const addedProperties = [];
+                const duplicateProperties = [];
+
+                for (let i = 0; i < properties.length; i++) {
+                    const property = properties[i];
+
+                    // Use optional chaining and fallback values to prevent errors
+                    const permitNumber = property.getElementsByTagName('permit_number')?.[0]?.textContent || '';
+                    const title = property.getElementsByTagName('title_en')?.[0]?.textContent || '';
+                    const referenceNumber = property.getElementsByTagName('reference_number')?.[0]?.textContent || '';
+                    const offeringType = property.getElementsByTagName('offering_type')?.[0]?.textContent || '';
+
+                    // Check for duplicate entries in the collection
+                    const existingProperty = await db.collection('propertyListings').doc(permitNumber).get();
+                    if (existingProperty.exists) {
+                        duplicateProperties.push(title);
+                        continue; // Skip adding this property
+                    }
+
+                    // Map property types
+                    let propertyType = property.getElementsByTagName('property_type')?.[0]?.textContent || '';
+                    switch (propertyType) {
+                        case 'AP':
+                            propertyType = 'Apartment';
+                            break;
+                        case 'VH':
+                            propertyType = 'Villa';
+                            break;
+                        case 'PH':
+                            propertyType = 'Penthouse';
+                            break;
+                        case 'TH':
+                            propertyType = 'Townhouse';
+                            break;
+                        default:
+                            propertyType = 'Unknown';
+                    }
+
+                    // Map amenities codes to descriptive names
+                    const rawAmenities = property.getElementsByTagName('amenities')?.[0]?.textContent.split(',') || [];
+                    const amenities = rawAmenities.map(code => amenitiesMapping[code.trim()] || code.trim());
+
+                    // Extract city, community, sub_community, and property_name
+                    const city = property.getElementsByTagName('city')?.[0]?.textContent || '';
+                    const community = property.getElementsByTagName('community')?.[0]?.textContent || '';
+                    const subCommunity = property.getElementsByTagName('sub_community')?.[0]?.textContent || '';
+                    const propertyName = property.getElementsByTagName('property_name')?.[0]?.textContent || '';
+
+                    // Construct location data
+                    const location = {
+                        unitNo: property.getElementsByTagName('unit_number')?.[0]?.textContent || '',
+                        address: `${propertyName}, ${subCommunity}, ${community}, ${city}`,
+                        geoPoint: {
+                            lat: parseFloat(property.getElementsByTagName('geopoints')?.[0]?.textContent.split(',')[1]) || 0,
+                            lng: parseFloat(property.getElementsByTagName('geopoints')?.[0]?.textContent.split(',')[0]) || 0
+                        }
+                    };
+
+                    // Construct media data
+                    const media = {
+                        images: Array.from(property.getElementsByTagName('url')).map(url => url?.textContent || ''),
+                        videoTour: property.getElementsByTagName('video_tour')?.[0]?.textContent || '',
+                        tour360: property.getElementsByTagName('tour_360')?.[0]?.textContent || '',
+                    };
+
+                    // Construct permit data
+                    const permit = {
+                        reraListingNo: permitNumber,
+                        dtcmPermitNo: 'N/A',
+                        permitFromDate: null,
+                        permitToDate: null,
+                        type: 'RERA'
+                    };
+
+                    // Construct management data
+                    const management = {
+                        owner: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('name')?.[0]?.textContent || '',
+                        assignedUser: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('email')?.[0]?.textContent || '',
+                        agentPhone: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('phone')?.[0]?.textContent || '',
+                        agentLicenseNo: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('license_no')?.[0]?.textContent || '',
+                        agentPhoto: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('photo')?.[0]?.textContent || ''
+                    };
+
+                    // Construct pricing data
+                    const pricing = {
+                        salePrice: parseFloat(property.getElementsByTagName('price')?.[0]?.textContent || '0'),
+                        price: parseFloat(property.getElementsByTagName('price')?.[0]?.textContent || '0'),
+                        priceOnApplication: property.getElementsByTagName('price_on_application')?.[0]?.textContent || 'No',
+                        rentalPeriod: property.getElementsByTagName('rental_period')?.[0]?.textContent || null,
+                    };
+
+                    // Construct furnished status
+                    const furnished = property.getElementsByTagName('furnished')?.[0]?.textContent || 'No';
+
+                    // Construct parking data
+                    const parking = property.getElementsByTagName('parking')?.[0]?.textContent || '0';
+
+                    // Create a property object based on XML data
+                    const propertyData = {
+                        title,
+                        referenceNumber,
+                        offeringType,
+                        propertyType,
+                        description: property.getElementsByTagName('description_en')?.[0]?.textContent || '',
+                        bedrooms: parseInt(property.getElementsByTagName('bedroom')?.[0]?.textContent || '0'),
+                        bathrooms: parseInt(property.getElementsByTagName('bathroom')?.[0]?.textContent || '0'),
+                        amenities, // Use the mapped amenities
+                        size: parseFloat(property.getElementsByTagName('size')?.[0]?.textContent || '0'),
+                        completionStatus: property.getElementsByTagName('completion_status')?.[0]?.textContent || '',
+                        city, // Add city to property data
+                        community, // Add community to property data
+                        subCommunity, // Add sub_community to property data
+                        propertyName, // Add property_name to property data
+                        location,
+                        media,
+                        permit,
+                        management,
+                        pricing,
+                        furnished,
+                        parking
+                    };
+
+                    // Add to Firebase batch
+                    const docRef = db.collection('propertyListings').doc(permitNumber);
+                    batch.set(docRef, propertyData);
+                    addedProperties.push(title);
+
+                    // Update progress bar
+                    const progress = Math.round(((i + 1) / properties.length) * 100);
+                    updateProgressBar(progress);
                 }
-            };
 
-            // Media URLs from the uploaded files
-            const media = {
-                images: (document.getElementById('propertyImages')?.dataset.urls || '').split(',').filter(url => url) || ['dummy-image-url'],
-                videoTour: getDummyValue(document.getElementById('videoTourUrl')?.value, null),
-                tour360: getDummyValue(document.getElementById('tour360Url')?.value, null),
-                floorPlans: (document.getElementById('floorPlanDocuments')?.dataset.urls || '').split(',').filter(url => url) || ['dummy-floorplan-url'],
-                documents: (document.getElementById('propertyDocuments')?.dataset.urls || '').split(',').filter(url => url) || ['dummy-document-url']
-            };
+                // Commit the batch write
+                await batch.commit();
 
-            // Create property object
-            const propertyData = {
-                title,
-                propertyType,
-                transactionType,
-                price,
-                size,
-                bedrooms,
-                bathrooms,
-                furnishingType,
-                parkingSpaces,
-                plotSize,
-                builtUpArea,
-                description,
-                amenities,
-                availability,
-                exclusivity,
-                permit,
-                management,
-                location,
-                media,
-                creationDate: new Date().toISOString(),
-                lastUpdateDate: new Date().toISOString(),
-                createdBy: 'Admin User' // Can be dynamic based on logged-in user
-            };
+                // Show added properties
+                displayAddedProperties(addedProperties);
 
-            // Save to Firebase
-            db.collection('propertyListings').add(propertyData).then(() => {
-                console.log('Property added successfully!');
-                // Show success message
-                document.getElementById('formMessage').innerHTML = '<div class="alert alert-success">Property added successfully!</div>';
-                togglePropertyForm(); // Hide the form after submission
-                loadPropertyListings(); // Reload the property listings
-            }).catch(error => {
-                console.error('Error adding property: ', error);
-                // Show error message
-                document.getElementById('formMessage').innerHTML = '<div class="alert alert-danger">Failed to add property. Please try again or contact the admin.</div>';
-            });
+                // Highlight duplicates in red
+                if (duplicateProperties.length > 0) {
+                    displayDuplicateProperties(duplicateProperties);
+                }
+
+                alert('Properties added successfully!');
+            } catch (error) {
+                console.error('Error adding properties:', error);
+                alert('Failed to add properties. Please check the XML format and try again.');
+            }
         });
 
+        // Function to display duplicate properties in red
+        function displayDuplicateProperties(duplicateProperties) {
+            const resultContainer = document.getElementById('resultContainer');
+            duplicateProperties.forEach(title => {
+                const titleElement = document.createElement('div');
+                titleElement.textContent = `Duplicate: ${title}`;
+                titleElement.style.color = 'red';
+                resultContainer.appendChild(titleElement);
+            });
+        }
+
+        function updateProgressBar(progress) {
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = `${progress}%`;
+            progressBar.textContent = `${progress}%`;
+        }
+
+        function displayAddedProperties(properties) {
+            const list = document.getElementById('addedPropertiesList');
+            list.innerHTML = '';
+            properties.forEach(property => {
+                const listItem = document.createElement('li');
+                listItem.className = 'list-group-item';
+                listItem.textContent = property;
+                list.appendChild(listItem);
+            });
+        }
+
     </script>
+
+
 
 </body>
 

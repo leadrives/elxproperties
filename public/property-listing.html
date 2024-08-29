@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta tags and other head content -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>ELX Properties</title>
+  <meta name="description"
+    content="Discover luxury properties for sale and rent in Dubai. Find your perfect home in prime locations.">
+  <meta name="keywords"
+    content="Dubai real estate, luxury properties, villas, apartments, penthouses, buy property in Dubai, rent property in Dubai">
+  <meta property="og:title" content="ELX Properties - Luxury Real Estate in Dubai" />
+  <meta property="og:description"
+    content="Explore a wide range of luxury properties for sale and rent in Dubai's prime locations. Find your dream home with ELX Properties." />
+  <meta property="og:image" content="images/property-preview.jpg" />
+  <meta property="og:url" content="https://elxproperties.com" />
+  <style>
+    /* CSS to ensure the agent image fits within its container */
+    .pro-card .card-img-top {
+      width: 100%;
+      height: auto;
+      max-width: 80px;
+      /* Adjust the size as per your design */
+      max-height: 80px;
+      /* Adjust the size as per your design */
+      object-fit: cover;
+      border-radius: 50%;
+      /* Make the image circular */
+    }
+
+    /* CSS to ensure the agent image fits within its container, specific to these cards */
+    .unique-agent-card .card-img-top {
+      width: 100%;
+      height: auto;
+      max-width: 80px;
+      /* Adjust the size as per your design */
+      max-height: 80px;
+      /* Adjust the size as per your design */
+      object-fit: cover;
+      border-radius: 50%;
+      /* Make the image circular */
+    }
+
+
+    /* Specific styles for the Ask a Question section agent image */
+    .ask-question-card .card-img-top {
+      width: 100%;
+      height: auto;
+      max-width: 80px;
+      /* Adjust the size as per your design */
+      max-height: 80px;
+      /* Adjust the size as per your design */
+      object-fit: cover;
+      border-radius: 50%;
+      /* Make the image circular */
+    }
+
+    /* Additional specific styles if needed */
+    .ask-question-card .card-title {
+      font-weight: bold;
+    }
+
+    .ask-question-card .card-text {
+      color: #666;
+      /* Example color */
+    }
+
+    .ask-question-card .btn {
+      color: #007bff;
+      /* Example button color */
+    }
+
+
+    /* Major Communities Carousel Styles */
+    .major-communities-carousel .item {
+      display: flex;
+      justify-content: center;
+    }
+
+    .major-communities-carousel .card {
+      height: 100%;
+      /* Full height for the card */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #ddd;
+      /* Optional: Add a border */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Optional: Add a box shadow */
+    }
+
+    .major-communities-carousel .card-img-top {
+      object-fit: cover;
+      height: 200px;
+      /* Fixed height for images */
+      width: 100%;
+    }
+
+    .major-communities-carousel .card-body {
+      flex-grow: 1;
+      /* Make the body take up remaining space */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      /* Center-align text */
+    }
+
+    .major-communities-carousel .card-title {
+      font-size: 1.25rem;
+      /* Slightly larger title */
+      font-weight: bold;
+    }
+
+    .major-communities-carousel .card-text {
+      font-size: 1rem;
+      /* Consistent text size */
+      color: #555;
+      /* Optional: Color for the text */
+    }
+
+    .major-communities-carousel .card .btn {
+      background-color: #000;
+      /* Optional: Background color for buttons */
+      color: #fff;
+      /* Button text color */
+      margin-top: 10px;
+      /* Space between the button and card content */
+    }
+
+    .owl-carousel .item {
+      display: flex;
+      justify-content: center;
+    }
+
+    .card {
+      height: 100%;
+      /* Ensure card takes full height */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-img-top {
+      object-fit: cover;
+      /* Ensures the image covers the area */
+      height: 200px;
+      /* Set a fixed height for all images */
+      width: 100%;
+    }
+
+    .card-body {
+      flex-grow: 1;
+      /* Ensures that the body takes up remaining space */
+    }
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvfYNuZy5x4nYFZI0t3rCY6ePdU2ss9nk&libraries=places&callback=initMap"
+    async defer></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta3/js/bootstrap.min.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/all.css" />
+
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+
+  <!-- Custom Fonts and Styles -->
+  <link rel="stylesheet" href="fonts/font.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+  <!-- Firebase SDK for version 8.x -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+  <!-- Scripts loaded at the end of the body for performance -->
+  <script src="js/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/owl.carousel.js"></script>
+  <script src="js/custom.js"></script>
+
+  <!-- Your Firebase config -->
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyDhhHH2tK4y5oB9__yqJd_3yFUyy7ls5CM",
+      authDomain: "elxproperties.firebaseapp.com",
+      databaseURL: "https://elxproperties-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "elxproperties",
+      storageBucket: "elxproperties.appspot.com",
+      messagingSenderId: "250975584396",
+      appId: "1:250975584396:web:a68528b30098952a313ba9",
+      measurementId: "G-PYYQLQ34JY"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+    var storage = firebase.storage();
+  </script>
+</head>
+
+<body>
+
+  <!-- Sidebar with transition effect -->
+  <aside class="aside-cls z-ind-custom">
+    <div class="col position-relative">
+      <ul class="menu">
+        <button class="hamburger1">
+          <span class="closeIcon material-icons material-icons-close"><i
+              class="fa-solid fa-close btn-close m-auto"></i></span>
+        </button>
+        <li><a class="menuItem" href="#"><img src="images/home.svg" class="me-2" /> Home</a></li>
+        <li><a class="menuItem" href="#"><img src="images/building.svg" class="me-2" /> Off-plan</a></li>
+        <li><a class="menuItem" href="#"><img src="images/resale.svg" class="me-2" /> Resale</a></li>
+        <li><a class="menuItem" href="#"><img src="images/rent.svg" class="me-2" /> Rent</a></li>
+        <li>
+          <hr class="me-3" />
+        </li>
+        <li><a class="menuItem" href="#"><img src="images/video.svg" class="me-2" /> Video </a></li>
+        <li><a class="menuItem" href="#"><img src="images/trending.svg" class="me-2" /> Trending</a></li>
+        <li><a class="menuItem" href="#"><img src="images/sell-with-us.svg" class="me-2" /> Sell With Us</a></li>
+        <li><a class="menuItem" href="#"><img src="images/contact.svg" class="me-2" /> Contact</a></li>
+        <li><a class="menuItem" href="#"><img src="images/saved.svg" class="me-2" /> Saved</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Navbar -->
+  <div class="wrapper-header">
+    <header class="bg-coustom">
+      <nav id="navId"
+        class="navbar fixed-top navbar-expand-lg shadow-none border navbar-light navBar-elysian py-lg-3 z-index-nav-m bg-white">
+        <div class="container">
+          <aside class="aside-cls">
+            <div class="col position-relative">
+              <button class="hamburger">
+                <span class="menuIcon material-icons"><i class="fas fa-bars btn-open m-auto"></i></span>
+              </button>
+            </div>
+          </aside>
+          <a class="navbar-brand me-2" href="#">
+            <img src="images/logo.svg" class="site-logo m-center d-block" alt="site-logo" />
+          </a>
+          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+            data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse ms-auto justify-content-end navbar-collapse" id="navbarButtonsExample">
+            <div class="d-flex align-items-center justify-content-lg-end justify-content-center">
+              <button class="btn py-2 navActionBtn me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Sell your
+                property</button>
+              <a href="#" class="btn phone-btn shadow-none"><img src="images/whatsaap-ico.svg" class="whatsaap-ico">
+                +971569124881</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Second Navbar for Filters -->
+      <nav
+        class="navbar nav-filter-inside d-block d-lg-block border bot-nav-elx fixed-top navbar-expand-lg shadow-none navbar-light nav-elx navBar-elysian py-lg-3 bg-white">
+        <div class="d-block d-lg-flex justify-content-center justify-content-md-end w-100">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 me-lg-4">
+            <li class="nav-item mb-3 mb-lg-0 toggle-menu1 filter-btn">
+              <div class="container">
+                <nav class="header__nav nav-bar nav-bar3">
+                  <div class="close-ico">
+                    <div class="line line1"></div>
+                    <div class="line line3"></div>
+                  </div>
+                  <ul class="p-0">
+                    <h2>Filters</h2>
+                    <hr />
+                    <h3>Property Type</h3>
+                    <button class="nav-item dropdown filter-dropdown w-100 my-2 my-lg-2">
+                      <a class="nav-link dropdown-toggle px-0" href="#" id="propertyTypeDropdown1" role="button"
+                        data-mdb-toggle="dropdown" aria-expanded="false">All Types</a>
+                      <ul class="dropdown-menu" aria-labelledby="propertyTypeDropdown1">
+                        <li><a class="dropdown-item" href="#" data-value="Apartment">Apartment</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="Villa">Villa</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="Penthouse">Penthouse</a></li>
+                      </ul>
+                    </button>
+                    <h3 class="mt-3">Price Range</h3>
+                    <div class="wrapper">
+                      <div class="range-slider">
+                        <input type="text" class="js-range-slider" value="" />
+                      </div>
+                      <div class="extra-controls form-inline">
+                        <div class="form-group d-flex">
+                          <input type="text" id="min-price" class="js-input-from form-control js-inp" value="0"
+                            placeholder="Min Price" />
+                          <input type="text" id="max-price" class="js-input-to form-control js-inp text-right" value="0"
+                            placeholder="Max Price" />
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                  <div class="row nav-bar3-bot-btn mt-3">
+                    <div class="col-12 col-md-6"><a id="clear-filters"
+                        class="btn w-100 rounded-0 py-lg-3 px-2 hover-btn check-primary-btn ripple-surface clear-btn">Clear
+                        all</a></div>
+                    <div class="col-12 col-md-6"><a id="apply-filters"
+                        class="btn w-100 rounded-0 py-lg-3 px-2 hover-btn check-primary-btn ripple-surface">Apply
+                        Filters</a></div>
+                  </div>
+                </nav>
+              </div>
+              <span class="nav-bar3"><a class="nav-link menuIcon material-icons" href="#">Filters <img
+                    src="images/filter-ico.svg" alt=""></a></span>
+            </li>
+            <li class="nav-item dropdown mb-3 mb-lg-0">
+              <a class="nav-link dropdown-toggle" href="#" id="propertyTypeDropdown2" role="button"
+                data-mdb-toggle="dropdown" aria-expanded="false">Property Type</a>
+              <ul class="dropdown-menu" aria-labelledby="propertyTypeDropdown2">
+                <li><a class="dropdown-item" href="#" data-value="Apartment">Apartment</a></li>
+                <li><a class="dropdown-item" href="#" data-value="Villa">Villa</a></li>
+                <li><a class="dropdown-item" href="#" data-value="Penthouse">Penthouse</a></li>
+                <li><a class="dropdown-item" href="#" data-value="Townhouse">Townhouse</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown mb-3 mb-lg-0">
+              <a class="nav-link dropdown-toggle" href="#" id="communityDropdown" role="button"
+                data-mdb-toggle="dropdown" aria-expanded="false">Community</a>
+              <ul class="dropdown-menu" aria-labelledby="communityDropdown">
+                <li><a class="dropdown-item" href="#">Business Bay</a></li>
+                <li><a class="dropdown-item" href="#">Down Town</a></li>
+                <li><a class="dropdown-item" href="#">Dubai Harbour</a></li>
+              </ul>
+            </li>
+
+
+            <!-- <li class="nav-item mb-3 mb-lg-0">
+              <div class="input-group input-group-lg aria-btn bg-gray border-0 rounded-21">
+                <input type="text" id="location-input" class="form-control border-0 bg-gray border-start-0"
+                  placeholder="Enter location (e.g., Business Bay)" aria-label="Location">
+                <ul id="location-suggestions" class="dropdown-menu"></ul>
+              </div>
+            </li>
+            -->
+
+          </ul>
+          <div class="col-12 col-md-4 ms-auto m-width">
+            <ul class="ms-auto input-group aria-btn input-group-lg p-0">
+              <span class="input-group-text border-0 bg-gray border-end-0"><i class="fas fa-search fa-icon"></i></span>
+              <input type="text" id="search-input" class="form-control border-0 bg-gray border-start-0"
+                placeholder="Search by keyword" aria-label="Search">
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    </header>
+  </div>
+
+  <!-- Breadcrumb and Page Title -->
+  <section class="property-list pb-0">
+    <div class="container">
+      <div class="row mt-4 mt-lg-5">
+        <div class="col-12 d-flex align-items-center mt-0 nav-flow mt-lg-5 mb-3">
+          <small>Home</small>
+          <small class="mx-2"> / </small>
+          <ul class="p-0">
+            <li class="nav-item dropdown"><small id="dropdownMenu1" class="nav-link px-0 dropdown-toggle" role="button"
+                data-mdb-toggle="dropdown" aria-expanded="false">Downtown Dubai</small></li>
+          </ul>
+          <small class="mx-2"> / </small>
+          <ul class="p-0">
+            <li class="nav-item dropdown"><small id="dropdownMenu1" class="nav-link px-0 dropdown-toggle active"
+                role="button" data-mdb-toggle="dropdown" aria-expanded="false">Burj Khalifa</small></li>
+          </ul>
+        </div>
+        <h2 class="mt-4 mb-3">Apartments for Sale in Dubai</h2>
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <!-- Main content column (Property listings) -->
+        <div class="col-12 col-lg-8">
+          <div class="row mt-4 mt-lg-5 property-listings">
+            <!-- The script below will dynamically inject the property listings here -->
+          </div>
+        </div>
+
+        <!-- Sidebar with Map -->
+        <div class="col-12 col-lg-4 position-relative mt-3">
+          <div class="sidebar-1 sticky-spacer sticky-content">
+            <div class="col overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.340835627929!2d55.12011065719383!3d25.12416533465687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f153b34c6f78b%3A0x13c559a8b667b35e!2sAl%20Mirziban%20-%20The%20Palm%20Jumeirah%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1708264659217!5m2!1sen!2sin"
+                width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="card-body border py-2 position-absolute map-checkbox">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">Search as I move the map</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="pt-3">
+    <div class="container">
+      <div class="row">
+        <h2 class="mb-4">Luxury Properties In Dubai - FAQ</h2>
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body"><strong>This is the first item's accordion body.</strong> It is shown by
+                default, until the collapse plugin adds the appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can
+                modify any of this with custom CSS or overriding our default variables.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body"><strong>This is the second item's accordion body.</strong> It is hidden by
+                default, until the collapse plugin adds the appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can
+                modify any of this with custom CSS or overriding our default variables.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body"><strong>This is the third item's accordion body.</strong> It is hidden by
+                default, until the collapse plugin adds the appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can
+                modify any of this with custom CSS or overriding our default variables.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Suggestion Section -->
+  <section class="gray-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-12 d-flex align-items-center">
+          <div>
+            <p>Look for the right property?</p>
+            <h2>Don’t see the property you were looking for? Help us out by suggesting!</h2>
+          </div>
+        </div>
+        <div class="col-md-4 col-12 d-flex justify-content-center justify-content-md-end align-items-center">
+          <a type="button" class="btn rounded-0 py-lg-3 px-4 hover-btn check-primary-btn ripple-surface"> Check
+            Availability <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="pt-3 pt-md-4 pb-2 pt-lg-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-12 m-venter"><img src="images/foot-logo.svg" class="my-4 foot-logo" /></div>
+        <div class="col-12 col-lg-9">
+          <div class="row row-cols-2 row-cols-lg-5">
+            <div class="col">
+              <h3 class="my-4">ELX Properties</h3>
+              <ul class="p-0">
+                <li class="mb-1 mb-lg-2"><a href="#">About</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Contact</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Careers</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Help & FAQ</a></li>
+              </ul>
+            </div>
+            <div class="col">
+              <h3 class="my-4">Categories</h3>
+              <ul class="p-0">
+                <li class="mb-1 mb-lg-2"><a href="#">Apartments</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Penthouses</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Townhouses</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Villas</a></li>
+              </ul>
+            </div>
+            <div class="col">
+              <h3 class="my-4">Explore</h3>
+              <ul class="p-0">
+                <li class="mb-1 mb-lg-2"><a href="#">Off plan Projects</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Resale</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Rent</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Free Valuation</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Blog</a></li>
+              </ul>
+            </div>
+            <div class="col">
+              <h3 class="my-4">Top Areas</h3>
+              <ul class="p-0">
+                <li class="mb-1 mb-lg-2"><a href="#">Downtown Dubai</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Palm Jumeirah</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Business Bay</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Dubai Hills Estate</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Arabian Ranches</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Damac Lagoons</a></li>
+              </ul>
+            </div>
+            <div class="col mt-5 pt-lg-4 pt-4">
+              <ul class="p-0">
+                <li class="mb-1 mb-lg-2"><a href="#">Dubai Marina</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Businees Bay</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Palm Jumeirah</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">Damac Hills</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">MBR City</a></li>
+                <li class="mb-1 mb-lg-2"><a href="#">JBR</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <hr class="mt-3 mt-lg-4" />
+      </div>
+    </div>
+  </footer>
+  <section class="py-2 py-md-3 after-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-9 mb-3">
+          <ul class="p-0 d-block d-md-flex justify-content-center justify-content-md-start">
+            <li class="tearms m-center"><a class="pe-2" href="#" target="_blank">Terms & Conditions</a></li>
+            <li class="tearms m-center py-3 py-md-0"><a href="#" class="px-2" target="_blank"> Privacy & Cookies</a>
+            </li>
+            <li class="ps-2 m-center"> Copyright © Elysian 2022 . All Rights Reserved</li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-3 text-center">
+          <ul class="d-flex justify-content-center justify-content-md-end p-0 soc-ico-ul">
+            <li class="soc-ico px-md-1 px-2"><a href="#" class="px-0" target="_blank"><img src="images/insta-ico.svg"
+                  alt="" /></a></li>
+            <li class="soc-ico px-xl-2 px-md-1 px-2"><a href="#" class="px-0" target="_blank"><img
+                  src="images/fb-ico.svg" alt="" /></a></li>
+            <li class="soc-ico px-xl-2 px-md-1 px-2"><a href="#" target="_blank" class="px-0"><img
+                  src="images/ticktok-ico.svg" alt="" /></a></li>
+            <li class="soc-ico px-xl-2 px-md-1 px-2"><a href="#" class="px-0" target="_blank"><img
+                  src="images/linked-in-ico.svg" alt="" /></a></li>
+            <li class="soc-ico px-xl-2 px-md-1 px-2"><a href="#" class="px-0" target="_blank"><img
+                  src="images/youtub-ico.svg" alt="" /></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a class="scroll-top-arrow wave" style="display: none;"> <i class="fa fa-angle-up"></i> </a>
+
+  <!-- Modal -->
+  <div class="modal fade modal-cls" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content desk-cont">
+        <div class="modal-header pb-0 border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body l-side py-3 py-lg-4 px-3 px-md-5 l-side">
+          <div class="row">
+            <h2 class="mb-3 text-center">How can the agent send <br /> you the floor plan</h2>
+            <div class="col-12 mb-3"><input type="text" class="form-control custom-sell-height" placeholder="Name*"
+                id="#"></div>
+            <div class="col-12 mb-3"><input type="email" class="form-control custom-sell-height" placeholder="Email*"
+                id="#"></div>
+            <div class="col-12 mb-3">
+              <div class="d-flex">
+                <div class="dropdown dropdown-customm custom-sell-height border-end-0 d-flex">
+                  <div class="dropdown__skeleton rounded-0">
+                    <div class="dropdown__selected dropdown__option"><img src="images/uae.svg" alt="UAE"></div>
+                    <div class="dropdown__arrow"></div>
+                  </div>
+                  <div class="dropdown__options">
+                    <div class="dropdown__option dropdown__option--selected"><img src="images/uae.svg" alt="UAE"></div>
+                    <div class="dropdown__option"><img src="images/us.png" alt="U.S."></div>
+                    <div class="dropdown__option"><img src="images/france.png" alt="France"></div>
+                    <div class="dropdown__option"><img src="images/spain.png" alt="Spain"></div>
+                    <div class="dropdown__option"><img src="images/germsny.png" alt="Germany"></div>
+                  </div>
+                </div>
+                <input type="text" class="form-control border-start-0 rounded-0 dropdown-text ps-0" placeholder="Phone*"
+                  aria-label="Example text with button addon" aria-describedby="button-addon1">
+              </div>
+            </div>
+            <div class="col-12 my-3 my-md-4">
+              <a type="Submit"
+                class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn mt-4 mt-lg-0">Request to Call
+                Back</a>
+            </div>
+            <div class="col-12 ">
+              <ul class="p-0">
+                <li class="my-1"><img src="images/tick.svg" class="" alt=""> Notify me via email when similar listings
+                  appear.</li>
+                <li class="my-1"><img src="images/tick.svg" class="" alt=""> I agree to the Terms of use and Privacy
+                  Policy.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Fixed Action Buttons for Mobile -->
+  <section class="py-2 d-md-none d-block m-fixed w-100 start-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 d-flex">
+          <a href="tel:+971569124881"
+            class="btn w-100 py-1 navActionBtn me-2 d-flex justify-content-center align-items-center"><i
+              class="fas fa-phone-alt me-2"></i> Call Now</a>
+        </div>
+        <div class="col-6 d-flex">
+          <a href="#" class="btn w-100 py-1 navActionBtn d-flex justify-content-center align-items-center">
+            <img src="images/whatsaap-ico.svg" class="whatsaap-ico me-2"> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+        console.log('DOM fully loaded and parsed.');
+
+        // Get the community and category (property type) from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedCommunityFromURL = urlParams.get('community') || ''; // Default to empty if not found
+        const selectedPropertyTypeFromURL = urlParams.get('category') || ''; // Default to empty if not found
+
+        let selectedPropertyType = selectedPropertyTypeFromURL;
+        let selectedCommunity = selectedCommunityFromURL;
+        let minPrice = 0;
+        let maxPrice = Number.MAX_VALUE;
+
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const filterNavBar = document.querySelector('.nav-bar3');
+        const closeButton = document.querySelector('.close-ico');
+
+        // Initialize the range slider
+        $(".js-range-slider").ionRangeSlider({
+            type: "double",
+            min: 0,
+            max: 100000000,
+            from: 0,
+            to: 100000000,
+            grid: true,
+            prefix: "AED ",
+            onChange: function (data) {
+                document.getElementById('min-price').value = data.from;
+                document.getElementById('max-price').value = data.to;
+                console.log('Range slider changed:', data.from, data.to);
+            }
+        });
+
+        // Fetch distinct community and property type names and populate the dropdowns
+        try {
+            const communityDropdown = document.querySelector('#communityDropdown + .dropdown-menu');
+            const propertyTypeDropdown1 = document.querySelector('#propertyTypeDropdown1 + .dropdown-menu');
+            const propertyTypeDropdown2 = document.querySelector('#propertyTypeDropdown2 + .dropdown-menu');
+            const communitiesSnapshot = await db.collection('propertyListings').get();
+            const communitySet = new Set();
+            const propertyTypeSet = new Set();
+
+            communitiesSnapshot.forEach(doc => {
+                const data = doc.data();
+                if (data.community) {
+                    communitySet.add(data.community);
+                }
+                if (data.propertyType) {
+                    propertyTypeSet.add(data.propertyType);
+                }
+            });
+
+            // Clear existing dropdown items
+            communityDropdown.innerHTML = '';
+            propertyTypeDropdown1.innerHTML = '';
+            propertyTypeDropdown2.innerHTML = '';
+
+            // Add "ALL" option to all dropdowns
+            const allOptionCommunity = document.createElement('li');
+            allOptionCommunity.innerHTML = `<a class="dropdown-item" href="#" data-value="ALL">ALL</a>`;
+            communityDropdown.appendChild(allOptionCommunity);
+
+            const allOptionPropertyType1 = document.createElement('li');
+            allOptionPropertyType1.innerHTML = `<a class="dropdown-item" href="#" data-value="ALL">ALL</a>`;
+            propertyTypeDropdown1.appendChild(allOptionPropertyType1);
+
+            const allOptionPropertyType2 = document.createElement('li');
+            allOptionPropertyType2.innerHTML = `<a class="dropdown-item" href="#" data-value="ALL">ALL</a>`;
+            propertyTypeDropdown2.appendChild(allOptionPropertyType2);
+
+            // Add community options dynamically
+            communitySet.forEach(community => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a class="dropdown-item" href="#" data-value="${community}">${community}</a>`;
+                communityDropdown.appendChild(li);
+            });
+
+            // Add property type options dynamically to both dropdowns
+            propertyTypeSet.forEach(propertyType => {
+                const li1 = document.createElement('li');
+                li1.innerHTML = `<a class="dropdown-item" href="#" data-value="${propertyType}">${propertyType}</a>`;
+                propertyTypeDropdown1.appendChild(li1);
+
+                const li2 = document.createElement('li');
+                li2.innerHTML = `<a class="dropdown-item" href="#" data-value="${propertyType}">${propertyType}</a>`;
+                propertyTypeDropdown2.appendChild(li2);
+            });
+
+            // Set selected community from URL if present
+            if (selectedCommunityFromURL) {
+                const selectedCommunityItem = Array.from(communityDropdown.querySelectorAll('.dropdown-item'))
+                    .find(item => item.getAttribute('data-value') === selectedCommunityFromURL);
+
+                if (selectedCommunityItem) {
+                    selectedCommunityItem.closest('.dropdown').querySelector('.dropdown-toggle').textContent = selectedCommunityFromURL;
+                }
+            }
+
+            // Set selected property type from URL if present
+            if (selectedPropertyTypeFromURL) {
+                const selectedPropertyTypeItem1 = Array.from(propertyTypeDropdown1.querySelectorAll('.dropdown-item'))
+                    .find(item => item.getAttribute('data-value') === selectedPropertyTypeFromURL);
+
+                const selectedPropertyTypeItem2 = Array.from(propertyTypeDropdown2.querySelectorAll('.dropdown-item'))
+                    .find(item => item.getAttribute('data-value') === selectedPropertyTypeFromURL);
+
+                if (selectedPropertyTypeItem1) {
+                    selectedPropertyTypeItem1.closest('.dropdown').querySelector('.dropdown-toggle').textContent = selectedPropertyTypeFromURL;
+                }
+
+                if (selectedPropertyTypeItem2) {
+                    selectedPropertyTypeItem2.closest('.dropdown').querySelector('.dropdown-toggle').textContent = selectedPropertyTypeFromURL;
+                }
+            }
+
+            // Add event listeners to the dynamically added community dropdown items
+            communityDropdown.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    const dropdownButton = this.closest('.dropdown').querySelector('.dropdown-toggle');
+                    const value = this.getAttribute('data-value');
+                    dropdownButton.textContent = this.textContent;
+
+                    selectedCommunity = value === "ALL" ? '' : value;  // Empty string for 'ALL' to remove the filter
+                    setTimeout(applyFilters, 100);  // Slight delay to ensure selection is complete
+                });
+            });
+
+            // Add event listeners to the dynamically added property type dropdown items for both dropdowns
+            propertyTypeDropdown1.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    const dropdownButton = this.closest('.dropdown').querySelector('.dropdown-toggle');
+                    const value = this.getAttribute('data-value');
+                    dropdownButton.textContent = this.textContent;
+
+                    selectedPropertyType = value === "ALL" ? '' : value;  // Empty string for 'ALL' to remove the filter
+                    setTimeout(applyFilters, 100);  // Slight delay to ensure selection is complete
+                });
+            });
+
+            propertyTypeDropdown2.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    const dropdownButton = this.closest('.dropdown').querySelector('.dropdown-toggle');
+                    const value = this.getAttribute('data-value');
+                    dropdownButton.textContent = this.textContent;
+
+                    selectedPropertyType = value === "ALL" ? '' : value;  // Empty string for 'ALL' to remove the filter
+                    setTimeout(applyFilters, 100);  // Slight delay to ensure selection is complete
+                });
+            });
+
+        } catch (error) {
+            console.error("Error fetching communities or property types:", error);
+        }
+
+        // Dropdown toggle functionality
+        document.querySelectorAll('.dropdown-toggle').forEach(function (dropdown) {
+            dropdown.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation(); // Stop propagation to prevent the menu from closing
+                const menu = dropdown.nextElementSibling;
+                if (menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                } else {
+                    document.querySelectorAll('.dropdown-menu.show').forEach(function (openMenu) {
+                        openMenu.classList.remove('show');
+                    });
+                    menu.classList.add('show');
+                }
+            });
+        });
+
+        // Close dropdown when clicking outside or on the close icon
+        document.addEventListener('click', function (event) {
+            if (!event.target.matches('.dropdown-toggle') && !event.target.closest('.dropdown-menu')) {
+                document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+            }
+        });
+
+        // Close the filter navigation bar when the close button is clicked
+        closeButton.addEventListener('click', function () {
+            filterNavBar.classList.remove('toggle');
+        });
+
+        // Apply filters when the Apply Filters button is clicked
+        document.getElementById('apply-filters').addEventListener('click', function (event) {
+            event.preventDefault();
+            console.log('Apply filters button clicked.');
+            applyFilters();  // Trigger the filtering process
+        });
+
+        function applyFilters() {
+            console.log('Applying filters...');
+            if (loadingSpinner) {
+                loadingSpinner.style.display = 'block';
+            }
+
+            minPrice = parseInt(document.getElementById('min-price').value) || 0;
+            maxPrice = parseInt(document.getElementById('max-price').value) || Number.MAX_VALUE;
+
+            let query = db.collection('propertyListings');
+
+            if (selectedPropertyType) {
+                query = query.where('propertyType', '==', selectedPropertyType);
+                console.log('Querying by property type:', selectedPropertyType);
+            }
+
+            if (selectedCommunity) {
+                query = query.where('community', '==', selectedCommunity);
+                console.log('Querying by community:', selectedCommunity);
+            }
+
+            query = query.where('pricing.price', '>=', minPrice).where('pricing.price', '<=', maxPrice);
+            console.log('Querying by price range:', minPrice, maxPrice);
+
+            query.get().then((querySnapshot) => {
+                let listingsHTML = '';
+                console.log('Query successful. Number of results:', querySnapshot.size);
+
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const uniqueId = doc.id;
+                    const truncatedDescription = truncateText(data.description, 7);
+                    const allImages = data.media?.images || [];
+
+                    const thumbnails = allImages.slice(1, 5).map((image, index) => `
+                    <div class="col-6">
+                      <img src="${image}" class="img-fluid object-fit-100 thumbnail-img" alt="${data.title}" data-bs-target="#carousel-${uniqueId}" data-bs-slide-to="${index + 1}">
+                    </div>
+                    `).join('');
+
+                    listingsHTML += `
+                    <div class="col-12">
+                      <div class="col listing-itm-type-1 mb-3 mb-lg-4">
+                        <a href="project-details-page.html?id=${uniqueId}" class="stretched-link">
+                          <div class="card card-villa gray-bg position-relative sec-prop-listing shadow-none my-3">
+                            <div class="row g-1 gray-bg">
+                              <div class="col-md-6 d-flex">
+                                <div class="row g-1">
+                                  <div class="col-12 position-relative">
+                                    <span class="itm-badge1 px-3 py-2 position-absolute">
+                                      <span class="badge itm-badge rounded-2 px-3 py-2">${data.propertyType}</span>
+                                    </span>
+                                    <div id="carousel-${uniqueId}" class="carousel slide" data-bs-ride="carousel">
+                                      <ol class="carousel-indicators">
+                                        ${allImages.map((_, index) => `
+                                          <li data-bs-target="#carousel-${uniqueId}" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}"></li>
+                                        `).join('')}
+                                      </ol>
+                                      <div class="carousel-inner">
+                                        ${allImages.map((image, index) => `
+                                          <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                                            <img src="${image}" class="d-block w-100 img-fluid type-2" alt="${data.title}">
+                                          </div>
+                                        `).join('')}
+                                      </div>
+                                      <a class="carousel-control-prev" href="#carousel-${uniqueId}" role="button" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                      </a>
+                                      <a class="carousel-control-next" href="#carousel-${uniqueId}" role="button" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="row g-1 mt-1 thumbnails-container">${thumbnails}</div>
+                                </div>
+                              </div>
+                              <div class="col-md-6 d-flex align-items-center">
+                                <div class="card-body">
+                                  <p>${data.propertyType}</p>
+                                  <h5 class="card-title pt-2 mb-0 pb-1">${data.title}</h5>
+                                  <small class="vla">${data.bedrooms} Beds • ${data.bathrooms} Baths • ${data.size} sq. ft</small>
+                                  <hr />
+                                  <p id="description-${doc.id}">${truncatedDescription}</p>
+                                  <a href="#" class="btn btn-link p-0 ripple-surface" id="toggle-${doc.id}" data-expanded="false">Know More</a>
+                                  <hr />
+                                  <h3 class="rate mt-0 mb-3 mb-md-4">AED ${data.pricing.price.toLocaleString()}</h3>
+                                  <a href="#" class="btn h-100 rounded-0 py-lg-3 px-4 hover-btn check-primary-btn ripple-surface">
+                                    Check Availability
+                                    <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>`;
+                });
+
+                if (loadingSpinner) {
+                    loadingSpinner.style.display = 'none';
+                }
+
+                document.querySelector('.property-listings').innerHTML = listingsHTML;
+
+                querySnapshot.forEach((doc) => {
+                    document.getElementById(`toggle-${doc.id}`).addEventListener('click', function (event) {
+                        event.preventDefault();
+                        const fullText = doc.data().description;
+                        document.getElementById(`description-${doc.id}`).textContent = fullText;
+                        this.style.display = 'none';
+                    });
+                });
+
+                filterNavBar.classList.remove('toggle');
+
+            }).catch((error) => {
+                console.error("Error fetching property listings:", error);
+                if (loadingSpinner) {
+                    loadingSpinner.style.display = 'none';
+                }
+                filterNavBar.classList.remove('toggle');
+            });
+        }
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function truncateText(text, maxLines) {
+            const lines = text.split(/\r\n|\r|\n/);
+            if (lines.length > maxLines) {
+                return lines.slice(0, maxLines).join('\n') + '...';
+            }
+            return text;
+        }
+
+        applyFilters();
+    });
+</script>
+
+
+  <!-- Search and Filters Script -->
+
+
+
+
+
+
+
+
+  <script>
+    AOS.init();
+  </script>
+  <script>
+    const menu = document.querySelector(".menu");
+    const menuItems = document.querySelectorAll(".menuItem");
+    const hamburger = document.querySelector(".hamburger");
+    const hamburger1 = document.querySelector(".hamburger1");
+    const closeIcon = document.querySelector(".closeIcon");
+    const menuIcon = document.querySelector(".menuIcon");
+
+    function toggleMenu() {
+      if (menu.classList.contains("showMenu")) {
+        menu.classList.remove("showMenu");
+        closeIcon.style.display = "none";
+        menuIcon.style.display = "block";
+      } else {
+        menu.classList.add("showMenu");
+        closeIcon.style.display = "block";
+        menuIcon.style.display = "none";
+      }
+    }
+
+    hamburger.addEventListener("click", toggleMenu);
+    hamburger1.addEventListener("click", toggleMenu);
+
+    menuItems.forEach(function (menuItem) {
+      menuItem.addEventListener("click", toggleMenu);
+    });
+  </script>
+  <script>
+    var toggleButton = document.querySelector('.toggle-menu1');
+    var navBar = document.querySelector('.nav-bar3');
+    var navZi = document.getElementById('navId');
+    toggleButton.addEventListener('click', function () {
+      navBar.classList.toggle('toggle');
+    });
+  </script>
+</body>
+
+</html>
