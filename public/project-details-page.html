@@ -17,14 +17,21 @@
   <link href="css/aos.css" rel="stylesheet">
   <link href="css/owl.carousel.min.css" rel="stylesheet">
   <link rel="stylesheet" href="path/to/owl.carousel.min.css">
-<link rel="stylesheet" href="path/to/owl.theme.default.min.css">
-<script src="path/to/jquery.min.js"></script>
-<script src="path/to/owl.carousel.min.js"></script>
+  <link rel="stylesheet" href="path/to/owl.theme.default.min.css">
+  <script src="path/to/jquery.min.js"></script>
+  <script src="path/to/owl.carousel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+  <!-- flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <!-- flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
   <script>
     // Your web app's Firebase configuration
@@ -95,7 +102,7 @@
               </div>
             </aside>
             <!-- Navbar brand -->
-            <a class="navbar-brand me-2" href="#">
+            <a class="navbar-brand me-2" href="index.html">
               <img src="images/logo.svg" class="site-logo m-center d-block" alt="site-logo" />
             </a>
 
@@ -115,9 +122,9 @@
                     data-mdb-toggle="dropdown" aria-expanded="false">UAE</a>
                   <!-- Dropdown menu -->
                   <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
-                              border-top-left-radius: 0;
-                              border-top-right-radius: 0;
-                            ">
+                                border-top-left-radius: 0;
+                                border-top-right-radius: 0;
+                              ">
                     <div class="container">
                       <div class="row my-4 room bg-white row-cols-1  row-cols-md-2 row-cols-lg-4">
                         <div class="col">
@@ -180,9 +187,9 @@
                     data-mdb-toggle="dropdown" aria-expanded="false">Resale</a>
                   <!-- Dropdown menu -->
                   <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
-                              border-top-left-radius: 0;
-                              border-top-right-radius: 0;
-                            ">
+                                border-top-left-radius: 0;
+                                border-top-right-radius: 0;
+                              ">
                     <div class="container">
                       <div class="row my-4 room bg-white row-cols-1  row-cols-md-2 row-cols-lg-4">
                         <div class="col">
@@ -266,9 +273,9 @@
           <div class="container">
             <!-- Toggle button -->
             <!-- <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarButtonsExample"
-          aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button> -->
+            aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button> -->
 
             <!-- Collapsible wrapper -->
             <div class="d-block d-lg-flex justify-content-center justify-content-md-end w-100  m-center" id="">
@@ -398,26 +405,10 @@
           <hr class="my-4 my-lg-5" />
           <h2 class="mb-3 mb-lg-4">Features</h2>
           <div class="col-12 col-md-10">
-            <ul class="p-0 home-ul">
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Pool</li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Waterfront</li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Terrace</li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Waterfront</li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Jacuzzi </li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Basketball Court </li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Jacuzzi </li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Basketball Court </li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Terrace </li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Pool </li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Waterfront </li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Pool </li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Jacuzzi </li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Basketball Court </li>
-              <li class="py-2 me-2"> <img src="images/home-ico.svg" class="me-2" alt=""> Jacuzzi </li>
-            </ul>
+            <ul class="p-0 home-ul" id="amenitiesList"></ul>
           </div>
-          <a href="#" class="mt-3">
-            <span class="view-feat"> View all 18 features</span>
+          <a href="#" class="mt-3" id="viewAllFeatures">
+            <span class="view-feat">View all features</span>
           </a>
           <hr class="my-4 my-lg-5" />
 
@@ -441,27 +432,149 @@
               </div>
             </div>
           </div>
-
-
           <div class="col-12">
             <p>Contact Agent</p>
             <div class="mb-3">
               <textarea class="form-control rounded-0" id="" rows="3"></textarea>
-              <div class="card shadow-none border-top-0">
+          
+              <!-- Updated div with the "Request a tour" section -->
+              <div class="card shadow-none border-top-0 mt-3 je2-request-tour">
                 <div class="card-body border py-2">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Request a tour
-                    </label>
+                    <input class="form-check-input" type="checkbox" id="requestTourCheckbox">
+                    <label class="form-check-label" for="requestTourCheckbox">Request a tour</label>
+                  </div>
+          
+                  <!-- Tour Details Section -->
+                  <div id="tourDetailsSection" class="w-100 d-flex align-items-center mt-2 flex-wrap d-none">
+                    <fieldset class="form-group d-flex align-items-center mb-0 flex-grow-1">
+                      <legend class="mb-0 me-3">Tour type</legend>
+                      <div class="form-check me-3">
+                        <input class="form-check-input" type="radio" name="tourType" id="inPerson" value="In-person">
+                        <label class="form-check-label" for="inPerson">In-person</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tourType" id="videoChat" value="Video chat">
+                        <label class="form-check-label" for="videoChat">Video chat</label>
+                      </div>
+                    </fieldset>
+          
+                    <div class="form-group mb-0 ms-auto" style="min-width: 200px;">
+                      <label for="preferredDate" class="form-label me-2">Preferred date</label>
+                      <input type="text" class="form-control" id="preferredDate" readonly>
+                    </div>
+                  </div>
+                  <!-- End of Tour Details Section -->
+          
+                  <!-- Submit Button -->
+                  <div class="mt-3">
+                    <button id="submitTourRequest" class="btn h-100 rounded-0 py-lg-2 px-4 hover-btn check-primary-btn ripple-surface" disabled>Submit</button>
                   </div>
                 </div>
               </div>
+              <!-- End of updated div -->
+          
             </div>
             <button type="button" class="btn h-100 rounded-0 py-lg-2 px-4 hover-btn check-primary-btn">
               Ask a Question
             </button>
           </div>
+          
+          <script>
+            $(document).ready(function() {
+              const $requestTourCheckbox = $('#requestTourCheckbox');
+              const $tourDetailsSection = $('#tourDetailsSection');
+              const $submitTourRequest = $('#submitTourRequest');
+              const $tourTypeRadios = $('input[name="tourType"]');
+              const $preferredDate = $('#preferredDate');
+          
+              // Initialize the date picker
+              const datepickerInstance = flatpickr($preferredDate[0], {
+                minDate: "today",
+                maxDate: new Date().fp_incr(3), // 3 days ahead
+                dateFormat: "m/d/Y",
+                onChange: validateForm // Validate form when date is changed
+              });
+          
+              // Toggle the visibility of the tour details section based on checkbox status
+              $requestTourCheckbox.on('change', function () {
+                console.log('Checkbox changed:', this.checked); // Debugging log
+                if (this.checked) {
+                  $tourDetailsSection.removeClass('d-none');
+                } else {
+                  $tourDetailsSection.addClass('d-none');
+                  resetForm();
+                }
+              });
+          
+              // Enable submit button only when a tour type is selected and a date is picked
+              function validateForm() {
+                const isTourTypeSelected = $tourTypeRadios.is(':checked');
+                const isDateSelected = $preferredDate.val() !== '';
+                $submitTourRequest.prop('disabled', !(isTourTypeSelected && isDateSelected));
+              }
+          
+              // Add event listeners to the radio buttons
+              $tourTypeRadios.on('change', validateForm);
+          
+              // Reset the form when the checkbox is unchecked
+              function resetForm() {
+                $tourTypeRadios.prop('checked', false);
+                $preferredDate.val('');
+                $submitTourRequest.prop('disabled', true);
+              }
+            });
+          </script>
+          
+          
+          
+
+          <style>
+            .je2-request-tour .form-check-input {
+              margin-right: 5px;
+            }
+
+            .je2-request-tour .form-group {
+              display: flex;
+              align-items: center;
+              flex-wrap: wrap;
+            }
+
+            .je2-request-tour .form-label {
+              margin-bottom: 0;
+            }
+
+            .je2-request-tour .form-group .form-control {
+              max-width: 100%;
+              width: 100%;
+              min-width: 200px;
+              /* Ensure that the date picker has a minimum width */
+            }
+
+            @media (max-width: 768px) {
+              #tourDetailsSection {
+                flex-direction: column;
+                align-items: flex-start;
+              }
+
+              #tourDetailsSection .form-group {
+                width: 100%;
+                margin-top: 15px;
+              }
+
+              #tourDetailsSection .form-check {
+                margin-right: 0;
+              }
+
+              #tourDetailsSection .form-label {
+                margin-right: 0;
+              }
+            }
+          </style>
+
+
+
+
 
           <div class="col-12">
             <hr class="my-4 my-lg-5" />
@@ -469,31 +582,27 @@
 
             <div class="row">
               <div class="col-12 col-md-9">
-                <p class="map-font-p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                  Ipsum </p>
+                <p class="map-font-p"></p>
               </div>
               <div class="col-12 col-md-3 d-lg-flex justify-content-center justify-content-lg-end">
-                <a href="#" class="map-font-a">See on Google map</a>
+                <a href="#" class="map-font-a" id="googleMapLink">See on Google map</a>
               </div>
             </div>
 
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.340835627929!2d55.12011065719383!3d25.12416533465687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f153b34c6f78b%3A0x13c559a8b667b35e!2sAl%20Mirziban%20-%20The%20Palm%20Jumeirah%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1708264659217!5m2!1sen!2sin"
-              width="100%" height="280px" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+            <iframe id="googleMapIframe" width="100%" height="280px" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
 
             <div class="row">
               <div class="col-12 col-md-6">
                 <a href="#" class="map-font-a">Request Location Information </a>
               </div>
               <div class="col-12 col-md-6 d-lg-flex justify-content-center justify-content-lg-end">
-                <a href="#" class="map-font-a">View 31 more listing in Downtown, Dubai</a>
+                <a href="#" class="map-font-a" id="viewMoreListingsLink">View more listings in this area</a>
               </div>
             </div>
-
-
           </div>
+
 
         </div>
 
@@ -553,7 +662,7 @@
             <!-- Dynamic items will be injected here -->
           </div>
           <div class="owl-nav">
-            
+
           </div>
           <div class="col-12 text-center">
             <button class="btn py-2 black-btn my-3 my-lg-4">View all projects</button>
@@ -562,8 +671,8 @@
       </div>
     </div>
   </section>
-  
-  
+
+
   <footer class="pt-3 pt-md-4 pb-2 pt-lg-5">
     <div class="container">
       <div class="row">
@@ -700,13 +809,13 @@
         <div class="modal-body l-side py-3 py-lg-4 px-3 px-md-5 l-side">
           <div class="row">
             <!-- <div class="col-12 mb-3">
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Sale</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div> -->
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Sale</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div> -->
             <h2 class="mb-3 text-center">How can the agent send <br />
               you the floor plan</h2>
             <div class="col-12 mb-3">
@@ -760,6 +869,23 @@
     </div>
   </div>
 
+  <!-- Modal for viewing all features -->
+  <div class="modal fade" id="featuresModal" tabindex="-1" aria-labelledby="featuresModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="featuresModalLabel">All Features</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="allFeaturesList" class="p-0 home-ul"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -772,50 +898,116 @@
   <script src="js/aos.js"></script>
   <script src="js/custom.js"></script>
   <script src="js/owl.carousel.js"></script>
-  <script src="js/aos.js"></script>
-  <script>
 
+
+
+
+  <script>
+    // Menu toggle script
     const menu = document.querySelector(".menu");
     const menuItems = document.querySelectorAll(".menuItem");
     const hamburger = document.querySelector(".hamburger");
     const hamburger1 = document.querySelector(".hamburger1");
     const closeIcon = document.querySelector(".closeIcon");
     const menuIcon = document.querySelector(".menuIcon");
-
+  
     function toggleMenu() {
+     // alert("Menu toggled"); // Debugging alert
+      console.log("Menu toggle function triggered"); // Debugging console log
       if (menu.classList.contains("showMenu")) {
         menu.classList.remove("showMenu");
         closeIcon.style.display = "none";
         menuIcon.style.display = "block";
+        console.log("Menu closed"); // Debugging console log
       } else {
         menu.classList.add("showMenu");
         closeIcon.style.display = "block";
         menuIcon.style.display = "none";
+        console.log("Menu opened"); // Debugging console log
       }
     }
-
+  
     hamburger.addEventListener("click", toggleMenu);
     hamburger1.addEventListener("click", toggleMenu);
-
-    menuItems.forEach(
-      function (menuItem) {
-        menuItem.addEventListener("click", toggleMenu);
+  
+    menuItems.forEach(function (menuItem) {
+      menuItem.addEventListener("click", toggleMenu);
+      console.log("Menu item click event added"); // Debugging console log
+    });
+  
+    // Request Tour Toggle Script
+    document.addEventListener('DOMContentLoaded', function () {
+      const requestTourCheckbox = document.getElementById('requestTourCheckbox');
+      const tourDetailsSection = document.getElementById('tourDetailsSection');
+      const submitTourRequest = document.getElementById('submitTourRequest');
+      const tourTypeRadios = document.querySelectorAll('input[name="tourType"]');
+      const preferredDate = document.getElementById('preferredDate');
+  
+      // Initialize the date picker
+      const datepickerInstance = flatpickr(preferredDate, {
+        minDate: "today",
+        maxDate: new Date().fp_incr(3), // 3 days ahead
+        dateFormat: "m/d/Y",
+        onChange: validateForm // Validate form when date is changed
+      });
+  
+      // Toggle the visibility of the tour details section based on checkbox status
+      requestTourCheckbox.addEventListener('change', function () {
+       // alert("Checkbox changed: " + this.checked); // Debugging alert
+        console.log('Checkbox changed:', this.checked); // Debugging console log
+        if (this.checked) {
+          tourDetailsSection.classList.remove('d-none');
+          console.log("Tour details section shown"); // Debugging console log
+        } else {
+          tourDetailsSection.classList.add('d-none');
+          resetForm();
+          console.log("Tour details section hidden and form reset"); // Debugging console log
+        }
+      });
+  
+      // Enable submit button only when a tour type is selected and a date is picked
+      function validateForm() {
+        console.log("Validating form..."); // Debugging console log
+        const isTourTypeSelected = Array.from(tourTypeRadios).some(radio => radio.checked);
+        const isDateSelected = preferredDate.value !== '';
+        submitTourRequest.disabled = !(isTourTypeSelected && isDateSelected);
+        console.log("Form validation result: ", isTourTypeSelected && isDateSelected); // Debugging console log
       }
-    )
+  
+      // Add event listeners to the radio buttons
+      tourTypeRadios.forEach(radio => {
+        radio.addEventListener('change', validateForm);
+        console.log("Radio button change event added"); // Debugging console log
+      });
+  
+      // Reset the form when the checkbox is unchecked
+      function resetForm() {
+        tourTypeRadios.forEach(radio => {
+          radio.checked = false;
+        });
+        preferredDate.value = '';
+        submitTourRequest.disabled = true;
+        console.log("Form reset"); // Debugging console log
+      }
+    });
   </script>
+  
+
+
+
+
+
   <script>
     AOS.init();
   </script>
 
-<style>
-  .slider-owl .owl-nav {
-    position: absolute;
-    top: -104px;
-    right: 0;
-}
-
-
-</style>
+  <style>
+    .slider-owl .owl-nav {
+      position: absolute;
+      top: -104px;
+      right: 0;
+    }
+  </style>
 
 
 
@@ -826,14 +1018,11 @@
 
   <!-- Footer and other sections -->
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/masonry.pkgd.min.js"></script>
+  
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="js/owl.carousel.js"></script>
-  <script src="js/aos.js"></script>
+  
+
 
 
   <script>
@@ -846,56 +1035,145 @@
     // Function to load and bind property data
     function loadPropertyDetails(data) {
       // Bind the property type and title
-      document.querySelector('.property-list p').textContent = data.propertyType;
-      document.querySelector('.property-list h2').textContent = data.title;
+      document.querySelector('.property-list p').textContent = data.propertyType || '';
+      document.querySelector('.property-list h2').textContent = data.title || '';
 
       // Bind the property details (Beds, Baths, Size, Price)
       const propertyDetailsElement = document.querySelector('.itm-small');
-      propertyDetailsElement.textContent = `${data.bedrooms || 0} Beds • ${data.bathrooms || 0} Baths • ${data.size.toLocaleString()} sq. ft • AED ${Math.round(data.pricing.price / data.size).toLocaleString()} / sq. ft.`;
+      if (propertyDetailsElement) {
+        propertyDetailsElement.textContent = `${data.bedrooms || 0} Beds • ${data.bathrooms || 0} Baths • ${data.size.toLocaleString()} sq. ft • AED ${Math.round(data.pricing.price / data.size).toLocaleString()} / sq. ft.`;
+      }
 
       // Bind the starting price and description
       const startingPriceElement = document.querySelector('.property-list .mt-3.mb-1 + h2');
-      startingPriceElement.textContent = `AED ${data.pricing.price.toLocaleString()}`;
+      if (startingPriceElement) {
+        startingPriceElement.textContent = `AED ${data.pricing.price.toLocaleString()}`;
+      }
 
       const descriptionElement = document.querySelector('.property-list p:nth-of-type(2)');
-      const descriptionPreview = `${data.description.substring(0, 150)}... <a href="#">read more</a>`;
-      descriptionElement.innerHTML = descriptionPreview;
+      if (descriptionElement) {
+        const descriptionPreview = `${data.description.substring(0, 150)}... <a href="#">read more</a>`;
+        descriptionElement.innerHTML = descriptionPreview;
+      }
 
       // Bind the listed date and report listing
       const listedDateElement = document.querySelector('.property-list p:nth-of-type(3)');
-      listedDateElement.textContent = `Listed ${new Date().toLocaleDateString()} Saves 4 Report Listing`;
+      if (listedDateElement) {
+        listedDateElement.textContent = `Listed ${new Date().toLocaleDateString()} Saves 4 Report Listing`;
+      }
 
-      // Bind the features
-      const featuresList = document.querySelector('.home-ul');
-      featuresList.innerHTML = data.amenities.map(amenity =>
-        `<li class="py-2 me-2"><img src="images/home-ico.svg" class="me-2" alt=""> ${amenity}</li>`
-      ).join('');
+      // Bind the features using FontAwesome icons
+      const amenityIcons = {
+        "Balcony": "fa-solid fa-wind",
+        "Central air conditioning": "fa-solid fa-snowflake",
+        "Fully fitted kitchen": "fa-solid fa-kitchen-set",
+        "Pets allowed": "fa-solid fa-paw",
+        "Shared swimming pool": "fa-solid fa-swimmer",
+        "Near school": "fa-solid fa-school",
+        "Near hospital": "fa-solid fa-hospital",
+        "Near mosque": "fa-solid fa-mosque",
+        "Near supermarket": "fa-solid fa-store",
+        "Near mall": "fa-solid fa-shopping-cart",
+        "Near public transportation": "fa-solid fa-bus",
+        "Near metro": "fa-solid fa-subway",
+        "Beach access": "fa-solid fa-umbrella-beach",
+        "Public parks": "fa-solid fa-tree",
+        "Near restaurants": "fa-solid fa-utensils",
+        "Shared Gym": "fa-solid fa-dumbbell",
+        // Add more mappings as needed
+      };
+
+      const featuresList = document.getElementById('amenitiesList');
+      const viewAllFeaturesLink = document.getElementById('viewAllFeatures');
+      const initialShowCount = 8;
+
+      if (featuresList) {
+        // Bind the features (initially show only the first 8)
+        const displayedAmenities = data.amenities.slice(0, initialShowCount);
+        displayedAmenities.forEach(amenity => {
+          const iconClass = amenityIcons[amenity] || "fa-solid fa-question-circle";
+          const listItem = document.createElement('li');
+          listItem.classList.add('py-2', 'me-2'); // Apply classes
+          listItem.innerHTML = `<i class="${iconClass} me-2"></i>${amenity}`;
+          featuresList.appendChild(listItem);
+        });
+
+        // Handle the "View all features" link click
+        viewAllFeaturesLink.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          // Toggle expansion state
+          if (viewAllFeaturesLink.getAttribute('data-expanded') === 'true') {
+            // Collapse the list
+            featuresList.innerHTML = '';
+            displayedAmenities.forEach(amenity => {
+              const iconClass = amenityIcons[amenity] || "fa-solid fa-question-circle";
+              const listItem = document.createElement('li');
+              listItem.classList.add('py-2', 'me-2');
+              listItem.innerHTML = `<i class="${iconClass} me-2"></i>${amenity}`;
+              featuresList.appendChild(listItem);
+            });
+            viewAllFeaturesLink.setAttribute('data-expanded', 'false');
+            viewAllFeaturesLink.querySelector('.view-feat').textContent = 'View all features';
+          } else {
+            // Expand the list
+            featuresList.innerHTML = '';
+            data.amenities.forEach(amenity => {
+              const iconClass = amenityIcons[amenity] || "fa-solid fa-question-circle";
+              const listItem = document.createElement('li');
+              listItem.classList.add('py-2', 'me-2');
+              listItem.innerHTML = `<i class="${iconClass} me-2"></i>${amenity}`;
+              featuresList.appendChild(listItem);
+            });
+            viewAllFeaturesLink.setAttribute('data-expanded', 'true');
+            viewAllFeaturesLink.querySelector('.view-feat').textContent = 'View fewer features';
+          }
+        });
+      }
+
+      //---------------------------------------------------------------------
 
       // Bind the agent details for the main property section
       const agentImage = document.querySelector('.pro-card .card-img-top');
-      agentImage.src = data.management.agentPhoto || "images/ico-pro.png"; // Replace with actual agent image if available
-      agentImage.alt = data.management.owner || "Agent Image"; // Add alt text for better accessibility
+      if (agentImage) {
+        agentImage.src = data.management.agentPhoto || "images/ico-pro.png"; // Replace with actual agent image if available
+        agentImage.alt = data.management.owner || "Agent Image"; // Add alt text for better accessibility
+      }
 
       const agentName = document.querySelector('.pro-card .card-title');
-      agentName.textContent = data.management.owner;
+      if (agentName) {
+        agentName.textContent = data.management.owner;
+      }
 
       const agentInfo = document.querySelector('.pro-card .card-text');
-      agentInfo.textContent = `Agent License No: ${data.management.agentLicenseNo}`; // Replace with actual agent info if available
+      if (agentInfo) {
+        agentInfo.textContent = `Agent License No: ${data.management.agentLicenseNo}`; // Replace with actual agent info if available
+      }
 
       // Bind the "Ask a Question" section specifically
       const askQuestionSection = document.querySelector('.ask-question-card');
-      const askQuestionAgentImage = askQuestionSection.querySelector('.card-img-top');
-      askQuestionAgentImage.src = data.management.agentPhoto || "images/ico-pro.png";
-      askQuestionAgentImage.alt = data.management.owner || "Agent Image";
+      if (askQuestionSection) {
+        const askQuestionAgentImage = askQuestionSection.querySelector('.card-img-top');
+        if (askQuestionAgentImage) {
+          askQuestionAgentImage.src = data.management.agentPhoto || "images/ico-pro.png";
+          askQuestionAgentImage.alt = data.management.owner || "Agent Image";
+        }
 
-      const askQuestionAgentName = askQuestionSection.querySelector('.card-title');
-      askQuestionAgentName.textContent = data.management.owner;
+        const askQuestionAgentName = askQuestionSection.querySelector('.card-title');
+        if (askQuestionAgentName) {
+          askQuestionAgentName.textContent = data.management.owner;
+        }
 
-      const askQuestionAgentInfo = askQuestionSection.querySelector('.card-text');
-      askQuestionAgentInfo.textContent = `Agent License No: ${data.management.agentLicenseNo}`; // Adjust this text based on actual data if needed
+        const askQuestionAgentInfo = askQuestionSection.querySelector('.card-text');
+        if (askQuestionAgentInfo) {
+          askQuestionAgentInfo.textContent = `Agent License No: ${data.management.agentLicenseNo}`; // Adjust this text based on actual data if needed
+        }
 
-      const askQuestionPhoneButton = askQuestionSection.querySelector('.btn.px-0.bg-transparent.shadow-none');
-      askQuestionPhoneButton.innerHTML = `<img src="images/phone-ico.svg" class="me-2" alt=""> ${data.management.agentPhone || 'Show phone number'}`;
+        const askQuestionPhoneButton = askQuestionSection.querySelector('.btn.px-0.bg-transparent.shadow-none');
+        if (askQuestionPhoneButton) {
+          askQuestionPhoneButton.innerHTML = `<img src="images/phone-ico.svg" class="me-2" alt=""> ${data.management.agentPhone || 'Show phone number'}`;
+        }
+      }
     }
 
     // Load Property Details
@@ -921,43 +1199,43 @@
 
             const galleryImages = data.media.images.slice(1, 5).map((image, index) =>
               `<div class="col-6">
-              <img src="${image}" class="img-fluid" alt="Image ${index + 1}">
-            </div>`
+                <img src="${image}" class="img-fluid" alt="Image ${index + 1}">
+              </div>`
             ).join('');
 
             const dialogImages = data.media.images.map((image, index) =>
               `<dialog id="ihc${index + 1}">
-              <form method="dialog">
-                <div class="slideID">${index + 1}/${data.media.images.length}</div>
-                <img class="md1 modal-img" src="${image}" alt="Slide ${index + 1}">
-                ${index > 0 ? `<button onclick="document.getElementById('ihc${index}').showModal()" class="prev" aria-label="move to previous image">&lt;</button>` : ''}
-                ${index < data.media.images.length - 1 ? `<button onclick="document.getElementById('ihc${index + 2}').showModal()" class="next" aria-label="move to next image">&gt;</button>` : ''}
-                <button class="close" aria-label="close popup image">X</button>
-              </form>
-            </dialog>`
+                <form method="dialog">
+                  <div class="slideID">${index + 1}/${data.media.images.length}</div>
+                  <img class="md1 modal-img" src="${image}" alt="Slide ${index + 1}">
+                  ${index > 0 ? `<button onclick="document.getElementById('ihc${index}').showModal()" class="prev" aria-label="move to previous image">&lt;</button>` : ''}
+                  ${index < data.media.images.length - 1 ? `<button onclick="document.getElementById('ihc${index + 2}').showModal()" class="next" aria-label="move to next image">&gt;</button>` : ''}
+                  <button class="close" aria-label="close popup image">X</button>
+                </form>
+              </dialog>`
             ).join('');
 
             const propertyGallery = `
-            <div class="container">
-              <div class="row g-2 mt-4 mt-lg-5">
-                <div class="col-12 col-md-6 position-relative m-0 card-villa">
-                  <span class="itm-badge1 px-3 py-2 position-absolute">
-                    ${badges.map(badge => badge ? `<span class="badge itm-badge rounded-2 px-3 py-2 me-2">${badge}</span>` : '').join('')}
-                  </span>
-                  <img src="${mainImage}" class="object-fit-100" onclick="document.getElementById('ihc1').showModal()" alt="Main Image">
-                  <div class="col position-absolute videos-galary-btn d-flex">
-                    <button class="btn px-2 me-2 bg-light btn-vdo"><img src="images/fav-ico.svg" class="me-1" alt=""> Save</button>
-                    <button class="btn bg-light btn-vdo"><img src="images/share-ico.svg" class="me-1" alt=""> Share</button>
+              <div class="container">
+                <div class="row g-2 mt-4 mt-lg-5">
+                  <div class="col-12 col-md-6 position-relative m-0 card-villa">
+                    <span class="itm-badge1 px-3 py-2 position-absolute">
+                      ${badges.map(badge => badge ? `<span class="badge itm-badge rounded-2 px-3 py-2 me-2">${badge}</span>` : '').join('')}
+                    </span>
+                    <img src="${mainImage}" class="object-fit-100" onclick="document.getElementById('ihc1').showModal()" alt="Main Image">
+                    <div class="col position-absolute videos-galary-btn d-flex">
+                      <button class="btn px-2 me-2 bg-light btn-vdo"><img src="images/fav-ico.svg" class="me-1" alt=""> Save</button>
+                      <button class="btn bg-light btn-vdo"><img src="images/share-ico.svg" class="me-1" alt=""> Share</button>
+                    </div>
                   </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="row g-2">
-                    ${galleryImages}
+                  <div class="col-12 col-md-6">
+                    <div class="row g-2">
+                      ${galleryImages}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            ${dialogImages}`;
+              ${dialogImages}`;
 
             document.getElementById('property-gallery').innerHTML = propertyGallery;
 
@@ -972,90 +1250,162 @@
       }
     });
   </script>
-<!-- for loading cards of all data -->
 
 
 
 
+  <!-- for loading cards of all data -->
+
+  <script>
+
+
+    function bindLocationData(data) {
+      // Bind community and subCommunity to the paragraph
+      const locationDescription = `${data.community}, ${data.subCommunity}`;
+      document.querySelector('.map-font-p').textContent = locationDescription;
+
+      /*// Update the Google Maps iframe with the geoPoint coordinates
+      const lat = data.location.geoPoint.lat;
+      const lng = data.location.geoPoint.lng;
+      const googleMapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCvfYNuZy5x4nYFZI0t3rCY6ePdU2ss9nk&q=${lat},${lng}&zoom=15`;
+
+      const iframe = document.getElementById('googleMapIframe');
+      iframe.src = googleMapUrl;*/
+
+      // Update the Google Maps iframe with the geoPoint coordinates and satellite view
+      const lat = data.location.geoPoint.lat;
+      const lng = data.location.geoPoint.lng;
+      const googleMapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCvfYNuZy5x4nYFZI0t3rCY6ePdU2ss9nk&q=${lat},${lng}&zoom=15&maptype=satellite`;
+
+      const iframe = document.getElementById('googleMapIframe');
+      iframe.src = googleMapUrl;
 
 
 
-<script>
- function loadMajorCommunities(properties) {
-  const carousel = document.querySelector('.owl-carousel');
-  let carouselItems = '';
+      // Optionally update the "See on Google map" link
+      const mapLink = document.getElementById('googleMapLink');
+      mapLink.href = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 
-  properties.forEach(property => {
-    const cardHtml = `
-  <div class="item">
-    <div class="card"> <!-- Bootstrap card structure -->
-      <img src="${property.media.images[0]}" class="card-img-top" alt="${property.title}">
-      <div class="card-body">
-        <h5 class="card-title">${property.title}</h5>
-        <p class="card-text">AED ${property.pricing.price.toLocaleString()}</p>
-        <p class="card-text">
-          ${property.bedrooms} Beds • ${property.bathrooms} Baths • ${property.size.toLocaleString()} sq. ft
-        </p>
-        <a href="#" class="btn btn-primary">Learn More</a>
-      </div>
-    </div>
-  </div>`;
+      // Optionally update the "View more listings in this area" link
+      const viewMoreListingsLink = document.getElementById('viewMoreListingsLink');
+      viewMoreListingsLink.href = `property-listing.html?community=${encodeURIComponent(data.community)}`;
+    }
 
+    // Call this function after you fetch the property details from Firebase
+    document.addEventListener('DOMContentLoaded', async function () {
+      const propertyId = getQueryParam('id');
 
-    carouselItems += cardHtml;
-  });
+      if (propertyId) {
+        try {
+          const docRef = db.collection('propertyListings').doc(propertyId);
+          const doc = await docRef.get();
 
-  // Inject items into the carousel container
-  carousel.innerHTML = carouselItems;
+          if (doc.exists) {
+            const data = doc.data();
+            console.log('Firebase Response Data (JSON):', JSON.stringify(data, null, 2));
 
-  // Initialize Owl Carousel with settings
-  $(carousel).owlCarousel({
-    loop: false,
-    margin: 10,
-    nav: true,
-    dots: false,
-    items: 3, // 3 items per row
-    responsive: {
-      0: {
-        items: 1 // 1 item per row on small screens
-      },
-      600: {
-        items: 2 // 2 items per row on medium screens
-      },
-      1000: {
-        items: 3 // 3 items per row on large screens
+            // Bind property details to the page
+            loadPropertyDetails(data);
+
+            // Bind the location data to the map and description
+            bindLocationData(data);
+          } else {
+            console.log("No such document!");
+          }
+        } catch (error) {
+          console.error("Error fetching property details: ", error);
+        }
+      } else {
+        console.error("No property ID provided in URL.");
       }
-    },
-    navText: [
-      '<i class="fas fa-chevron-left"></i>',
-      '<i class="fas fa-chevron-right"></i>'
-    ]
-  });
-}
-
-// Load Major Communities Carousel
-document.addEventListener('DOMContentLoaded', async function () {
-  try {
-    // Fetch properties for the "Major Communities" carousel from Firebase Firestore
-    const propertiesSnapshot = await db.collection('propertyListings').get();
-    const properties = propertiesSnapshot.docs.map(doc => doc.data());
-
-    // Log the properties for debugging
-    console.log('Fetched properties:', properties);
-
-    // Load the carousel with property cards
-    loadMajorCommunities(properties);
-
-  } catch (error) {
-    console.error("Error fetching property details for Major Communities: ", error);
-  }
-});
+    });
 
 
-</script>
 
-    
-    
+
+
+  </script>
+
+
+
+
+
+  <script>
+    function loadMajorCommunities(properties) {
+      const carousel = document.querySelector('.owl-carousel');
+      let carouselItems = '';
+
+      properties.forEach(property => {
+        const cardHtml = `
+    <div class="item">
+      <div class="card"> <!-- Bootstrap card structure -->
+        <img src="${property.media.images[0]}" class="card-img-top" alt="${property.title}">
+        <div class="card-body">
+          <h5 class="card-title">${property.title}</h5>
+          <p class="card-text">AED ${property.pricing.price.toLocaleString()}</p>
+          <p class="card-text">
+            ${property.bedrooms} Beds • ${property.bathrooms} Baths • ${property.size.toLocaleString()} sq. ft
+          </p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>`;
+
+
+        carouselItems += cardHtml;
+      });
+
+      // Inject items into the carousel container
+      carousel.innerHTML = carouselItems;
+
+      // Initialize Owl Carousel with settings
+      $(carousel).owlCarousel({
+        loop: false,
+        margin: 10,
+        nav: true,
+        dots: false,
+        items: 3, // 3 items per row
+        responsive: {
+          0: {
+            items: 1 // 1 item per row on small screens
+          },
+          600: {
+            items: 2 // 2 items per row on medium screens
+          },
+          1000: {
+            items: 3 // 3 items per row on large screens
+          }
+        },
+        navText: [
+          '<i class="fas fa-chevron-left"></i>',
+          '<i class="fas fa-chevron-right"></i>'
+        ]
+      });
+    }
+
+    // Load Major Communities Carousel
+    document.addEventListener('DOMContentLoaded', async function () {
+      try {
+        // Fetch properties for the "Major Communities" carousel from Firebase Firestore
+        const propertiesSnapshot = await db.collection('propertyListings').get();
+        const properties = propertiesSnapshot.docs.map(doc => doc.data());
+
+        // Log the properties for debugging
+        console.log('Fetched properties:', properties);
+
+        // Load the carousel with property cards
+        loadMajorCommunities(properties);
+
+      } catch (error) {
+        console.error("Error fetching property details for Major Communities: ", error);
+      }
+    });
+
+
+  </script>
+
+
+
 
 
 </body>
