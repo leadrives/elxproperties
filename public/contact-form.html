@@ -1,0 +1,125 @@
+
+<div class="modal fade" id="contactFormModal" tabindex="-1" aria-labelledby="contactFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header pb-0 border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body py-3 py-lg-4 px-3 px-md-5">
+          <div class="row">
+            <h2 class="mb-3 text-center">How can the agent send<br />you the floor plan</h2>
+            
+            <!-- Name Field -->
+            <div class="col-12 mb-3">
+              <input type="text" class="form-control custom-sell-height" placeholder="Name*" id="contactFormName" required>
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+  
+            <!-- Email Field -->
+            <div class="col-12 mb-3">
+              <input type="email" class="form-control custom-sell-height" placeholder="Email*" id="contactFormEmail" required>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+  
+            <!-- Phone Field with Country Dropdown -->
+            <div class="col-12 mb-3">
+              <div class="d-flex">
+                <div class="dropdown dropdown-customm custom-sell-height border-end-0 d-flex">
+                  <div class="dropdown__skeleton rounded-0">
+                    <div class="dropdown__selected dropdown__option"><img src="images/uae.svg" alt="UAE"></div>
+                    <div class="dropdown__arrow"></div>
+                  </div>
+            
+                  <div class="dropdown__options">
+                    <div class="dropdown__option dropdown__option--selected"><img src="images/uae.svg" alt="UAE"></div>
+                    <div class="dropdown__option"><img src="images/us.png" alt="U.S."></div>
+                    <div class="dropdown__option"><img src="images/france.png" alt="France"></div>
+                    <div class="dropdown__option"><img src="images/spain.png" alt="Spain"></div>
+                    <div class="dropdown__option"><img src="images/germsny.png" alt="Germany"></div>
+                  </div>
+                </div>
+                <input type="tel" class="form-control border-start-0 rounded-0 dropdown-text ps-0"
+                  placeholder="Phone*" id="contactFormPhone" aria-label="Example text with button addon"
+                  aria-describedby="button-addon1" required>
+              </div>
+            </div>
+            
+            
+  
+            <!-- Submit Button -->
+            <div class="col-12 my-3 my-md-4">
+              <button type="submit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn" id="submitContactForm" disabled>
+                Request to Call Back
+              </button>
+            </div>
+  
+            <!-- Additional Options -->
+            <div class="col-12">
+              <ul class="p-0">
+                <li class="my-1">
+                  <label>
+                    <input type="checkbox" id="notifyByEmail" class="me-2"> Notify me via email when similar listings appear.
+                  </label>
+                </li>
+                <li class="my-1">
+                  <label>
+                    <input type="checkbox" id="agreeToTerms" class="me-2" required> I agree to the Terms of Use and Privacy Policy.
+                  </label>
+                  <div class="invalid-feedback">You must agree to the terms and privacy policy.</div>
+                </li>
+              </ul>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const formFields = {
+      name: document.getElementById('contactFormName'),
+      email: document.getElementById('contactFormEmail'),
+      phone: document.getElementById('contactFormPhone')
+    };
+  
+    const submitButton = document.getElementById('submitContactForm');
+  
+    // Function to validate UAE phone number
+    function validateUaePhoneNumber(phone) {
+      const uaePhonePattern = /^((\+971)?5[0-9]{8})$/;
+      const isValid = uaePhonePattern.test(phone);
+      console.log(`Phone Number: ${phone} - Valid: ${isValid}`);
+      return isValid;
+    }
+  
+    // Function to check the overall validity of the form
+    function checkFormValidity() {
+      console.log('Checking form validity...');
+  
+      const isFormValid = Object.values(formFields).every(field => {
+        if (field === formFields.phone) {
+          return validateUaePhoneNumber(field.value);
+        }
+        console.log(`${field.id}: ${field.value} - Valid: ${field.checkValidity()}`);
+        return field.checkValidity();
+      });
+  
+      console.log(`Form valid: ${isFormValid}`);
+  
+      submitButton.disabled = !isFormValid;
+      console.log(`Submit button disabled: ${submitButton.disabled}`);
+    }
+  
+    // Add event listeners to each form field to check validity on input
+    Object.values(formFields).forEach(field => {
+      field.addEventListener('input', checkFormValidity);
+    });
+  
+    // Initial check in case the form is pre-filled or invalid on load
+    checkFormValidity();
+  });
+  
+  </script>

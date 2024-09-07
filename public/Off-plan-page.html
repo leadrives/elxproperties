@@ -16,732 +16,342 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="css/aos.css" rel="stylesheet">
   <link href="css/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Firebase SDK for version 8.x -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <!-- Your Firebase config -->
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyDhhHH2tK4y5oB9__yqJd_3yFUyy7ls5CM",
+      authDomain: "elxproperties.firebaseapp.com",
+      databaseURL: "https://elxproperties-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "elxproperties",
+      storageBucket: "elxproperties.appspot.com",
+      messagingSenderId: "250975584396",
+      appId: "1:250975584396:web:a68528b30098952a313ba9",
+      measurementId: "G-PYYQLQ34JY"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+    var storage = firebase.storage();
+  </script>
+
+  <style>
+    /* Add padding to the top of the content section */
+    .off-plan-cards {
+      padding-top: 70px;
+      /* Adjust the padding to create space for the navbar */
+    }
+
+    @media (max-width: 768px) {
+
+      /* For smaller screens, reduce padding */
+      .off-plan-cards {
+        padding-top: 80px;
+        /* Adjust for mobile devices */
+      }
+    }
+
+    /* Ensure the navbar doesn't overlap content */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: #fff;
+      /* Keep the navbar visible */
+    }
+  </style>
 </head>
 
 <body>
 
   <aside class="aside-cls  z-ind-custom">
     <div class="col position-relative">
-      
+
       <ul class="menu">
-      <button class="hamburger1">
-        <!-- material icons https://material.io/resources/icons/ -->
-        <span class="closeIcon material-icons material-icons-close"> <i class="fa-solid fa-close btn-close m-auto"></i></span>
-      </button>
+        <button class="hamburger1">
+          <!-- material icons https://material.io/resources/icons/ -->
+          <span class="closeIcon material-icons material-icons-close"> <i
+              class="fa-solid fa-close btn-close m-auto"></i></span>
+        </button>
         <li><a class="menuItem" href="#"><img src="images/home.svg" class="me-2" /> Home</a></li>
-        <li><a class="menuItem" href="#"><img src="images/building.svg" class="me-2"/> Off-plan</a></li>
-        <li><a class="menuItem" href="#"><img src="images/resale.svg" class="me-2"/> Resale</a></li>
-        <li><a class="menuItem" href="#"><img src="images/rent.svg" class="me-2"/> Rent</a></li>
-        <li><hr class="me-3"/></li>
-        <li><a class="menuItem" href="#"><img src="images/video.svg" class="me-2"/> Video </a></li>
-        <li><a class="menuItem" href="#"><img src="images/trending.svg" class="me-2"/> Trending</a></li>
-        <li><a class="menuItem" href="#"><img src="images/sell-with-us.svg" class="me-2"/> Sell With Us</a></li>
-        <li><a class="menuItem" href="#"><img src="images/contact.svg" class="me-2"/> Contact</a></li>
-        <li><a class="menuItem" href="#"><img src="images/saved.svg" class="me-2"/> Saved</a></li>
+        <li><a class="menuItem" href="#"><img src="images/building.svg" class="me-2" /> Off-plan</a></li>
+        <li><a class="menuItem" href="property-listing.html?offering_type=RS"><img src="images/resale.svg" class="me-2" /> Resale</a></li>
+        <li><a class="menuItem" href="#"><img src="images/rent.svg" class="me-2" /> Rent</a></li>
+        <li>
+          <hr class="me-3" />
+        </li>
+        <li><a class="menuItem" href="#"><img src="images/video.svg" class="me-2" /> Video </a></li>
+        <li><a class="menuItem" href="#"><img src="images/trending.svg" class="me-2" /> Trending</a></li>
+        <li><a class="menuItem" href="#"><img src="images/sell-with-us.svg" class="me-2" /> Sell With Us</a></li>
+        <li><a class="menuItem" href="#"><img src="images/contact.svg" class="me-2" /> Contact</a></li>
+        <li><a class="menuItem" href="#"><img src="images/saved.svg" class="me-2" /> Saved</a></li>
       </ul>
     </div>
-    </aside>
-<!-- side nav -->
-<div class="position-relative">
-  
+  </aside>
+  <!-- side nav -->
+  <div class="position-relative">
 
-<!--  -->
-<div class="wrapper-header">
-  <header class="bg-coustom">
-     <!-- Navbar -->
-     <nav class="navbar fixed-top navbar-expand-lg shadow-none navbar-light  navBar-elysian py-lg-3 z-index-nav-m bg-white">
-      <!-- Container wrapper -->
-      <div class="container">
-        <!-- Navbar brand -->
-        <aside class="aside-cls">
-          <div class="col position-relative">
-            <button class="hamburger">
-              <!-- material icons https://material.io/resources/icons/ -->
-              <span class="menuIcon material-icons"><i class="fas fa-bars btn-open m-auto"></i></span>
-            </button>
-          </div>
-          </aside>
-        <a class="navbar-brand me-2" href="#">
-          <img src="images/logo.svg" class="site-logo m-center d-block" alt="site-logo" />
-        </a>
 
-        <!-- Toggle button -->
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarButtonsExample"
-          aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <!-- Collapsible wrapper -->
-        <div class="collapse ms-auto justify-content-end navbar-collapse" id="navbarButtonsExample">
-          <!-- Left links -->
-          <ul class="navbar-nav mb-2 mb-lg-0 me-lg-4 top-nav-elx-flag top-nav-elx-none d-block d-lg-none">
-            <li class="nav-item dropdown position-static">
-              <a class="nav-link  dropdown-toggle"  href="#" id="navbarDropdown" role="button"
-              data-mdb-toggle="dropdown" aria-expanded="false">UAE</a>
-              <!-- Dropdown menu -->
-              <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
-                              border-top-left-radius: 0;
-                              border-top-right-radius: 0;
-                            ">
-                <div class="container">
-                  <div class="row my-4 room bg-white row-cols-1  row-cols-md-2 row-cols-lg-4">
-                    <div class="col">
-                      <h5>Top Regions</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Texas, USA </a></li>
-                        <li> <a href="#"> California, USA </a></li>
-                        <li> <a href="#"> Hamptons, NY, USA </a></li>
-                        <li> <a href="#"> Florida, USA </a></li>
-                        <li> <a href="#"> North Carolina, USA </a></li>
-                        <li> <a href="#"> Georgia, USA </a></li>
-                        <li> <a href="#"> Illinois, USA </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Top Cities</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Los Angeles </a></li>
-                        <li> <a href="#"> New York </a></li>
-                        <li> <a href="#"> Miami </a></li>
-                        <li> <a href="#"> Beverly Hills </a></li>
-                        <li> <a href="#"> Chicago </a></li>
-                        <li> <a href="#"> San Francisco </a></li>
-                        <li> <a href="#"> San Diego </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Property Types</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Apartments in United States </a></li>
-                        <li> <a href="#"> Houses in United States </a></li>
-                        <li> <a href="#"> Villas in United States </a></li>
-                        <li> <a href="#"> Land in United States </a></li>
-                        <li> <a href="#"> Co-Ops in United States</a></li>
-                        <li> <a href="#"> Condos United States </a></li>
-                        <li> <a href="#"> Townhouses in United States </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Top Searches</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Farm Ranches in United States </a></li>
-                        <li> <a href="#"> Penthouses in United States </a></li>
-                        <li> <a href="#"> Waterfront homes in United States</a></li>
-                        <li> <a href="#"> Farm Ranches in Texas, USA </a></li>
-                        <li> <a href="#"> Homes in Manhattan</a></li>
-                        <li> <a href="#"> Houses in Los Angeles </a></li>
-                        <li> <a href="#"> Apartments in New York </a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+    <!--  -->
+    <div class="wrapper-header">
+      <header class="bg-coustom">
+        <!-- Navbar -->
+        <nav
+          class="navbar fixed-top navbar-expand-lg shadow-none navbar-light  navBar-elysian py-lg-3 z-index-nav-m bg-white">
+          <!-- Container wrapper -->
+          <div class="container ps-lg-5 ps-md-4">
+            <!-- Navbar brand -->
+            <aside class="aside-cls">
+              <div class="col position-relative">
+                <button class="hamburger">
+                  <!-- material icons https://material.io/resources/icons/ -->
+                  <span class="menuIcon material-icons"><i class="fas fa-bars btn-open m-auto"></i></span>
+                </button>
               </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">OFF-PLAN properties</a>
-            </li>
-            <li class="nav-item dropdown position-static">
-              <a class="nav-link  dropdown-toggle"  href="#" id="navbarDropdown1" role="button"
-              data-mdb-toggle="dropdown" aria-expanded="false">Resale</a>
-              <!-- Dropdown menu -->
-              <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
-                              border-top-left-radius: 0;
-                              border-top-right-radius: 0;
-                            ">
-                <div class="container">
-                  <div class="row my-4 room bg-white row-cols-1  row-cols-md-2 row-cols-lg-4">
-                    <div class="col">
-                      <h5>Top Regions</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Texas, USA </a></li>
-                        <li> <a href="#"> California, USA </a></li>
-                        <li> <a href="#"> Hamptons, NY, USA </a></li>
-                        <li> <a href="#"> Florida, USA </a></li>
-                        <li> <a href="#"> North Carolina, USA </a></li>
-                        <li> <a href="#"> Georgia, USA </a></li>
-                        <li> <a href="#"> Illinois, USA </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Top Cities</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Los Angeles </a></li>
-                        <li> <a href="#"> New York </a></li>
-                        <li> <a href="#"> Miami </a></li>
-                        <li> <a href="#"> Beverly Hills </a></li>
-                        <li> <a href="#"> Chicago </a></li>
-                        <li> <a href="#"> San Francisco </a></li>
-                        <li> <a href="#"> San Diego </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Property Types</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Apartments in United States </a></li>
-                        <li> <a href="#"> Houses in United States </a></li>
-                        <li> <a href="#"> Villas in United States </a></li>
-                        <li> <a href="#"> Land in United States </a></li>
-                        <li> <a href="#"> Co-Ops in United States</a></li>
-                        <li> <a href="#"> Condos United States </a></li>
-                        <li> <a href="#"> Townhouses in United States </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Top Searches</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Farm Ranches in United States </a></li>
-                        <li> <a href="#"> Penthouses in United States </a></li>
-                        <li> <a href="#"> Waterfront homes in United States</a></li>
-                        <li> <a href="#"> Farm Ranches in Texas, USA </a></li>
-                        <li> <a href="#"> Homes in Manhattan</a></li>
-                        <li> <a href="#"> Houses in Los Angeles </a></li>
-                        <li> <a href="#"> Apartments in New York </a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>  
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"> Rent</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact us</a>
-            </li>
-          </ul>
-          <!-- Left links -->
-
-          <div class="d-flex align-items-center justify-content-lg-end justify-content-center">
-            <button class="btn  py-2 navActionBtn me-2"  data-bs-toggle="modal" data-bs-target="#exampleModal">Sell your property</button>
-            <!-- <button type="button" class="btn navActionBtn">Book Valuation</button> -->
-            <a href="#" class="btn phone-btn shadow-none ">
-              <img src="images/whatsaap-ico.svg" class="whatsaap-ico">
-              +971569124881
-              </a>
-          </div>
-        </div>
-        <!-- Collapsible wrapper -->
-      </div>
-      <!-- Container wrapper -->
-    </nav>
-    <nav class="navbar d-none d-lg-block border bot-nav-elx fixed-top navbar-expand-lg shadow-none navbar-light nav-elx navBar-elysian py-lg-0 off-pln-nav bg-white">
-      <!-- Container wrapper -->
-      <div class="container">
-        <!-- Toggle button -->
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarButtonsExample"
-          aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarButtonsExample">
-          <!-- Left links -->
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 me-lg-4">
-            <li class="nav-item dropdown position-static">
-              <a class="nav-link  dropdown-toggle"  href="#" id="navbarDropdown" role="button"
-              data-mdb-toggle="dropdown" aria-expanded="false">UAE</a>
-              <!-- Dropdown menu -->
-              <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
-                              border-top-left-radius: 0;
-                              border-top-right-radius: 0;
-                            ">
-                <div class="container">
-                  <div class="row my-4 room bg-white row-cols-3 row-cols-lg-4">
-                    <div class="col">
-                      <h5>Top Regions</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Texas, USA </a></li>
-                        <li> <a href="#"> California, USA </a></li>
-                        <li> <a href="#"> Hamptons, NY, USA </a></li>
-                        <li> <a href="#"> Florida, USA </a></li>
-                        <li> <a href="#"> North Carolina, USA </a></li>
-                        <li> <a href="#"> Georgia, USA </a></li>
-                        <li> <a href="#"> Illinois, USA </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Top Cities</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Los Angeles </a></li>
-                        <li> <a href="#"> New York </a></li>
-                        <li> <a href="#"> Miami </a></li>
-                        <li> <a href="#"> Beverly Hills </a></li>
-                        <li> <a href="#"> Chicago </a></li>
-                        <li> <a href="#"> San Francisco </a></li>
-                        <li> <a href="#"> San Diego </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Property Types</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Apartments in United States </a></li>
-                        <li> <a href="#"> Houses in United States </a></li>
-                        <li> <a href="#"> Villas in United States </a></li>
-                        <li> <a href="#"> Land in United States </a></li>
-                        <li> <a href="#"> Co-Ops in United States</a></li>
-                        <li> <a href="#"> Condos United States </a></li>
-                        <li> <a href="#"> Townhouses in United States </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Top Searches</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Farm Ranches in United States </a></li>
-                        <li> <a href="#"> Penthouses in United States </a></li>
-                        <li> <a href="#"> Waterfront homes in United States</a></li>
-                        <li> <a href="#"> Farm Ranches in Texas, USA </a></li>
-                        <li> <a href="#"> Homes in Manhattan</a></li>
-                        <li> <a href="#"> Houses in Los Angeles </a></li>
-                        <li> <a href="#"> Apartments in New York </a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">OFF-PLAN properties</a>
-            </li>
-            <li class="nav-item dropdown position-static">
-              <a class="nav-link  dropdown-toggle"  href="#" id="navbarDropdown1" role="button"
-              data-mdb-toggle="dropdown" aria-expanded="false">Resale</a>
-              <!-- Dropdown menu -->
-              <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
-                              border-top-left-radius: 0;
-                              border-top-right-radius: 0;
-                            ">
-                <div class="container">
-                  <div class="row my-4 room bg-white row-cols-1  row-cols-md-2 row-cols-lg-4">
-                    <div class="col">
-                      <h5>Top Regions</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Texas, USA </a></li>
-                        <li> <a href="#"> California, USA </a></li>
-                        <li> <a href="#"> Hamptons, NY, USA </a></li>
-                        <li> <a href="#"> Florida, USA </a></li>
-                        <li> <a href="#"> North Carolina, USA </a></li>
-                        <li> <a href="#"> Georgia, USA </a></li>
-                        <li> <a href="#"> Illinois, USA </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Top Cities</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Los Angeles </a></li>
-                        <li> <a href="#"> New York </a></li>
-                        <li> <a href="#"> Miami </a></li>
-                        <li> <a href="#"> Beverly Hills </a></li>
-                        <li> <a href="#"> Chicago </a></li>
-                        <li> <a href="#"> San Francisco </a></li>
-                        <li> <a href="#"> San Diego </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Property Types</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Apartments in United States </a></li>
-                        <li> <a href="#"> Houses in United States </a></li>
-                        <li> <a href="#"> Villas in United States </a></li>
-                        <li> <a href="#"> Land in United States </a></li>
-                        <li> <a href="#"> Co-Ops in United States</a></li>
-                        <li> <a href="#"> Condos United States </a></li>
-                        <li> <a href="#"> Townhouses in United States </a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <h5>Top Searches</h5>
-                      <ul class="p-0">
-                        <li> <a href="#"> Farm Ranches in United States </a></li>
-                        <li> <a href="#"> Penthouses in United States </a></li>
-                        <li> <a href="#"> Waterfront homes in United States</a></li>
-                        <li> <a href="#"> Farm Ranches in Texas, USA </a></li>
-                        <li> <a href="#"> Homes in Manhattan</a></li>
-                        <li> <a href="#"> Houses in Los Angeles </a></li>
-                        <li> <a href="#"> Apartments in New York </a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">Rent</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact us</a>
-            </li>
-          </ul>
-          <!-- Left links -->
-
-        </div>
-        <!-- Collapsible wrapper -->
-      </div>
-      <!-- Container wrapper -->
-    </nav>
-
-    
-    <!-- Navbar -->
-  </header>
-
-</div>
-</div>
-
-
-<section class="off-plan-cards">
-  <div class="container">
-    <div class="row mt-4 mt-lg-5">
-      <h2 class="text-center mt-5 mb-3">Explore the Dubai’s Finest Off-plan Properties</h2>
-
-      <div class="col-12 mb-5">
-        <div class="col-md-8 d-flex m-auto align-items-center align-items-stretch justify-content-center aria-btn position-relative">
-          <div class="input-group  input-group-lg outer-border">
-            <span class="input-group-text border-0 bg-gray border-end-0" id=""><i class="fas fa-map-marker-alt"></i></span>
-            <input type="text" class="form-control border-0 bg-gray border-start-0" placeholder="Area, Location, Project Name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-          </div>
-          <button class="btn py-2 position-absolute search-btn end-0 top-0 px-3 px-md-5 h-100">Search</button>
-        </div>
-      </div>
-
-      <div class="col-12 col-lg-4 col-md-6">
-        <div class="item pb-4">
-          <div class="col">
-            <a href="#">
-              </a><div class="listing-itm-type-1"><a href="#">
-              </a><div class="card card-villa card-slide position-relative"><a href="#">
-                <img src="images/off-plan1.jpg" class="card-img-top  itm-img" alt="...">
-                <span class="itm-badge1  px-3 py-2  position-absolute">
-                  <span class="badge itm-badge rounded-2  px-3 py-2">Apartments</span>
-                </span>
-                </a><div class="card-body"><a href="#">
-                  <small class="vla text-dark">Apartment</small>
-                  <h5 class="card-title py-2">Palm Beach Tower in Palm Jumeirah</h5>
-                  <ul class="d-flex list-unstyled mt-auto">
-                    <li class="d-flex align-items-center me-3">
-                      <img src="images/la_bed.svg" class="ico-itm me-1" alt="">
-                      <small class="itm-small">1 - 3 Bedroom apartments &amp; penthouses</small>
-                    </li>
-                  </ul>
-                  <ul class="d-flex list-unstyled mt-auto">
-                    <li class="d-flex align-items-center me-3">
-                      <small class="itm-small mt-3">Starting from</small>
-                    </li>
-                  </ul>
-                  <h3 class="rate mb-3 mt-1">AED 27,000,00</h3>
-                  </a>
-                  <a type="button" class="btn h-100 rounded-0 py-lg-2 px-4 w-100 hover-btn check-primary-btn">
-                    learn More
-                    <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i>
-                  </a>
-                </div>
-
-              </div>
-            </div>
-            
-          </div>
-        </div>
-          </div>
-      <div class="col-12 col-lg-4 col-md-6">
-            <div class="item pb-4">
-              <div class="col">
-                <a href="#">
-                  </a><div class="listing-itm-type-1"><a href="#">
-                  </a><div class="card card-villa card-slide position-relative"><a href="#">
-                    <img src="images/off-plan2.jpg" class="card-img-top  itm-img" alt="...">
-                    <span class="itm-badge1  px-3 py-2  position-absolute">
-                      <span class="badge itm-badge rounded-2  px-3 py-2">Apartments</span>
-                    </span>
-                    </a><div class="card-body"><a href="#">
-                      <small class="vla text-dark">Apartment</small>
-                      <h5 class="card-title py-2">Palm Beach Tower in Palm Jumeirah</h5>
-                      <ul class="d-flex list-unstyled mt-auto">
-                        <li class="d-flex align-items-center me-3">
-                          <img src="images/la_bed.svg" class="ico-itm me-1" alt="">
-                          <small class="itm-small">1 - 3 Bedroom apartments &amp; penthouses</small>
-                        </li>
-                      </ul>
-                      <ul class="d-flex list-unstyled mt-auto">
-                        <li class="d-flex align-items-center me-3">
-                          <small class="itm-small mt-3">Starting from</small>
-                        </li>
-                      </ul>
-                      <h3 class="rate mb-3 mt-1">AED 27,000,00</h3>
-                      </a>
-                      <a type="button" class="btn h-100 rounded-0 py-lg-2 px-4 w-100 hover-btn check-primary-btn">
-                        learn More
-                        <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i>
-                      </a>
-                    </div>
-  
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-
-      <div class="col-12 col-lg-4 col-md-6">
-                <div class="item pb-4">
-                  <div class="col">
-                    <a href="#">
-                      </a><div class="listing-itm-type-1"><a href="#">
-                      </a><div class="card card-villa card-slide position-relative"><a href="#">
-                        <img src="images/off-plan3.jpg" class="card-img-top  itm-img" alt="...">
-                        <span class="itm-badge1  px-3 py-2  position-absolute">
-                          <span class="badge itm-badge rounded-2  px-3 py-2 me-2">Penthouses</span>
-                          <span class="badge itm-badge rounded-2  px-3 py-2">Apartments</span>
-                        </span>
-                        </a><div class="card-body"><a href="#">
-                          <small class="vla text-dark">Apartment</small>
-                          <h5 class="card-title py-2">Palm Beach Tower in Palm Jumeirah</h5>
-                          <ul class="d-flex list-unstyled mt-auto">
-                            <li class="d-flex align-items-center me-3">
-                              <img src="images/la_bed.svg" class="ico-itm me-1" alt="">
-                              <small class="itm-small">1 - 3 Bedroom apartments &amp; penthouses</small>
-                            </li>
-                          </ul>
-                          <ul class="d-flex list-unstyled mt-auto">
-                            <li class="d-flex align-items-center me-3">
-                              <small class="itm-small mt-3">Starting from</small>
-                            </li>
-                          </ul>
-                          <h3 class="rate mb-3 mt-1">AED 27,000,00</h3>
-                          </a>
-                          <a type="button" class="btn h-100 rounded-0 py-lg-2 px-4 w-100 hover-btn check-primary-btn">
-                            learn More
-                            <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i>
-                          </a>
-                        </div>
-      
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-          </div>
-          <div class="col-12 col-lg-4 col-md-6">
-            <div class="item pb-4">
-              <div class="col">
-                <a href="#">
-                  </a><div class="listing-itm-type-1"><a href="#">
-                  </a><div class="card card-villa card-slide position-relative"><a href="#">
-                    <img src="images/off-plan4.jpg" class="card-img-top  itm-img" alt="...">
-                    <span class="itm-badge1  px-3 py-2  position-absolute">
-                      <span class="badge itm-badge rounded-2  px-3 py-2">Apartments</span>
-                    </span>
-                    </a><div class="card-body"><a href="#">
-                      <small class="vla text-dark">Apartment</small>
-                      <h5 class="card-title py-2">Palm Beach Tower in Palm Jumeirah</h5>
-                      <ul class="d-flex list-unstyled mt-auto">
-                        <li class="d-flex align-items-center me-3">
-                          <img src="images/la_bed.svg" class="ico-itm me-1" alt="">
-                          <small class="itm-small">1 - 3 Bedroom apartments &amp; penthouses</small>
-                        </li>
-                      </ul>
-                      <ul class="d-flex list-unstyled mt-auto">
-                        <li class="d-flex align-items-center me-3">
-                          <small class="itm-small mt-3">Starting from</small>
-                        </li>
-                      </ul>
-                      <h3 class="rate mb-3 mt-1">AED 27,000,00</h3>
-                      </a>
-                      <a type="button" class="btn h-100 rounded-0 py-lg-2 px-4 w-100 hover-btn check-primary-btn">
-                        learn More
-                        <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i>
-                      </a>
-                    </div>
-  
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-              </div>
-          <div class="col-12 col-lg-4 col-md-6">
-                <div class="item pb-4">
-                  <div class="col">
-                    <a href="#">
-                      </a><div class="listing-itm-type-1"><a href="#">
-                      </a><div class="card card-villa card-slide position-relative"><a href="#">
-                        <img src="images/off-plan5.jpg" class="card-img-top itm-img" alt="...">
-                        <span class="itm-badge1  px-3 py-2  position-absolute">
-                          <span class="badge itm-badge rounded-2  px-3 py-2">Apartments</span>
-                        </span>
-                        </a><div class="card-body"><a href="#">
-                          <small class="vla text-dark">Apartment</small>
-                          <h5 class="card-title py-2">Palm Beach Tower in Palm Jumeirah</h5>
-                          <ul class="d-flex list-unstyled mt-auto">
-                            <li class="d-flex align-items-center me-3">
-                              <img src="images/la_bed.svg" class="ico-itm me-1" alt="">
-                              <small class="itm-small">1 - 3 Bedroom apartments &amp; penthouses</small>
-                            </li>
-                          </ul>
-                          <ul class="d-flex list-unstyled mt-auto">
-                            <li class="d-flex align-items-center me-3">
-                              <small class="itm-small mt-3">Starting from</small>
-                            </li>
-                          </ul>
-                          <h3 class="rate mb-3 mt-1">AED 27,000,00</h3>
-                          </a>
-                          <a type="button" class="btn h-100 rounded-0 py-lg-2 px-4 w-100 hover-btn check-primary-btn">
-                            learn More
-                            <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i>
-                          </a>
-                        </div>
-      
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-
-          <div class="col-12 col-lg-4 col-md-6">
-                    <div class="item pb-4">
-                      <div class="col">
-                        <a href="#">
-                          </a><div class="listing-itm-type-1"><a href="#">
-                          </a><div class="card card-villa card-slide position-relative"><a href="#">
-                            <img src="images/off-plan6.jpg" class="card-img-top itm-img" alt="...">
-                            <span class="itm-badge1  px-3 py-2  position-absolute">
-                              <span class="badge itm-badge rounded-2  px-3 py-2 me-2">Penthouses</span>
-                              <span class="badge itm-badge rounded-2  px-3 py-2">Apartments</span>
-                            </span>
-                            </a><div class="card-body"><a href="#">
-                              <small class="vla text-dark">Apartment</small>
-                              <h5 class="card-title py-2">Palm Beach Tower in Palm Jumeirah</h5>
-                              <ul class="d-flex list-unstyled mt-auto">
-                                <li class="d-flex align-items-center me-3">
-                                  <img src="images/la_bed.svg" class="ico-itm me-1" alt="">
-                                  <small class="itm-small">1 - 3 Bedroom apartments &amp; penthouses</small>
-                                </li>
-                              </ul>
-                              <ul class="d-flex list-unstyled mt-auto">
-                                <li class="d-flex align-items-center me-3">
-                                  <small class="itm-small mt-3">Starting from</small>
-                                </li>
-                              </ul>
-                              <h3 class="rate mb-3 mt-1">AED 27,000,00</h3>
-                              </a>
-                              <a type="button" class="btn h-100 rounded-0 py-lg-2 px-4 w-100 hover-btn check-primary-btn">
-                                learn More
-                                <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i>
-                              </a>
-                            </div>
-          
-                          </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-              </div>
-              
-          <div class="col-12 text-center mt-3">            
-            <a type="button" class="btn h-100 rounded-0 py-lg-2 px-4 hover-btn check-primary-btn">
-              View all homes
-              <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i>
+            </aside>
+            <a class="navbar-brand me-2 " href="#">
+              <img src="images/logo.svg" class="site-logo m-center d-block" alt="site-logo" />
             </a>
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+              data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse ms-auto justify-content-end navbar-collapse " id="navbarButtonsExample">
+              <!-- Left links -->
+              <ul class="navbar-nav mb-2 mb-lg-0 me-lg-4 top-nav-elx-flag top-nav-elx-none d-block d-lg-none">
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">OFF-PLAN properties</a>
+                </li>
+                <li class="nav-item dropdown position-static">
+                  <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                    data-mdb-toggle="dropdown" aria-expanded="false">Resale</a>
+                  <!-- Dropdown menu -->
+                  <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
+                              border-top-left-radius: 0;
+                              border-top-right-radius: 0;
+                            ">
+                    <div class="container">
+                      <div class="row my-4 room bg-white row-cols-3 row-cols-lg-4">
+                        <!-- Dynamic content will be injected here -->
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Off-plan-page.html">OFF-PLAN properties</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="property-listing.html?offering_type=RS" id="navbarLink1">Resale</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="property-listing.html?offering_type=RR" >Rent</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-title="Contact us" href="#">Contact us</a>
+                </li>
+              </ul>
+              <!-- Left links -->
+
+              <div class="d-flex align-items-center justify-content-lg-end justify-content-center">
+                <button id="sellPropertyBtn" data-bs-title="Sell your property" class="btn py-2 navActionBtn me-2">
+                  Sell your property
+                </button>
+                <!-- <button type="button" class="btn navActionBtn">Book Valuation</button> -->
+                <a href="#" class="btn phone-btn shadow-none ">
+                  <img src="images/whatsaap-ico.svg" class="whatsaap-ico">
+                  +971569124881
+                </a>
+              </div>
+            </div>
+            <!-- Collapsible wrapper -->
           </div>
-      
-    </div>
-  </div>
-</section>
+          <!-- Container wrapper -->
+        </nav>
+        <nav
+          class="navbar d-none d-lg-block border bot-nav-elx fixed-top navbar-expand-lg shadow-none navbar-light nav-elx navBar-elysian py-lg-0 off-pln-nav bg-white">
+          <!-- Container wrapper -->
+          <div class="container ps-lg-5 ps-md-4">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+              data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
 
-<footer class="pt-3 pt-md-4 pb-2 pt-lg-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-lg-12 m-venter">
-        <img src="images/foot-logo.svg" class="my-4 foot-logo" />
-      </div>
-      <div class="col-12 col-lg-9">
-        <div class="row row-cols-2 row-cols-lg-5">
-      <div class="col">
-        <h3 class="my-4">ELX Properties</h3>
-        <ul class="p-0">
-          <li class="mb-1 mb-lg-2"> <a href="#"> About </a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Contact</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Careers</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Help & FAQ</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3 class="my-4">Categories</h3>
-        <ul class="p-0">
-          <li class="mb-1 mb-lg-2"> <a href="#"> Apartments </a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Penthouses</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Townhouses</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Villas</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3 class="my-4">Explore</h3>
-        <ul class="p-0">
-          <li class="mb-1 mb-lg-2"> <a href="#"> Off plan Projects</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Resale</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Rent</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Free Valuation</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Blog</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3 class="my-4">Top Areas </h3>
-        <ul class="p-0">
-          <li class="mb-1 mb-lg-2"> <a href="#"> Downtown Dubai </a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Palm Jumeirah</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Business Bay</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Dubai Hills Estate</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Arabian Ranches</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Damac Lagoons</a></li>
-        </ul>
-      </div>
-      <div class="col mt-5 pt-lg-4 pt-4">
-        <ul class="p-0 ">
-          <li class="mb-1 mb-lg-2"> <a href="#"> Dubai Marina </a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Businees Bay</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Palm Jumeirah</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">Damac Hills</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">MBR City</a></li>
-          <li class="mb-1 mb-lg-2"> <a href="#">JBR</a></li>
-        </ul>
-      </div>
-    </div>
-    </div>
-    </div>
-    <div class="row">
-      <hr class="mt-3 mt-lg-4" />
-    </div>
-  </div>
-</footer>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarButtonsExample">
+              <!-- Left links -->
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 me-lg-4">
+                <li class="nav-item dropdown position-static">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-mdb-toggle="dropdown" aria-expanded="false">UAE</a>
+                  <!-- Dropdown menu -->
+                  <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown"
+                    style="border-top-left-radius: 0px; border-top-right-radius: 0px;">
+                    <div class="container">
+                    <div class="row my-4 room bg-white row-cols-3 row-cols-lg-4">
+                      <!-- Dynamic content will be injected here -->
+                    </div>
+                  </div>
+            </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Off-plan-page.html">OFF-PLAN properties</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="property-listing.html?offering_type=RS" id="navbarLink1">Resale</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="property-listing.html?offering_type=RR" >Rent</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-title="Contact us" href="#">Contact us</a>
+            </li>
+            </ul>
+            <!-- Left links -->
 
+          </div>
+          <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+    </nav>
+
+
+    <!-- Navbar -->
+    </header>
+
+  </div>
+  </div>
+  <section class="off-plan-cards">
+    <div class="container ps-lg-5 ps-md-4">
+      <div class="row mt-4 mt-lg-5">
+        <h2 class="text-center mt-5 mb-3">Explore the Dubai’s Finest Off-plan Properties</h2>
+
+        <div class="col-12 mb-5">
+          <div
+            class="col-md-8 d-flex m-auto align-items-center align-items-stretch justify-content-center aria-btn position-relative">
+            <div class="input-group  input-group-lg outer-border">
+              <span class="input-group-text border-0 bg-gray border-end-0" id=""><i
+                  class="fas fa-map-marker-alt"></i></span>
+              <input type="text" class="form-control border-0 bg-gray border-start-0"
+                placeholder="Area, Location, Project Name" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-lg" id="searchInput">
+            </div>
+            <button class="btn py-2 position-absolute search-btn end-0 top-0 px-3 px-md-5 h-100">Search</button>
+          </div>
+        </div>
+
+        <div class="row" id="propertyCardsContainer">
+          <!-- Dynamic cards will be appended here -->
+        </div>
+
+        <div class="col-12 text-center mt-3 pb-5">
+          <a type="button" class="btn h-100 rounded-0 py-lg-2 px-4 hover-btn check-primary-btn">
+            View all homes
+            <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Page -->
+  <footer class="pt-3 pt-md-4 pb-2 pt-lg-5">
+    <div class="container ps-lg-5 ps-md-4">
+      <div class="row">
+        <div class="col-12 col-lg-12 m-venter">
+          <img src="images/foot-logo.svg" class="my-4 foot-logo" />
+        </div>
+        <div class="col-12 col-lg-9">
+          <div class="row row-cols-2 row-cols-lg-5">
+            <div class="col">
+              <h3 class="my-4">ELX Properties</h3>
+              <ul class="p-0">
+                <li class="mb-1 mb-lg-2"> <a href="#"> About </a></li>
+                <li class="mb-1 mb-lg-2"> <a href="#">Contact</a></li>
+                <li class="mb-1 mb-lg-2"> <a href="#">Careers</a></li>
+                <li class="mb-1 mb-lg-2"> <a href="#">Help & FAQ</a></li>
+              </ul>
+            </div>
+            <div class="col">
+              <h3 class="my-4">Categories</h3>
+              <ul class="p-0">
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?category=Apartment"> Apartments </a></li>
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?category=Penthouse">Penthouses</a></li>
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?category=Townhouse">Townhouses</a></li>
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?category=Villa">Villas</a></li>
+              </ul>
+            </div>
+            <div class="col">
+              <h3 class="my-4">Explore</h3>
+              <ul class="p-0">
+                <li class="mb-1 mb-lg-2"> <a href="Off-plan-page.html"> Off plan Projects</a></li>
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?offering_type=RS" id="navbarLink1">Resale</a>
+                </li>
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?offering_type=RR">Rent</a></li>
+                <li class="mb-1 mb-lg-2"> <a href="#">Blog</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <hr class="mt-3 mt-lg-4" />
+      </div>
+    </div>
+  </footer>
   <section class="py-2 py-md-3 after-footer">
-    <div class="container">
+    <div class="container ps-lg-5 ps-md-4">
       <div class="row">
         <div class="col-12 col-md-9 mb-3">
           <ul class="p-0 d-block d-md-flex justify-content-center justify-content-md-start">
             <li class="tearms m-center"><a class="pe-2" href="#" target="_blank">Terms & Conditions</a></li>
-            <li class="tearms m-center py-3 py-md-0"><a href="#" class="px-2" target="_blank"> Privacy & Cookies</a></li>
-            <li class="ps-2 m-center">   Copyright © Elysian 2022 . All Rights Reserved</li>
+            <li class="tearms m-center py-3 py-md-0"><a href="#" class="px-2" target="_blank"> Privacy & Cookies</a>
+            </li>
+            <li class="ps-2 m-center"> Copyright © elxproperties 2024 . All Rights Reserved</li>
           </ul>
-          
+
         </div>
-        
-        
+
+
         <div class="col-12 col-md-3 text-center">
           <ul class="d-flex justify-content-center justify-content-md-end p-0 soc-ico-ul">
-            <li class="soc-ico px-md-1 px-2"> <a href="#" class="px-0" target="_blank"> 
-            <img src="images/insta-ico.svg" class="" alt=""/>   
-            </a></li>
-            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="#" class="px-0" target="_blank"> 
-              <img src="images/fb-ico.svg" class="" alt=""/>   
-            </i></a></li>
-            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="#" target="_blank" class="px-0">
-              <img src="images/ticktok-ico.svg" class="" alt=""/>   
-            </a></li>
-            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="#" class="px-0" target="_blank"> 
-              <img src="images/linked-in-ico.svg" class="" alt=""/>   
-            </a></li>
-            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="#" class="px-0" target="_blank">
-              <img src="images/youtub-ico.svg" class="" alt=""/>   
-            </a></li>
+            <li class="soc-ico px-md-1 px-2"> <a href="https://www.instagram.com/elxproperties/" class="px-0"
+                target="_blank">
+                <img src="images/insta-ico.svg" class="" alt="" />
+              </a></li>
+            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="https://www.facebook.com/elxproperties" class="px-0"
+                target="_blank">
+                <img src="images/fb-ico.svg" class="" alt="" />
+                </i></a></li>
+            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="https://www.tiktok.com/@elx_properties" target="_blank"
+                class="px-0">
+                <img src="images/ticktok-ico.svg" class="" alt="" />
+              </a></li>
+            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="https://www.linkedin.com/company/elx-properties"
+                class="px-0" target="_blank">
+                <img src="images/linked-in-ico.svg" class="" alt="" />
+              </a></li>
+            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="www.youtube.com/@elxproperties" class="px-0"
+                target="_blank">
+                <img src="images/youtub-ico.svg" class="" alt="" />
+              </a></li>
           </ul>
         </div>
       </div>
@@ -749,90 +359,169 @@
   </section>
 
 
+
   <a class="scroll-top-arrow wave" style="display: none;"> <i class="fa fa-angle-up"></i> </a>
-<!-- modal -->
+  <!-- modal -->
   <!--  -->
 
-<div class="modal fade modal-cls" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  
+<div class="modal fade" id="contactFormModal" tabindex="-1" aria-labelledby="contactFormModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-      <div class="modal-content desk-cont">
-          <div class="modal-header pb-0 border-0">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-content">
+      <div class="modal-header pb-0 border-0">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body py-3 py-lg-4 px-3 px-md-5">
+        <div class="row">
+          <h2 id="dynamicModalHeading" class="mb-3 text-center">How can the agent send<br />you the floor plan</h2>
+          <!-- Name Field -->
+          <div class="col-12 mb-3">
+            <input type="text" class="form-control custom-sell-height" placeholder="Name*" id="contactFormName" required>
+            <div class="invalid-feedback">Please enter your name.</div>
           </div>
-          <div class="modal-body l-side py-3 py-lg-4 px-3 px-md-5 l-side">
-              <div class="row">
-                  <!-- <div class="col-12 mb-3">
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Sale</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div> -->
-                  <h2 class="mb-3 text-center">How can the agent send <br />
-                    you the floor plan</h2>
-                  <div class="col-12 mb-3">
-                      <input type="text" class="form-control  custom-sell-height" placeholder="Name*" id="#">
-                  </div>
-                  <div class="col-12 mb-3">
-                      <input type="email" class="form-control  custom-sell-height" placeholder="Email*" id="#">
-                  </div>
 
-                  <div class="col-12 mb-3">
-                      <div class=" d-flex">
-                          <div class="dropdown dropdown-customm custom-sell-height border-end-0 d-flex">
-                              <div class="dropdown__skeleton  rounded-0">
-                                  <div class="dropdown__selected dropdown__option"><img src="images/uae.svg" alt="UAE"></div>
+          <!-- Email Field -->
+          <div class="col-12 mb-3">
+            <input type="email" class="form-control custom-sell-height" placeholder="Email*" id="contactFormEmail" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
 
-                                  <div class="dropdown__arrow"></div>
-                              </div>
-
-                              <div class="dropdown__options">
-                                  <div class="dropdown__option dropdown__option--selected"><img src="images/uae.svg" alt="UAE">
-                                  </div>
-
-                                  <div class="dropdown__option"><img src="images/us.png" alt="U.S."></div>
-
-                                  <div class="dropdown__option"><img src="images/france.png" alt="France"></div>
-
-                                  <div class="dropdown__option"><img src="images/spain.png" alt="Spain"></div>
-
-                                  <div class="dropdown__option"><img src="images/germsny.png" alt="Germany"></div>
-                              </div>
-                          </div>
-                          <input type="text" class="form-control border-start-0  rounded-0 dropdown-text ps-0" placeholder="Phone*" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                      </div>
-                  </div>
-                  <div class="col-12 my-3 my-md-4">
-                      <a type="Sumbit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn mt-4 mt-lg-0">
-                        Request to Call Back</a>
-                  </div>
-                  <div class="col-12 ">
-                    <ul class="p-0">
-                      <li class="my-1">  <img src="images/tick.svg" class="" alt=""> Notify me via email when similar listing appear.</li>
-                      <li class="my-1">  <img src="images/tick.svg" class="" alt=""> A agree to Terms of use and Privacy Policy.</li>
-                    </ul>
-                  </div>
+          <!-- Phone Field with Country Dropdown -->
+          <div class="col-12 mb-3">
+            <div class="d-flex">
+              <div class="dropdown dropdown-customm custom-sell-height border-end-0 d-flex">
+                <div class="dropdown__skeleton rounded-0">
+                  <div class="dropdown__selected dropdown__option"><img src="images/uae.svg" alt="UAE"></div>
+                  <div class="dropdown__arrow"></div>
+                </div>
+          
+                <div class="dropdown__options">
+                  <div class="dropdown__option dropdown__option--selected"><img src="images/uae.svg" alt="UAE"></div>
+                  <div class="dropdown__option"><img src="images/us.png" alt="U.S."></div>
+                  <div class="dropdown__option"><img src="images/france.png" alt="France"></div>
+                  <div class="dropdown__option"><img src="images/spain.png" alt="Spain"></div>
+                  <div class="dropdown__option"><img src="images/germsny.png" alt="Germany"></div>
+                </div>
               </div>
+              <input type="tel" class="form-control border-start-0 rounded-0 dropdown-text ps-0"
+                placeholder="Phone*" id="contactFormPhone" aria-label="Example text with button addon"
+                aria-describedby="button-addon1" required>
+            </div>
           </div>
-      </div>
-  </div>
-</div>
+          
+          
 
-<section class="py-2 d-md-none d-block m-fixed w-100 start-0">
-  <div class="container">
-    <div class="row">
-      <div class="col-6 d-flex">
-        <a href="tel:+971569124881" class="btn w-100 py-1 navActionBtn me-2  d-flex justify-content-center align-items-center"><i class="fas fa-phone-alt me-2"></i> Call Now</a>
-      </div>
-      <div class="col-6 d-flex">
-        <a href="#" class="btn w-100 py-1 navActionBtn  d-flex justify-content-center align-items-center">
-          <img src="images/whatsaap-ico.svg" class="whatsaap-ico me-2"> Whatsaap
-          </a>
+          <!-- Submit Button -->
+          <div class="col-12 my-3 my-md-4">
+            <button type="submit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn" id="submitContactForm" disabled>
+              Request to Call Back
+            </button>
+          </div>
+
+          <!-- Additional Options -->
+          <div class="col-12">
+            <ul class="p-0">
+              <li class="my-1">
+                <label>
+                  <input type="checkbox" id="notifyByEmail" class="me-2"> Notify me via email when similar listings appear.
+                </label>
+              </li>
+              <li class="my-1">
+                <label>
+                  <input type="checkbox" id="agreeToTerms" class="me-2" required> I agree to the Terms of Use and Privacy Policy.
+                </label>
+                <div class="invalid-feedback">You must agree to the terms and privacy policy.</div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const formFields = {
+    name: document.getElementById('contactFormName'),
+    email: document.getElementById('contactFormEmail'),
+    phone: document.getElementById('contactFormPhone')
+  };
+
+  const submitButton = document.getElementById('submitContactForm');
+  const modalElement = document.getElementById('contactFormModal');
+  const modalHeading = document.getElementById('dynamicModalHeading');
+  const triggerElements = document.querySelectorAll('[data-bs-title]'); // Select all elements with the data-bs-title attribute
+
+  // Function to validate UAE phone number
+  function validateUaePhoneNumber(phone) {
+    const uaePhonePattern = /^((\+971)?5[0-9]{8})$/;
+    return uaePhonePattern.test(phone);
+  }
+
+  // Function to check the overall validity of the form
+  function checkFormValidity() {
+    const isFormValid = Object.values(formFields).every(field => {
+      if (field === formFields.phone) {
+        return validateUaePhoneNumber(field.value);
+      }
+      return field.checkValidity();
+    });
+
+    submitButton.disabled = !isFormValid;
+  }
+
+  // Add event listeners to each form field to check validity on input
+  Object.values(formFields).forEach(field => {
+    field.addEventListener('input', checkFormValidity);
+  });
+
+  // Initial check in case the form is pre-filled or invalid on load
+  checkFormValidity();
+
+  // Add event listeners to all trigger elements
+  triggerElements.forEach(trigger => {
+    trigger.addEventListener('click', function () {
+      const titleText = trigger.getAttribute('data-bs-title');
+      if (modalHeading && titleText) {
+        modalHeading.textContent = titleText;
+      }
+
+      if (modalElement) {
+        const modalInstance = new bootstrap.Modal(modalElement);
+        modalInstance.show();
+      } else {
+        console.error('Modal element not found!');
+      }
+    });
+  });
+});
+
+
+
+
+</script>
+
+  <section class="py-2 d-md-none d-block m-fixed w-100 start-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 d-flex">
+          <a href="tel:+971569124881"
+            class="btn w-100 py-1 navActionBtn me-2  d-flex justify-content-center align-items-center"><i
+              class="fas fa-phone-alt me-2"></i> Call Now</a>
+        </div>
+        <div class="col-6 d-flex">
+          <a href="#" class="btn w-100 py-1 navActionBtn  d-flex justify-content-center align-items-center">
+            <img src="images/whatsaap-ico.svg" class="whatsaap-ico me-2"> Whatsaap
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- MDB -->
   <script src="js/jquery.min.js"></script>
   <script src="js/masonry.pkgd.min.js"></script>
@@ -843,14 +532,14 @@
   <script src="js/owl.carousel.js"></script>
   <script src="js/aos.js"></script>
   <script>
-    
+
     const menu = document.querySelector(".menu");
     const menuItems = document.querySelectorAll(".menuItem");
-    const hamburger= document.querySelector(".hamburger");
-    const hamburger1= document.querySelector(".hamburger1");
-    const closeIcon= document.querySelector(".closeIcon");
+    const hamburger = document.querySelector(".hamburger");
+    const hamburger1 = document.querySelector(".hamburger1");
+    const closeIcon = document.querySelector(".closeIcon");
     const menuIcon = document.querySelector(".menuIcon");
-    
+
     function toggleMenu() {
       if (menu.classList.contains("showMenu")) {
         menu.classList.remove("showMenu");
@@ -862,16 +551,242 @@
         menuIcon.style.display = "none";
       }
     }
-    
+
     hamburger.addEventListener("click", toggleMenu);
     hamburger1.addEventListener("click", toggleMenu);
-    
-    menuItems.forEach( 
-      function(menuItem) { 
+
+    menuItems.forEach(
+      function (menuItem) {
         menuItem.addEventListener("click", toggleMenu);
       }
     )
-      </script>
+  </script>
+
+  <script>
+   document.addEventListener('DOMContentLoaded', function () {
+  console.log('Page loaded');
+  const db = firebase.firestore();
+  const offPlanContainer = document.getElementById('propertyCardsContainer');
+
+  // Function to display property cards
+  const displayPropertyCards = (properties) => {
+    offPlanContainer.innerHTML = ''; // Clear the container before appending new cards
+
+    if (properties.length === 0) {
+      offPlanContainer.innerHTML = '<p>No properties found matching your search.</p>';
+      console.log('No properties found');
+      return;
+    }
+
+    properties.forEach(property => {
+      console.log('Rendering property:', property);
+      const cardHTML = `
+        <div class="col-12 col-lg-4 col-md-6">
+          <div class="item pb-4">
+            <div class="col">
+              <div class="listing-itm-type-1">
+                <div class="card card-villa card-slide position-relative">
+                  <a href="#">
+                    <img src="${property.media.images[0]}" class="card-img-top itm-img" alt="Property Image">
+                    <span class="itm-badge1 px-3 py-2 position-absolute">
+                      <span class="badge itm-badge rounded-2 px-3 py-2">${property.propertyType}</span>
+                    </span>
+                  </a>
+                  <div class="card-body">
+                    <a href="#">
+                      <small class="vla text-dark">${property.propertyType}</small>
+                      <h5 class="card-title py-2">${property.title}</h5>
+                      <ul class="d-flex list-unstyled mt-auto">
+                        <li class="d-flex align-items-center me-3">
+                          <img src="images/la_bed.svg" class="ico-itm me-1" alt="Bedrooms">
+                          <small class="itm-small">${property.bedrooms} Bedroom${property.bedrooms > 1 ? 's' : ''}</small>
+                        </li>
+                      </ul>
+                      <ul class="d-flex list-unstyled mt-auto">
+                        <li class="d-flex align-items-center me-3">
+                          <small class="itm-small mt-3">Starting from</small>
+                        </li>
+                      </ul>
+                      <h3 class="rate mb-3 mt-1">AED ${property.pricing.salePrice.toLocaleString()}</h3>
+                    </a>
+                    <a href="project-details-page.html?id=${property.id}" class="btn h-100 rounded-0 py-lg-2 px-4 w-100 hover-btn check-primary-btn">
+                      Learn More
+                      <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Append the generated card to the container
+      offPlanContainer.insertAdjacentHTML('beforeend', cardHTML);
+    });
+  };
+
+  // Function to search properties
+  const searchProperties = async () => {
+    const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+    console.log('Searching for properties with term:', searchTerm);
+
+    try {
+      // Fetch all off-plan properties
+      const querySnapshot = await db.collection('propertyListings')
+        .where('offplan', '==', true)
+        .get();
+
+      const allProperties = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })); // Add property ID to the data
+      console.log('All properties:', allProperties);
+
+      // Filter properties based on the search term
+      const filteredProperties = allProperties.filter(property => {
+        const area = property.location?.address?.toLowerCase() || '';
+        const title = property.title?.toLowerCase() || '';
+        const projectName = property.propertyName?.toLowerCase() || '';
+
+        // Check if any field matches the search term
+        return area.includes(searchTerm) || title.includes(searchTerm) || projectName.includes(searchTerm);
+      });
+
+      console.log('Filtered properties:', filteredProperties);
+
+      if (filteredProperties.length > 0) {
+        // Display filtered properties
+        displayPropertyCards(filteredProperties);
+      } else {
+        // Display "no results" message
+        displayNoResultsMessage();
+      }
+
+    } catch (error) {
+      console.error("Error searching properties:", error);
+    }
+  };
+
+  // Function to display a "No results found" message
+  const displayNoResultsMessage = () => {
+    const offPlanContainer = document.getElementById('propertyCardsContainer');
+    offPlanContainer.innerHTML = `
+        <div class="col-12">
+            <p class="text-center">No properties found matching your search.</p>
+        </div>
+    `;
+  };
+
+  // Event listener for search button click
+  const searchButton = document.querySelector('.search-btn');
+  searchButton.addEventListener('click', searchProperties);
+
+  // Initial load of all off-plan properties
+  const loadOffPlanProperties = async () => {
+    try {
+      console.log('Loading off-plan properties...');
+      const querySnapshot = await db.collection('propertyListings').where('offplan', '==', true).get();
+      console.log('Initial query snapshot:', querySnapshot);
+
+      const allProperties = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })); // Add property ID to the data
+      console.log('All properties:', allProperties);
+
+      displayPropertyCards(allProperties);
+
+    } catch (error) {
+      console.error("Error fetching properties:", error);
+    }
+  };
+
+  // Load all properties initially when the page loads
+  loadOffPlanProperties();
+});
+</script>
+
+  </script>
+
+
+  <!-- Dynamic dropdown  UAE scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      try {
+        // Step 1: Fetch and aggregate community data
+        const communities = {};
+
+        const querySnapshot = await db.collection('propertyListings').get();
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const community = data.community;
+          if (community) {
+            if (!communities[community]) {
+              communities[community] = 0;
+            }
+            communities[community]++;
+          }
+        });
+
+        console.log("Aggregated Communities Data:", communities);
+
+        // Step 2: Sort communities by the number of listings
+        const sortedCommunities = Object.entries(communities).sort((a, b) => b[1] - a[1]);
+
+        console.log("Sorted Communities:", sortedCommunities);
+
+        // Step 3: Generate the dropdown content
+        const uaeDropdownContainer = document.querySelector('#navbarDropdown + .dropdown-menu .row');
+
+        if (uaeDropdownContainer) {
+          console.log("UAE Dropdown Container found:", uaeDropdownContainer);
+
+          let dropdownItems = '<div class="col-12 col-md-6 col-lg-3"><h5 class="my-2">Communities</h5></div>';
+
+          // Insert empty rows for the second, third, and fourth columns first
+          dropdownItems += `
+            <div class="col-12 col-md-6 col-lg-3"><li style="visibility: hidden;">&nbsp;</li></div>
+            <div class="col-12 col-md-6 col-lg-3"><li style="visibility: hidden;">&nbsp;</li></div>
+            <div class="col-12 col-md-6 col-lg-3"><li style="visibility: hidden;">&nbsp;</li></div>`;
+
+          // Now add the community entries, 4 per row
+          sortedCommunities.forEach((community, index) => {
+            const [communityName, listingCount] = community;
+
+            // Add community to the respective column
+            dropdownItems += `<div class="col-12 col-md-6 col-lg-3"><li><a href="property-listing.html?community=${encodeURIComponent(communityName)}">${communityName} (${listingCount})</a></li></div>`;
+          });
+
+          console.log("Generated Dropdown HTML:", dropdownItems);
+
+          // Step 4: Inject the content into the DOM
+          uaeDropdownContainer.insertAdjacentHTML('beforeend', dropdownItems);
+          console.log("Dropdown HTML inserted successfully.");
+        } else {
+          console.log("UAE dropdown container not found.");
+        }
+
+        // Ensure the footer functionality remains intact
+        const topAreasContainer = document.querySelector('.row-cols-lg-5');
+
+        if (topAreasContainer) {
+          let footerItems = '<div class="col"><h3 class="my-4">Top Areas</h3><ul class="p-0">';
+
+          sortedCommunities.slice(0, 4).forEach(([communityName, listingCount]) => {
+            footerItems += `<li class="mb-1 mb-lg-2"><a href="property-listing.html?community=${encodeURIComponent(communityName)}">${communityName} (${listingCount})</a></li>`;
+          });
+
+          footerItems += '</ul></div>';
+
+          console.log("Generated Footer HTML:", footerItems);
+
+          topAreasContainer.insertAdjacentHTML('beforeend', footerItems);
+          console.log("Footer HTML inserted successfully.");
+        } else {
+          console.log("Footer container not found.");
+        }
+
+      } catch (error) {
+        console.error('Error fetching community data:', error);
+      }
+    });
+
+  </script>
   <script>
     AOS.init();
   </script>

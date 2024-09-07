@@ -335,7 +335,7 @@ h2 {
 }
 
 section {
-	padding: 6rem 0;
+	padding: 0px;
 }
 
 .fa-rotate-50 {
@@ -1219,6 +1219,43 @@ input:checked+.slider:before {
 	height: 55px;
 }
 
+
+
+/* Scoped styles for the contact form */
+#customContactForm .custom-sell-height {
+	height: 36px;
+  }
+  
+  #customContactForm .dropdown {
+	display: flex;
+	align-items: center;
+  }
+  
+  #customContactForm .dropdown__option {
+	padding: 8px;
+  }
+  
+  #customContactForm .txt-area {
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	padding: 10px;
+  }
+  
+  /* Custom sticky sidebar style */
+  #customContactForm .sidebar-1 {
+	display: flex;
+	flex-direction: column;
+	position: sticky !important;
+	top: 116px;
+  }
+  
+
+
+
+
+
+
+
 .map-checkbox {
 	width: 65%;
 	top: 3rem;
@@ -1633,7 +1670,7 @@ button.close {
 	display: flex;
 	flex-direction: column;
 	position: sticky !important;
-	top: 160px;
+	top: 116px;
 }
 
 .sticky-spacer {

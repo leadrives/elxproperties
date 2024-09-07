@@ -1,0 +1,101 @@
+<list last_update="2024-08-23 13:30:03" listing_count="6">
+<property last_update="2024-08-22 10:12:23">
+<permit_number>7128114316</permit_number> <!-- Modified permit number -->
+<reference_number>ELX - RS - 20012</reference_number> <!-- Modified reference number -->
+<offplan>true</offplan> <!-- Added offplan field -->
+<offering_type>RS</offering_type>
+<property_type>AP</property_type>
+<price_on_application>No</price_on_application>
+<price>1495000</price>
+<city>
+<![CDATA[ Dubai ]]>
+</city>
+<community>
+<![CDATA[ Business Bay ]]>
+</community>
+<sub_community>
+<![CDATA[ Aykon City ]]>
+</sub_community>
+<property_name>
+<![CDATA[ Aykon City Tower B ]]>
+</property_name>
+<title_en>
+<![CDATA[ Vacant | Canal View | Great ROI ]]>
+</title_en>
+<description_en>
+<![CDATA[ ELX Property is delighted to present this stunning 1 bedroom apartment in Aykon City Tower B at Business Bay... ]]>
+</description_en>
+<completion_status>completed</completion_status>
+<amenities>BA,BB,BW,AC,CP,FF,BK,HF,PA,SP,SE,CV,NS,HO,NM,SM,ML,PT,MO,RT,NG,SY</amenities>
+<size>672.64</size>
+<bedroom>1</bedroom>
+<bathroom>1</bathroom>
+<agent>
+<name>
+<![CDATA[ Shahz Sheikh ]]>
+</name>
+<email>shahz@elxproperties.com</email>
+<phone>+971564969561</phone>
+<license_no>00000</license_no>
+<photo>https://s3-ap-southeast-1.amazonaws.com/mycrm-pro-accounts-v2/user/avatar/11711/6a4bbefa-4f47-11ef-8a80-06497cc2736b.png</photo>
+</agent>
+<parking>1</parking>
+<furnished>Yes</furnished>
+<photo>
+<url last_update="2024-08-17 11:25:26" watermark="Yes">https://s3-ap-southeast-1.amazonaws.com/mycrm-pro-accounts-v2/property/full/11711/4f03066e-5c69-11ef-b38d-42e47e868403.png</url>
+<!-- Additional image URLs omitted for brevity -->
+</photo>
+<geopoints>55.252418,25.180151</geopoints>
+</property>
+
+<property last_update="2024-08-22 10:13:30">
+<permit_number>7128115364</permit_number> <!-- Modified permit number -->
+<reference_number>ELX - RS - 20013</reference_number> <!-- Modified reference number -->
+<offplan>true</offplan> <!-- Added offplan field -->
+<offering_type>RS</offering_type>
+<property_type>AP</property_type>
+<price_on_application>No</price_on_application>
+<price>849000</price>
+<city>
+<![CDATA[ Dubai ]]>
+</city>
+<community>
+<![CDATA[ Business Bay ]]>
+</community>
+<sub_community>
+<![CDATA[ Aykon City ]]>
+</sub_community>
+<property_name>
+<![CDATA[ Aykon City Tower B ]]>
+</property_name>
+<title_en>
+<![CDATA[ High-Floor Studio | Meydan View | Vacant ]]>
+</title_en>
+<description_en>
+<![CDATA[ ELX Property is delighted to present this stunning Studio apartment in Aykon City Tower B at Business Bay... ]]>
+</description_en>
+<completion_status>completed</completion_status>
+<amenities>BA,BW,AC,FF,BK,HF,PA,SP,SE,CV,NS,HO,NM,SM,ML,PT,MO,PK,RT,SY</amenities>
+<size>427.11</size>
+<bedroom>0</bedroom>
+<bathroom>1</bathroom>
+<agent>
+<name>
+<![CDATA[ Shahz Sheikh ]]>
+</name>
+<email>shahz@elxproperties.com</email>
+<phone>+971564969561</phone>
+<license_no>00000</license_no>
+<photo>https://s3-ap-southeast-1.amazonaws.com/mycrm-pro-accounts-v2/user/avatar/11711/6a4bbefa-4f47-11ef-8a80-06497cc2736b.png</photo>
+</agent>
+<furnished>Yes</furnished>
+<photo>
+<url last_update="2024-08-17 11:49:03" watermark="Yes">https://s3-ap-southeast-1.amazonaws.com/mycrm-pro-accounts-v2/property/full/11711/88bf183c-5c6c-11ef-b38d-42e47e868403.png</url>
+<!-- Additional image URLs omitted for brevity -->
+</photo>
+<geopoints>55.252418,25.180151</geopoints>
+</property>
+
+<!-- Additional properties go here with unique permit/reference numbers and added offplan field -->
+
+</list>

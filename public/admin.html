@@ -52,7 +52,11 @@
                     </a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple"
                         onclick="showSection('section2')">
-                        <i class="fas fa-lock fa-fw me-3"></i><span>Section 2</span>
+                        <i class="fas fa-lock fa-fw me-3"></i><span>XML Upload</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+                        onclick="showSection('ContactFormData')">
+                        <i class="fas fa-lock fa-fw me-3"></i><span>Contact Form Data</span>
                     </a>
                 </div>
             </div>
@@ -187,7 +191,7 @@
             </section>
 
             <!-- Section 1: Property Listings -->
-            <section id="section1" class="mb-5">
+            <section id="section1" class="mb-5 ps-lg-5 ps-md-4">
                 <h2 class="mb-4">Property Listings</h2>
                 <!-- Add New Property Form (Initially Hidden) -->
                 <div id="add-property-form" class="card mb-4" style="display: none;">
@@ -850,6 +854,26 @@
                 </div>
 
             </section>
+            <!-- Section 3: Display Submitted Contact Form Data -->
+            <section id="ContactFormData" class="mb-5" style="display:none;">
+                <h2 class="mb-4">Submitted Enquiries</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Enquiry Title</th>
+                            <th>Property Title</th>
+                        </tr>
+                    </thead>
+                    <tbody id="enquiries-table-body">
+                        <!-- Data will be populated here -->
+                    </tbody>
+                </table>
+            </section>
+
+
         </div>
     </main>
     <!--Main layout-->
@@ -2479,11 +2503,9 @@
             let xmlString = '';
 
             if (fileInput.files.length > 0) {
-                // Read the XML file if uploaded
                 const file = fileInput.files[0];
                 xmlString = await file.text();
             } else if (textArea.value.trim()) {
-                // Use the pasted XML content
                 xmlString = textArea.value.trim();
             } else {
                 alert('Please upload an XML file or paste XML content.');
@@ -2491,153 +2513,140 @@
             }
 
             try {
-                // Parse XML and extract properties
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+
+                // Check for parser errors
+                if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
+                    console.error('Error parsing XML:', xmlDoc.getElementsByTagName('parsererror')[0]);
+                    alert('Error parsing XML. Please check the format.');
+                    return;
+                }
+
                 const properties = xmlDoc.getElementsByTagName('property');
-
-                // Initialize Firebase batch write
                 const batch = db.batch();
-
                 const addedProperties = [];
                 const duplicateProperties = [];
 
                 for (let i = 0; i < properties.length; i++) {
-                    const property = properties[i];
+                    try {
+                        const property = properties[i];
+                        const permitNumber = property.getElementsByTagName('permit_number')?.[0]?.textContent || '';
+                        const title = property.getElementsByTagName('title_en')?.[0]?.textContent || '';
+                        const referenceNumber = property.getElementsByTagName('reference_number')?.[0]?.textContent || '';
+                        const offeringType = property.getElementsByTagName('offering_type')?.[0]?.textContent || '';
+                        const offplan = property.getElementsByTagName('offplan')?.[0]?.textContent === 'true'; // Handle offplan as boolean
 
-                    // Use optional chaining and fallback values to prevent errors
-                    const permitNumber = property.getElementsByTagName('permit_number')?.[0]?.textContent || '';
-                    const title = property.getElementsByTagName('title_en')?.[0]?.textContent || '';
-                    const referenceNumber = property.getElementsByTagName('reference_number')?.[0]?.textContent || '';
-                    const offeringType = property.getElementsByTagName('offering_type')?.[0]?.textContent || '';
-
-                    // Check for duplicate entries in the collection
-                    const existingProperty = await db.collection('propertyListings').doc(permitNumber).get();
-                    if (existingProperty.exists) {
-                        duplicateProperties.push(title);
-                        continue; // Skip adding this property
-                    }
-
-                    // Map property types
-                    let propertyType = property.getElementsByTagName('property_type')?.[0]?.textContent || '';
-                    switch (propertyType) {
-                        case 'AP':
-                            propertyType = 'Apartment';
-                            break;
-                        case 'VH':
-                            propertyType = 'Villa';
-                            break;
-                        case 'PH':
-                            propertyType = 'Penthouse';
-                            break;
-                        case 'TH':
-                            propertyType = 'Townhouse';
-                            break;
-                        default:
-                            propertyType = 'Unknown';
-                    }
-
-                    // Map amenities codes to descriptive names
-                    const rawAmenities = property.getElementsByTagName('amenities')?.[0]?.textContent.split(',') || [];
-                    const amenities = rawAmenities.map(code => amenitiesMapping[code.trim()] || code.trim());
-
-                    // Extract city, community, sub_community, and property_name
-                    const city = property.getElementsByTagName('city')?.[0]?.textContent || '';
-                    const community = property.getElementsByTagName('community')?.[0]?.textContent || '';
-                    const subCommunity = property.getElementsByTagName('sub_community')?.[0]?.textContent || '';
-                    const propertyName = property.getElementsByTagName('property_name')?.[0]?.textContent || '';
-
-                    // Construct location data
-                    const location = {
-                        unitNo: property.getElementsByTagName('unit_number')?.[0]?.textContent || '',
-                        address: `${propertyName}, ${subCommunity}, ${community}, ${city}`,
-                        geoPoint: {
-                            lat: parseFloat(property.getElementsByTagName('geopoints')?.[0]?.textContent.split(',')[1]) || 0,
-                            lng: parseFloat(property.getElementsByTagName('geopoints')?.[0]?.textContent.split(',')[0]) || 0
+                        // Check if permitNumber is valid
+                        if (!permitNumber) {
+                            console.error(`Property ${i + 1}: Missing permit_number`);
+                            alert(`Property ${i + 1}: Missing permit_number`);
+                            continue;
                         }
-                    };
 
-                    // Construct media data
-                    const media = {
-                        images: Array.from(property.getElementsByTagName('url')).map(url => url?.textContent || ''),
-                        videoTour: property.getElementsByTagName('video_tour')?.[0]?.textContent || '',
-                        tour360: property.getElementsByTagName('tour_360')?.[0]?.textContent || '',
-                    };
+                        const existingProperty = await db.collection('propertyListings').doc(permitNumber).get();
+                        if (existingProperty.exists) {
+                            duplicateProperties.push(title);
+                            continue;
+                        }
 
-                    // Construct permit data
-                    const permit = {
-                        reraListingNo: permitNumber,
-                        dtcmPermitNo: 'N/A',
-                        permitFromDate: null,
-                        permitToDate: null,
-                        type: 'RERA'
-                    };
+                        let propertyType = property.getElementsByTagName('property_type')?.[0]?.textContent || '';
+                        switch (propertyType) {
+                            case 'AP': propertyType = 'Apartment'; break;
+                            case 'VH': propertyType = 'Villa'; break;
+                            case 'PH': propertyType = 'Penthouse'; break;
+                            case 'TH': propertyType = 'Townhouse'; break;
+                            default: propertyType = 'Unknown';
+                        }
 
-                    // Construct management data
-                    const management = {
-                        owner: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('name')?.[0]?.textContent || '',
-                        assignedUser: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('email')?.[0]?.textContent || '',
-                        agentPhone: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('phone')?.[0]?.textContent || '',
-                        agentLicenseNo: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('license_no')?.[0]?.textContent || '',
-                        agentPhoto: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('photo')?.[0]?.textContent || ''
-                    };
+                        const rawAmenities = property.getElementsByTagName('amenities')?.[0]?.textContent.split(',') || [];
+                        const amenities = rawAmenities.map(code => amenitiesMapping[code.trim()] || code.trim());
 
-                    // Construct pricing data
-                    const pricing = {
-                        salePrice: parseFloat(property.getElementsByTagName('price')?.[0]?.textContent || '0'),
-                        price: parseFloat(property.getElementsByTagName('price')?.[0]?.textContent || '0'),
-                        priceOnApplication: property.getElementsByTagName('price_on_application')?.[0]?.textContent || 'No',
-                        rentalPeriod: property.getElementsByTagName('rental_period')?.[0]?.textContent || null,
-                    };
+                        const city = property.getElementsByTagName('city')?.[0]?.textContent || '';
+                        const community = property.getElementsByTagName('community')?.[0]?.textContent || '';
+                        const subCommunity = property.getElementsByTagName('sub_community')?.[0]?.textContent || '';
+                        const propertyName = property.getElementsByTagName('property_name')?.[0]?.textContent || '';
 
-                    // Construct furnished status
-                    const furnished = property.getElementsByTagName('furnished')?.[0]?.textContent || 'No';
+                        const location = {
+                            unitNo: property.getElementsByTagName('unit_number')?.[0]?.textContent || '',
+                            address: `${propertyName}, ${subCommunity}, ${community}, ${city}`,
+                            geoPoint: {
+                                lat: parseFloat(property.getElementsByTagName('geopoints')?.[0]?.textContent.split(',')[1]) || 0,
+                                lng: parseFloat(property.getElementsByTagName('geopoints')?.[0]?.textContent.split(',')[0]) || 0
+                            }
+                        };
 
-                    // Construct parking data
-                    const parking = property.getElementsByTagName('parking')?.[0]?.textContent || '0';
+                        const media = {
+                            images: Array.from(property.getElementsByTagName('url')).map(url => url?.textContent || ''),
+                            videoTour: property.getElementsByTagName('video_tour')?.[0]?.textContent || '',
+                            tour360: property.getElementsByTagName('tour_360')?.[0]?.textContent || '',
+                        };
 
-                    // Create a property object based on XML data
-                    const propertyData = {
-                        title,
-                        referenceNumber,
-                        offeringType,
-                        propertyType,
-                        description: property.getElementsByTagName('description_en')?.[0]?.textContent || '',
-                        bedrooms: parseInt(property.getElementsByTagName('bedroom')?.[0]?.textContent || '0'),
-                        bathrooms: parseInt(property.getElementsByTagName('bathroom')?.[0]?.textContent || '0'),
-                        amenities, // Use the mapped amenities
-                        size: parseFloat(property.getElementsByTagName('size')?.[0]?.textContent || '0'),
-                        completionStatus: property.getElementsByTagName('completion_status')?.[0]?.textContent || '',
-                        city, // Add city to property data
-                        community, // Add community to property data
-                        subCommunity, // Add sub_community to property data
-                        propertyName, // Add property_name to property data
-                        location,
-                        media,
-                        permit,
-                        management,
-                        pricing,
-                        furnished,
-                        parking
-                    };
+                        const permit = {
+                            reraListingNo: permitNumber,
+                            dtcmPermitNo: 'N/A',
+                            permitFromDate: null,
+                            permitToDate: null,
+                            type: 'RERA'
+                        };
 
-                    // Add to Firebase batch
-                    const docRef = db.collection('propertyListings').doc(permitNumber);
-                    batch.set(docRef, propertyData);
-                    addedProperties.push(title);
+                        const management = {
+                            owner: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('name')?.[0]?.textContent || '',
+                            assignedUser: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('email')?.[0]?.textContent || '',
+                            agentPhone: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('phone')?.[0]?.textContent || '',
+                            agentLicenseNo: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('license_no')?.[0]?.textContent || '',
+                            agentPhoto: property.getElementsByTagName('agent')?.[0]?.getElementsByTagName('photo')?.[0]?.textContent || ''
+                        };
 
-                    // Update progress bar
-                    const progress = Math.round(((i + 1) / properties.length) * 100);
-                    updateProgressBar(progress);
+                        const pricing = {
+                            salePrice: parseFloat(property.getElementsByTagName('price')?.[0]?.textContent || '0'),
+                            price: parseFloat(property.getElementsByTagName('price')?.[0]?.textContent || '0'),
+                            priceOnApplication: property.getElementsByTagName('price_on_application')?.[0]?.textContent || 'No',
+                            rentalPeriod: property.getElementsByTagName('rental_period')?.[0]?.textContent || null,
+                        };
+
+                        const furnished = property.getElementsByTagName('furnished')?.[0]?.textContent || 'No';
+                        const parking = property.getElementsByTagName('parking')?.[0]?.textContent || '0';
+
+                        const propertyData = {
+                            title,
+                            referenceNumber,
+                            offeringType,
+                            propertyType,
+                            description: property.getElementsByTagName('description_en')?.[0]?.textContent || '',
+                            bedrooms: parseInt(property.getElementsByTagName('bedroom')?.[0]?.textContent || '0'),
+                            bathrooms: parseInt(property.getElementsByTagName('bathroom')?.[0]?.textContent || '0'),
+                            amenities,
+                            size: parseFloat(property.getElementsByTagName('size')?.[0]?.textContent || '0'),
+                            completionStatus: property.getElementsByTagName('completion_status')?.[0]?.textContent || '',
+                            city,
+                            community,
+                            subCommunity,
+                            propertyName,
+                            location,
+                            media,
+                            permit,
+                            management,
+                            pricing,
+                            furnished,
+                            parking,
+                            offplan // Add the offplan field to the property data
+                        };
+
+                        const docRef = db.collection('propertyListings').doc(permitNumber);
+                        batch.set(docRef, propertyData);
+                        addedProperties.push(title);
+
+                        const progress = Math.round(((i + 1) / properties.length) * 100);
+                        updateProgressBar(progress);
+                    } catch (err) {
+                        console.error(`Error processing property ${i + 1}:`, err);
+                        continue;
+                    }
                 }
 
-                // Commit the batch write
                 await batch.commit();
-
-                // Show added properties
                 displayAddedProperties(addedProperties);
-
-                // Highlight duplicates in red
                 if (duplicateProperties.length > 0) {
                     displayDuplicateProperties(duplicateProperties);
                 }
@@ -2676,10 +2685,107 @@
                 list.appendChild(listItem);
             });
         }
+        //Load the form data here 
+        document.addEventListener('DOMContentLoaded', function () {
+            const enquiriesTableBody = document.getElementById('enquiries-table-body');
+            const contactFormSection = document.getElementById('ContactFormData');
+
+            // Function to fetch data from Firestore and populate the table
+            function fetchEnquiries() {
+                db.collection('contactFormSubmissions')
+                    .get()
+                    .then((querySnapshot) => {
+                        // Clear the table before adding new data
+                        enquiriesTableBody.innerHTML = '';
+
+                        // Check if there is any data in the collection
+                        if (querySnapshot.empty) {
+                            enquiriesTableBody.innerHTML = '<tr><td colspan="5" class="text-center">No enquiries found</td></tr>';
+                            return;
+                        }
+
+                        // Iterate through each document in the collection
+                        querySnapshot.forEach((doc) => {
+                            const data = doc.data();
+
+                            // Create a new table row with the enquiry data
+                            const row = `
+            <tr>
+              <td>${data.name || 'N/A'}</td>
+              <td>${data.email || 'N/A'}</td>
+              <td>${data.phone || 'N/A'}</td>
+              <td>${data.enquiryTitle || 'N/A'}</td>
+              <td>${data.propertyTitle || 'N/A'}</td>
+            </tr>
+          `;
+
+                            // Append the new row to the table body
+                            enquiriesTableBody.insertAdjacentHTML('beforeend', row);
+                        });
+
+                        // Show the section with the table after data is loaded
+                        contactFormSection.style.display = 'block';
+                    })
+                    .catch((error) => {
+                        console.error('Error fetching enquiries: ', error);
+                    });
+            }
+
+            // Call the fetch function to load the enquiries when the page loads
+            fetchEnquiries();
+        });
+
 
     </script>
 
+    <style>
+        /* Add this CSS to handle the sidebar width and prevent overlap */
+        @media (min-width: 992px) {
+            #sidebarMenu {
+                width: 240px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                z-index: 999;
+                /* Ensure it appears above the content */
+                background-color: #fff;
+                /* Add background color */
+            }
 
+            #main-navbar {
+                margin-left: 240px;
+                /* Adjust the navbar to account for the sidebar */
+            }
+
+            main {
+                margin-left: 240px;
+                /* Adjust the main content area */
+                padding: 20px;
+                /* Add some padding for spacing */
+            }
+        }
+
+        @media (max-width: 991px) {
+
+            /* On smaller screens, collapse the sidebar */
+            #sidebarMenu {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            #main-navbar {
+                margin-left: 0;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 15px;
+                /* Add padding for mobile responsiveness */
+            }
+        }
+    </style>
 
 </body>
 

@@ -62,16 +62,20 @@
               class="fa-solid fa-close btn-close m-auto"></i></span>
         </button>
         <li><a class="menuItem" href="#"><img src="images/home.svg" class="me-2" /> Home</a></li>
-        <li><a class="menuItem" href="#"><img src="images/building.svg" class="me-2" /> Off-plan</a></li>
-        <li><a class="menuItem" href="#"><img src="images/resale.svg" class="me-2" /> Resale</a></li>
+        <li><a class="menuItem" href="Off-plan-page.html"><img src="images/building.svg" class="me-2" /> Off-plan</a>
+        </li>
+        <li><a class="menuItem" href="property-listing.html?offering_type=RS" id="navbarLink1"><img
+              src="images/resale.svg" class="me-2" />Resale</a>
+        </li>
         <li><a class="menuItem" href="#"><img src="images/rent.svg" class="me-2" /> Rent</a></li>
         <li>
           <hr class="me-3" />
         </li>
         <li><a class="menuItem" href="#"><img src="images/video.svg" class="me-2" /> Video </a></li>
-        <li><a class="menuItem" href="#"><img src="images/trending.svg" class="me-2" /> Trending</a></li>
+        <!-- <li><a class="menuItem" href="#"><img src="images/trending.svg" class="me-2" /> Trending</a></li> -->
         <li><a class="menuItem" href="#"><img src="images/sell-with-us.svg" class="me-2" /> Sell With Us</a></li>
-        <li><a class="menuItem" href="#"><img src="images/contact.svg" class="me-2" /> Contact</a></li>
+        <li><a class="menuItem" data-bs-title="Contact Us" href="#"><img src="images/contact.svg" class="me-2" />
+            Contact</a></li>
         <li><a class="menuItem" href="#"><img src="images/saved.svg" class="me-2" /> Saved</a></li>
       </ul>
     </div>
@@ -83,12 +87,10 @@
     <div class="wrapper-header">
       <header class="bg-coustom">
         <!-- Navbar -->
-
-
         <nav
           class="navbar fixed-top navbar-expand-lg shadow-none navbar-light nav-coustom navBar-elysian py-lg-3 z-index-nav-m">
           <!-- Container wrapper -->
-          <div class="container">
+          <div class="container ">
             <aside class="aside-cls">
               <div class="col position-relative">
                 <button class="hamburger">
@@ -118,69 +120,12 @@
               <ul class="navbar-nav mb-2 mb-lg-0 me-lg-4 top-nav-elx-flag top-nav-elx-none d-block d-lg-none">
 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">OFF-PLAN properties</a>
+                  <a class="nav-link" href="Off-plan-page.html">OFF-PLAN properties</a>
                 </li>
                 <li class="nav-item dropdown position-static">
                   <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                     data-mdb-toggle="dropdown" aria-expanded="false">Resale</a>
-                  <!-- Dropdown menu -->
-                  <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
-                              border-top-left-radius: 0;
-                              border-top-right-radius: 0;
-                            ">
-                    <div class="container">
-                      <div class="row my-4 room bg-white row-cols-1  row-cols-md-2 row-cols-lg-4">
-                        <div class="col">
-                          <h5>Top Regions</h5>
-                          <ul class="p-0">
-                            <li> <a href="#"> Texas, USA </a></li>
-                            <li> <a href="#"> California, USA </a></li>
-                            <li> <a href="#"> Hamptons, NY, USA </a></li>
-                            <li> <a href="#"> Florida, USA </a></li>
-                            <li> <a href="#"> North Carolina, USA </a></li>
-                            <li> <a href="#"> Georgia, USA </a></li>
-                            <li> <a href="#"> Illinois, USA </a></li>
-                          </ul>
-                        </div>
-                        <div class="col">
-                          <h5>Top Cities</h5>
-                          <ul class="p-0">
-                            <li> <a href="#"> Los Angeles </a></li>
-                            <li> <a href="#"> New York </a></li>
-                            <li> <a href="#"> Miami </a></li>
-                            <li> <a href="#"> Beverly Hills </a></li>
-                            <li> <a href="#"> Chicago </a></li>
-                            <li> <a href="#"> San Francisco </a></li>
-                            <li> <a href="#"> San Diego </a></li>
-                          </ul>
-                        </div>
-                        <div class="col">
-                          <h5>Property Types</h5>
-                          <ul class="p-0">
-                            <li> <a href="#"> Apartments in United States </a></li>
-                            <li> <a href="#"> Houses in United States </a></li>
-                            <li> <a href="#"> Villas in United States </a></li>
-                            <li> <a href="#"> Land in United States </a></li>
-                            <li> <a href="#"> Co-Ops in United States</a></li>
-                            <li> <a href="#"> Condos United States </a></li>
-                            <li> <a href="#"> Townhouses in United States </a></li>
-                          </ul>
-                        </div>
-                        <div class="col">
-                          <h5>Top Searches</h5>
-                          <ul class="p-0">
-                            <li> <a href="#"> Farm Ranches in United States </a></li>
-                            <li> <a href="#"> Penthouses in United States </a></li>
-                            <li> <a href="#"> Waterfront homes in United States</a></li>
-                            <li> <a href="#"> Farm Ranches in Texas, USA </a></li>
-                            <li> <a href="#"> Homes in Manhattan</a></li>
-                            <li> <a href="#"> Houses in Los Angeles </a></li>
-                            <li> <a href="#"> Apartments in New York </a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
                 </li>
                 <li class="nav-item">
                   <a class="nav-link"> Rent</a>
@@ -192,8 +137,10 @@
               <!-- Left links -->
 
               <div class="d-flex align-items-center justify-content-lg-end justify-content-center">
-                <button class="btn  py-2 navActionBtn me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Sell
-                  your property</button>
+                <button id="sellPropertyBtn" data-bs-title="Sell your property" class="btn py-2 navActionBtn me-2">
+                  Sell your property
+                </button>
+
                 <!-- <button type="button" class="btn navActionBtn">Book Valuation</button> -->
                 <a href="#" class="btn phone-btn shadow-none ">
                   <img src="images/whatsaap-ico.svg" class="whatsaap-ico">
@@ -208,7 +155,7 @@
         <nav
           class="navbar white-nav-text d-none d-lg-block bot-nav-elx fixed-top navbar-expand-lg shadow-none navbar-light nav-coustom nav-elx navBar-elysian py-lg-1">
           <!-- Container wrapper -->
-          <div class="container">
+          <div class="container ps-lg-5 ps-md-4">
             <!-- Toggle button -->
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
               data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
@@ -234,75 +181,16 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">OFF-PLAN properties</a>
-                </li>
-                <li class="nav-item dropdown position-static">
-                  <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown1" role="button"
-                    data-mdb-toggle="dropdown" aria-expanded="false">Resale</a>
-                  <!-- Dropdown menu -->
-                  <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
-                              border-top-left-radius: 0;
-                              border-top-right-radius: 0;
-                            ">
-                    <div class="container">
-                      <div class="row my-4 room bg-white row-cols-1  row-cols-md-2 row-cols-lg-4">
-                        <div class="col">
-                          <h5>Top Regions</h5>
-                          <ul class="p-0">
-                            <li> <a href="#"> Texas, USA </a></li>
-                            <li> <a href="#"> California, USA </a></li>
-                            <li> <a href="#"> Hamptons, NY, USA </a></li>
-                            <li> <a href="#"> Florida, USA </a></li>
-                            <li> <a href="#"> North Carolina, USA </a></li>
-                            <li> <a href="#"> Georgia, USA </a></li>
-                            <li> <a href="#"> Illinois, USA </a></li>
-                          </ul>
-                        </div>
-                        <div class="col">
-                          <h5>Top Cities</h5>
-                          <ul class="p-0">
-                            <li> <a href="#"> Los Angeles </a></li>
-                            <li> <a href="#"> New York </a></li>
-                            <li> <a href="#"> Miami </a></li>
-                            <li> <a href="#"> Beverly Hills </a></li>
-                            <li> <a href="#"> Chicago </a></li>
-                            <li> <a href="#"> San Francisco </a></li>
-                            <li> <a href="#"> San Diego </a></li>
-                          </ul>
-                        </div>
-                        <div class="col">
-                          <h5>Property Types</h5>
-                          <ul class="p-0">
-                            <li> <a href="#"> Apartments in United States </a></li>
-                            <li> <a href="#"> Houses in United States </a></li>
-                            <li> <a href="#"> Villas in United States </a></li>
-                            <li> <a href="#"> Land in United States </a></li>
-                            <li> <a href="#"> Co-Ops in United States</a></li>
-                            <li> <a href="#"> Condos United States </a></li>
-                            <li> <a href="#"> Townhouses in United States </a></li>
-                          </ul>
-                        </div>
-                        <div class="col">
-                          <h5>Top Searches</h5>
-                          <ul class="p-0">
-                            <li> <a href="#"> Farm Ranches in United States </a></li>
-                            <li> <a href="#"> Penthouses in United States </a></li>
-                            <li> <a href="#"> Waterfront homes in United States</a></li>
-                            <li> <a href="#"> Farm Ranches in Texas, USA </a></li>
-                            <li> <a href="#"> Homes in Manhattan</a></li>
-                            <li> <a href="#"> Houses in Los Angeles </a></li>
-                            <li> <a href="#"> Apartments in New York </a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <a class="nav-link" href="Off-plan-page.html">OFF-PLAN properties</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link">Rent</a>
+                  <a class="nav-link" href="property-listing.html?offering_type=RS" id="navbarLink1">Resale</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Contact us</a>
+                  <a class="nav-link" href="property-listing.html?offering_type=RR">Rent</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-title="Contact us" href="#">Contact us</a>
                 </li>
               </ul>
               <!-- Left links -->
@@ -324,12 +212,12 @@
               <div class="row">
                 <div
                   class="carousel-caption position-absolute banner-title start-0 translate-middle-y d-block d-md-block">
-                  <div class="position-absolute top-50 w-100 start-0 translate-middle-y">
+                  <div class="position-absolute top-50 w-100 start-0 translate-middle-y ps-lg-5 ps-md-4">
                     <div class="container">
                       <div>
                         <h2 class="my-3">The Best Way To Find<br /> Your Perfect Home.</h5>
-                          <P class="mb-lg-5">ONE SEARCH • 400+ LISTINGS • 1000+ TRUSTED SELLERS • UAE No. 1 Real Estate
-                            Brokers</P>
+                          <P class="mb-lg-5">ONE SEARCH • 100+ LISTINGS • 80+ TRUSTED BUYERS • UAE Best Boutque Real
+                            Estate Agency</P>
                       </div>
                     </div>
                   </div>
@@ -380,7 +268,7 @@
     </div>
   </div>
   <section class="featured-sec pt-4 pt-lg-5 pb-4 pb-lg-5">
-    <div class="container">
+    <div class="container ps-lg-5 ps-md-4">
       <div class="row">
         <h2 class="mb-3 mb-lg-4">Featured Categories</h2>
 
@@ -460,33 +348,7 @@
     </div>
   </section>
 
-
-
-
-  <section class="comunities">
-    <div class="container">
-      <div class="row">
-        <div class="position-relative slider-owl ">
-          <h2 class=" mb-3 mb-lg-5">Major Communities</h2>
-          <div class="owl-carousel owl-theme" id="community-carousel">
-            <!-- Dynamic items will be injected here -->
-          </div>
-          <div class="owl-nav">
-            <!-- Navigation buttons will be automatically added here by Owl Carousel -->
-          </div>
-          <div class="col-12 text-center">
-            <button class="btn py-2 black-btn my-3 my-lg-4" onclick="window.location.href='property-listing.html'">View
-              all projects</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-
+  <!--
 
   <section class="trending">
     <div class="container-fluid">
@@ -570,10 +432,33 @@
       </div>
     </div>
   </section>
+
+-->
+
+  <section class="comunities">
+    <div class="container ps-lg-5 ps-md-4">
+      <div class="row">
+        <div class="position-relative slider-owl ">
+          <h2 class=" mb-3 mb-lg-5">Major Communities</h2>
+          <div class="owl-carousel owl-theme" id="community-carousel">
+            <!-- Dynamic items will be injected here -->
+          </div>
+          <div class="owl-nav">
+            <!-- Navigation buttons will be automatically added here by Owl Carousel -->
+          </div>
+          <div class="col-12 text-center">
+            <button class="btn py-2 black-btn my-3 my-lg-4" onclick="window.location.href='property-listing.html'">View
+              all projects</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Instagram Page -->
 
   <section class="stay-know py-5">
-    <div class="container">
+    <div class="container ps-lg-5 ps-md-4">
       <div class="row py-5">
         <div class="col-12 col-lg-6">
           <h2 class="m-center">Stay In The Know</h2>
@@ -592,10 +477,34 @@
       </div>
     </div>
   </section>
+  <style>
+    .comunities {
+      margin-bottom: 0rem;
+      /* Ensure no extra margin below this section */
+    }
 
+    .stay-know {
+      padding-top: 1rem !important;
+      /* Reduce top padding */
+      margin-top: 0 !important;
+      /* Remove any margin */
+    }
+
+    .py-5 {
+      padding-top: 1rem !important;
+      /* Reduce padding to 1rem */
+      padding-bottom: 3rem !important;
+      /* Keep bottom padding if desired */
+    }
+
+    .comunities+.stay-know {
+      margin-top: -1rem;
+      /* Use negative margin if you still see a gap */
+    }
+  </style>
   <!-- Instagram Page -->
   <footer class="pt-3 pt-md-4 pb-2 pt-lg-5">
-    <div class="container">
+    <div class="container ps-lg-5 ps-md-4">
       <div class="row">
         <div class="col-12 col-lg-12 m-venter">
           <img src="images/foot-logo.svg" class="my-4 foot-logo" />
@@ -614,23 +523,23 @@
             <div class="col">
               <h3 class="my-4">Categories</h3>
               <ul class="p-0">
-                <li class="mb-1 mb-lg-2"> <a href="#"> Apartments </a></li>
-                <li class="mb-1 mb-lg-2"> <a href="#">Penthouses</a></li>
-                <li class="mb-1 mb-lg-2"> <a href="#">Townhouses</a></li>
-                <li class="mb-1 mb-lg-2"> <a href="#">Villas</a></li>
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?category=Apartment"> Apartments </a></li>
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?category=Penthouse">Penthouses</a></li>
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?category=Townhouse">Townhouses</a></li>
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?category=Villa">Villas</a></li>
               </ul>
             </div>
             <div class="col">
               <h3 class="my-4">Explore</h3>
               <ul class="p-0">
-                <li class="mb-1 mb-lg-2"> <a href="#"> Off plan Projects</a></li>
-                <li class="mb-1 mb-lg-2"> <a href="#">Resale</a></li>
-                <li class="mb-1 mb-lg-2"> <a href="#">Rent</a></li>
-                
+                <li class="mb-1 mb-lg-2"> <a href="Off-plan-page.html"> Off plan Projects</a></li>
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?offering_type=RS" id="navbarLink1">Resale</a>
+                </li>
+                <li class="mb-1 mb-lg-2"> <a href="property-listing.html?offering_type=RR">Rent</a></li>
                 <li class="mb-1 mb-lg-2"> <a href="#">Blog</a></li>
               </ul>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -640,14 +549,14 @@
     </div>
   </footer>
   <section class="py-2 py-md-3 after-footer">
-    <div class="container">
+    <div class="container ps-lg-5 ps-md-4">
       <div class="row">
         <div class="col-12 col-md-9 mb-3">
           <ul class="p-0 d-block d-md-flex justify-content-center justify-content-md-start">
             <li class="tearms m-center"><a class="pe-2" href="#" target="_blank">Terms & Conditions</a></li>
             <li class="tearms m-center py-3 py-md-0"><a href="#" class="px-2" target="_blank"> Privacy & Cookies</a>
             </li>
-            <li class="ps-2 m-center"> Copyright © Elysian 2022 . All Rights Reserved</li>
+            <li class="ps-2 m-center"> Copyright © elxproperties 2024 . All Rights Reserved</li>
           </ul>
 
         </div>
@@ -655,19 +564,24 @@
 
         <div class="col-12 col-md-3 text-center">
           <ul class="d-flex justify-content-center justify-content-md-end p-0 soc-ico-ul">
-            <li class="soc-ico px-md-1 px-2"> <a href="#" class="px-0" target="_blank">
+            <li class="soc-ico px-md-1 px-2"> <a href="https://www.instagram.com/elxproperties/" class="px-0"
+                target="_blank">
                 <img src="images/insta-ico.svg" class="" alt="" />
               </a></li>
-            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="#" class="px-0" target="_blank">
+            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="https://www.facebook.com/elxproperties" class="px-0"
+                target="_blank">
                 <img src="images/fb-ico.svg" class="" alt="" />
                 </i></a></li>
-            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="#" target="_blank" class="px-0">
+            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="https://www.tiktok.com/@elx_properties" target="_blank"
+                class="px-0">
                 <img src="images/ticktok-ico.svg" class="" alt="" />
               </a></li>
-            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="#" class="px-0" target="_blank">
+            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="https://www.linkedin.com/company/elx-properties"
+                class="px-0" target="_blank">
                 <img src="images/linked-in-ico.svg" class="" alt="" />
               </a></li>
-            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="#" class="px-0" target="_blank">
+            <li class="soc-ico px-xl-2 px-md-1 px-2"> <a href="www.youtube.com/@elxproperties" class="px-0"
+                target="_blank">
                 <img src="images/youtub-ico.svg" class="" alt="" />
               </a></li>
           </ul>
@@ -680,77 +594,87 @@
   <a class="scroll-top-arrow wave" style="display: none;"> <i class="fa fa-angle-up"></i> </a>
   <!-- modal -->
   <!--  -->
-
-  <div class="modal fade modal-cls" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <!--
+  <div class="modal fade" id="contactFormModal" tabindex="-1" aria-labelledby="contactFormModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content desk-cont">
+      <div class="modal-content">
         <div class="modal-header pb-0 border-0">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body l-side py-3 py-lg-4 px-3 px-md-5 l-side">
+        <div class="modal-body py-3 py-lg-4 px-3 px-md-5">
           <div class="row">
-            <!-- <div class="col-12 mb-3">
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Sale</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div> -->
-            <h2 class="mb-3 text-center">How can the agent send <br />
-              you the floor plan</h2>
+            <h2 class="mb-3 text-center">How can the agent send<br />you the floor plan</h2>
+            
+            Name Field 
             <div class="col-12 mb-3">
-              <input type="text" class="form-control  custom-sell-height" placeholder="Name*" id="#">
+              <input type="text" class="form-control custom-sell-height" placeholder="Name*" id="contactFormName" required>
+              <div class="invalid-feedback">Please enter your name.</div>
             </div>
+  
+         Email Field 
             <div class="col-12 mb-3">
-              <input type="email" class="form-control  custom-sell-height" placeholder="Email*" id="#">
+              <input type="email" class="form-control custom-sell-height" placeholder="Email*" id="contactFormEmail" required>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
             </div>
-
+  
+             Phone Field with Country Dropdown 
             <div class="col-12 mb-3">
-              <div class=" d-flex">
+              <div class="d-flex">
                 <div class="dropdown dropdown-customm custom-sell-height border-end-0 d-flex">
-                  <div class="dropdown__skeleton  rounded-0">
+                  <div class="dropdown__skeleton rounded-0">
                     <div class="dropdown__selected dropdown__option"><img src="images/uae.svg" alt="UAE"></div>
-
                     <div class="dropdown__arrow"></div>
                   </div>
-
+            
                   <div class="dropdown__options">
-                    <div class="dropdown__option dropdown__option--selected"><img src="images/uae.svg" alt="UAE">
-                    </div>
-
+                    <div class="dropdown__option dropdown__option--selected"><img src="images/uae.svg" alt="UAE"></div>
                     <div class="dropdown__option"><img src="images/us.png" alt="U.S."></div>
-
                     <div class="dropdown__option"><img src="images/france.png" alt="France"></div>
-
                     <div class="dropdown__option"><img src="images/spain.png" alt="Spain"></div>
-
                     <div class="dropdown__option"><img src="images/germsny.png" alt="Germany"></div>
                   </div>
                 </div>
-                <input type="text" class="form-control border-start-0  rounded-0 dropdown-text ps-0"
-                  placeholder="Phone*" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <input type="tel" class="form-control border-start-0 rounded-0 dropdown-text ps-0"
+                  placeholder="Phone*" id="contactFormPhone" aria-label="Example text with button addon"
+                  aria-describedby="button-addon1" required>
               </div>
             </div>
+            
+            
+  
+            Submit Button 
             <div class="col-12 my-3 my-md-4">
-              <a type="Sumbit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn mt-4 mt-lg-0">
-                Request to Call Back</a>
+              <button type="submit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn" id="submitContactForm" disabled>
+                Request to Call Back
+              </button>
             </div>
-            <div class="col-12 ">
+  
+            Additional Options 
+            <div class="col-12">
               <ul class="p-0">
-                <li class="my-1"> <img src="images/tick.svg" class="" alt=""> Notify me via email when similar listing
-                  appear.</li>
-                <li class="my-1"> <img src="images/tick.svg" class="" alt=""> A agree to Terms of use and Privacy
-                  Policy.</li>
+                <li class="my-1">
+                  <label>
+                    <input type="checkbox" id="notifyByEmail" class="me-2"> Notify me via email when similar listings appear.
+                  </label>
+                </li>
+                <li class="my-1">
+                  <label>
+                    <input type="checkbox" id="agreeToTerms" class="me-2" required> I agree to the Terms of Use and Privacy Policy.
+                  </label>
+                  <div class="invalid-feedback">You must agree to the terms and privacy policy.</div>
+                </li>
               </ul>
             </div>
+  
           </div>
         </div>
       </div>
     </div>
   </div>
-
+-->
+  <!-- In your main HTML files -->
+  <div id="contactFormContainer"></div>
+  <!-- In your main HTML files -->
   <section class="py-2 d-md-none d-block m-fixed w-100 start-0">
     <div class="container">
       <div class="row">
@@ -839,10 +763,6 @@
 
   </script>
 
-
-
-
-
   <script>
     document.addEventListener('DOMContentLoaded', async function () {
       console.log('DOM fully loaded and parsed.');
@@ -868,43 +788,65 @@
         // Reference to the carousel container
         const carouselContainer = document.getElementById('community-carousel');
         let carouselItems = '';
+        let itemCount = 0;
+        let itemGroup = '';
 
-        // Create HTML for each community dynamically
+        // Create HTML for each community dynamically in groups of 6 (2 rows, 3 items per row)
         for (let communityName in communities) {
           const listingCount = communities[communityName].count;
           const imageUrl = communities[communityName].image;
-          carouselItems += `
-                  <div class="item">
-                      <div class="col-12 mb-3">
-                          <a href="property-listing.html?community=${encodeURIComponent(communityName)}">
-                              <div class="card card-villa position-relative border">
+
+          // Add community card HTML
+          itemGroup += `
+          <div class="col-4 mb-3">
+              <a href="property-listing.html?community=${encodeURIComponent(communityName)}">
+                  <div class="card card-villa position-relative border">
+                      <div class="row">
+                          <div class="col-4 d-flex">
+                              <img src="${imageUrl}" class="card-img-top object-fit-cover" alt="${communityName}">
+                          </div>
+                          <div class="col-8">
+                              <div class="card-body px-0">
+                                  <h5 class="card-title py-2">${communityName}</h5>
                                   <div class="row">
-                                      <div class="col-4 d-flex">
-                                          <img src="${imageUrl}" class="card-img-top object-fit-cover" alt="${communityName}">
+                                      <div class="col-9">
+                                          <h4>${listingCount} Listings</h4>
                                       </div>
-                                      <div class="col-8">
-                                          <div class="card-body px-0">
-                                              <h5 class="card-title py-2">${communityName}</h5>
-                                              <div class="row">
-                                                  <div class="col-9">
-                                                      <h4>${listingCount} Listings</h4>
-                                                  </div>
-                                                  <div class="col-3">
-                                                      <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                                  </div>
-                                              </div>
-                                          </div>
+                                      <div class="col-3">
+                                          <i class="fas fa-arrow-right" aria-hidden="true"></i>
                                       </div>
                                   </div>
                               </div>
-                          </a>
+                          </div>
                       </div>
                   </div>
-              `;
+              </a>
+          </div>
+        `;
+
+          itemCount++;
+
+          // Every 3 items, wrap them in a row
+          if (itemCount % 3 === 0) {
+            carouselItems += `<div class="row">${itemGroup}</div>`;
+            itemGroup = ''; // Reset itemGroup for the next row
+          }
+
+          // Every 6 items (2 rows), wrap them in a slide
+          if (itemCount % 6 === 0) {
+            carouselItems = `<div class="item">${carouselItems}</div>`;
+            carouselContainer.insertAdjacentHTML('beforeend', carouselItems);
+            carouselItems = ''; // Reset carouselItems for the next slide
+          }
         }
 
-        // Inject items into the carousel container
-        carouselContainer.innerHTML = carouselItems;
+        // If there are leftover items that don’t complete a group of 6, append them
+        if (itemGroup !== '') {
+          carouselItems += `<div class="row">${itemGroup}</div>`;
+        }
+        if (carouselItems !== '') {
+          carouselContainer.insertAdjacentHTML('beforeend', `<div class="item">${carouselItems}</div>`);
+        }
 
         // Initialize Owl Carousel with settings
         $(carouselContainer).owlCarousel({
@@ -912,16 +854,16 @@
           margin: 10,
           nav: true,
           dots: false,
-          items: 3, // 3 items per row
+          items: 1, // Show one group of 6 items (2 rows of 3 items) per view
           responsive: {
             0: {
-              items: 1 // 1 item per row on small screens
+              items: 1 // 1 group per view on small screens
             },
             600: {
-              items: 2 // 2 items per row on medium screens
+              items: 1 // 1 group per view on medium screens
             },
             1000: {
-              items: 3 // 3 items per row on large screens
+              items: 1 // 1 group per view on large screens
             }
           },
           navText: [
@@ -930,121 +872,320 @@
           ]
         });
 
-        // Instagram DOM Manipulation
-        // Delay the execution to ensure the widget is fully loaded
-        setTimeout(function () {
-          // Remove the unwanted anchor tag
-          const unwantedLink = document.querySelector('a[href*="elfsight.com/instagram-feed-instashow"]');
-          if (unwantedLink) {
-            unwantedLink.remove();
-          }
-
-          // Remove the entire div containing the toolbar panel
-          const toolbarPanel = document.querySelector('.eapps-widget-toolbar-panel');
-          if (toolbarPanel) {
-            toolbarPanel.remove();
-          }
-        }, 2000); // Adjust the delay time as necessary
-
       } catch (error) {
         console.error('Error fetching community data:', error);
       }
     });
   </script>
 
-
-
-
-
-
-
   <!-- Dynamic dropdown  UAE scripts -->
   <script>
-document.addEventListener('DOMContentLoaded', async function () {
-  try {
-    // Step 1: Fetch and aggregate community data
-    const communities = {};
+    document.addEventListener('DOMContentLoaded', async function () {
+      try {
+        // Step 1: Fetch and aggregate community data
+        const communities = {};
 
-    const querySnapshot = await db.collection('propertyListings').get();
-    querySnapshot.forEach((doc) => {
-      const data = doc.data();
-      const community = data.community;
-      if (community) {
-        if (!communities[community]) {
-          communities[community] = 0;
-        }
-        communities[community]++;
-      }
-    });
+        const querySnapshot = await db.collection('propertyListings').get();
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const community = data.community;
+          if (community) {
+            if (!communities[community]) {
+              communities[community] = 0;
+            }
+            communities[community]++;
+          }
+        });
 
-    console.log("Aggregated Communities Data:", communities);
+        console.log("Aggregated Communities Data:", communities);
 
-    // Step 2: Sort communities by the number of listings
-    const sortedCommunities = Object.entries(communities).sort((a, b) => b[1] - a[1]);
+        // Step 2: Sort communities by the number of listings
+        const sortedCommunities = Object.entries(communities).sort((a, b) => b[1] - a[1]);
 
-    console.log("Sorted Communities:", sortedCommunities);
+        console.log("Sorted Communities:", sortedCommunities);
 
-    // Step 3: Generate the dropdown content
-    const uaeDropdownContainer = document.querySelector('#navbarDropdown + .dropdown-menu .row');
+        // Step 3: Generate the dropdown content
+        const uaeDropdownContainer = document.querySelector('#navbarDropdown + .dropdown-menu .row');
 
-    if (uaeDropdownContainer) {
-      console.log("UAE Dropdown Container found:", uaeDropdownContainer);
+        if (uaeDropdownContainer) {
+          console.log("UAE Dropdown Container found:", uaeDropdownContainer);
 
-      let dropdownItems = '<div class="col-12 col-md-6 col-lg-3"><h5 class="my-2">Communities</h5></div>';
+          let dropdownItems = '<div class="col-12 col-md-6 col-lg-3"><h5 class="my-2">Communities</h5></div>';
 
-      // Insert empty rows for the second, third, and fourth columns first
-      dropdownItems += `
+          // Insert empty rows for the second, third, and fourth columns first
+          dropdownItems += `
         <div class="col-12 col-md-6 col-lg-3"><li style="visibility: hidden;">&nbsp;</li></div>
         <div class="col-12 col-md-6 col-lg-3"><li style="visibility: hidden;">&nbsp;</li></div>
         <div class="col-12 col-md-6 col-lg-3"><li style="visibility: hidden;">&nbsp;</li></div>`;
 
-      // Now add the community entries, 4 per row
-      sortedCommunities.forEach((community, index) => {
-        const [communityName, listingCount] = community;
+          // Now add the community entries, 4 per row
+          sortedCommunities.forEach((community, index) => {
+            const [communityName, listingCount] = community;
 
-        // Add community to the respective column
-        dropdownItems += `<div class="col-12 col-md-6 col-lg-3"><li><a href="property-listing.html?community=${encodeURIComponent(communityName)}">${communityName} (${listingCount})</a></li></div>`;
-      });
+            // Add community to the respective column
+            dropdownItems += `<div class="col-12 col-md-6 col-lg-3"><li><a href="property-listing.html?community=${encodeURIComponent(communityName)}">${communityName} (${listingCount})</a></li></div>`;
+          });
 
-      console.log("Generated Dropdown HTML:", dropdownItems);
+          console.log("Generated Dropdown HTML:", dropdownItems);
 
-      // Step 4: Inject the content into the DOM
-      uaeDropdownContainer.insertAdjacentHTML('beforeend', dropdownItems);
-      console.log("Dropdown HTML inserted successfully.");
-    } else {
-      console.log("UAE dropdown container not found.");
-    }
+          // Step 4: Inject the content into the DOM
+          uaeDropdownContainer.insertAdjacentHTML('beforeend', dropdownItems);
+          console.log("Dropdown HTML inserted successfully.");
+        } else {
+          console.log("UAE dropdown container not found.");
+        }
 
-    // Ensure the footer functionality remains intact
-    const topAreasContainer = document.querySelector('.row-cols-lg-5');
+        // Ensure the footer functionality remains intact
+        const topAreasContainer = document.querySelector('.row-cols-lg-5');
 
-    if (topAreasContainer) {
-      let footerItems = '<div class="col"><h3 class="my-4">Top Areas</h3><ul class="p-0">';
+        if (topAreasContainer) {
+          let footerItems = '<div class="col"><h3 class="my-4">Top Areas</h3><ul class="p-0">';
 
-      sortedCommunities.slice(0, 4).forEach(([communityName, listingCount]) => {
-        footerItems += `<li class="mb-1 mb-lg-2"><a href="property-listing.html?community=${encodeURIComponent(communityName)}">${communityName} (${listingCount})</a></li>`;
-      });
+          sortedCommunities.slice(0, 4).forEach(([communityName, listingCount]) => {
+            footerItems += `<li class="mb-1 mb-lg-2"><a href="property-listing.html?community=${encodeURIComponent(communityName)}">${communityName} (${listingCount})</a></li>`;
+          });
 
-      footerItems += '</ul></div>';
+          footerItems += '</ul></div>';
 
-      console.log("Generated Footer HTML:", footerItems);
+          console.log("Generated Footer HTML:", footerItems);
 
-      topAreasContainer.insertAdjacentHTML('beforeend', footerItems);
-      console.log("Footer HTML inserted successfully.");
-    } else {
-      console.log("Footer container not found.");
-    }
+          topAreasContainer.insertAdjacentHTML('beforeend', footerItems);
+          console.log("Footer HTML inserted successfully.");
+        } else {
+          console.log("Footer container not found.");
+        }
 
-  } catch (error) {
-    console.error('Error fetching community data:', error);
-  }
-});
+      } catch (error) {
+        console.error('Error fetching community data:', error);
+      }
+    });
 
   </script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+
+  <div class="modal fade" id="contactFormModal" tabindex="-1" aria-labelledby="contactFormModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header pb-0 border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body py-3 py-lg-4 px-3 px-md-5">
+          <div class="row">
+            <h2 id="dynamicModalHeading" class="mb-3 text-center">How can the agent send<br />you the floor plan</h2>
+
+            <!-- Name Field -->
+            <div class="col-12 mb-3">
+              <input type="text" class="form-control custom-sell-height" placeholder="Name*" id="contactFormName"
+                required>
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="col-12 mb-3">
+              <input type="email" class="form-control custom-sell-height" placeholder="Email*" id="contactFormEmail"
+                required>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+
+            <!-- Phone Field with Country Dropdown -->
+            <div class="col-12 mb-3">
+              <input type="tel" class="form-control custom-sell-height" placeholder="Phone*" id="contactFormPhone"
+                required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-12 my-3 my-md-4">
+              <button type="submit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn"
+                id="submitContactForm" disabled>
+                Request to Call Back
+              </button>
+            </div>
+
+            <!-- Additional Options -->
+            <div class="col-12">
+              <ul class="p-0">
+                <li class="my-1">
+                  <label>
+                    <input type="checkbox" id="notifyByEmail" class="me-2"> Notify me via email when similar listings
+                    appear.
+                  </label>
+                </li>
+                <li class="my-1">
+                  <label>
+                    <input type="checkbox" id="agreeToTerms" class="me-2" required> I agree to the Terms of Use and
+                    Privacy Policy.
+                  </label>
+                  <div class="invalid-feedback">You must agree to the terms and privacy policy.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add intl-tel-input CSS and JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const formFields = {
+        name: document.getElementById('contactFormName'),
+        email: document.getElementById('contactFormEmail'),
+        phone: document.getElementById('contactFormPhone')
+      };
+
+      const submitButton = document.getElementById('submitContactForm');
+      const modalElement = document.getElementById('contactFormModal');
+      const modalHeading = document.getElementById('dynamicModalHeading');
+      const triggerElements = document.querySelectorAll('[data-bs-title]');
+      const propertyTitle = "common enquiry"; // Default to "common enquiry", update if property title is provided elsewhere.
+
+      // Initialize intlTelInput for the phone field
+      const phoneInput = intlTelInput(formFields.phone, {
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+        initialCountry: "AE", // Default country set to UAE
+        separateDialCode: true,
+        preferredCountries: ["AE", "US", "GB"]
+      });
+
+      // Function to validate phone number using intl-tel-input
+      function validatePhoneNumber() {
+        const isValid = phoneInput.isValidNumber();
+        if (!isValid) {
+          formFields.phone.setCustomValidity('Invalid phone number');
+        } else {
+          formFields.phone.setCustomValidity('');
+        }
+        return isValid;
+      }
+
+      // Function to check the overall validity of the form
+      function checkFormValidity() {
+        const isFormValid = Object.values(formFields).every(field => {
+          if (field === formFields.phone) {
+            return validatePhoneNumber();
+          }
+          return field.checkValidity();
+        });
+
+        submitButton.disabled = !isFormValid;
+      }
+
+      // Add event listeners to each form field to check validity on input
+      Object.values(formFields).forEach(field => {
+        field.addEventListener('input', checkFormValidity);
+      });
+
+      // Initial check in case the form is pre-filled or invalid on load
+      checkFormValidity();
+
+      // Add event listeners to all trigger elements
+      triggerElements.forEach(trigger => {
+        trigger.addEventListener('click', function () {
+          const titleText = trigger.getAttribute('data-bs-title');
+          if (modalHeading && titleText) {
+            modalHeading.textContent = titleText;
+          }
+
+          if (modalElement) {
+            const modalInstance = new bootstrap.Modal(modalElement);
+            modalInstance.show();
+          } else {
+            console.error('Modal element not found!');
+          }
+        });
+      });
+
+      // Save form data to Firebase Firestore
+      function saveFormDataToFirebase() {
+        const formData = {
+          name: formFields.name.value,
+          email: formFields.email.value,
+          phone: phoneInput.getNumber(), // Get the full international phone number
+          title: modalHeading.textContent, // Use the dynamic modal title
+          propertyTitle: propertyTitle // Use propertyTitle, or update if fetched dynamically
+        };
+
+        // Save data to Firebase
+        db.collection("contactFormSubmissions").add(formData)
+          .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+            alert('Your inquiry has been submitted.');
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
+      }
+
+      // Submit button event listener
+      submitButton.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default form submission
+        if (!submitButton.disabled) {
+          saveFormDataToFirebase(); // Save the form data to Firebase
+        }
+      });
 
 
+    });
+  </script>
 
+  <script>
+    // Instagram DOM Manipulation
+    function removeInstagramElements() {
+      const unwantedLink = document.querySelector('a[href*="elfsight.com/instagram-feed-instashow"]');
+      if (unwantedLink) {
+        unwantedLink.remove();
+        console.log('Unwanted link removed');
+      } else {
+        console.log('Unwanted link not found');
+      }
 
+      const toolbarPanel = document.querySelector('.eapps-widget-toolbar');
+      if (toolbarPanel) {
+        toolbarPanel.remove();
+        console.log('Toolbar panel removed');
+      } else {
+        console.log('Toolbar panel not found');
+      }
+    }
+
+    // Retry mechanism to ensure elements are removed once they are loaded
+    function attemptToRemoveElements() {
+      const interval = setInterval(function () {
+        if (document.querySelector('a[href*="elfsight.com/instagram-feed-instashow"]') ||
+          document.querySelector('.eapps-widget-toolbar')) {
+          removeInstagramElements();
+          clearInterval(interval); // Stop the interval once the elements are removed
+        }
+      }, 500); // Check every 500ms
+    }
+
+    // Start attempting after 2 seconds
+    setTimeout(attemptToRemoveElements, 2000); // Adjust the delay time as necessary
+  </script>
+
+  <style>
+    /* Ensure both phone and email fields have the same width */
+    .intl-tel-input {
+      width: 100%;
+      /* Make sure the container takes the full width */
+    }
+
+    .intl-tel-input .form-control {
+      width: 100%;
+      /* Ensure input field within intl-tel-input takes full width */
+    }
+
+    .custom-sell-height {
+      height: 48px;
+      /* Or any custom height you prefer */
+    }
+  </style>
 
   <style>
     .slider-owl .owl-nav {
