@@ -74,8 +74,12 @@
         <li><a class="menuItem" href="#"><img src="images/video.svg" class="me-2" /> Video </a></li>
         <!-- <li><a class="menuItem" href="#"><img src="images/trending.svg" class="me-2" /> Trending</a></li> -->
         <li><a class="menuItem" href="#"><img src="images/sell-with-us.svg" class="me-2" /> Sell With Us</a></li>
-        <li><a class="menuItem" data-bs-title="Contact Us" href="#"><img src="images/contact.svg" class="me-2" />
-            Contact</a></li>
+        <li>
+          <a class="menuItem" data-bs-toggle="modal" data-bs-title="Contact Us" data-bs-target="#contactFormModal" href="#" id="contactUsMenuItem">
+            <img src="images/contact.svg" class="me-2" /> Contact
+          </a>
+        </li>
+        
         <li><a class="menuItem" href="#"><img src="images/saved.svg" class="me-2" /> Saved</a></li>
       </ul>
     </div>
@@ -137,9 +141,11 @@
               <!-- Left links -->
 
               <div class="d-flex align-items-center justify-content-lg-end justify-content-center">
-                <button id="sellPropertyBtn" data-bs-title="Sell your property" class="btn py-2 navActionBtn me-2">
+                <button id="sellPropertyBtn" data-bs-toggle="modal" data-bs-target="#contactFormModal"
+                  data-bs-title="Sell your property" class="btn py-2 navActionBtn me-2">
                   Sell your property
                 </button>
+
 
                 <!-- <button type="button" class="btn navActionBtn">Book Valuation</button> -->
                 <a href="#" class="btn phone-btn shadow-none ">
@@ -190,8 +196,11 @@
                   <a class="nav-link" href="property-listing.html?offering_type=RR">Rent</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-bs-title="Contact us" href="#">Contact us</a>
+                  <a class="nav-link" data-bs-toggle="modal" data-bs-title="Contact Us" data-bs-target="#contactFormModal" href="#" id="contactUsNavLink">
+                    Contact us
+                  </a>
                 </li>
+                
               </ul>
               <!-- Left links -->
 
@@ -515,7 +524,10 @@
               <h3 class="my-4">ELX Properties</h3>
               <ul class="p-0">
                 <li class="mb-1 mb-lg-2"> <a href="#"> About </a></li>
-                <li class="mb-1 mb-lg-2"> <a href="#">Contact</a></li>
+                <li class="mb-1 mb-lg-2">
+                  <a href="#" id="contactLink" data-bs-title="Contact" data-bs-toggle="modal" data-bs-target="#contactFormModal">Contact</a>
+                </li>
+                
                 <li class="mb-1 mb-lg-2"> <a href="#">Careers</a></li>
                 <li class="mb-1 mb-lg-2"> <a href="#">Help & FAQ</a></li>
               </ul>
@@ -798,31 +810,31 @@
 
           // Add community card HTML
           itemGroup += `
-          <div class="col-4 mb-3">
-              <a href="property-listing.html?community=${encodeURIComponent(communityName)}">
-                  <div class="card card-villa position-relative border">
-                      <div class="row">
-                          <div class="col-4 d-flex">
-                              <img src="${imageUrl}" class="card-img-top object-fit-cover" alt="${communityName}">
-                          </div>
-                          <div class="col-8">
-                              <div class="card-body px-0">
-                                  <h5 class="card-title py-2">${communityName}</h5>
-                                  <div class="row">
-                                      <div class="col-9">
-                                          <h4>${listingCount} Listings</h4>
-                                      </div>
-                                      <div class="col-3">
-                                          <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                      </div>
+                          <div class="col-12 col-md-6 col-lg-4 mb-3"> <!-- Responsive grid columns for different screen sizes -->
+                            <a href="property-listing.html?community=${encodeURIComponent(communityName)}">
+                              <div class="card card-villa position-relative border">
+                                <div class="row g-0"> <!-- Remove gap between columns for tighter layout -->
+                                  <div class="col-4 d-flex">
+                                    <img src="${imageUrl}" class="card-img-top object-fit-cover w-100 h-100" style="object-fit: cover;" alt="${communityName}"> <!-- Ensure image covers full width and height -->
                                   </div>
+                                  <div class="col-8">
+                                    <div class="card-body px-2 py-3"> <!-- Adjust padding for smaller screens -->
+                                      <h5 class="card-title py-2">${communityName}</h5>
+                                      <div class="row">
+                                        <div class="col-9">
+                                          <h4>${listingCount} Listings</h4>
+                                        </div>
+                                        <div class="col-3 d-flex align-items-center justify-content-end"> <!-- Align the arrow to the right -->
+                                          <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
+                            </a>
                           </div>
-                      </div>
-                  </div>
-              </a>
-          </div>
-        `;
+                        `;
 
           itemCount++;
 
@@ -964,6 +976,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Modal Structure -->
   <div class="modal fade" id="contactFormModal" tabindex="-1" aria-labelledby="contactFormModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
@@ -972,55 +985,60 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body py-3 py-lg-4 px-3 px-md-5">
-          <div class="row">
-            <h2 id="dynamicModalHeading" class="mb-3 text-center">How can the agent send<br />you the floor plan</h2>
+          <h2 id="dynamicModalHeading" class="mb-3 text-center">How can the agent send<br />you the floor plan</h2>
+          <!-- Hidden fields for additional property details in the modal -->
+          <input type="hidden" id="communityModal" value="">
+          <input type="hidden" id="subCommunityModal" value="">
+          <input type="hidden" id="buildingModal" value="">
+          <input type="hidden" id="referenceNumberModal" value="">
+          <!-- Hidden input to store the message -->
+          <input type="hidden" id="contactFormMessage" value="">
+          <!-- Form Fields -->
+          <div class="col-12 mb-3">
+            <input type="text" class="form-control custom-sell-height" placeholder="Name*" id="contactFormNameModal"
+              required>
+            <div class="invalid-feedback">Please enter your name.</div>
+          </div>
+          <div class="col-12 mb-3">
+            <input type="email" class="form-control custom-sell-height" placeholder="Email*" id="contactFormEmailModal"
+              required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+          <div class="col-12 mb-3">
+            <input type="tel" class="form-control custom-sell-height" placeholder="Phone*" id="contactFormPhoneModal"
+              required>
+          </div>
 
-            <!-- Name Field -->
-            <div class="col-12 mb-3">
-              <input type="text" class="form-control custom-sell-height" placeholder="Name*" id="contactFormName"
-                required>
-              <div class="invalid-feedback">Please enter your name.</div>
+          <!-- Checkboxes -->
+          <div class="col-12 mb-3">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="notifyByEmail">
+              <label class="form-check-label" for="notifyByEmail">Notify me via email when similar listings
+                appear.</label>
             </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="agreeToTerms" required>
+              <label class="form-check-label" for="agreeToTerms">I agree to the Terms of Use and Privacy Policy.</label>
+              <div class="invalid-feedback">You must agree to the terms and privacy policy.</div>
+            </div>
+          </div>
 
-            <!-- Email Field -->
-            <div class="col-12 mb-3">
-              <input type="email" class="form-control custom-sell-height" placeholder="Email*" id="contactFormEmail"
-                required>
-              <div class="invalid-feedback">Please enter a valid email address.</div>
-            </div>
+          <!-- Loading Spinner -->
+          <div id="formLoadingSpinner" class="spinner-border text-primary d-none" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
 
-            <!-- Phone Field with Country Dropdown -->
-            <div class="col-12 mb-3">
-              <input type="tel" class="form-control custom-sell-height" placeholder="Phone*" id="contactFormPhone"
-                required>
-            </div>
+          <!-- Success/Failure Message -->
+          <div id="formSubmitMessage" class="text-center mt-3 d-none"></div>
 
-            <!-- Submit Button -->
-            <div class="col-12 my-3 my-md-4">
-              <button type="submit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn"
-                id="submitContactForm" disabled>
-                Request to Call Back
-              </button>
-            </div>
-
-            <!-- Additional Options -->
-            <div class="col-12">
-              <ul class="p-0">
-                <li class="my-1">
-                  <label>
-                    <input type="checkbox" id="notifyByEmail" class="me-2"> Notify me via email when similar listings
-                    appear.
-                  </label>
-                </li>
-                <li class="my-1">
-                  <label>
-                    <input type="checkbox" id="agreeToTerms" class="me-2" required> I agree to the Terms of Use and
-                    Privacy Policy.
-                  </label>
-                  <div class="invalid-feedback">You must agree to the terms and privacy policy.</div>
-                </li>
-              </ul>
-            </div>
+          <!-- Submit Button -->
+          <div class="col-12 my-3 my-md-4">
+            <button type="submit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn"
+              id="submitContactForm" disabled>
+              Request to Call Back
+            </button>
           </div>
         </div>
       </div>
@@ -1033,106 +1051,168 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const formFields = {
-        name: document.getElementById('contactFormName'),
-        email: document.getElementById('contactFormEmail'),
-        phone: document.getElementById('contactFormPhone')
+
+      // Function to update the modal title dynamically based on the button clicked
+      function updateModalTitle(event) {
+        const button = event.relatedTarget; // Button that triggered the modal
+        const title = button.getAttribute('data-bs-title'); // Extract the title from data-bs-title attribute
+        const modalTitle = document.getElementById('dynamicModalHeading'); // Modal title element
+
+        // Set the modal title dynamically
+        modalTitle.textContent = title;
+
+        // Only pass the modal heading (title) to the hidden message field
+        const messageField = document.getElementById('contactFormMessage'); // Hidden message field in the modal
+        messageField.value = title; // Pre-fill the modal hidden message field with only the form heading
+      }
+
+      // Add an event listener for when the modal is about to be shown
+      const contactFormModal = document.getElementById('contactFormModal');
+      contactFormModal.addEventListener('show.bs.modal', updateModalTitle);
+
+      // Modal form elements
+      const modalFormFields = {
+        name: document.getElementById('contactFormNameModal'),
+        email: document.getElementById('contactFormEmailModal'),
+        phone: document.getElementById('contactFormPhoneModal'),
+        message: document.getElementById('contactFormMessage') // Hidden message field for capturing messages
       };
 
-      const submitButton = document.getElementById('submitContactForm');
-      const modalElement = document.getElementById('contactFormModal');
-      const modalHeading = document.getElementById('dynamicModalHeading');
-      const triggerElements = document.querySelectorAll('[data-bs-title]');
-      const propertyTitle = "common enquiry"; // Default to "common enquiry", update if property title is provided elsewhere.
+      const modalSubmitButton = document.getElementById('submitContactForm');
+      const modalFormLoadingSpinner = document.getElementById('formLoadingSpinner');
+      const modalFormSubmitMessage = document.getElementById('formSubmitMessage');
+      let modalPhoneInput;
 
-      // Initialize intlTelInput for the phone field
-      const phoneInput = intlTelInput(formFields.phone, {
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
-        initialCountry: "AE", // Default country set to UAE
-        separateDialCode: true,
-        preferredCountries: ["AE", "US", "GB"]
-      });
+      // Initialize intlTelInput for modal form phone input
+      function initializeModalPhoneInput() {
+        modalPhoneInput = intlTelInput(modalFormFields.phone, {
+          utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+          initialCountry: "AE",
+          separateDialCode: true,
+          preferredCountries: ["AE", "US", "GB"]
+        });
+      }
 
-      // Function to validate phone number using intl-tel-input
-      function validatePhoneNumber() {
-        const isValid = phoneInput.isValidNumber();
-        if (!isValid) {
-          formFields.phone.setCustomValidity('Invalid phone number');
-        } else {
-          formFields.phone.setCustomValidity('');
+      initializeModalPhoneInput(); // Initialize the phone input for modal form
+
+      // Show loading spinner for modal form
+      function showModalLoadingSpinner() {
+        modalFormLoadingSpinner.classList.remove('d-none');
+        modalFormSubmitMessage.classList.add('d-none');
+      }
+
+      // Hide loading spinner and display success/failure message for modal form
+      function hideModalLoadingSpinner(success = true) {
+        modalFormLoadingSpinner.classList.add('d-none');
+        modalFormSubmitMessage.classList.remove('d-none');
+        modalFormSubmitMessage.textContent = success ? 'Your inquiry has been submitted successfully.' : 'There was an error submitting your inquiry. Please try again.';
+        modalFormSubmitMessage.classList.toggle('text-success', success);
+        modalFormSubmitMessage.classList.toggle('text-danger', !success);
+      }
+
+      // Function to fetch the user's IP address
+      async function fetchModalIpAddress() {
+        try {
+          const response = await fetch('https://api.ipify.org?format=json');
+          const data = await response.json();
+          return data.ip;
+        } catch (error) {
+          console.error('Error fetching IP address:', error);
+          return 'N/A';
         }
-        return isValid;
       }
 
-      // Function to check the overall validity of the form
-      function checkFormValidity() {
-        const isFormValid = Object.values(formFields).every(field => {
-          if (field === formFields.phone) {
-            return validatePhoneNumber();
-          }
-          return field.checkValidity();
-        });
+      // Save modal form data to Firebase Firestore
+      async function saveModalFormDataToFirebase(formFields, phoneInput) {
+        showModalLoadingSpinner(); // Show loading spinner when submitting
 
-        submitButton.disabled = !isFormValid;
-      }
+        // Fetch dynamic property details, use 'N/A' if the value is missing
+        const community = document.getElementById('community')?.value || 'N/A';
+        const subCommunity = document.getElementById('subCommunity')?.value || 'N/A';
+        const building = document.getElementById('building')?.value || 'N/A';
+        const referenceNumber = document.getElementById('referenceNumber')?.value || 'N/A';
+        const propertyLink = window.location.href;
+        const currentDate = new Date().toISOString();
+        const ipAddress = await fetchModalIpAddress(); // Fetch IP address
 
-      // Add event listeners to each form field to check validity on input
-      Object.values(formFields).forEach(field => {
-        field.addEventListener('input', checkFormValidity);
-      });
-
-      // Initial check in case the form is pre-filled or invalid on load
-      checkFormValidity();
-
-      // Add event listeners to all trigger elements
-      triggerElements.forEach(trigger => {
-        trigger.addEventListener('click', function () {
-          const titleText = trigger.getAttribute('data-bs-title');
-          if (modalHeading && titleText) {
-            modalHeading.textContent = titleText;
-          }
-
-          if (modalElement) {
-            const modalInstance = new bootstrap.Modal(modalElement);
-            modalInstance.show();
-          } else {
-            console.error('Modal element not found!');
-          }
-        });
-      });
-
-      // Save form data to Firebase Firestore
-      function saveFormDataToFirebase() {
         const formData = {
           name: formFields.name.value,
           email: formFields.email.value,
-          phone: phoneInput.getNumber(), // Get the full international phone number
-          title: modalHeading.textContent, // Use the dynamic modal title
-          propertyTitle: propertyTitle // Use propertyTitle, or update if fetched dynamically
+          phone: phoneInput.getNumber(),
+          message: formFields.message.value, // Hidden message field with modal heading (title)
+          referenceNumber: referenceNumber,
+          community: community,
+          subCommunity: subCommunity,
+          building: building,
+          propertyLink: propertyLink,
+          dateSubmitted: currentDate,
+          ipAddress: ipAddress // Add IP address
         };
 
-        // Save data to Firebase
-        db.collection("contactFormSubmissions").add(formData)
-          .then(function (docRef) {
-            console.log("Document written with ID: ", docRef.id);
-            alert('Your inquiry has been submitted.');
-          })
-          .catch(function (error) {
-            console.error("Error adding document: ", error);
-          });
+        try {
+          await db.collection("contactFormSubmissions").add(formData);
+          hideModalLoadingSpinner(true); // Show success message
+          window.location.href = "thankyou.html"; // Redirect to thank you page
+        } catch (error) {
+          hideModalLoadingSpinner(false); // Show failure message
+          console.error('Error adding document: ', error);
+        }
       }
 
-      // Submit button event listener
-      submitButton.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent default form submission
-        if (!submitButton.disabled) {
-          saveFormDataToFirebase(); // Save the form data to Firebase
+      // Custom validation function
+      function validateModalForm() {
+        let isValid = true;
+
+        // Validate name
+        if (!modalFormFields.name.value.trim()) {
+          modalFormFields.name.classList.add('is-invalid');
+          isValid = false;
+        } else {
+          modalFormFields.name.classList.remove('is-invalid');
         }
+
+        // Validate email
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(modalFormFields.email.value)) {
+          modalFormFields.email.classList.add('is-invalid');
+          isValid = false;
+        } else {
+          modalFormFields.email.classList.remove('is-invalid');
+        }
+
+        // Validate phone number
+        if (!modalPhoneInput.isValidNumber()) {
+          modalFormFields.phone.classList.add('is-invalid');
+          isValid = false;
+        } else {
+          modalFormFields.phone.classList.remove('is-invalid');
+        }
+
+        // Enable or disable the submit button based on validation
+        modalSubmitButton.disabled = !isValid;
+
+        return isValid;
+      }
+
+      // Add input listeners to enable button on valid data
+      Object.values(modalFormFields).forEach(field => {
+        field.addEventListener('input', validateModalForm);
       });
 
+      // Modal form submit event listener
+      modalSubmitButton.addEventListener('click', function (event) {
+        event.preventDefault();
 
+        // Perform form validation
+        if (validateModalForm()) {
+          saveModalFormDataToFirebase(modalFormFields, modalPhoneInput);
+        } else {
+          alert("Please fill all required fields correctly.");
+        }
+      });
     });
   </script>
+
 
   <script>
     // Instagram DOM Manipulation

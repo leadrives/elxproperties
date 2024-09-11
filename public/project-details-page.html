@@ -22,6 +22,12 @@
   <script src="path/to/owl.carousel.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+  <script src="js/masonry.pkgd.min.js"></script>
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/owl.carousel.js"></script>
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -32,6 +38,19 @@
 
   <!-- flatpickr JS -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+  <!-- Owl Carousel JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 
   <script>
     // Your web app's Firebase configuration
@@ -57,27 +76,25 @@
 </head>
 
 <body>
-
-  <aside class="aside-cls  z-ind-custom">
+  <aside class="aside-cls z-ind-custom">
     <div class="col position-relative">
 
       <ul class="menu">
         <button class="hamburger1">
           <!-- material icons https://material.io/resources/icons/ -->
-          <span class="closeIcon material-icons material-icons-close"> <i
-              class="fa-solid fa-close btn-close m-auto"></i></span>
+          <span class="closeIcon material-icons material-icons-close">
+            <i class="fa-solid fa-close btn-close m-auto"></i>
+          </span>
         </button>
         <li><a class="menuItem" href="#"><img src="images/home.svg" class="me-2" /> Home</a></li>
         <li><a class="menuItem" href="#"><img src="images/building.svg" class="me-2" /> Off-plan</a></li>
         <li><a class="menuItem" href="property-listing.html?offering_type=RS" id="navbarLink1"><img
-              src="images/resale.svg" class="me-2" />Resale</a>
-        </li>
+              src="images/resale.svg" class="me-2" />Resale</a></li>
         <li><a class="menuItem" href="#"><img src="images/rent.svg" class="me-2" /> Rent</a></li>
         <li>
           <hr class="me-3" />
         </li>
         <li><a class="menuItem" href="#"><img src="images/video.svg" class="me-2" /> Video </a></li>
-        <!-- <li><a class="menuItem" href="#"><img src="images/trending.svg" class="me-2" /> Trending</a></li> -->
         <li><a class="menuItem" href="#"><img src="images/sell-with-us.svg" class="me-2" /> Sell With Us</a></li>
         <li><a class="menuItem" data-bs-title="Contact Us" href="#"><img src="images/contact.svg" class="me-2" />
             Contact</a></li>
@@ -85,31 +102,27 @@
       </ul>
     </div>
   </aside>
-  <!-- side nav -->
-  <div class="position-relative">
 
-    <!--  -->
+  <div class="position-relative">
     <div class="wrapper-header">
       <header class="bg-coustom">
         <!-- Navbar -->
         <nav
-          class="navbar fixed-top navbar-expand-lg shadow-none navbar-light  navBar-elysian py-lg-3 z-index-nav-m bg-white">
-          <!-- Container wrapper -->
+          class="navbar fixed-top navbar-expand-lg shadow-none navbar-light navBar-elysian py-lg-3 z-index-nav-m bg-white">
           <div class="container">
             <aside class="aside-cls">
               <div class="col position-relative">
                 <button class="hamburger">
-                  <!-- material icons https://material.io/resources/icons/ -->
                   <span class="menuIcon material-icons"><i class="fas fa-bars btn-open m-auto"></i></span>
                 </button>
               </div>
             </aside>
             <!-- Navbar brand -->
-            <a class="navbar-brand me-2 ps-lg-5 ps-md-4" href="index.html">
+            <a class="navbar-brand me-2 ps-lg-0 ps-md-0" href="index.html">
               <img src="images/logo.svg" class="site-logo m-center d-block" alt="site-logo" />
             </a>
 
-            <!-- Toggle button -->
+            <!-- Toggle button for mobile -->
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
               data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
               aria-label="Toggle navigation">
@@ -118,86 +131,55 @@
 
             <!-- Collapsible wrapper -->
             <div class="collapse ms-auto justify-content-end navbar-collapse" id="navbarButtonsExample">
-              <!-- Left links -->
               <ul class="navbar-nav mb-2 mb-lg-0 me-lg-4 top-nav-elx-flag top-nav-elx-none d-block d-lg-none">
                 <li class="nav-item dropdown position-static">
-                  <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                     data-mdb-toggle="dropdown" aria-expanded="false">UAE</a>
-                  <!-- Dropdown menu -->
-                  <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
-                                border-top-left-radius: 0;
-                                border-top-right-radius: 0;
-                              ">
-
-                  </div>
+                  <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown"></div>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">OFF-PLAN properties</a>
                 </li>
                 <li class="nav-item dropdown position-static">
-                  <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                     data-mdb-toggle="dropdown" aria-expanded="false">Resale</a>
-
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link"> Rent</a>
+                  <a class="nav-link" href="#">Rent</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Contact us</a>
+                  <a class="nav-link" href="#">Contact Us</a>
                 </li>
               </ul>
-              <!-- Left links -->
 
               <div class="d-flex align-items-center justify-content-lg-end justify-content-center">
-                <button class="btn  py-2 navActionBtn me-2" data-bs-title="Sell your property">Sell
-                  your property</button>
-                <!-- <button type="button" class="btn navActionBtn">Book Valuation</button> -->
-                <a href="#" class="btn phone-btn shadow-none ">
+                <button class="btn py-2 navActionBtn me-2" data-bs-toggle="modal" data-bs-target="#contactFormModal"
+                  data-bs-title="Sell your property">Sell your property</button>
+
+
+                <a href="#" class="btn phone-btn shadow-none">
                   <img src="images/whatsaap-ico.svg" class="whatsaap-ico">
                   +971569124881
                 </a>
               </div>
             </div>
-            <!-- Collapsible wrapper -->
           </div>
-          <!-- Container wrapper -->
         </nav>
-        <nav
+
+        <!--  <nav
           class="navbar nav-filter-inside d-block d-lg-block border-t bot-nav-elx fixed-top navbar-expand-lg shadow-none navbar-light nav-elx navBar-elysian py-lg-3 bg-white">
-
           <div class="container">
-
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
               data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
               aria-label="Toggle navigation">
               <i class="fas fa-bars"></i>
             </button>
-
-            <!-- 
-            <div class="d-block d-lg-flex justify-content-center justify-content-md-end w-100  m-center" id="">
-              
-              <button class="btn bg-transparent shadow-none"> <i class="fas fa-arrow-left me-2"></i> Back to
-                search</button>
-              
-              <div class="col-12 col-lg-4 ms-auto d-flex justify-content-center justify-content-lg-end">
-                <button class=" bg-transparent shadow-none border-0 btn-nxt">
-                  <img src="images/previous-property.svg" class="me-2 img-arr" alt=""> Previous property</button>
-                <button class=" bg-transparent shadow-none border-0 btn-nxt">
-                  Next property <img src="images/next-property.svg" class="ms-2 img-arr" alt=""></button>
-              </div>
-            </div>
-            
           </div>
-          
-        -->
-        </nav>
-
-
-        <!-- Navbar -->
+        </nav>-->
       </header>
-
     </div>
   </div>
+
 
   <!-- Property Details Section -->
   <section class="content grid main-prod pb-4 pb-lg-3" id="property-gallery" style="padding-top: 55px;">
@@ -248,7 +230,7 @@
 
         <div class="col-12 col-lg-8">
           <div class="row">
-            <p>Apartment & Penthouses</p>
+            <p id="typeofProperty">Apartment & Penthouses</p>
             <h2 id="propertyTitle">Property Details Loading ...</h2>
             <ul class="d-lg-flex list-unstyled mt-auto">
               <li class="d-flex align-items-center">
@@ -262,10 +244,12 @@
 
           <p></p>
           <a type="button" data-bs-title="Check Availability"
-            class="btn rounded-0 py-lg-3 px-4 hover-btn check-primary-btn ripple-surface">
+            class="btn rounded-0 py-lg-3 px-4 hover-btn check-primary-btn ripple-surface" data-bs-toggle="modal"
+            data-bs-target="#contactFormModal">
             Check Availability
             <i class="fas fa-arrow-right ms-3" aria-hidden="true"></i>
           </a>
+
           <hr class="my-4 my-lg-5" />
 
           <h2 class="mb-3 mb-lg-4">In Details</h2>
@@ -375,10 +359,12 @@
             </div>
 
             <!-- Ask a Question Button -->
-            <button id="submitTourRequest" data-bs-title="Ask a Question"  type="button"
-              class="btn h-100 rounded-0 py-lg-2 px-4 hover-btn check-primary-btn">
-              Ask a Question
+            <button id="submitTourRequest" data-bs-title="Ask a Question" type="button"
+              class="btn h-100 rounded-0 py-lg-2 px-4 hover-btn check-primary-btn" data-bs-toggle="modal"
+              data-bs-target="#contactFormModal">
+              Ask a Question11
             </button>
+
           </div>
 
           <!-- Ask a Question Validation Script -->
@@ -389,6 +375,7 @@
               const $submitTourRequest = $('#submitTourRequest');
               const $tourTypeRadios = $('input[name="tourType"]');
               const $preferredDate = $('#preferredDate');
+              const $agentMessage = $('#agentMessage'); // Message text area
 
               // Initialize the date picker
               const datepickerInstance = flatpickr($preferredDate[0], {
@@ -402,9 +389,9 @@
               $requestTourCheckbox.on('change', function () {
                 if (this.checked) {
                   $tourDetailsSection.removeClass('d-none');
+                  validateForm(); // Trigger validation when checkbox is checked
                 } else {
                   $tourDetailsSection.addClass('d-none');
-                  resetForm();
                 }
               });
 
@@ -412,20 +399,59 @@
               function validateForm() {
                 const isTourTypeSelected = $tourTypeRadios.is(':checked');
                 const isDateSelected = $preferredDate.val() !== '';
+
+                // If both tour type and date are selected, append the tour message to the agentMessage textarea
+                if (isTourTypeSelected && isDateSelected) {
+                  appendTourDetails();
+                }
+
+                // Enable or disable the submit button
                 $submitTourRequest.prop('disabled', !(isTourTypeSelected && isDateSelected));
               }
 
-              // Add event listeners to the radio buttons
-              $tourTypeRadios.on('change', validateForm);
+              // Append the tour details message to the text area if the checkbox is checked
+              function appendTourDetails() {
+                const selectedTourType = $('input[name="tourType"]:checked').next('label').text(); // Get the selected tour type
+                const selectedDate = $preferredDate.val(); // Get the selected date
 
-              // Reset the form when the checkbox is unchecked
-              function resetForm() {
-                $tourTypeRadios.prop('checked', false);
-                $preferredDate.val('');
-                $submitTourRequest.prop('disabled', true);
+                if (!selectedTourType || !selectedDate) {
+                  return; // If there's no valid tour type or date, skip the rest
+                }
+
+                const tourMessage = `I would like to have an ${selectedTourType.toLowerCase()} meet up on ${selectedDate}.`;
+
+                // Append the tour message to the agent's message if not already present
+                const currentMessage = $agentMessage.val();
+                if (!currentMessage.includes(tourMessage)) {
+                  $agentMessage.val(`${currentMessage}\n${tourMessage}`.trim());
+                }
               }
+
+              // Add event listeners to the radio buttons and date picker to validate the form
+              $tourTypeRadios.on('change', validateForm);
+              $preferredDate.on('change', validateForm);
+
+              // Ask a Question button click event - open the modal
+              $submitTourRequest.on('click', function () {
+                // Ensure there's a value in the agentMessage textarea
+                if (!$agentMessage.val().trim()) {
+                  alert("Please enter a message before proceeding.");
+                  return;
+                }
+
+                // Trigger the modal
+                $('#contactFormModal').modal('show');
+
+                // Add the message to the hidden message field in the modal
+                const modalMessageField = $('#contactFormMessage'); // Assuming this hidden field exists in your modal
+                modalMessageField.val($agentMessage.val()); // Transfer the agent message to the modal
+              });
             });
           </script>
+
+
+
+
 
 
 
@@ -490,7 +516,7 @@
               </div>
             </div>
 
-            <iframe id="googleMapIframe" width="100%" height="280px" style="border:0;" allowfullscreen="" loading="lazy"
+            <iframe id="googleMapIframe" width="100%" height="330px" style="border:0;" allowfullscreen="" loading="lazy"
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
 
@@ -506,6 +532,14 @@
 
 
         </div>
+
+        <!-- Hidden fields for additional property details -->
+        <input type="hidden" id="community" value="">
+        <input type="hidden" id="subCommunity" value="">
+        <input type="hidden" id="building" value="">
+        <input type="hidden" id="referenceNumber" value="">
+        <input type="hidden" id="propertyLink" value="">
+        <input type="hidden" id="ipAddress">
 
         <!-- Non-Modal Form -->
         <div class="col-12 col-lg-4">
@@ -551,7 +585,7 @@
                 <!-- Message Field (Text Area) -->
                 <div class="col-12 mb-3 mb-0">
                   <textarea class="form-control border-0 txt-area" placeholder="Type your message...."
-                    id="contactFormMessage" rows="3"></textarea>
+                    id="contactFormMessage" rows="3"></textarea> <!-- Message field -->
                 </div>
               </div>
 
@@ -570,6 +604,8 @@
 
 
 
+
+
       </div>
     </div>
   </section>
@@ -579,15 +615,13 @@
         <hr class="my-4 my-lg-5" />
         <div class="position-relative slider-owl">
           <h2 class="mb-3 mb-lg-5">Major Communities</h2>
-          <div class="owl-carousel owl-theme"> <!-- Updated class here -->
+          <div class="owl-carousel owl-theme projectdetail-owl"> <!-- Updated class here -->
             <!-- Dynamic items will be injected here -->
           </div>
           <div class="owl-nav">
 
           </div>
-          <div class="col-12 text-center">
-            <a href="property-listing.html" class="btn py-2 black-btn my-3 my-lg-4">View all projects</a>
-          </div>
+
         </div>
       </div>
     </div>
@@ -705,243 +739,518 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
-<!-- Modal Structure -->
-<div class="modal fade" id="contactFormModal" tabindex="-1" aria-labelledby="contactFormModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header pb-0 border-0">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body py-3 py-lg-4 px-3 px-md-5">
-        <h2 id="dynamicModalHeading" class="mb-3 text-center">How can the agent send<br />you the floor plan</h2>
-
-        <!-- Form Fields -->
-        <div class="col-12 mb-3">
-          <input type="text" class="form-control custom-sell-height" placeholder="Name*" id="contactFormNameModal" required>
-          <div class="invalid-feedback">Please enter your name.</div>
+  <!-- Modal Structure -->
+  <div class="modal fade" id="contactFormModal" tabindex="-1" aria-labelledby="contactFormModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header pb-0 border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="col-12 mb-3">
-          <input type="email" class="form-control custom-sell-height" placeholder="Email*" id="contactFormEmailModal" required>
-          <div class="invalid-feedback">Please enter a valid email address.</div>
-        </div>
-        <div class="col-12 mb-3">
-          <input type="tel" class="form-control custom-sell-height" placeholder="Phone*" id="contactFormPhoneModal" required>
-        </div>
-
-        <!-- Checkboxes -->
-        <div class="col-12 mb-3">
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="notifyByEmail">
-            <label class="form-check-label" for="notifyByEmail">Notify me via email when similar listings appear.</label>
+        <div class="modal-body py-3 py-lg-4 px-3 px-md-5">
+          <h2 id="dynamicModalHeading" class="mb-3 text-center">How can the agent send<br />you the floor plan</h2>
+          <!-- Hidden fields for additional property details in the modal -->
+          <input type="hidden" id="communityModal" value="">
+          <input type="hidden" id="subCommunityModal" value="">
+          <input type="hidden" id="buildingModal" value="">
+          <input type="hidden" id="referenceNumberModal" value="">
+          <!-- Hidden input to store the message -->
+          <input type="hidden" id="contactFormMessage" value="">
+          <!-- Form Fields -->
+          <div class="col-12 mb-3">
+            <input type="text" class="form-control custom-sell-height" placeholder="Name*" id="contactFormNameModal"
+              required>
+            <div class="invalid-feedback">Please enter your name.</div>
           </div>
-        </div>
-        <div class="col-12 mb-3">
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="agreeToTerms" required>
-            <label class="form-check-label" for="agreeToTerms">I agree to the Terms of Use and Privacy Policy.</label>
-            <div class="invalid-feedback">You must agree to the terms and privacy policy.</div>
+          <div class="col-12 mb-3">
+            <input type="email" class="form-control custom-sell-height" placeholder="Email*" id="contactFormEmailModal"
+              required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
           </div>
-        </div>
+          <div class="col-12 mb-3">
+            <input type="tel" class="form-control custom-sell-height" placeholder="Phone*" id="contactFormPhoneModal"
+              required>
+          </div>
 
-        <!-- Loading Spinner -->
-        <div id="formLoadingSpinner" class="spinner-border text-primary d-none" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
+          <!-- Checkboxes -->
+          <div class="col-12 mb-3">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="notifyByEmail">
+              <label class="form-check-label" for="notifyByEmail">Notify me via email when similar listings
+                appear.</label>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="agreeToTerms" required>
+              <label class="form-check-label" for="agreeToTerms">I agree to the Terms of Use and Privacy Policy.</label>
+              <div class="invalid-feedback">You must agree to the terms and privacy policy.</div>
+            </div>
+          </div>
 
-        <!-- Success/Failure Message -->
-        <div id="formSubmitMessage" class="text-center mt-3 d-none"></div>
+          <!-- Loading Spinner -->
+          <div id="formLoadingSpinner" class="spinner-border text-primary d-none" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
 
-        <!-- Submit Button -->
-        <div class="col-12 my-3 my-md-4">
-          <button type="submit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn" id="submitContactForm" disabled>
-            Request to Call Back
-          </button>
+          <!-- Success/Failure Message -->
+          <div id="formSubmitMessage" class="text-center mt-3 d-none"></div>
+
+          <!-- Submit Button -->
+          <div class="col-12 my-3 my-md-4">
+            <button type="submit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn"
+              id="submitContactForm" disabled>
+              Request to Call Back
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Modal form elements
-    const modalFormFields = {
-      name: document.getElementById('contactFormNameModal'),
-      email: document.getElementById('contactFormEmailModal'),
-      phone: document.getElementById('contactFormPhoneModal'),
-      agreeToTerms: document.getElementById('agreeToTerms')
-    };
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
 
-    // Custom form elements
-    const customFormFields = {
-      name: document.getElementById('customFormName'),
-      email: document.getElementById('customFormEmail'),
-      phone: document.getElementById('customFormPhone')
-    };
+      // Function to update the modal title dynamically based on the button clicked
+      function updateModalTitle(event) {
+        const button = event.relatedTarget; // Button that triggered the modal
+        const title = button.getAttribute('data-bs-title'); // Extract the title from data-bs-title attribute
+        const modalTitle = document.getElementById('dynamicModalHeading'); // Modal title element
 
-    const modalSubmitButton = document.getElementById('submitContactForm');
-    const customSubmitButton = document.getElementById('submitCustomContactForm');
-    const modalHeading = document.getElementById('dynamicModalHeading'); // Modal heading element
-    const formLoadingSpinner = document.getElementById('formLoadingSpinner');
-    const formSubmitMessage = document.getElementById('formSubmitMessage');
-    let modalPhoneInput, customPhoneInput;
+        // Set the modal title dynamically
+        modalTitle.textContent = title;
 
-    // Initialize intlTelInput for each form separately
-    function initializePhoneInput() {
-      modalPhoneInput = intlTelInput(modalFormFields.phone, {
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
-        initialCountry: "AE",
-        separateDialCode: true,
-        preferredCountries: ["AE", "US", "GB"]
-      });
+        // Check if the modal is triggered by the "Ask a Question" button
+        if (button && button.id === 'submitTourRequest') {
 
-      customPhoneInput = intlTelInput(customFormFields.phone, {
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
-        initialCountry: "AE",
-        separateDialCode: true,
-        preferredCountries: ["AE", "US", "GB"]
-      });
-    }
-
-    initializePhoneInput(); // Initialize both phone inputs
-
-    // Validate phone numbers
-    function validatePhoneNumber(phoneInput, phoneField) {
-      const isValid = phoneInput.isValidNumber();
-      if (!isValid) {
-        phoneField.setCustomValidity('Invalid phone number');
-      } else {
-        phoneField.setCustomValidity('');
-      }
-      return isValid;
-    }
-
-    // Function to validate modal form
-    function checkModalFormValidity() {
-      const isFormValid = Object.values(modalFormFields).every(field => {
-        if (field === modalFormFields.phone) {
-          return validatePhoneNumber(modalPhoneInput, field);
+          // If it's the "Ask a Question" button, pre-fill the hidden message field with the content of agentMessage
+          const agentMessage = document.getElementById('agentMessage').value;
+          const messageField = document.getElementById('contactFormMessage'); // Hidden message field in the modal
+          messageField.value = agentMessage; // Pre-fill the modal hidden message field with agent message
+         // alert(agentMessage);
+        } else {
+          // If it's not the "Ask a Question" button, reset the hidden message field
+          const messageField = document.getElementById('contactFormMessage');
+          const referenceNumber = document.getElementById('referenceNumber').value;
+          messageField.value = 'Hi, I would like to know more about the property ' + referenceNumber;
         }
-        return field.checkValidity();
-      });
-
-      // Ensure user has agreed to terms
-      if (!modalFormFields.agreeToTerms.checked) {
-        modalFormFields.agreeToTerms.setCustomValidity('You must agree to the terms and privacy policy.');
-      } else {
-        modalFormFields.agreeToTerms.setCustomValidity('');
       }
 
-      modalSubmitButton.disabled = !isFormValid || !modalFormFields.agreeToTerms.checkValidity();
-    }
+      // Add an event listener for when the modal is about to be shown
+      const contactFormModal = document.getElementById('contactFormModal');
+      contactFormModal.addEventListener('show.bs.modal', updateModalTitle);
 
-    // Function to validate custom form
-    function checkCustomFormValidity() {
-      const isFormValid = Object.values(customFormFields).every(field => {
-        if (field === customFormFields.phone) {
-          return validatePhoneNumber(customPhoneInput, field);
-        }
-        return field.checkValidity();
-      });
-      customSubmitButton.disabled = !isFormValid;
-    }
-
-    // Attach event listeners to modal form fields for validation
-    Object.values(modalFormFields).forEach(field => {
-      field.addEventListener('input', checkModalFormValidity);
-    });
-
-    // Attach event listeners to custom form fields for validation
-    Object.values(customFormFields).forEach(field => {
-      field.addEventListener('input', checkCustomFormValidity);
-    });
-
-    // Function to open the modal and update the heading dynamically
-    document.querySelectorAll('[data-bs-title]').forEach(button => {
-      button.addEventListener('click', function () {
-        const titleText = this.getAttribute('data-bs-title');
-        if (modalHeading && titleText) {
-          modalHeading.textContent = titleText; // Update the modal heading dynamically
-        }
-
-        // Trigger the Bootstrap modal
-        const modal = new bootstrap.Modal(document.getElementById('contactFormModal'));
-        modal.show();
-      });
-    });
-
-    // Show loading spinner
-    function showLoadingSpinner() {
-      formLoadingSpinner.classList.remove('d-none');
-      formSubmitMessage.classList.add('d-none');
-    }
-
-    // Hide loading spinner and display success/failure message
-    function hideLoadingSpinner(success = true) {
-      formLoadingSpinner.classList.add('d-none');
-      formSubmitMessage.classList.remove('d-none');
-      formSubmitMessage.textContent = success ? 'Your inquiry has been submitted successfully.' : 'There was an error submitting your inquiry. Please try again.';
-      formSubmitMessage.classList.toggle('text-success', success);
-      formSubmitMessage.classList.toggle('text-danger', !success);
-    }
-
-    // Combine message, tour type, and preferred date into a single enquiry detail
-    function combineEnquiryDetails() {
-      const message = document.querySelector('textarea').value.trim();
-      const tourType = document.querySelector('input[name="tourType"]:checked')?.labels[0].textContent || '';
-      const preferredDate = document.getElementById('preferredDate')?.value || '';
-
-      let enquiryDetails = `Message: ${message}`;
-      if (document.getElementById('requestTourCheckbox').checked && tourType && preferredDate) {
-        enquiryDetails += `. Tour Type: ${tourType}. Preferred Date: ${preferredDate}`;
-      }
-      return enquiryDetails;
-    }
-
-    // Save form data to Firebase Firestore
-    function saveFormDataToFirebase(formFields, phoneInput, fallbackPropertyTitle, enquiryDetails) {
-      showLoadingSpinner(); // Show loading spinner when submitting
-
-      const formData = {
-        name: formFields.name.value,
-        email: formFields.email.value,
-        phone: phoneInput.getNumber(),
-        enquiryTitle: enquiryDetails,
-        propertyTitle: fallbackPropertyTitle || 'common enquiry',
-        notifyByEmail: document.getElementById('notifyByEmail').checked // Save "Notify me via email" checkbox value
+      // Modal form elements
+      const modalFormFields = {
+        name: document.getElementById('contactFormNameModal'),
+        email: document.getElementById('contactFormEmailModal'),
+        phone: document.getElementById('contactFormPhoneModal'),
+        message: document.getElementById('contactFormMessage') // Hidden message field for capturing messages
       };
 
-      // Save data to Firebase
-      db.collection("contactFormSubmissions").add(formData)
-        .then(function (docRef) {
-          hideLoadingSpinner(true); // Show success message
-        })
-        .catch(function (error) {
-          hideLoadingSpinner(false); // Show failure message
+      const modalSubmitButton = document.getElementById('submitContactForm');
+      const modalFormLoadingSpinner = document.getElementById('formLoadingSpinner');
+      const modalFormSubmitMessage = document.getElementById('formSubmitMessage');
+      let modalPhoneInput;
+
+      // Initialize intlTelInput for modal form phone input
+      function initializeModalPhoneInput() {
+        modalPhoneInput = intlTelInput(modalFormFields.phone, {
+          utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+          initialCountry: "AE",
+          separateDialCode: true,
+          preferredCountries: ["AE", "US", "GB"]
         });
-    }
-
-    // Modal form submit event listener
-    modalSubmitButton.addEventListener('click', function (event) {
-      event.preventDefault();
-      if (!modalSubmitButton.disabled) {
-        const propertyTitle = document.getElementById('propertyTitle')?.textContent || 'common enquiry';
-        const enquiryDetails = combineEnquiryDetails();
-        saveFormDataToFirebase(modalFormFields, modalPhoneInput, propertyTitle, enquiryDetails);
       }
-    });
 
-    // Custom form submit event listener
-    customSubmitButton.addEventListener('click', function (event) {
-      event.preventDefault();
-      if (!customSubmitButton.disabled) {
-        const propertyTitle = document.getElementById('propertyTitle')?.textContent || 'common enquiry';
-        const enquiryDetails = combineEnquiryDetails();
-        saveFormDataToFirebase(customFormFields, customPhoneInput, propertyTitle, enquiryDetails);
+      initializeModalPhoneInput(); // Initialize the phone input for modal form
+
+      // Show loading spinner for modal form
+      function showModalLoadingSpinner() {
+        modalFormLoadingSpinner.classList.remove('d-none');
+        modalFormSubmitMessage.classList.add('d-none');
       }
+
+      // Hide loading spinner and display success/failure message for modal form
+      function hideModalLoadingSpinner(success = true) {
+        modalFormLoadingSpinner.classList.add('d-none');
+        modalFormSubmitMessage.classList.remove('d-none');
+        modalFormSubmitMessage.textContent = success ? 'Your inquiry has been submitted successfully.' : 'There was an error submitting your inquiry. Please try again.';
+        modalFormSubmitMessage.classList.toggle('text-success', success);
+        modalFormSubmitMessage.classList.toggle('text-danger', !success);
+      }
+
+      // Function to fetch the user's IP address
+      async function fetchModalIpAddress() {
+        try {
+          const response = await fetch('https://api.ipify.org?format=json');
+          const data = await response.json();
+          return data.ip;
+        } catch (error) {
+          console.error('Error fetching IP address:', error);
+          return 'N/A';
+        }
+      }
+
+      // Save modal form data to Firebase Firestore
+      async function saveModalFormDataToFirebase(formFields, phoneInput) {
+        showModalLoadingSpinner(); // Show loading spinner when submitting
+
+        // Fetch dynamic property details from modal-specific hidden fields
+        const community = document.getElementById('community').value;
+        const subCommunity = document.getElementById('subCommunity').value;
+        const building = document.getElementById('building').value;
+        const referenceNumber = document.getElementById('referenceNumber').value;
+        const propertyLink = window.location.href;
+        const currentDate = new Date().toISOString();
+        const ipAddress = await fetchModalIpAddress(); // Fetch IP address
+
+        const formData = {
+          name: formFields.name.value,
+          email: formFields.email.value,
+          phone: phoneInput.getNumber(),
+          message: formFields.message.value, // Hidden message field
+          referenceNumber: referenceNumber,
+          community: community,
+          subCommunity: subCommunity,
+          building: building,
+          propertyLink: propertyLink,
+          dateSubmitted: currentDate,
+          ipAddress: ipAddress // Add IP address
+        };
+
+        try {
+          await db.collection("contactFormSubmissions").add(formData);
+          hideModalLoadingSpinner(true); // Show success message
+          window.location.href = "thankyou.html"; // Redirect to thank you page
+        } catch (error) {
+          hideModalLoadingSpinner(false); // Show failure message
+          console.error('Error adding document: ', error);
+        }
+      }
+
+      // Custom validation function
+      function validateModalForm() {
+        let isValid = true;
+
+        // Validate name
+        if (!modalFormFields.name.value.trim()) {
+          modalFormFields.name.classList.add('is-invalid');
+          isValid = false;
+        } else {
+          modalFormFields.name.classList.remove('is-invalid');
+        }
+
+        // Validate email
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(modalFormFields.email.value)) {
+          modalFormFields.email.classList.add('is-invalid');
+          isValid = false;
+        } else {
+          modalFormFields.email.classList.remove('is-invalid');
+        }
+
+        // Validate phone number
+        if (!modalPhoneInput.isValidNumber()) {
+          modalFormFields.phone.classList.add('is-invalid');
+          isValid = false;
+        } else {
+          modalFormFields.phone.classList.remove('is-invalid');
+        }
+
+        // Enable or disable the submit button based on validation
+        modalSubmitButton.disabled = !isValid;
+
+        return isValid;
+      }
+
+      // Add input listeners to enable button on valid data
+      Object.values(modalFormFields).forEach(field => {
+        field.addEventListener('input', validateModalForm);
+      });
+
+      // Modal form submit event listener
+      modalSubmitButton.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        // Perform form validation
+        if (validateModalForm()) {
+          saveModalFormDataToFirebase(modalFormFields, modalPhoneInput);
+        } else {
+          alert("Please fill all required fields correctly.");
+        }
+      });
     });
-  });
-</script>
+  </script>
+
+<!-- Modal form script with unique function and variable names 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Function to update the modal title dynamically based on the button clicked
+      function updateModalTitle(event) {
+        const button = event.relatedTarget; // Button that triggered the modal
+        const title = button.getAttribute('data-bs-title'); // Extract the title from data-bs-title attribute
+        const modalTitle = document.getElementById('dynamicModalHeading'); // Modal title element
+
+        // Set the modal title dynamically
+        modalTitle.textContent = title;
+      }
+
+      // Add an event listener for when the modal is about to be shown
+      const contactFormModal = document.getElementById('contactFormModal');
+      contactFormModal.addEventListener('show.bs.modal', updateModalTitle);
+
+      // Modal form elements
+      const modalFormFields = {
+        name: document.getElementById('contactFormNameModal'),
+        email: document.getElementById('contactFormEmailModal'),
+        phone: document.getElementById('contactFormPhoneModal')
+      };
+
+      const modalSubmitButton = document.getElementById('submitContactForm');
+      const modalFormLoadingSpinner = document.getElementById('formLoadingSpinner');
+      const modalFormSubmitMessage = document.getElementById('formSubmitMessage');
+      let modalPhoneInput;
+
+      // Initialize intlTelInput for modal form phone input
+      function initializeModalPhoneInput() {
+        modalPhoneInput = intlTelInput(modalFormFields.phone, {
+          utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+          initialCountry: "AE",
+          separateDialCode: true,
+          preferredCountries: ["AE", "US", "GB"]
+        });
+      }
+
+      initializeModalPhoneInput(); // Initialize the phone input for modal form
+
+      // Show loading spinner for modal form
+      function showModalLoadingSpinner() {
+        modalFormLoadingSpinner.classList.remove('d-none');
+        modalFormSubmitMessage.classList.add('d-none');
+      }
+
+      // Hide loading spinner and display success/failure message for modal form
+      function hideModalLoadingSpinner(success = true) {
+        modalFormLoadingSpinner.classList.add('d-none');
+        modalFormSubmitMessage.classList.remove('d-none');
+        modalFormSubmitMessage.textContent = success ? 'Your inquiry has been submitted successfully.' : 'There was an error submitting your inquiry. Please try again.';
+        modalFormSubmitMessage.classList.toggle('text-success', success);
+        modalFormSubmitMessage.classList.toggle('text-danger', !success);
+      }
+
+      // Function to fetch the user's IP address
+      async function fetchModalIpAddress() {
+        try {
+          const response = await fetch('https://api.ipify.org?format=json');
+          const data = await response.json();
+          return data.ip;
+        } catch (error) {
+          console.error('Error fetching IP address:', error);
+          return 'N/A';
+        }
+      }
+
+      // Save modal form data to Firebase Firestore
+      async function saveModalFormDataToFirebase(formFields, phoneInput) {
+        showModalLoadingSpinner(); // Show loading spinner when submitting
+
+        // Fetch dynamic property details from modal-specific hidden fields
+        const community = document.getElementById('community').value;
+        const subCommunity = document.getElementById('subCommunity').value;
+        const building = document.getElementById('building').value;
+        const referenceNumber = document.getElementById('referenceNumber').value;
+        const propertyLink = window.location.href;
+        const currentDate = new Date().toISOString();
+        const ipAddress = await fetchModalIpAddress(); // Fetch IP address
+
+        const formData = {
+          name: formFields.name.value,
+          email: formFields.email.value,
+          phone: phoneInput.getNumber(),
+          message: 'Hi, I would like to know more about the property ' + referenceNumber, // Pre-fill message
+          referenceNumber: referenceNumber,
+          community: community,
+          subCommunity: subCommunity,
+          building: building,
+          propertyLink: propertyLink,
+          dateSubmitted: currentDate,
+          ipAddress: ipAddress // Add IP address
+        };
+
+        try {
+          await db.collection("contactFormSubmissions").add(formData);
+          hideModalLoadingSpinner(true); // Show success message
+          window.location.href = "thankyou.html"; // Redirect to thank you page
+        } catch (error) {
+          hideModalLoadingSpinner(false); // Show failure message
+          console.error('Error adding document: ', error);
+        }
+      }
+
+      // Custom validation function
+      function validateModalForm() {
+        let isValid = true;
+
+        // Validate name
+        if (!modalFormFields.name.value.trim()) {
+          modalFormFields.name.classList.add('is-invalid');
+          isValid = false;
+        } else {
+          modalFormFields.name.classList.remove('is-invalid');
+        }
+
+        // Validate email
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(modalFormFields.email.value)) {
+          modalFormFields.email.classList.add('is-invalid');
+          isValid = false;
+        } else {
+          modalFormFields.email.classList.remove('is-invalid');
+        }
+
+        // Validate phone number
+        if (!modalPhoneInput.isValidNumber()) {
+          modalFormFields.phone.classList.add('is-invalid');
+          isValid = false;
+        } else {
+          modalFormFields.phone.classList.remove('is-invalid');
+        }
+
+        // Enable or disable the submit button based on validation
+        modalSubmitButton.disabled = !isValid;
+
+        return isValid;
+      }
+
+      // Add input listeners to enable button on valid data
+      Object.values(modalFormFields).forEach(field => {
+        field.addEventListener('input', validateModalForm);
+      });
+
+      // Modal form submit event listener
+      modalSubmitButton.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        // Perform form validation
+        if (validateModalForm()) {
+          saveModalFormDataToFirebase(modalFormFields, modalPhoneInput);
+        } else {
+          alert("Please fill all required fields correctly.");
+        }
+      });
+    });
+  </script>
+-->
+ 
+
+  <!-- custom form script-->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const customFormFields = {
+        name: document.getElementById('customFormName'),
+        email: document.getElementById('customFormEmail'),
+        phone: document.getElementById('customFormPhone'),
+        message: document.getElementById('contactFormMessage') // Include the message field
+      };
+
+      const customSubmitButton = document.getElementById('submitCustomContactForm');
+      const formLoadingSpinner = document.getElementById('formLoadingSpinner');
+      const formSubmitMessage = document.getElementById('formSubmitMessage');
+      let customPhoneInput;
+
+      // Initialize intlTelInput for custom form phone input
+      function initializePhoneInput() {
+        customPhoneInput = intlTelInput(customFormFields.phone, {
+          utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+          initialCountry: "AE",
+          separateDialCode: true,
+          preferredCountries: ["AE", "US", "GB"]
+        });
+      }
+
+      initializePhoneInput(); // Initialize the phone input
+
+      // Show loading spinner
+      function showLoadingSpinner() {
+        formLoadingSpinner.classList.remove('d-none');
+        formSubmitMessage.classList.add('d-none');
+      }
+
+      // Hide loading spinner and display success/failure message
+      function hideLoadingSpinner(success = true) {
+        formLoadingSpinner.classList.add('d-none');
+        formSubmitMessage.classList.remove('d-none');
+        formSubmitMessage.textContent = success ? 'Your inquiry has been submitted successfully.' : 'There was an error submitting your inquiry. Please try again.';
+        formSubmitMessage.classList.toggle('text-success', success);
+        formSubmitMessage.classList.toggle('text-danger', !success);
+      }
+
+      // Function to fetch the user's IP address
+      async function fetchIpAddress() {
+        try {
+          const response = await fetch('https://api.ipify.org?format=json');
+          const data = await response.json();
+          return data.ip;
+        } catch (error) {
+          console.error('Error fetching IP address:', error);
+          return 'N/A';
+        }
+      }
+
+      // Save form data to Firebase Firestore
+      async function saveFormDataToFirebase(formFields, phoneInput) {
+        showLoadingSpinner(); // Show loading spinner when submitting
+
+
+        const community = document.getElementById('community').value;
+        const subCommunity = document.getElementById('subCommunity').value;
+        const building = document.getElementById('building').value;
+        const referenceNumber = document.getElementById('referenceNumber').value;
+        const propertyLink = window.location.href;
+        const currentDate = new Date().toISOString();
+        const ipAddress = await fetchIpAddress(); // Fetch IP address
+
+        const formData = {
+          name: formFields.name.value,
+          email: formFields.email.value,
+          phone: phoneInput.getNumber(),
+          message: formFields.message.value || 'No message provided', // Include the message field
+          referenceNumber: referenceNumber, // Include the reference number field
+          community: community,
+          subCommunity: subCommunity,
+          building: building,
+          propertyLink: propertyLink,
+          dateSubmitted: currentDate,
+          ipAddress: ipAddress // Add IP address
+        };
+
+        try {
+          await db.collection("contactFormSubmissions").add(formData);
+          hideLoadingSpinner(true); // Show success message
+          window.location.href = "thankyou.html"; // Redirect to thank you page
+        } catch (error) {
+          hideLoadingSpinner(false); // Show failure message
+          console.error('Error adding document: ', error);
+        }
+      }
+
+      // Custom form submit event listener
+      customSubmitButton.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        // Basic form validation before proceeding
+        if (!customFormFields.name.value || !customFormFields.email.value || !customFormFields.phone.value) {
+          alert("Please fill all required fields.");
+          return;
+        }
+
+        saveFormDataToFirebase(customFormFields, customPhoneInput);
+      });
+    });
+  </script>
+
 
 
   <!-- Modal for viewing all features -->
@@ -1036,13 +1345,6 @@
 
 
   <!-- MDB -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/masonry.pkgd.min.js"></script>
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="js/owl.carousel.js"></script>
 
 
 
@@ -1165,8 +1467,6 @@
 
 
   <script type="text/javascript" src="js/mdb.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
 
 
 
@@ -1179,8 +1479,26 @@
 
     // Function to load and bind property data
     function loadPropertyDetails(data) {
+
+      
+      // Determine if the offering type is for Sale or Rent
+      let offeringTypeText = '';
+      if (data.offeringType === 'CS' || data.offeringType === 'RS') {
+        offeringTypeText = 'for Sale';
+      } else {
+        offeringTypeText = 'for Rent';
+      }
+
+      // Construct the dynamic text for property type, sale/rent, property name, community, and sub-community
+      const propertyTypeText = `${data.propertyType}  ${offeringTypeText} in ${data.propertyName}, ${data.community}, ${data.subCommunity}`;
+
+      // Bind this text to the paragraph with id 'typeofProperty'
+      const propertyTypeElement = document.getElementById('typeofProperty');
+      if (propertyTypeElement) {
+        propertyTypeElement.textContent = propertyTypeText;
+      }
       // Bind the property type and title
-      document.querySelector('.property-list p').textContent = data.propertyType || '';
+      //document.querySelector('.property-list p').textContent = data.propertyType || '';
       document.querySelector('.property-list h2').textContent = data.title || '';
 
       // Bind the property details (Beds, Baths, Size, Price)
@@ -1194,6 +1512,29 @@
       if (startingPriceElement) {
         startingPriceElement.textContent = `AED ${data.pricing.price.toLocaleString()}`;
       }
+
+      // Pre-fill the textarea with the dynamic message
+      const messageField = document.getElementById('contactFormMessage');
+      if (messageField) {
+        messageField.value = `Hi, I would like to know more about the property ${data.referenceNumber || 'N/A'}`;
+      }
+
+      // Bind the community, sub-community, building, and reference number (new dynamic data)
+      const communityElement = document.getElementById('community');
+      const subCommunityElement = document.getElementById('subCommunity');
+      const buildingElement = document.getElementById('building');
+      const referenceNumberElement = document.getElementById('referenceNumber');
+      const propertyLink = window.location.href;
+      if (communityElement) communityElement.value = data.community || 'Unknown Community';
+      if (subCommunityElement) subCommunityElement.value = data.subCommunity || 'Unknown Sub-community';
+      if (buildingElement) buildingElement.value = data.propertyName || 'Unknown Building';
+      if (referenceNumberElement) referenceNumberElement.value = data.referenceNumber || 'N/A';
+
+      // Bind the features using FontAwesome icons
+
+
+
+
 
       const descriptionElement = document.querySelector('.property-list p:nth-of-type(2)');
       if (descriptionElement) {
@@ -1219,6 +1560,8 @@
             descriptionElement.innerHTML = `${fullDescription} <a href="#" id="readMoreLink">show less</a>`;
             readMoreLink.setAttribute('data-expanded', 'true');
           }
+
+
 
           // Re-add the event listener after innerHTML change
           document.getElementById('readMoreLink').addEventListener('click', arguments.callee);
@@ -1374,16 +1717,78 @@
             ).join('');
 
             const dialogImages = data.media.images.map((image, index) =>
-              `<dialog id="ihc${index + 1}">
-                <form method="dialog">
-                  <div class="slideID">${index + 1}/${data.media.images.length}</div>
-                  <img class="md1 modal-img" src="${image}" alt="Slide ${index + 1}">
-                  ${index > 0 ? `<button onclick="document.getElementById('ihc${index}').showModal()" class="prev" aria-label="move to previous image">&lt;</button>` : ''}
-                  ${index < data.media.images.length - 1 ? `<button onclick="document.getElementById('ihc${index + 2}').showModal()" class="next" aria-label="move to next image">&gt;</button>` : ''}
-                  <button class="close" aria-label="close popup image">X</button>
-                </form>
-              </dialog>`
+              `<dialog id="ihc${index + 1}" class="responsive-dialog"> <!-- Add a responsive class -->
+    <form method="dialog" class="d-flex flex-column justify-content-center align-items-center"> <!-- Flexbox for centering content -->
+      <div class="slideID">${index + 1}/${data.media.images.length}</div>
+      <img class="modal-img img-fluid" src="${image}" alt="Slide ${index + 1}"> <!-- Responsive image using img-fluid -->
+      <div class="d-flex justify-content-between w-100 px-3 mt-2"> <!-- Flexbox for button alignment -->
+        ${index > 0 ? `<button onclick="document.getElementById('ihc${index}').showModal()" class="prev btn btn-secondary" aria-label="move to previous image">&lt;</button>` : ''}
+        ${index < data.media.images.length - 1 ? `<button onclick="document.getElementById('ihc${index + 2}').showModal()" class="next btn btn-secondary" aria-label="move to next image">&gt;</button>` : ''}
+      </div>
+      <button class="close btn btn-danger mt-2" aria-label="close popup image">X</button> <!-- Ensure the close button is responsive -->
+    </form>
+  </dialog>`
             ).join('');
+
+            // Custom styles for better responsive behavior
+            const styles = `
+  <style>
+    dialog.responsive-dialog {
+      width: 80%;
+      max-width: 600px; /* Limit dialog size on larger screens */
+      margin: auto;
+      border: none;
+      border-radius: 8px;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      dialog.responsive-dialog {
+        width: 90%; /* Increase dialog width on small screens */
+        max-width: 90%;
+      }
+      .modal-img {
+        width: 100%; /* Make images responsive */
+        height: auto;
+      }
+      button {
+        font-size: 1rem; /* Ensure buttons are easy to click on small screens */
+      }
+    }
+
+    .modal-img {
+      max-height: 400px; /* Prevent images from overflowing */
+      width: 100%;
+      object-fit: contain; /* Make images scale properly */
+    }
+
+    button.prev, button.next {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    button.close {
+      background-color: #f00;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .slideID {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+`;
+
+            document.head.insertAdjacentHTML('beforeend', styles);
+
 
             const propertyGallery = `
               <div class="container">
@@ -1547,85 +1952,62 @@
   </script>
 
 
-
-
   <script>
     function loadMajorCommunities(propertiesSnapshot) {
       const carousel = document.querySelector('.owl-carousel');
       let carouselItems = '';
 
       propertiesSnapshot.forEach(doc => {
-        const property = doc.data(); // Get property data
-        const propertyId = doc.id; // Get the document ID
-
-        // Log the property object to the console for debugging
-        //console.log('Property object:', JSON.stringify(property, null, 2));
+        const property = doc.data();
+        const propertyId = doc.id;
 
         const cardHtml = `
-        <div class="item unique-card"> <!-- Add a unique class to the card container -->
-          <div class="card"> <!-- Bootstrap card structure -->
-            <img src="${property.media.images[0]}" class="card-img-top" alt="${property.title}">
-            <div class="card-body">
-              <h5 class="card-title">${property.title}</h5>
-              <p class="card-text">AED ${property.pricing.price.toLocaleString()}</p>
-              <p class="card-text">
-                ${property.bedrooms} Beds • ${property.bathrooms} Baths • ${property.size.toLocaleString()} sq. ft
-              </p>
-              <a href="project-details-page.html?id=${propertyId}" class="btn rounded-0 py-lg-3 px-4 hover-btn check-primary-btn ripple-surface">Learn More</a>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 unique-card">
+        <div class="card h-100 row">
+          <img src="${property.media.images[0]}" class="card-img-top" alt="${property.title}" style="object-fit: cover; height: 200px;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">${property.title}</h5>
+            <p class="card-text">AED ${property.pricing.price.toLocaleString()}</p>
+            <p class="card-text">${property.bedrooms} Beds • ${property.bathrooms} Baths • ${property.size.toLocaleString()} sq. ft</p>
+            <div class="mt-auto text-center">
+              <a href="project-details-page.html?id=${propertyId}" class="btn rounded-0 py-lg-3 px-4 hover-btn check-primary-btn ripple-surface w-50 mx-auto">Learn More</a>
             </div>
           </div>
-        </div>`;
-
+        </div>
+      </div>`;
         carouselItems += cardHtml;
       });
 
       // Inject items into the carousel container
       carousel.innerHTML = carouselItems;
 
-      // Initialize Owl Carousel with settings
+      // Initialize Owl Carousel after the HTML content is loaded
       $(carousel).owlCarousel({
         loop: false,
         margin: 10,
         nav: true,
         dots: false,
-        items: 3, // 3 items per row
+        items: 3,
         responsive: {
-          0: {
-            items: 1 // 1 item per row on small screens
-          },
-          600: {
-            items: 2 // 2 items per row on medium screens
-          },
-          1000: {
-            items: 3 // 3 items per row on large screens
-          }
+          0: { items: 1 },
+          600: { items: 2 },
+          1000: { items: 3 }
         },
-        navText: [
-          '<i class="fas fa-chevron-left"></i>',
-          '<i class="fas fa-chevron-right"></i>'
-        ]
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>']
       });
     }
 
     // Load Major Communities Carousel
-    document.addEventListener('DOMContentLoaded', async function () {
+    $(document).ready(async function () {
       try {
-        // Fetch properties for the "Major Communities" carousel from Firebase Firestore
         const propertiesSnapshot = await db.collection('propertyListings').get();
-
-        // Instead of mapping to just data, pass the entire document
         const properties = propertiesSnapshot.docs;
-
-        // Log the properties for debugging
-        //console.log('Fetched properties:', properties);
-
-        // Load the carousel with property cards
         loadMajorCommunities(properties);
-
       } catch (error) {
         console.error("Error fetching property details for Major Communities: ", error);
       }
     });
+
   </script>
 
   <style>
@@ -1633,7 +2015,7 @@
     .unique-card .card {
       width: 400px;
       /* Set a fixed width for all cards */
-      height: 400px;
+      height: 430px;
       /* Set a fixed height for all cards */
       display: flex;
       flex-direction: column;
@@ -1676,7 +2058,7 @@
           }
         });
 
-       // console.log("Aggregated Communities Data:", communities);
+        // console.log("Aggregated Communities Data:", communities);
 
         // Step 2: Sort communities by the number of listings
         const sortedCommunities = Object.entries(communities).sort((a, b) => b[1] - a[1]);
@@ -1687,7 +2069,7 @@
         const uaeDropdownContainer = document.querySelector('#navbarDropdown + .dropdown-menu .row');
 
         if (uaeDropdownContainer) {
-         // console.log("UAE Dropdown Container found:", uaeDropdownContainer);
+          // console.log("UAE Dropdown Container found:", uaeDropdownContainer);
 
           let dropdownItems = '<div class="col-12 col-md-6 col-lg-3"><h5 class="my-2">Communities</h5></div>';
 
@@ -1705,7 +2087,7 @@
             dropdownItems += `<div class="col-12 col-md-6 col-lg-3"><li><a href="property-listing.html?community=${encodeURIComponent(communityName)}">${communityName} (${listingCount})</a></li></div>`;
           });
 
-         // console.log("Generated Dropdown HTML:", dropdownItems);
+          // console.log("Generated Dropdown HTML:", dropdownItems);
 
           // Step 4: Inject the content into the DOM
           uaeDropdownContainer.insertAdjacentHTML('beforeend', dropdownItems);

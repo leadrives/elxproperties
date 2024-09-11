@@ -7,3 +7,13 @@ service cloud.firestore {
     }
   }
 }
+
+// Firebase Storage Rules (temporary public access)
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      // Allow public read and write access
+      allow read, write: if true;
+    }
+  }
+}

@@ -237,76 +237,82 @@
                             <div class="mb-4">
                                 <h5>Specifications</h5>
                                 <div class="row g-3">
+                                    <!-- Title Deeds -->
+                                    <div class="col-md-6">
+                                        <label for="titleDeeds" class="form-label">Title Deeds</label>
+                                        <input type="text" class="form-control" id="titleDeeds" name="titleDeeds"
+                                            placeholder="Enter title deeds">
+                                    </div>
+
                                     <!-- Size -->
                                     <div class="col-md-6">
                                         <label for="size" class="form-label">Size (sqft)</label>
                                         <input type="number" class="form-control" id="size" name="size"
                                             placeholder="Enter size in sqft">
                                     </div>
+
                                     <!-- Bedrooms -->
                                     <div class="col-md-6">
                                         <label for="bedrooms" class="form-label">No of Bedrooms</label>
                                         <select class="form-select" id="bedrooms" name="bedrooms">
                                             <option selected>Select number of bedrooms</option>
-                                            <option value="0">Studio</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
                                         </select>
                                     </div>
+
                                     <!-- Bathrooms -->
                                     <div class="col-md-6">
                                         <label for="bathrooms" class="form-label">No of Bathrooms</label>
                                         <select class="form-select" id="bathrooms" name="bathrooms">
                                             <option selected>Select number of bathrooms</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
                                         </select>
                                     </div>
+
                                     <!-- Furnishing Type -->
                                     <div class="col-md-6">
                                         <label for="furnishingType" class="form-label">Furnishing Type</label>
                                         <select class="form-select" id="furnishingType" name="furnishingType">
                                             <option selected>Select furnishing type</option>
-                                            <option value="Unfurnished">Unfurnished</option>
-                                            <option value="Semi-furnished">Semi-furnished</option>
-                                            <option value="Furnished">Furnished</option>
                                         </select>
                                     </div>
+
                                     <!-- Parking Spaces -->
                                     <div class="col-md-6">
                                         <label for="parkingSpaces" class="form-label">No of Parking Spaces</label>
                                         <input type="number" class="form-control" id="parkingSpaces"
                                             name="parkingSpaces" placeholder="Enter number of parking spaces">
                                     </div>
+
                                     <!-- Plot Size -->
                                     <div class="col-md-6">
                                         <label for="plotSize" class="form-label">Total Plot Size (sqft)</label>
                                         <input type="number" class="form-control" id="plotSize" name="plotSize"
                                             placeholder="Enter plot size in sqft">
                                     </div>
+
                                     <!-- Built-Up Area -->
                                     <div class="col-md-6">
                                         <label for="builtUpArea" class="form-label">Built-up Area (sqft)</label>
                                         <input type="number" class="form-control" id="builtUpArea" name="builtUpArea"
                                             placeholder="Enter built-up area in sqft">
                                     </div>
+
+                                    <!-- Property Type -->
+                                    <div class="col-md-6">
+                                        <label for="propertyType" class="form-label">Property Type</label>
+                                        <select class="form-select" id="propertyType" name="propertyType">
+                                            <option selected>Select property type</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Property Status (visible only when Sale is selected) -->
+                                    <div class="col-md-6" id="propertyStatusContainer" style="display: none;">
+                                        <label for="propertyStatus" class="form-label">Property Status</label>
+                                        <select class="form-select" id="propertyStatus" name="propertyStatus">
+                                            <option selected>Select property status</option>
+                                        </select>
+                                    </div>
                                 </div>
+
                             </div>
 
                             <!-- Pricing Section (for Rent) -->
@@ -855,23 +861,36 @@
 
             </section>
             <!-- Section 3: Display Submitted Contact Form Data -->
-            <section id="ContactFormData" class="mb-5" style="display:none;">
-                <h2 class="mb-4">Submitted Enquiries</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Enquiry Title</th>
-                            <th>Property Title</th>
-                        </tr>
-                    </thead>
-                    <tbody id="enquiries-table-body">
-                        <!-- Data will be populated here -->
-                    </tbody>
-                </table>
+            <section id="ContactFormData" class="mb-5 container">
+                <h2 class="mb-4 text-center">Submitted Enquiries</h2>
+                <div class="table-responsive">
+                    <table id="enquiries-table" class="table table-striped table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Client Message</th>
+                                <th>Community</th>
+                                <th>Sub Community</th>
+                                <th>Building</th>
+                                <th>Reference Number</th>
+                                <th>Link</th>
+                                <th>IP Address</th>
+                            </tr>
+                        </thead>
+                        <tbody id="enquiries-table-body">
+                            <!-- Data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
             </section>
+            <!-- DataTables JS and CSS -->
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
         </div>
@@ -1010,77 +1029,79 @@
                         <div class="mb-4">
                             <h5>Specifications</h5>
                             <div class="row g-3">
+                                <!-- Title Deeds -->
+                                <div class="col-md-6">
+                                    <label for="editProperty_TitleDeeds" class="form-label">Title Deeds</label>
+                                    <input type="text" class="form-control" id="editProperty_TitleDeeds"
+                                        name="editProperty_TitleDeeds" placeholder="Enter title deeds">
+                                </div>
+
                                 <!-- Size -->
                                 <div class="col-md-6">
-                                    <label for="editSize" class="form-label">Size (sqft)</label>
-                                    <input type="number" class="form-control" id="editSize" name="editSize"
-                                        placeholder="Enter size in sqft">
+                                    <label for="editProperty_Size" class="form-label">Size (sqft)</label>
+                                    <input type="number" class="form-control" id="editProperty_Size"
+                                        name="editProperty_Size" placeholder="Enter size in sqft">
                                 </div>
+
                                 <!-- Bedrooms -->
                                 <div class="col-md-6">
-                                    <label for="editBedrooms" class="form-label">No of Bedrooms</label>
-                                    <select class="form-select" id="editBedrooms" name="editBedrooms">
+                                    <label for="editProperty_Bedrooms" class="form-label">No of Bedrooms</label>
+                                    <select class="form-select" id="editProperty_Bedrooms" name="editProperty_Bedrooms">
                                         <option selected>Select number of bedrooms</option>
-                                        <option value="0">Studio</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
                                     </select>
                                 </div>
+
                                 <!-- Bathrooms -->
                                 <div class="col-md-6">
-                                    <label for="editBathrooms" class="form-label">No of Bathrooms</label>
-                                    <select class="form-select" id="editBathrooms" name="editBathrooms">
+                                    <label for="editProperty_Bathrooms" class="form-label">No of Bathrooms</label>
+                                    <select class="form-select" id="editProperty_Bathrooms"
+                                        name="editProperty_Bathrooms">
                                         <option selected>Select number of bathrooms</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
                                     </select>
                                 </div>
+
                                 <!-- Furnishing Type -->
                                 <div class="col-md-6">
-                                    <label for="editFurnishingType" class="form-label">Furnishing Type</label>
-                                    <select class="form-select" id="editFurnishingType" name="editFurnishingType">
+                                    <label for="editProperty_FurnishingType" class="form-label">Furnishing Type</label>
+                                    <select class="form-select" id="editProperty_FurnishingType"
+                                        name="editProperty_FurnishingType">
                                         <option selected>Select furnishing type</option>
-                                        <option value="Unfurnished">Unfurnished</option>
-                                        <option value="Semi-furnished">Semi-furnished</option>
-                                        <option value="Furnished">Furnished</option>
                                     </select>
                                 </div>
+
                                 <!-- Parking Spaces -->
                                 <div class="col-md-6">
-                                    <label for="editParkingSpaces" class="form-label">No of Parking Spaces</label>
-                                    <input type="number" class="form-control" id="editParkingSpaces"
-                                        name="editParkingSpaces" placeholder="Enter number of parking spaces">
+                                    <label for="editProperty_ParkingSpaces" class="form-label">No of Parking
+                                        Spaces</label>
+                                    <input type="number" class="form-control" id="editProperty_ParkingSpaces"
+                                        name="editProperty_ParkingSpaces" placeholder="Enter number of parking spaces">
                                 </div>
+
                                 <!-- Plot Size -->
                                 <div class="col-md-6">
-                                    <label for="editPlotSize" class="form-label">Total Plot Size (sqft)</label>
-                                    <input type="number" class="form-control" id="editPlotSize" name="editPlotSize"
-                                        placeholder="Enter plot size in sqft">
+                                    <label for="editProperty_PlotSize" class="form-label">Total Plot Size (sqft)</label>
+                                    <input type="number" class="form-control" id="editProperty_PlotSize"
+                                        name="editProperty_PlotSize" placeholder="Enter plot size in sqft">
                                 </div>
+
                                 <!-- Built-Up Area -->
                                 <div class="col-md-6">
-                                    <label for="editBuiltUpArea" class="form-label">Built-up Area (sqft)</label>
-                                    <input type="number" class="form-control" id="editBuiltUpArea"
-                                        name="editBuiltUpArea" placeholder="Enter built-up area in sqft">
+                                    <label for="editProperty_BuiltUpArea" class="form-label">Built-up Area
+                                        (sqft)</label>
+                                    <input type="number" class="form-control" id="editProperty_BuiltUpArea"
+                                        name="editProperty_BuiltUpArea" placeholder="Enter built-up area in sqft">
+                                </div>
+
+                                <!-- Property Status (for Sale) -->
+                                <div class="col-md-6" id="editPropertyStatusContainer" style="display: none;">
+                                    <label for="editProperty_Status" class="form-label">Property Status</label>
+                                    <select class="form-select" id="editProperty_Status" name="editProperty_Status">
+                                        <option selected>Select property status</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
+
 
                         <!-- Pricing Section (for Rent) -->
                         <div id="editRentPricingSection" class="card mt-4" style="display:none;">
@@ -1194,13 +1215,33 @@
                                     <!-- Service Charges -->
                                     <div class="mb-4">
                                         <h6>Service Charges (Monthly)</h6>
-                                        <label for="editServiceCharges" class="form-label">Service Charges
-                                            (AED)</label>
+                                        <label for="editServiceCharges" class="form-label">Service Charges (AED)</label>
                                         <div class="input-group">
                                             <input type="number" id="editServiceCharges" name="editServiceCharges"
                                                 class="form-control" placeholder="Enter monthly service charges">
                                             <span class="input-group-text">AED</span>
                                         </div>
+                                    </div>
+
+                                    <!-- Rental Period and Price On Application -->
+                                    <div class="mb-4">
+                                        <h6>Rental Period</h6>
+                                        <label for="editRentalPeriod" class="form-label">Select Rental Period</label>
+                                        <select id="editRentalPeriod" name="editRentalPeriod" class="form-select">
+                                            <option value="Y">Yearly</option>
+                                            <option value="M">Monthly</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <h6>Price On Application</h6>
+                                        <label for="editPriceOnApplication" class="form-label">Price On
+                                            Application</label>
+                                        <select id="editPriceOnApplication" name="editPriceOnApplication"
+                                            class="form-select">
+                                            <option value="No">No</option>
+                                            <option value="Yes">Yes</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -1575,6 +1616,9 @@
 
 
 
+
+
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -1772,101 +1816,233 @@
             document.getElementById('savePropertyListing').textContent = 'Save Property Listing';
             document.getElementById('property-id').value = '';
         }
+
+        // Define dropdownData at the beginning of the script
+        const dropdownData = {
+            bedrooms: [
+                { value: 0, label: "Studio" },
+                { value: 1, label: "1" },
+                { value: 2, label: "2" },
+                { value: 3, label: "3" },
+                { value: 4, label: "4" },
+                { value: 5, label: "5" },
+            ],
+            bathrooms: [
+                { value: 1, label: "1" },
+                { value: 2, label: "2" },
+                { value: 3, label: "3" },
+                { value: 4, label: "4" },
+                { value: 5, label: "5" },
+            ],
+            furnishingType: [
+                { value: "Unfurnished", label: "Unfurnished" },
+                { value: "Semi-furnished", label: "Semi-furnished" },
+                { value: "Furnished", label: "Furnished" },
+            ],
+            propertyType: [
+                { value: "Apartment / Flat", label: "Apartment / Flat" },
+                { value: "Bungalow", label: "Bungalow" },
+                { value: "Compound", label: "Compound" },
+                { value: "Duplex", label: "Duplex" },
+                { value: "Full Floor", label: "Full Floor" },
+                { value: "Half Floor", label: "Half Floor" },
+                { value: "Land / Plot", label: "Land / Plot" },
+                { value: "Penthouse", label: "Penthouse" },
+                { value: "Townhouse", label: "Townhouse" },
+                { value: "Villa / House", label: "Villa / House" },
+                { value: "Whole Building", label: "Whole Building" },
+                { value: "Short Term / Hotel Apartment", label: "Short Term / Hotel Apartment" },
+                { value: "Labor Camp", label: "Labor Camp" },
+                { value: "Bulk Units", label: "Bulk Units" },
+                { value: "Warehouse", label: "Warehouse" },
+                { value: "Factory", label: "Factory" },
+                { value: "Office Space", label: "Office Space" },
+                { value: "Retail", label: "Retail" },
+                { value: "Plot", label: "Plot" },
+                { value: "Shop", label: "Shop" },
+                { value: "Show Room", label: "Show Room" },
+                { value: "Staff Accommodation", label: "Staff Accommodation" }
+            ],
+            propertyStatus: [
+                { value: "Off-Plan Primary", label: "Off-Plan Primary" },
+                { value: "Off-Plan Secondary", label: "Off-Plan Secondary" },
+                { value: "Ready Primary", label: "Ready Primary" },
+                { value: "Ready Secondary", label: "Ready Secondary" }
+            ]
+        };
+
+        function populateOwnersDropdown(selectedOwner) {
+            const ownerDropdown = document.getElementById('editOwner');
+
+            if (ownerDropdown) {
+                ownerDropdown.innerHTML = ''; // Clear any existing options
+
+                const owners = [
+                    { value: 'owner1', label: 'John Doe' },
+                    { value: 'owner2', label: 'Jane Smith' },
+                    { value: 'owner3', label: 'Company XYZ' }
+                ];
+
+                owners.forEach(owner => {
+                    const option = document.createElement('option');
+                    option.value = owner.value;
+                    option.textContent = owner.label;
+                    ownerDropdown.appendChild(option);
+                });
+
+                // Set the selected value
+                if (selectedOwner) {
+                    ownerDropdown.value = selectedOwner;
+                }
+            } else {
+                console.error('Owner dropdown element not found');
+            }
+        }
+
+        // Call this function after the DOM is ready or when you have fetched the data
+        function populateAssignedUsersDropdown(selectedUser) {
+            const assignedUserDropdown = document.getElementById('editAssignedUser');
+
+            if (assignedUserDropdown) {
+                // Clear existing options
+                assignedUserDropdown.innerHTML = '';
+
+                // Example options
+                const assignedUsers = [
+                    { value: 'agent1', label: 'Teddy Ndebele' },
+                    { value: 'agent2', label: 'Shahz Sheikh' },
+                    { value: 'agent3', label: 'Agent 3' }
+                ];
+
+                // Populate dropdown with options
+                assignedUsers.forEach(user => {
+                    const option = document.createElement('option');
+                    option.value = user.value;
+                    option.textContent = user.label;
+                    assignedUserDropdown.appendChild(option);
+                });
+
+                // Set the selected value based on the "assignedUser" from data
+                assignedUserDropdown.value = selectedUser || '';
+            } else {
+                console.error('Assigned User dropdown element not found');
+            }
+        }
+
+        // edit PropertyListings
         function editPropertyListings(id) {
             db.collection('propertyListings').doc(id).get().then((doc) => {
                 if (doc.exists) {
                     const data = doc.data();
-
-                    // Convert the data to a JSON string and log it for debugging
                     console.log('Firebase Response Data (JSON):', JSON.stringify(data, null, 2));
 
-                    // Set the form fields with the current data
-                    document.getElementById('editEnglishTitle').value = data.title || '';
+                    // Type Section
+                    const propertyTypeElement = document.querySelector(`input[name="editPropertyType"][value="${data.propertyType}"]`);
+                    if (propertyTypeElement) propertyTypeElement.checked = true;
 
-                    document.querySelectorAll('input[name="editPropertyType"]').forEach(input => {
-                        input.checked = input.value === data.propertyType;
-                    });
-                    document.querySelectorAll('input[name="editTransactionType"]').forEach(input => {
-                        input.checked = input.value === data.transactionType;
-                    });
+                    const transactionTypeElement = document.querySelector(`input[name="editTransactionType"][value="${data.offeringType === 'RS' || data.offeringType === 'CS' ? 'Sale' : 'Rent'}"]`);
+                    if (transactionTypeElement) transactionTypeElement.checked = true;
 
-                    // Handle pricing based on transaction type
-                    if (data.transactionType === 'Rent') {
-                        document.getElementById('editPricePerYear').value = data.pricing?.yearlyPrice || '';
-                        document.getElementById('editPricePerMonth').value = data.pricing?.monthlyPrice || '';
-                        document.getElementById('editPricePerWeek').value = data.pricing?.weeklyPrice || '';
-                        document.getElementById('editPricePerDay').value = data.pricing?.dailyPrice || '';
-                        document.querySelector(`input[name="editDefaultPrice"][value="${data.pricing?.defaultPrice}"]`).checked = true;
-                        document.getElementById('editCheques').value = data.pricing?.cheques || '';
-                        document.getElementById('editFinancialStatus').value = data.pricing?.financialStatus || '';
-                        document.getElementById('editServiceCharges').value = data.pricing?.serviceCharges || '';
-                        togglePricingSection(); // Adjust the visibility of pricing sections
-                    } else if (data.transactionType === 'Sale') {
-                        document.getElementById('editSalePrice').value = data.pricing?.salePrice || '';
-                        togglePricingSection(); // Adjust the visibility of pricing sections
+                    // Populate dropdowns using the provided dropdownData
+                    populateDropdown('editProperty_Bedrooms', dropdownData.bedrooms.map(item => ({ id: item.value, name: item.label })));
+                    populateDropdown('editProperty_Bathrooms', dropdownData.bathrooms.map(item => ({ id: item.value, name: item.label })));
+                    populateDropdown('editProperty_FurnishingType', dropdownData.furnishingType.map(item => ({ id: item.value, name: item.label })));
+                    populateDropdown('editPropertyType', dropdownData.propertyType.map(item => ({ id: item.value, name: item.label })));
+                    populateDropdown('propertyStatus', dropdownData.propertyStatus.map(item => ({ id: item.value, name: item.label })));
+
+                    // Specifications Section
+                    document.getElementById('editProperty_Size').value = data.size || '';
+                    document.getElementById('editProperty_Bedrooms').value = data.bedrooms || '';
+                    document.getElementById('editProperty_Bathrooms').value = data.bathrooms || '';
+                    document.getElementById('editProperty_FurnishingType').value = data.furnished || '';
+                    document.getElementById('editProperty_ParkingSpaces').value = data.parking || '';
+                    document.getElementById('editProperty_PlotSize').value = data.plotSize || '';
+                    document.getElementById('editProperty_BuiltUpArea').value = data.builtUpArea || '';
+
+                    // Property Permit Section
+                    const permitType = data.permit?.type || '';
+
+                    if (permitType === 'RERA') {
+                        document.getElementById('editRera').checked = true;
+                        togglePermitFieldsEdit(); // Ensure RERA fields are shown
+                        document.getElementById('editReraListingNo').value = data.permit?.reraListingNo || '';
+                    } else if (permitType === 'DTCM') {
+                        document.getElementById('editDtcm').checked = true;
+                        togglePermitFieldsEdit(); // Ensure DTCM fields are shown
+                        document.getElementById('editDtcmPermitNo').value = data.permit?.dtcmPermitNo || '';
                     }
 
-                    // Set the specifications
-                    document.getElementById('editSize').value = data.size || '';
-                    document.getElementById('editBedrooms').value = data.bedrooms || '';
-                    document.getElementById('editBathrooms').value = data.bathrooms || '';
-                    document.getElementById('editFurnishingType').value = data.furnishingType || '';
-                    document.getElementById('editParkingSpaces').value = data.parkingSpaces || '';
-                    document.getElementById('editPlotSize').value = data.plotSize || '';
-                    document.getElementById('editBuiltUpArea').value = data.builtUpArea || '';
-                    document.getElementById('editEnglishDescription').value = data.description || '';
-
-                    // Handle amenities
-                    const selectedAmenities = document.getElementById('editSelectedAmenities');
-                    selectedAmenities.innerHTML = '';
-                    if (data.amenities) {
-                        data.amenities.forEach(amenity => {
-                            const newAmenity = document.createElement('div');
-                            newAmenity.className = 'badge bg-primary m-1';
-                            newAmenity.textContent = amenity;
-                            selectedAmenities.appendChild(newAmenity);
-                        });
-                    }
-
-                    // Handle availability
-                    const availabilityElement = document.querySelector(`input[name="editAvailability"][value="${data.availability}"]`);
-                    if (availabilityElement) {
-                        availabilityElement.checked = true;
-                    }
-                    document.getElementById('editAvailableFrom').value = data.availabilityFrom || '';
-                    document.getElementById('editExclusivity').checked = data.exclusivity?.status || false;
-                    document.getElementById('editStartDate').value = data.exclusivity?.startDate || '';
-                    document.getElementById('editExpiryDate').value = data.exclusivity?.expiryDate || '';
-
-                    // Handle permit information
-                    if (data.permit && data.permit.type) {
-                        const permitTypeElement = document.querySelector(`input[name="editPermitType"][value="${data.permit.type}"]`);
-                        if (permitTypeElement) {
-                            permitTypeElement.checked = true;
-                        }
-                    }
-                    document.getElementById('editReraListingNo').value = data.permit?.reraListingNo || '';
-                    document.getElementById('editDtcmPermitNo').value = data.permit?.dtcmPermitNo || '';
                     document.getElementById('editPermitFromDate').value = data.permit?.permitFromDate || '';
                     document.getElementById('editPermitToDate').value = data.permit?.permitToDate || '';
-                    togglePermitFields(); // Adjust the visibility of permit fields
 
-                    // Handle management information
-                    document.getElementById('editAssignedUser').value = data.management?.assignedUser || '';
-                    document.getElementById('editOwner').value = data.management?.owner || '';
+                    // Call the toggle function to ensure the correct fields are shown based on the selected permit type
+                    togglePermitFieldsEdit();
+                    // Pricing Section (for Sale)
+                    document.getElementById('editSalePrice').value = data.pricing?.salePrice || '';
 
-                    // Handle location information
-                    document.getElementById('editLocationSearch').value = data.location?.address || '';
+                    // Description Section
+                    document.getElementById('editEnglishTitle').value = data.title || '';
+                    document.getElementById('editEnglishDescription').value = data.description || '';
+
+                    // Amenities Section
+                    const selectedAmenities = document.getElementById('editSelectedAmenities');
+                    if (selectedAmenities) {
+                        selectedAmenities.innerHTML = '';
+                        if (data.amenities && data.amenities.length > 0) {
+                            data.amenities.forEach(amenity => {
+                                const newAmenity = document.createElement('span');
+                                newAmenity.className = 'badge bg-primary m-1';
+                                newAmenity.textContent = amenity;
+                                selectedAmenities.appendChild(newAmenity);
+                            });
+                        }
+                    }
+
+                    // Management Section
+                    const referenceElement = document.getElementById('editReference');
+                    if (referenceElement) {
+                        referenceElement.value = data.management?.agentLicenseNo || '';  // Assuming reference is the agent license number
+                    }
+
+                    // Populate the Assigned User dropdown and select the correct user
+                    populateAssignedUsersDropdown(data.management?.assignedUser);
+
+                    // Populate the Owner dropdown and select the correct owner
+                    populateOwnersDropdown(data.management?.owner);
+                    // Location Section
+                    document.getElementById('editLocationSearch').value = data.location?.community || '';
                     document.getElementById('editUnitNumber').value = data.location?.unitNo || '';
                     document.getElementById('editGeoLat').value = data.location?.geoPoint?.lat || '';
                     document.getElementById('editGeoLng').value = data.location?.geoPoint?.lng || '';
 
-                    // Handle media information
+                    // Media Section
+                    const imageThumbnails = document.getElementById('editImageThumbnails');
+                    if (imageThumbnails && data.media?.images) {
+                        imageThumbnails.innerHTML = '';
+                        data.media.images.forEach(imageUrl => {
+                            const imgElement = document.createElement('img');
+                            imgElement.src = imageUrl;
+                            imgElement.className = 'img-thumbnail m-2';
+                            imgElement.style.width = '100px';
+                            imageThumbnails.appendChild(imgElement);
+                        });
+                    }
+
                     document.getElementById('editTour360Url').value = data.media?.tour360 || '';
                     document.getElementById('editVideoTourUrl').value = data.media?.videoTour || '';
 
-                    // Set property ID
-                    document.getElementById('editPropertyId').value = id;
+                    // Floor Plan Section
+                    const floorPlanThumbnails = document.getElementById('editFloorPlanThumbnails');
+                    if (floorPlanThumbnails && data.media?.floorPlans) {
+                        floorPlanThumbnails.innerHTML = '';
+                        data.media.floorPlans.forEach(floorPlanUrl => {
+                            const fileLink = document.createElement('a');
+                            fileLink.href = floorPlanUrl;
+                            fileLink.textContent = 'View Floor Plan';
+                            fileLink.target = '_blank';
+                            floorPlanThumbnails.appendChild(fileLink);
+                        });
+                    }
 
                     // Show the modal
                     const editPropertyModal = new bootstrap.Modal(document.getElementById('editPropertyModal'));
@@ -1879,19 +2055,42 @@
                 alert('Failed to load property. Please try again.');
             });
         }
+
+
+
+
+
+
         // Handle form submission
         document.getElementById('propertyListingForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
-            const title = getDummyValue(document.getElementById('englishTitle').value, 'Dummy Title');
-            const propertyType = getDummyValue(document.querySelector('input[name="propertyType"]:checked').value, 'Residential');
-            const transactionType = getDummyValue(document.querySelector('input[name="transactionType"]:checked').value, 'Sale');
+            // Title (Title Deeds saved as title) and Property Type
+            const title = getDummyValue(document.getElementById('titleDeeds').value, 'Default Property Name'); // Save Title Deeds as title
+            const propertyType = document.querySelector('input[name="propertyType"]:checked').value; // Get selected property type (Residential/Commercial)
 
+            // Transaction Type (Rent/Sale)
+            const transactionType = document.querySelector('input[name="transactionType"]:checked').value; // Get selected transaction type (Rent/Sale)
+
+            // Determine offeringType based on propertyType and transactionType
+            let offeringType;
+            if (propertyType === 'Residential') {
+                offeringType = transactionType === 'Sale' ? 'RS' : 'RR'; // RS for Residential Sale, RR for Residential Rent
+            } else if (propertyType === 'Commercial') {
+                offeringType = transactionType === 'Sale' ? 'CS' : 'CR'; // CS for Commercial Sale, CR for Commercial Rent
+            }
+
+            // Property Status (Completion Status) and Off-plan Logic
+            let completionStatus = null;
+            let offplan = false;
+            if (offeringType.includes('S')) { // Only check if it's a sale
+                completionStatus = getDummyValue(document.getElementById('propertyStatus').value, 'Off-Plan Primary');
+                offplan = completionStatus.toLowerCase().includes('off-plan');
+            }
+
+            // Handling Pricing Based on Offering Type
             let pricing = { price: null };
-
             if (transactionType === 'Rent') {
-                const defaultPriceType = document.querySelector('input[name="default_price"]:checked').value;
-
                 pricing = {
                     yearlyPrice: getDummyValue(parseInt(document.getElementById('price_per_year').value, 10), 100000),
                     monthlyPrice: getDummyValue(parseInt(document.getElementById('price_per_month').value, 10), 10000),
@@ -1899,11 +2098,11 @@
                     dailyPrice: getDummyValue(parseInt(document.getElementById('price_per_day').value, 10), 500),
                     cheques: getDummyValue(parseInt(document.getElementById('cheques').value, 10), 1),
                     financialStatus: getDummyValue(document.getElementById('financial_status').value, 'Cash'),
-                    serviceCharges: getDummyValue(parseInt(document.getElementById('service_charges').value, 10), 100),
-                    defaultPrice: defaultPriceType,
+                    serviceCharges: getDummyValue(parseInt(document.getElementById('service_charges').value, 100)),
+                    rentalPeriod: getDummyValue(document.getElementById('rentalPeriod').value, 'Y'),
+                    priceOnApplication: getDummyValue(document.getElementById('priceOnApplication').value, 'No')
                 };
-
-                pricing.price = pricing[`${defaultPriceType}lyPrice`];
+                pricing.price = pricing['yearlyPrice'];
             } else if (transactionType === 'Sale') {
                 pricing = {
                     salePrice: getDummyValue(parseInt(document.getElementById('sale_price').value, 10), 500000),
@@ -1911,21 +2110,26 @@
                 };
             }
 
+            // Other Fields
             const size = getDummyValue(parseInt(document.getElementById('size').value, 10), 1000);
             const bedrooms = getDummyValue(parseInt(document.getElementById('bedrooms').value, 10), 2);
             const bathrooms = getDummyValue(parseInt(document.getElementById('bathrooms').value, 10), 2);
-            const furnishingType = getDummyValue(document.getElementById('furnishingType').value, 'Unfurnished');
-            const parkingSpaces = getDummyValue(parseInt(document.getElementById('parkingSpaces').value, 10), 1);
+            const furnished = getDummyValue(document.getElementById('furnishingType').value, 'Unfurnished'); // Save furnishingType as furnished
+            const parking = getDummyValue(document.getElementById('parkingSpaces').value.toString(), '1'); // Save as string
             const plotSize = getDummyValue(parseInt(document.getElementById('plotSize').value, 10), 1500);
             const builtUpArea = getDummyValue(parseInt(document.getElementById('builtUpArea').value, 10), 1200);
             const description = getDummyValue(document.getElementById('englishDescription').value, 'No description provided');
             const amenities = getDummyValue(Array.from(document.getElementById('selected-amenities').children).map(child => child.textContent.trim()), ['Basic Amenities']);
             const availability = getDummyValue(document.querySelector('input[name="availability"]:checked').value, 'Available');
+
+            // Exclusivity Fields
             const exclusivity = {
                 status: getDummyValue(document.getElementById('exclusivity').checked, false),
                 startDate: getDummyValue(document.getElementById('startDate').value, null),
                 expiryDate: getDummyValue(document.getElementById('expiryDate').value, null)
             };
+
+            // Permit Fields
             const permit = {
                 type: getDummyValue(document.querySelector('input[name="permitType"]:checked').value, 'RERA'),
                 reraListingNo: getDummyValue(document.getElementById('reraListingNo').value, 'N/A'),
@@ -1933,12 +2137,23 @@
                 permitFromDate: getDummyValue(document.getElementById('permitFromDate').value, null),
                 permitToDate: getDummyValue(document.getElementById('permitToDate').value, null)
             };
+
+            // Management Fields
             const management = {
                 assignedUser: getDummyValue(document.getElementById('assignedUser').value, 'Admin'),
-                owner: getDummyValue(document.getElementById('owner').value, 'Company')
+                owner: getDummyValue(document.getElementById('owner').value, 'Company'),
+                agentLicenseNo: '00000', // Dummy data
+                agentPhoto: 'https://example.com/agent-photo.png', // Dummy data
+                agentPhone: '+97100000000' // Dummy data
             };
+
+            // Location Fields (Splitting address into community and subCommunity)
+            const address = getDummyValue(document.getElementById('locationSearch').value, 'Dubai');
+            const [community, subCommunity] = address.split(', ').slice(-2); // Extract last two components of the address
+
             const location = {
-                address: getDummyValue(document.getElementById('locationSearch').value, 'Dubai'),
+                community: community || 'Unknown Community',
+                subCommunity: subCommunity || 'Unknown Sub-community',
                 unitNo: getDummyValue(document.getElementById('unitNumber').value, 'Unit 1'),
                 geoPoint: {
                     lat: getDummyValue(parseFloat(document.getElementById('geoLat').value), 25.276987),
@@ -1946,6 +2161,7 @@
                 }
             };
 
+            // Media Fields including FloorPlans and Documents
             const media = {
                 images: (document.getElementById('propertyImages').dataset.urls || '').split(',').filter(url => url) || ['dummy-image-url'],
                 videoTour: getDummyValue(document.getElementById('videoTourUrl').value, null),
@@ -1954,16 +2170,19 @@
                 documents: (document.getElementById('propertyDocuments').dataset.urls || '').split(',').filter(url => url) || ['dummy-document-url']
             };
 
+            // Final Property Data Object
             const propertyData = {
-                title,
-                propertyType,
-                transactionType,
+                title,  // Title Deeds saved as title
+                propertyType,  // Save the property type selected in the dropdown
+                offeringType,  // Save the determined offeringType (RS, RR, CS, CR)
+                completionStatus,  // Save propertyStatus as completionStatus
+                offplan,  // Boolean value based on property status
                 pricing,
                 size,
                 bedrooms,
                 bathrooms,
-                furnishingType,
-                parkingSpaces,
+                furnished,  // Save furnishingType as furnished
+                parking,  // Save as string
                 plotSize,
                 builtUpArea,
                 description,
@@ -1979,36 +2198,31 @@
                 createdBy: 'Admin User'
             };
 
+            // Save or update based on propertyId
             const propertyId = document.getElementById('property-id').value;
 
             if (propertyId) {
-                // Update existing property listing
+                // Update property
                 db.collection('propertyListings').doc(propertyId).update(propertyData).then(() => {
-                    console.log('Property updated successfully!');
-                    document.getElementById('formMessage').innerHTML = '<div class="alert alert-success">Property updated successfully!</div>';
-                    togglePropertyForm();
-                    loadPropertyListings();
+                    alert('Property updated successfully!');
                 }).catch(error => {
                     console.error('Error updating property:', error);
-                    document.getElementById('formMessage').innerHTML = '<div class="alert alert-danger">Failed to update property. Please try again or contact the admin.</div>';
+                    alert('Failed to update property. Please try again.');
                 });
             } else {
-                // Add new property listing
+                // Add new property
                 db.collection('propertyListings').add(propertyData).then(() => {
-                    console.log('Property added successfully!');
-                    document.getElementById('formMessage').innerHTML = '<div class="alert alert-success">Property added successfully!</div>';
-                    togglePropertyForm();
-                    loadPropertyListings();
+                    alert('Property added successfully!');
                 }).catch(error => {
                     console.error('Error adding property:', error);
-                    document.getElementById('formMessage').innerHTML = '<div class="alert alert-danger">Failed to add property. Please try again or contact the admin.</div>';
+                    alert('Failed to add property. Please try again.');
                 });
             }
         });
-
         function getDummyValue(value, dummy) {
             return value ? value : dummy;
         }
+
 
         // Toggle pricing sections
         function togglePricingSection() {
@@ -2044,6 +2258,26 @@
                 dtcmFields.style.display = 'none';
             }
         }
+        function togglePermitFieldsEdit() {
+            const reraField = document.getElementById('editReraListingNoField'); // Edit RERA Listing No field
+            const dtcmFields = document.getElementById('editDtcmFields'); // Edit DTCM fields
+
+            // Check if the RERA or DTCM radio button is selected
+            if (document.getElementById('editRera').checked) {
+                // Show RERA fields and hide DTCM fields
+                reraField.style.display = 'block';
+                dtcmFields.style.display = 'none';
+            } else if (document.getElementById('editDtcm').checked) {
+                // Show DTCM fields and hide RERA fields
+                reraField.style.display = 'none';
+                dtcmFields.style.display = 'block';
+            } else {
+                // Hide both RERA and DTCM fields if none are selected
+                reraField.style.display = 'none';
+                dtcmFields.style.display = 'none';
+            }
+        }
+
 
         document.addEventListener('DOMContentLoaded', function () {
             togglePermitFields();
@@ -2161,16 +2395,8 @@
         });
 
         const agents = [
-            { id: 'agent1', name: 'John Doe' },
-            { id: 'agent2', name: 'Jane Smith' },
-            { id: 'agent3', name: 'Michael Johnson' },
-            { id: 'agent4', name: 'Emily Davis' },
-            { id: 'agent5', name: 'David Wilson' },
-            { id: 'agent6', name: 'Sarah Miller' },
-            { id: 'agent7', name: 'James Brown' },
-            { id: 'agent8', name: 'Linda Taylor' },
-            { id: 'agent9', name: 'Robert Anderson' },
-            { id: 'agent10', name: 'Patricia Thomas' }
+            { id: 'agent1', name: 'Teddy Ndebele' },
+            { id: 'agent2', name: 'Shahz Sheikh' }
         ];
 
         const owners = [
@@ -2188,6 +2414,14 @@
 
         function populateDropdown(dropdownId, data) {
             const dropdown = document.getElementById(dropdownId);
+            if (!dropdown) {
+                console.error(`Dropdown with ID ${dropdownId} not found.`);
+                return;
+            }
+
+            // Clear the existing options before appending new ones
+            dropdown.innerHTML = '';
+
             data.forEach(item => {
                 const option = document.createElement('option');
                 option.value = item.id;
@@ -2199,8 +2433,9 @@
         function handleImageUpload(input) {
             const imageThumbnails = document.getElementById('imageThumbnails');
             imageThumbnails.innerHTML = '';
-            const fileArray = Array.from(input.files);
+            let imageUrls = [];
 
+            const fileArray = Array.from(input.files);
             fileArray.forEach(file => {
                 const storageRef = storage.ref(`properties/images/${file.name}`);
                 const uploadTask = storageRef.put(file);
@@ -2209,6 +2444,8 @@
                     console.error('Error uploading image:', error);
                 }, () => {
                     uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                        imageUrls.push(downloadURL); // Add to array
+
                         const thumbnail = document.createElement('div');
                         thumbnail.className = 'thumbnail';
                         thumbnail.style.margin = '10px';
@@ -2229,13 +2466,15 @@
                         removeButton.innerHTML = '&times;';
                         removeButton.onclick = function () {
                             thumbnail.remove();
+                            imageUrls = imageUrls.filter(url => url !== downloadURL); // Remove URL from array
+                            updateImageUrls(imageUrls);
                         };
 
                         thumbnail.appendChild(img);
                         thumbnail.appendChild(removeButton);
                         imageThumbnails.appendChild(thumbnail);
 
-                        document.getElementById('propertyImages').dataset.urls = (document.getElementById('propertyImages').dataset.urls || '') + downloadURL + ',';
+                        updateImageUrls(imageUrls); // Update the dataset after each upload
                     });
                 });
             });
@@ -2244,8 +2483,9 @@
         function handleFloorPlanUpload(input) {
             const floorPlanThumbnails = document.getElementById('floorPlanThumbnails');
             floorPlanThumbnails.innerHTML = '';
-            const fileArray = Array.from(input.files);
+            let floorPlanUrls = [];
 
+            const fileArray = Array.from(input.files);
             fileArray.forEach(file => {
                 const storageRef = storage.ref(`properties/floorPlans/${file.name}`);
                 const uploadTask = storageRef.put(file);
@@ -2254,6 +2494,8 @@
                     console.error('Error uploading floor plan:', error);
                 }, () => {
                     uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                        floorPlanUrls.push(downloadURL); // Add to array
+
                         const fileItem = document.createElement('div');
                         fileItem.className = 'file-item';
                         fileItem.style.margin = '10px';
@@ -2272,13 +2514,15 @@
                         removeButton.innerHTML = '&times;';
                         removeButton.onclick = function () {
                             fileItem.remove();
+                            floorPlanUrls = floorPlanUrls.filter(url => url !== downloadURL); // Remove URL
+                            updateFloorPlanUrls(floorPlanUrls);
                         };
 
                         fileItem.appendChild(fileName);
                         fileItem.appendChild(removeButton);
                         floorPlanThumbnails.appendChild(fileItem);
 
-                        document.getElementById('floorPlanDocuments').dataset.urls = (document.getElementById('floorPlanDocuments').dataset.urls || '') + downloadURL + ',';
+                        updateFloorPlanUrls(floorPlanUrls); // Update the dataset
                     });
                 });
             });
@@ -2287,8 +2531,9 @@
         function handleDocumentUpload(input) {
             const documentThumbnails = document.getElementById('documentThumbnails');
             documentThumbnails.innerHTML = '';
-            const fileArray = Array.from(input.files);
+            let documentUrls = [];
 
+            const fileArray = Array.from(input.files);
             fileArray.forEach(file => {
                 const storageRef = storage.ref(`properties/documents/${file.name}`);
                 const uploadTask = storageRef.put(file);
@@ -2297,6 +2542,8 @@
                     console.error('Error uploading document:', error);
                 }, () => {
                     uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                        documentUrls.push(downloadURL); // Add to array
+
                         const thumbnail = document.createElement('div');
                         thumbnail.className = 'thumbnail';
                         thumbnail.style.margin = '10px';
@@ -2320,6 +2567,8 @@
                         removeButton.innerHTML = '&times;';
                         removeButton.onclick = function () {
                             thumbnail.remove();
+                            documentUrls = documentUrls.filter(url => url !== downloadURL); // Remove URL
+                            updateDocumentUrls(documentUrls);
                         };
 
                         thumbnail.appendChild(icon);
@@ -2327,10 +2576,23 @@
                         thumbnail.appendChild(removeButton);
                         documentThumbnails.appendChild(thumbnail);
 
-                        document.getElementById('propertyDocuments').dataset.urls = (document.getElementById('propertyDocuments').dataset.urls || '') + downloadURL + ',';
+                        updateDocumentUrls(documentUrls); // Update the dataset
                     });
                 });
             });
+        }
+
+        // Helper functions to update the dataset attributes
+        function updateImageUrls(imageUrls) {
+            document.getElementById('propertyImages').dataset.urls = imageUrls.join(',');
+        }
+
+        function updateFloorPlanUrls(floorPlanUrls) {
+            document.getElementById('floorPlanDocuments').dataset.urls = floorPlanUrls.join(',');
+        }
+
+        function updateDocumentUrls(documentUrls) {
+            document.getElementById('propertyDocuments').dataset.urls = documentUrls.join(',');
         }
         //Update submiisson
         document.addEventListener('DOMContentLoaded', function () {
@@ -2685,10 +2947,19 @@
                 list.appendChild(listItem);
             });
         }
-        //Load the form data here 
         document.addEventListener('DOMContentLoaded', function () {
             const enquiriesTableBody = document.getElementById('enquiries-table-body');
             const contactFormSection = document.getElementById('ContactFormData');
+
+            // Initialize DataTables for responsive table, pagination, search, and sorting
+            $(document).ready(function () {
+                $('#enquiries-table').DataTable({
+                    responsive: true, // Enable responsiveness
+                    paging: true, // Enable pagination
+                    searching: true, // Enable search
+                    ordering: true // Enable sorting
+                });
+            });
 
             // Function to fetch data from Firestore and populate the table
             function fetchEnquiries() {
@@ -2700,7 +2971,7 @@
 
                         // Check if there is any data in the collection
                         if (querySnapshot.empty) {
-                            enquiriesTableBody.innerHTML = '<tr><td colspan="5" class="text-center">No enquiries found</td></tr>';
+                            enquiriesTableBody.innerHTML = '<tr><td colspan="11" class="text-center">No enquiries found</td></tr>';
                             return;
                         }
 
@@ -2710,14 +2981,20 @@
 
                             // Create a new table row with the enquiry data
                             const row = `
-            <tr>
-              <td>${data.name || 'N/A'}</td>
-              <td>${data.email || 'N/A'}</td>
-              <td>${data.phone || 'N/A'}</td>
-              <td>${data.enquiryTitle || 'N/A'}</td>
-              <td>${data.propertyTitle || 'N/A'}</td>
-            </tr>
-          `;
+              <tr>
+                <td>${new Date(data.dateSubmitted).toLocaleDateString() || 'N/A'}</td>
+                <td>${data.name || 'N/A'}</td>
+                <td>${data.email || 'N/A'}</td>
+                <td>${data.phone || 'N/A'}</td>
+                <td>${data.message || 'N/A'}</td>
+                <td>${data.community || 'N/A'}</td>
+                <td>${data.subCommunity || 'N/A'}</td>
+                <td>${data.building || 'N/A'}</td>
+                <td>${data.referenceNumber || 'N/A'}</td>
+                <td><a href="${data.propertyLink}" target="_blank">View</a></td>
+                <td>${data.ipAddress || 'N/A'}</td>
+              </tr>
+            `;
 
                             // Append the new row to the table body
                             enquiriesTableBody.insertAdjacentHTML('beforeend', row);
@@ -2733,6 +3010,94 @@
 
             // Call the fetch function to load the enquiries when the page loads
             fetchEnquiries();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownData = {
+                bedrooms: [
+                    { value: 0, label: "Studio" },
+                    { value: 1, label: "1" },
+                    { value: 2, label: "2" },
+                    { value: 3, label: "3" },
+                    { value: 4, label: "4" },
+                    { value: 5, label: "5" },
+                ],
+                bathrooms: [
+                    { value: 1, label: "1" },
+                    { value: 2, label: "2" },
+                    { value: 3, label: "3" },
+                    { value: 4, label: "4" },
+                    { value: 5, label: "5" },
+                ],
+                furnishingType: [
+                    { value: "Unfurnished", label: "Unfurnished" },
+                    { value: "Semi-furnished", label: "Semi-furnished" },
+                    { value: "Furnished", label: "Furnished" },
+                ],
+
+                propertyType: [
+                    { "value": "Apartment / Flat", "label": "Apartment / Flat" },
+                    { "value": "Bungalow", "label": "Bungalow" },
+                    { "value": "Compound", "label": "Compound" },
+                    { "value": "Duplex", "label": "Duplex" },
+                    { "value": "Full Floor", "label": "Full Floor" },
+                    { "value": "Half Floor", "label": "Half Floor" },
+                    { "value": "Land / Plot", "label": "Land / Plot" },
+                    { "value": "Penthouse", "label": "Penthouse" },
+                    { "value": "Townhouse", "label": "Townhouse" },
+                    { "value": "Villa / House", "label": "Villa / House" },
+                    { "value": "Whole Building", "label": "Whole Building" },
+                    { "value": "Short Term / Hotel Apartment", "label": "Short Term / Hotel Apartment" },
+                    { "value": "Labor Camp", "label": "Labor Camp" },
+                    { "value": "Bulk Units", "label": "Bulk Units" },
+                    { "value": "Warehouse", "label": "Warehouse" },
+                    { "value": "Factory", "label": "Factory" },
+                    { "value": "Office Space", "label": "Office Space" },
+                    { "value": "Retail", "label": "Retail" },
+                    { "value": "Plot", "label": "Plot" },
+                    { "value": "Shop", "label": "Shop" },
+                    { "value": "Show Room", "label": "Show Room" },
+                    { "value": "Staff Accommodation", "label": "Staff Accommodation" }
+                ],
+
+
+                propertyStatus: [
+                    { value: "Off-Plan Primary", label: "Off-Plan Primary" },
+                    { value: "Off-Plan Secondary", label: "Off-Plan Secondary" },
+                    { value: "Ready Primary", label: "Ready Primary" },
+                    { value: "Ready Secondary", label: "Ready Secondary" }
+                ]
+            };
+
+            // Function to populate a dropdown from JSON data
+            function populateDropdown(data, dropdownId) {
+                const dropdown = document.getElementById(dropdownId);
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.value;
+                    option.textContent = item.label;
+                    dropdown.appendChild(option);
+                });
+            }
+
+            // Populate the dropdowns
+            populateDropdown(dropdownData.bedrooms, 'bedrooms');
+            populateDropdown(dropdownData.bathrooms, 'bathrooms');
+            populateDropdown(dropdownData.furnishingType, 'furnishingType');
+            populateDropdown(dropdownData.propertyType, 'propertyType');
+            populateDropdown(dropdownData.propertyStatus, 'propertyStatus');
+
+            // Toggle visibility of Property Status based on Transaction Type
+            function togglePropertyStatus() {
+                const saleSelected = document.querySelector('input[name="transactionType"]:checked').value === 'Sale';
+                const propertyStatusContainer = document.getElementById('propertyStatusContainer');
+                propertyStatusContainer.style.display = saleSelected ? 'block' : 'none';
+            }
+
+            // Add event listeners to radio buttons for transaction type
+            document.querySelectorAll('input[name="transactionType"]').forEach(radio => {
+                radio.addEventListener('change', togglePropertyStatus);
+            });
         });
 
 

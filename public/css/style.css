@@ -1224,31 +1224,31 @@ input:checked+.slider:before {
 /* Scoped styles for the contact form */
 #customContactForm .custom-sell-height {
 	height: 36px;
-  }
-  
-  #customContactForm .dropdown {
+}
+
+#customContactForm .dropdown {
 	display: flex;
 	align-items: center;
-  }
-  
-  #customContactForm .dropdown__option {
+}
+
+#customContactForm .dropdown__option {
 	padding: 8px;
-  }
-  
-  #customContactForm .txt-area {
+}
+
+#customContactForm .txt-area {
 	border-radius: 4px;
 	background-color: #f8f8f8;
 	padding: 10px;
-  }
-  
-  /* Custom sticky sidebar style */
-  #customContactForm .sidebar-1 {
+}
+
+/* Custom sticky sidebar style */
+#customContactForm .sidebar-1 {
 	display: flex;
 	flex-direction: column;
 	position: sticky !important;
 	top: 116px;
-  }
-  
+}
+
 
 
 
@@ -2182,7 +2182,7 @@ button.close {
 
 @media (min-width:992px) {
 	.hamburger {
-		left: 3rem !important;
+		left: 30px !important;
 	}
 
 	.pioneers p {
@@ -2520,6 +2520,22 @@ button.close {
 		text-align: center;
 		bottom: 50%;
 	}
+	.projectdetail-owl.owl-carousel .owl-nav {
+		top: 75px !important;
+		width: 100% !important;
+
+	}
+	.projectdetail-owl.owl-carousel .owl-nav .owl-prev{
+		float: left;
+		background-color:  #ffffff;
+
+	}
+	
+	.projectdetail-owl.owl-carousel .owl-nav .owl-next{
+		float: right;
+
+
+	}
 
 	.floor-plans .owl-nav {
 		position: absolute;
@@ -2826,200 +2842,286 @@ body {
 }
 
 .thumbnails-container {
-    margin-top: 0.5rem; /* Adjust as needed */
+	margin-top: 0.5rem;
+	/* Adjust as needed */
 }
 
 .input-group {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	width: 100%;
 }
 
 .input-group-lg .form-control {
-    height: calc(2.645rem + 2px);
-    font-size: 1rem;
-    padding-top: .33rem;
-    padding-bottom: .33rem;
+	height: calc(2.645rem + 2px);
+	font-size: 1rem;
+	padding-top: .33rem;
+	padding-bottom: .33rem;
 }
 
 .input-group>.form-control {
-    position: relative;
-    flex: 1 1 auto;
-    min-width: 0;
-    margin-bottom: 0;
+	position: relative;
+	flex: 1 1 auto;
+	min-width: 0;
+	margin-bottom: 0;
 }
 
 .form-control {
-    display: block;
-    width: 100%;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #4f4f4f;
-    background-color: #f8f8f8;
-    background-clip: padding-box;
-    border: 0;
-    border-radius: 21px;
-    box-shadow: none;
-    transition: all .2s linear;
+	display: block;
+	width: 100%;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.6;
+	color: #4f4f4f;
+	background-color: #f8f8f8;
+	background-clip: padding-box;
+	border: 0;
+	border-radius: 21px;
+	box-shadow: none;
+	transition: all .2s linear;
 }
 
 .bg-gray {
-    background-color: #f8f8f8;
+	background-color: #f8f8f8;
 }
 
 .border-0 {
-    border: 0 !important;
+	border: 0 !important;
 }
 
 .border-start-0 {
-    border-left: 0 !important;
+	border-left: 0 !important;
 }
 
 #location-suggestions {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: none;
-    float: left;
-    min-width: 100%;
-    padding: 0;
-    margin: 0;
-    font-size: 1rem;
-    color: #212529;
-    text-align: left;
-    list-style: none;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 0.25rem;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+	display: none;
+	float: left;
+	min-width: 100%;
+	padding: 0;
+	margin: 0;
+	font-size: 1rem;
+	color: #212529;
+	text-align: left;
+	list-style: none;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 0.25rem;
 }
 
 #location-suggestions.show {
-    display: block;
+	display: block;
 }
 
 #location-suggestions li {
-    padding: 8px 16px;
-    cursor: pointer;
+	padding: 8px 16px;
+	cursor: pointer;
 }
 
 #location-suggestions li:hover {
-    background-color: #f8f9fa;
+	background-color: #f8f9fa;
 }
 
 
 /* CSS to ensure the agent image fits within its container */
 .pro-card .card-img-top {
-    width: 100%;
-    height: auto;
-    max-width: 80px; /* Adjust the size as per your design */
-    max-height: 80px; /* Adjust the size as per your design */
-    object-fit: cover;
-    border-radius: 50%; /* Make the image circular */
-  }
+	width: 100%;
+	height: auto;
+	max-width: 80px;
+	/* Adjust the size as per your design */
+	max-height: 80px;
+	/* Adjust the size as per your design */
+	object-fit: cover;
+	border-radius: 50%;
+	/* Make the image circular */
+}
 
-  /* CSS to ensure the agent image fits within its container, specific to these cards */
-  .unique-agent-card .card-img-top {
-    width: 100%;
-    height: auto;
-    max-width: 80px; /* Adjust the size as per your design */
-    max-height: 80px; /* Adjust the size as per your design */
-    object-fit: cover;
-    border-radius: 50%; /* Make the image circular */
-  }
-  
+/* CSS to ensure the agent image fits within its container, specific to these cards */
+.unique-agent-card .card-img-top {
+	width: 100%;
+	height: auto;
+	max-width: 80px;
+	/* Adjust the size as per your design */
+	max-height: 80px;
+	/* Adjust the size as per your design */
+	object-fit: cover;
+	border-radius: 50%;
+	/* Make the image circular */
+}
 
-  /* Specific styles for the Ask a Question section agent image */
+
+/* Specific styles for the Ask a Question section agent image */
 .ask-question-card .card-img-top {
 	width: 100%;
 	height: auto;
-	max-width: 80px; /* Adjust the size as per your design */
-	max-height: 80px; /* Adjust the size as per your design */
+	max-width: 80px;
+	/* Adjust the size as per your design */
+	max-height: 80px;
+	/* Adjust the size as per your design */
 	object-fit: cover;
-	border-radius: 50%; /* Make the image circular */
-  }
-  
-  /* Additional specific styles if needed */
-  .ask-question-card .card-title {
-	font-weight: bold;
-  }
-  
-  .ask-question-card .card-text {
-	color: #666; /* Example color */
-  }
-  
-  .ask-question-card .btn {
-	color: #0b0b0b; /* Example button color */
-  }
-  
+	border-radius: 50%;
+	/* Make the image circular */
+}
 
-  /* Major Communities Carousel Styles */
+/* Additional specific styles if needed */
+.ask-question-card .card-title {
+	font-weight: bold;
+}
+
+.ask-question-card .card-text {
+	color: #666;
+	/* Example color */
+}
+
+.ask-question-card .btn {
+	color: #0b0b0b;
+	/* Example button color */
+}
+
+
+/* Major Communities Carousel Styles */
 .major-communities-carousel .item {
 	display: flex;
 	justify-content: center;
-  }
-  
-  .major-communities-carousel .card {
-	height: 100%; /* Full height for the card */
+}
+
+.major-communities-carousel .card {
+	height: 100%;
+	/* Full height for the card */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	border: 1px solid #ddd; /* Optional: Add a border */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
-  }
-  
-  .major-communities-carousel .card-img-top {
+	border: 1px solid #ddd;
+	/* Optional: Add a border */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	/* Optional: Add a box shadow */
+}
+
+.major-communities-carousel .card-img-top {
 	object-fit: cover;
-	height: 200px; /* Fixed height for images */
+	height: 200px;
+	/* Fixed height for images */
 	width: 100%;
-  }
-  
-  .major-communities-carousel .card-body {
-	flex-grow: 1; /* Make the body take up remaining space */
+}
+
+.major-communities-carousel .card-body {
+	flex-grow: 1;
+	/* Make the body take up remaining space */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	text-align: center; /* Center-align text */
-  }
-  
-  .major-communities-carousel .card-title {
-	font-size: 1.25rem; /* Slightly larger title */
+	text-align: center;
+	/* Center-align text */
+}
+
+.major-communities-carousel .card-title {
+	font-size: 1.25rem;
+	/* Slightly larger title */
 	font-weight: bold;
-  }
-  
-  .major-communities-carousel .card-text {
-	font-size: 1rem; /* Consistent text size */
-	color: #555; /* Optional: Color for the text */
-  }
-  
-  .major-communities-carousel .card .btn {
-	background-color: #000; /* Optional: Background color for buttons */
-	color: #fff; /* Button text color */
-	margin-top: 10px; /* Space between the button and card content */
-  }
-  .major-communities-carousel .owl-carousel .item {
+}
+
+.major-communities-carousel .card-text {
+	font-size: 1rem;
+	/* Consistent text size */
+	color: #555;
+	/* Optional: Color for the text */
+}
+
+.major-communities-carousel .card .btn {
+	background-color: #000;
+	/* Optional: Background color for buttons */
+	color: #fff;
+	/* Button text color */
+	margin-top: 10px;
+	/* Space between the button and card content */
+}
+
+.major-communities-carousel .owl-carousel .item {
 	display: flex;
 	justify-content: center;
-  }
-  
-  .major-communities-carousel .card {
-	height: 100%; /* Ensure card takes full height */
+}
+
+.major-communities-carousel .card {
+	height: 100%;
+	/* Ensure card takes full height */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-  }
-  
-  .major-communities-carousel .card-img-top {
-	object-fit: cover; /* Ensures the image covers the area */
-	height: 100px; /* Set a fixed height for all images */
+}
+
+.major-communities-carousel .card-img-top {
+	object-fit: cover;
+	/* Ensures the image covers the area */
+	height: 100px;
+	/* Set a fixed height for all images */
 	width: 100%;
-  }
-  
-  .major-communities-carousel .card-body {
-	flex-grow: 1; /* Ensures that the body takes up remaining space */
-  }
-  
+}
+
+.major-communities-carousel .card-body {
+	flex-grow: 1;
+	/* Ensures that the body takes up remaining space */
+}
+
+
+
+
+@media (max-width: 576px) {
+	.modal-dialog {
+		max-width: 100% !important;
+		/* Ensure modal is full width on extra small screens */
+		margin: 0.5rem;
+		/* Add slight margin for mobile screens */
+	}
+
+	.modal-content {
+		padding: 1rem;
+		/* Reduce padding inside modal */
+	}
+
+	#dynamicModalHeading {
+		font-size: 1.2rem;
+		/* Reduce heading size for better readability */
+	}
+
+	.form-control {
+		font-size: 0.9rem;
+		/* Reduce input font size */
+	}
+
+	.btn {
+		padding: 0.75rem 1rem;
+		/* Reduce button padding for smaller screens */
+	}
+
+	.modal-body {
+		padding: 1rem;
+		/* Reduce padding for the modal body */
+	}
+}
+
+.bottom-img-height {
+	height: 122x;
+}
+
+.sec-prop-listing .card-body p {
+	font-size: 13px;
+	line-height: normal;
+
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+	background-color: transparent !important;
+}
+.iti{
+	width: 100% !important;
+}
+.searchboxofplan {
+	height: 55px !important;
+
+}
