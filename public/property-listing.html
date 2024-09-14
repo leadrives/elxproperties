@@ -18,8 +18,10 @@
   <meta property="og:url" content="https://elxproperties.com" />
   <style>
     .itm-badge1 {
-    z-index: 1000; /* Increase this number if needed */
-}
+      z-index: 1000;
+      /* Increase this number if needed */
+    }
+
     /* CSS to ensure the agent image fits within its container */
     .pro-card .card-img-top {
       width: 100%;
@@ -239,16 +241,18 @@
         </button>
         <li><a class="menuItem" href="#"><img src="images/home.svg" class="me-2" /> Home</a></li>
         <li><a class="menuItem" href="#"><img src="images/building.svg" class="me-2" /> Off-plan</a></li>
-        <li><a class="menuItem"  href="property-listing.html?offering_type=RS" id="navbarLink1"><img src="images/resale.svg" class="me-2" />Resale</a>
+        <li><a class="menuItem" href="property-listing.html?offering_type=RS" id="navbarLink1"><img
+              src="images/resale.svg" class="me-2" />Resale</a>
         </li>
         <li><a class="menuItem" href="#"><img src="images/rent.svg" class="me-2" /> Rent</a></li>
         <li>
           <hr class="me-3" />
         </li>
         <li><a class="menuItem" href="#"><img src="images/video.svg" class="me-2" /> Video </a></li>
-       <!-- <li><a class="menuItem" href="#"><img src="images/trending.svg" class="me-2" /> Trending</a></li> -->
+        <!-- <li><a class="menuItem" href="#"><img src="images/trending.svg" class="me-2" /> Trending</a></li> -->
         <li><a class="menuItem" href="#"><img src="images/sell-with-us.svg" class="me-2" /> Sell With Us</a></li>
-        <li><a class="menuItem" data-bs-title="Contact Us" href="#"><img src="images/contact.svg" class="me-2" /> Contact</a></li>
+        <li><a class="menuItem" data-bs-title="Contact Us" href="#"><img src="images/contact.svg" class="me-2" />
+            Contact</a></li>
         <li><a class="menuItem" href="#"><img src="images/saved.svg" class="me-2" /> Saved</a></li>
       </ul>
     </div>
@@ -273,7 +277,7 @@
           <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
             data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
             aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars d-none"></i>
           </button>
           <div class="collapse ms-auto justify-content-end navbar-collapse" id="navbarButtonsExample">
             <div class="d-flex align-items-center justify-content-lg-end justify-content-center">
@@ -289,79 +293,79 @@
       <!-- Second Navbar for Filters -->
       <nav
         class="px-lg-5 px-md-4 navbar nav-filter-inside d-block d-lg-block border bot-nav-elx fixed-top navbar-expand-lg shadow-none navbar-light nav-elx navBar-elysian py-lg-3 bg-white">
-       <div class="container ">
-        <div class="d-block d-lg-flex justify-content-center justify-content-md-end w-100 me-lg-2 px-lg-4 px-md-4">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 me-lg-4">
-            <li class="nav-item mb-3 mb-lg-0 toggle-menu1 filter-btn">
-              <div class="container ps-lg-5 ps-md-4">
-                <nav class="header__nav nav-bar nav-bar3">
-                  <div class="close-ico">
-                    <div class="line line1"></div>
-                    <div class="line line3"></div>
-                  </div>
-                  <ul class="p-0">
-                    <h2>Filters</h2>
-                    <hr />
-                    <h3>Property Type</h3>
-                    <button class="nav-item dropdown filter-dropdown w-100 my-2 my-lg-2">
-                      <a class="nav-link dropdown-toggle px-0" href="#" id="propertyTypeDropdown1" role="button"
-                        data-mdb-toggle="dropdown" aria-expanded="false">All Types</a>
-                      <ul class="dropdown-menu" aria-labelledby="propertyTypeDropdown1">
-                        <li><a class="dropdown-item" href="#" data-value="Apartment">Apartment</a></li>
-                        <li><a class="dropdown-item" href="#" data-value="Villa">Villa</a></li>
-                        <li><a class="dropdown-item" href="#" data-value="Penthouse">Penthouse</a></li>
-                      </ul>
-                    </button>
-                    <h3 class="mt-3">Price Range</h3>
-                    <div class="wrapper">
-                      <div class="range-slider">
-                        <input type="text" class="js-range-slider" value="" />
-                      </div>
-                      <div class="extra-controls form-inline">
-                        <div class="form-group d-flex">
-                          <input type="text" id="min-price" class="js-input-from form-control js-inp" value="0"
-                            placeholder="Min Price" />
-                          <input type="text" id="max-price" class="js-input-to form-control js-inp text-right" value="0"
-                            placeholder="Max Price" />
+        <div class="container ">
+          <div class="d-block d-lg-flex justify-content-center justify-content-md-end w-100 me-lg-2 px-lg-4 px-md-4">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 me-lg-4">
+              <li class="nav-item mb-3 mb-lg-0 toggle-menu1 filter-btn">
+                <div class="container ps-lg-5 ps-md-4">
+                  <nav class="header__nav nav-bar nav-bar3">
+                    <div class="close-ico">
+                      <div class="line line1"></div>
+                      <div class="line line3"></div>
+                    </div>
+                    <ul class="p-0">
+                      <h2>Filters</h2>
+                      <hr />
+                      <h3>Property Type</h3>
+                      <button class="nav-item dropdown filter-dropdown w-100 my-2 my-lg-2">
+                        <a class="nav-link dropdown-toggle px-0" href="#" id="propertyTypeDropdown1" role="button"
+                          data-mdb-toggle="dropdown" aria-expanded="false">All Types</a>
+                        <ul class="dropdown-menu" aria-labelledby="propertyTypeDropdown1">
+                          <li><a class="dropdown-item" href="#" data-value="Apartment">Apartment</a></li>
+                          <li><a class="dropdown-item" href="#" data-value="Villa">Villa</a></li>
+                          <li><a class="dropdown-item" href="#" data-value="Penthouse">Penthouse</a></li>
+                        </ul>
+                      </button>
+                      <h3 class="mt-3">Price Range</h3>
+                      <div class="wrapper">
+                        <div class="range-slider">
+                          <input type="text" class="js-range-slider" value="" />
+                        </div>
+                        <div class="extra-controls form-inline">
+                          <div class="form-group d-flex">
+                            <input type="text" id="min-price" class="js-input-from form-control js-inp" value="0"
+                              placeholder="Min Price" />
+                            <input type="text" id="max-price" class="js-input-to form-control js-inp text-right"
+                              value="0" placeholder="Max Price" />
+                          </div>
                         </div>
                       </div>
+                    </ul>
+                    <div class="row nav-bar3-bot-btn mt-3">
+                      <div class="col-12 col-md-6"><a id="clear-filters"
+                          class="btn w-100 rounded-0 py-lg-3 px-2 hover-btn check-primary-btn ripple-surface clear-btn">Clear
+                          all</a></div>
+                      <div class="col-12 col-md-6"><a id="apply-filters"
+                          class="btn w-100 rounded-0 py-lg-3 px-2 hover-btn check-primary-btn ripple-surface">Apply
+                          Filters</a></div>
                     </div>
-                  </ul>
-                  <div class="row nav-bar3-bot-btn mt-3">
-                    <div class="col-12 col-md-6"><a id="clear-filters"
-                        class="btn w-100 rounded-0 py-lg-3 px-2 hover-btn check-primary-btn ripple-surface clear-btn">Clear
-                        all</a></div>
-                    <div class="col-12 col-md-6"><a id="apply-filters"
-                        class="btn w-100 rounded-0 py-lg-3 px-2 hover-btn check-primary-btn ripple-surface">Apply
-                        Filters</a></div>
-                  </div>
-                </nav>
-              </div>
-              <span class="nav-bar3"><a class="nav-link menuIcon material-icons" href="#">Filters <img
-                    src="images/filter-ico.svg" alt=""></a></span>
-            </li>
-            <li class="nav-item dropdown mb-3 mb-lg-0">
-              <a class="nav-link dropdown-toggle" href="#" id="propertyTypeDropdown2" role="button"
-                data-mdb-toggle="dropdown" aria-expanded="false">Property Type</a>
-              <ul class="dropdown-menu" aria-labelledby="propertyTypeDropdown2">
-                <li><a class="dropdown-item" href="#" data-value="Apartment">Apartment</a></li>
-                <li><a class="dropdown-item" href="#" data-value="Villa">Villa</a></li>
-                <li><a class="dropdown-item" href="#" data-value="Penthouse">Penthouse</a></li>
-                <li><a class="dropdown-item" href="#" data-value="Townhouse">Townhouse</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown mb-3 mb-lg-0">
-              <a class="nav-link dropdown-toggle" href="#" id="communityDropdown" role="button"
-                data-mdb-toggle="dropdown" aria-expanded="false">Community</a>
-              <ul class="dropdown-menu" aria-labelledby="communityDropdown">
-                <li><a class="dropdown-item" href="#">Business Bay</a></li>
-                <li><a class="dropdown-item" href="#">Down Town</a></li>
-                <li><a class="dropdown-item" href="#">Dubai Harbour</a></li>
-              </ul>
-            </li>
+                  </nav>
+                </div>
+                <span class="nav-bar3"><a class="nav-link menuIcon material-icons" href="#">Filters <img
+                      src="images/filter-ico.svg" alt=""></a></span>
+              </li>
+              <li class="nav-item dropdown mb-3 mb-lg-0">
+                <a class="nav-link dropdown-toggle" href="#" id="propertyTypeDropdown2" role="button"
+                  data-mdb-toggle="dropdown" aria-expanded="false">Property Type</a>
+                <ul class="dropdown-menu" aria-labelledby="propertyTypeDropdown2">
+                  <li><a class="dropdown-item" href="#" data-value="Apartment">Apartment</a></li>
+                  <li><a class="dropdown-item" href="#" data-value="Villa">Villa</a></li>
+                  <li><a class="dropdown-item" href="#" data-value="Penthouse">Penthouse</a></li>
+                  <li><a class="dropdown-item" href="#" data-value="Townhouse">Townhouse</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown mb-3 mb-lg-0">
+                <a class="nav-link dropdown-toggle" href="#" id="communityDropdown" role="button"
+                  data-mdb-toggle="dropdown" aria-expanded="false">Community</a>
+                <ul class="dropdown-menu" aria-labelledby="communityDropdown">
+                  <li><a class="dropdown-item" href="#">Business Bay</a></li>
+                  <li><a class="dropdown-item" href="#">Down Town</a></li>
+                  <li><a class="dropdown-item" href="#">Dubai Harbour</a></li>
+                </ul>
+              </li>
 
 
-            <!-- <li class="nav-item mb-3 mb-lg-0">
+              <!-- <li class="nav-item mb-3 mb-lg-0">
               <div class="input-group input-group-lg aria-btn bg-gray border-0 rounded-21">
                 <input type="text" id="location-input" class="form-control border-0 bg-gray border-start-0"
                   placeholder="Enter location (e.g., Business Bay)" aria-label="Location">
@@ -370,19 +374,19 @@
             </li>
             -->
 
-          </ul>
-          <div class="col-12 col-md-4 ms-auto m-width">
-            <ul class="ms-auto input-group aria-btn input-group-lg ps-lg-5 ps-md-4">
-              <span class="input-group-text border-0 bg-gray border-end-0">
-                <i class="fas fa-search fa-icon"></i>
-              </span>
-              <input type="text" id="search-input" class="form-control border-0 bg-gray border-start-0" 
-                placeholder="Search by keyword" aria-label="Search">
             </ul>
+            <div class="col-12 col-md-4 ms-auto m-width">
+              <ul class="ms-auto input-group aria-btn input-group-lg ps-lg-5 ps-md-4">
+                <span class="input-group-text border-0 bg-gray border-end-0">
+                  <i class="fas fa-search fa-icon"></i>
+                </span>
+                <input type="text" id="search-input" class="form-control border-0 bg-gray border-start-0"
+                  placeholder="Search by keyword" aria-label="Search">
+              </ul>
+            </div>
+
           </div>
-          
         </div>
-      </div>
       </nav>
 
     </header>
@@ -391,8 +395,8 @@
   <!-- Breadcrumb and Page Title -->
   <section class="property-list pb-0">
     <div class="container-fluid ps-lg-5 ps-md-4 pe-0">
-      <div class="row mt-4 mt-lg-5 ps-lg-5">
-        <div class="col-12 d-flex align-items-center mt-0 nav-flow mt-lg-5 mb-3">
+      <div class="row mt-4 mt-lg-5 pt-lg-5 ps-lg-5">
+         <!-- <div class="col-12 d-flex align-items-center mt-0 nav-flow mt-lg-5 mb-3">
           <small>Home</small>
           <small class="mx-2"> / </small>
           <ul class="p-0">
@@ -404,15 +408,15 @@
             <li class="nav-item dropdown"><small id="dropdownMenu1" class="nav-link px-0 dropdown-toggle active"
                 role="button" data-mdb-toggle="dropdown" aria-expanded="false">Burj Khalifa</small></li>
           </ul>
-        </div>
-        <h2 class="mt-4 mb-3">Apartments for Sale in Dubai</h2>
+        </div>-->
+        <h2 id="property-heading" class="mt-lg-4 mt-md-4 pt-lg-5 pt-md-4 mb-3">Apartments for Sale in Dubai</h2>
         <!-- Loading Spinner -->
         <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
           <span class="visually-hidden">Loading...</span>
         </div>
         <!-- Main content column (Property listings) -->
         <div class="col-12 col-lg-8">
-          <div class="row mt-4 mt-lg-5 property-listings">
+          <div class="row mt-0  property-listings">
             <!-- The script below will dynamically inject the property listings here -->
           </div>
         </div>
@@ -426,7 +430,7 @@
                 width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            
+
           </div>
         </div>
 
@@ -598,138 +602,144 @@
 
   <a class="scroll-top-arrow wave" style="display: none;"> <i class="fa fa-angle-up"></i> </a>
 
-  
-<div class="modal fade" id="contactFormModal" tabindex="-1" aria-labelledby="contactFormModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header pb-0 border-0">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body py-3 py-lg-4 px-3 px-md-5">
-        <div class="row">
-          <h2 id="dynamicModalHeading" class="mb-3 text-center">How can the agent send<br />you the floor plan</h2>
-          <!-- Name Field -->
-          <div class="col-12 mb-3">
-            <input type="text" class="form-control custom-sell-height" placeholder="Name*" id="contactFormName" required>
-            <div class="invalid-feedback">Please enter your name.</div>
-          </div>
 
-          <!-- Email Field -->
-          <div class="col-12 mb-3">
-            <input type="email" class="form-control custom-sell-height" placeholder="Email*" id="contactFormEmail" required>
-            <div class="invalid-feedback">Please enter a valid email address.</div>
-          </div>
-
-          <!-- Phone Field with Country Dropdown -->
-          <div class="col-12 mb-3">
-            <div class="d-flex">
-              <div class="dropdown dropdown-customm custom-sell-height border-end-0 d-flex">
-                <div class="dropdown__skeleton rounded-0">
-                  <div class="dropdown__selected dropdown__option"><img src="images/uae.svg" alt="UAE"></div>
-                  <div class="dropdown__arrow"></div>
-                </div>
-          
-                <div class="dropdown__options">
-                  <div class="dropdown__option dropdown__option--selected"><img src="images/uae.svg" alt="UAE"></div>
-                  <div class="dropdown__option"><img src="images/us.png" alt="U.S."></div>
-                  <div class="dropdown__option"><img src="images/france.png" alt="France"></div>
-                  <div class="dropdown__option"><img src="images/spain.png" alt="Spain"></div>
-                  <div class="dropdown__option"><img src="images/germsny.png" alt="Germany"></div>
-                </div>
-              </div>
-              <input type="tel" class="form-control border-start-0 rounded-0 dropdown-text ps-0"
-                placeholder="Phone*" id="contactFormPhone" aria-label="Example text with button addon"
-                aria-describedby="button-addon1" required>
+  <div class="modal fade" id="contactFormModal" tabindex="-1" aria-labelledby="contactFormModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header pb-0 border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body py-3 py-lg-4 px-3 px-md-5">
+          <div class="row">
+            <h2 id="dynamicModalHeading" class="mb-3 text-center">How can the agent send<br />you the floor plan</h2>
+            <!-- Name Field -->
+            <div class="col-12 mb-3">
+              <input type="text" class="form-control custom-sell-height" placeholder="Name*" id="contactFormName"
+                required>
+              <div class="invalid-feedback">Please enter your name.</div>
             </div>
-          </div>
-          
-          
 
-          <!-- Submit Button -->
-          <div class="col-12 my-3 my-md-4">
-            <button type="submit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn" id="submitContactForm" disabled>
-              Request to Call Back
-            </button>
-          </div>
+            <!-- Email Field -->
+            <div class="col-12 mb-3">
+              <input type="email" class="form-control custom-sell-height" placeholder="Email*" id="contactFormEmail"
+                required>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
 
-          <!-- Additional Options -->
-          <div class="col-12">
-            <ul class="p-0">
-              <li class="my-1">
-                <label>
-                  <input type="checkbox" id="notifyByEmail" class="me-2"> Notify me via email when similar listings appear.
-                </label>
-              </li>
-              <li class="my-1">
-                <label>
-                  <input type="checkbox" id="agreeToTerms" class="me-2" required> I agree to the Terms of Use and Privacy Policy.
-                </label>
-                <div class="invalid-feedback">You must agree to the terms and privacy policy.</div>
-              </li>
-            </ul>
-          </div>
+            <!-- Phone Field with Country Dropdown -->
+            <div class="col-12 mb-3">
+              <div class="d-flex">
+                <div class="dropdown dropdown-customm custom-sell-height border-end-0 d-flex">
+                  <div class="dropdown__skeleton rounded-0">
+                    <div class="dropdown__selected dropdown__option"><img src="images/uae.svg" alt="UAE"></div>
+                    <div class="dropdown__arrow"></div>
+                  </div>
 
+                  <div class="dropdown__options">
+                    <div class="dropdown__option dropdown__option--selected"><img src="images/uae.svg" alt="UAE"></div>
+                    <div class="dropdown__option"><img src="images/us.png" alt="U.S."></div>
+                    <div class="dropdown__option"><img src="images/france.png" alt="France"></div>
+                    <div class="dropdown__option"><img src="images/spain.png" alt="Spain"></div>
+                    <div class="dropdown__option"><img src="images/germsny.png" alt="Germany"></div>
+                  </div>
+                </div>
+                <input type="tel" class="form-control border-start-0 rounded-0 dropdown-text ps-0" placeholder="Phone*"
+                  id="contactFormPhone" aria-label="Example text with button addon" aria-describedby="button-addon1"
+                  required>
+              </div>
+            </div>
+
+
+
+            <!-- Submit Button -->
+            <div class="col-12 my-3 my-md-4">
+              <button type="submit" class="btn w-100 rounded-0 py-lg-3 py-3 px-5 px-lg-4 check-primary-btn"
+                id="submitContactForm" disabled>
+                Request to Call Back
+              </button>
+            </div>
+
+            <!-- Additional Options -->
+            <div class="col-12">
+              <ul class="p-0">
+                <li class="my-1">
+                  <label>
+                    <input type="checkbox" id="notifyByEmail" class="me-2"> Notify me via email when similar listings
+                    appear.
+                  </label>
+                </li>
+                <li class="my-1">
+                  <label>
+                    <input type="checkbox" id="agreeToTerms" class="me-2" required> I agree to the Terms of Use and
+                    Privacy Policy.
+                  </label>
+                  <div class="invalid-feedback">You must agree to the terms and privacy policy.</div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const formFields = {
-    name: document.getElementById('contactFormName'),
-    email: document.getElementById('contactFormEmail'),
-    phone: document.getElementById('contactFormPhone')
-  };
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const formFields = {
+        name: document.getElementById('contactFormName'),
+        email: document.getElementById('contactFormEmail'),
+        phone: document.getElementById('contactFormPhone')
+      };
 
-  const submitButton = document.getElementById('submitContactForm');
-  const modalElement = document.getElementById('contactFormModal');
-  const modalHeading = document.getElementById('dynamicModalHeading');
+      const submitButton = document.getElementById('submitContactForm');
+      const modalElement = document.getElementById('contactFormModal');
+      const modalHeading = document.getElementById('dynamicModalHeading');
 
-  // Function to validate UAE phone number
-  function validateUaePhoneNumber(phone) {
-    const uaePhonePattern = /^((\+971)?5[0-9]{8})$/;
-    return uaePhonePattern.test(phone);
-  }
-
-  // Function to check the overall validity of the form
-  function checkFormValidity() {
-    const isFormValid = Object.values(formFields).every(field => {
-      if (field === formFields.phone) {
-        return validateUaePhoneNumber(field.value);
+      // Function to validate UAE phone number
+      function validateUaePhoneNumber(phone) {
+        const uaePhonePattern = /^((\+971)?5[0-9]{8})$/;
+        return uaePhonePattern.test(phone);
       }
-      return field.checkValidity();
+
+      // Function to check the overall validity of the form
+      function checkFormValidity() {
+        const isFormValid = Object.values(formFields).every(field => {
+          if (field === formFields.phone) {
+            return validateUaePhoneNumber(field.value);
+          }
+          return field.checkValidity();
+        });
+
+        submitButton.disabled = !isFormValid;
+      }
+
+      // Add event listeners to each form field to check validity on input
+      Object.values(formFields).forEach(field => {
+        field.addEventListener('input', checkFormValidity);
+      });
+
+      // Initial check in case the form is pre-filled or invalid on load
+      checkFormValidity();
+
+      // Add event listener for when the modal is about to be shown
+      if (modalElement) {
+        modalElement.addEventListener('show.bs.modal', function (event) {
+          const trigger = event.relatedTarget; // The button that triggered the modal
+          const titleText = trigger.getAttribute('data-bs-title');
+          if (modalHeading && titleText) {
+            modalHeading.textContent = titleText;
+          }
+        });
+      } else {
+        console.error('Modal element not found!');
+      }
     });
 
-    submitButton.disabled = !isFormValid;
-  }
-
-  // Add event listeners to each form field to check validity on input
-  Object.values(formFields).forEach(field => {
-    field.addEventListener('input', checkFormValidity);
-  });
-
-  // Initial check in case the form is pre-filled or invalid on load
-  checkFormValidity();
-
-  // Add event listener for when the modal is about to be shown
-  if (modalElement) {
-    modalElement.addEventListener('show.bs.modal', function (event) {
-      const trigger = event.relatedTarget; // The button that triggered the modal
-      const titleText = trigger.getAttribute('data-bs-title');
-      if (modalHeading && titleText) {
-        modalHeading.textContent = titleText;
-      }
-    });
-  } else {
-    console.error('Modal element not found!');
-  }
-});
 
 
-
-</script>
+  </script>
 
 
 
@@ -775,7 +785,9 @@ document.addEventListener('DOMContentLoaded', function () {
       const loadingSpinner = document.getElementById('loadingSpinner');
       const filterNavBar = document.querySelector('.nav-bar3');
       const closeButton = document.querySelector('.close-ico');
-      const headingElement = document.querySelector('.mt-4.mb-3');
+      //const headingElement = document.querySelector('.mt-4.mb-3');
+      const headingElement = document.getElementById('property-heading');
+
 
       $(".js-range-slider").ionRangeSlider({
         type: "double",
@@ -1097,10 +1109,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const amenities = data.amenities || [];
             //console.log('Amenities:', data.amenities);
             const filteredAmenities = amenities.filter(amenity => amenityIcons[amenity]).slice(0, 6);
-console.log('filteredAmenities:', filteredAmenities);
+            console.log('filteredAmenities:', filteredAmenities);
 
-// Generate the HTML for the amenities with the required structure and style
-const amenitiesHTML = filteredAmenities.map((amenity, index) => `
+            // Generate the HTML for the amenities with the required structure and style
+            const amenitiesHTML = filteredAmenities.map((amenity, index) => `
     <div class="col-4">
         <li class="d-flex align-items-center px-2 py-1 ${index % 2 === 1 ? 'border-l-r' : ''}">
             <span class="ico-itm me-1">${amenityIcons[amenity]}</span>
@@ -1109,8 +1121,8 @@ const amenitiesHTML = filteredAmenities.map((amenity, index) => `
     </div>
 `).join('');
 
-// Wrap the amenitiesHTML inside the container as per your style
-const amenitiesContainerHTML = `
+            // Wrap the amenitiesHTML inside the container as per your style
+            const amenitiesContainerHTML = `
     <div class="col-12">
         <ul class="d-block list-unstyled mt-3 row">
             ${amenitiesHTML}
@@ -1239,15 +1251,17 @@ const amenitiesContainerHTML = `
 
   </script>
 
-<style>
-.custom-gap {
-  gap: 0.1rem !important; /* Customize the gap between main image and thumbnails */
-}
+  <style>
+    .custom-gap {
+      gap: 0.1rem !important;
+      /* Customize the gap between main image and thumbnails */
+    }
 
-.custom-mt-1 {
-  margin-top: 0.1rem !important; /* Customize the margin-top for thumbnails */
-}
-</style>
+    .custom-mt-1 {
+      margin-top: 0.1rem !important;
+      /* Customize the margin-top for thumbnails */
+    }
+  </style>
 
 
   <script>
@@ -1281,12 +1295,34 @@ const amenitiesContainerHTML = `
     });
   </script>
   <script>
-    var toggleButton = document.querySelector('.toggle-menu1');
-    var navBar = document.querySelector('.nav-bar3');
-    var navZi = document.getElementById('navId');
-    toggleButton.addEventListener('click', function () {
-      navBar.classList.toggle('toggle');
-    });
+   var toggleButton = document.querySelector('.toggle-menu1');
+var navBar = document.querySelector('.nav-bar3');
+var closeButton = document.querySelector('.close-ico'); // Get the close button
+
+// Toggle menu on clicking the toggle button
+toggleButton.addEventListener('click', function () {
+  navBar.classList.toggle('toggle');
+});
+
+// Close menu when the close button is clicked
+closeButton.addEventListener('click', function (event) {
+  event.stopPropagation(); // Prevent the event from propagating
+  navBar.classList.remove('toggle'); // Remove 'toggle' class to close the navbar
+});
+
+// Prevent clicks inside the navbar from closing it
+navBar.addEventListener('click', function (event) {
+  event.stopPropagation();
+});
+
+// Close the menu if clicking outside of it
+document.addEventListener('click', function (event) {
+  if (!navBar.contains(event.target) && !toggleButton.contains(event.target)) {
+    navBar.classList.remove('toggle'); // Close the navbar only if click is outside
+  }
+});
+
+
   </script>
 </body>
 

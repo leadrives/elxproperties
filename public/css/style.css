@@ -920,6 +920,7 @@ footer .foot-ing {
 	background: #F8F8F8;
 	border-radius: 21px !important;
 	box-shadow: none !important;
+	border: 1px solid #ececec;
 }
 
 .search-btn {
@@ -2448,6 +2449,10 @@ button.close {
 }
 
 @media (max-width:600px) {
+	.nav-bar {
+		width: 100% !important;
+		top: 60px ;
+	}
 	.menu {
 		width: 80%;
 	}

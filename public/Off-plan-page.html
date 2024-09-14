@@ -593,7 +593,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </span>
                   </a>
                   <div class="card-body">
-                    <a href="#">
+                    <a href="project-details-page.html?id=${property.id}">
                       <small class="vla text-dark">${property.propertyType}</small>
                       <h5 class="card-title py-2">${property.title}</h5>
                       <ul class="d-flex list-unstyled mt-auto">
@@ -607,7 +607,7 @@ document.addEventListener('DOMContentLoaded', function () {
                           <small class="itm-small mt-3">Starting from</small>
                         </li>
                       </ul>
-                      <h3 class="rate mb-3 mt-1">AED ${property.pricing.salePrice.toLocaleString()}</h3>
+                      <h3 class="rate mb-3 mt-1">AED ${property.pricing.price.toLocaleString()}</h3>
                     </a>
                     <a href="project-details-page.html?id=${property.id}" class="btn h-100 rounded-0 py-lg-3 px-4 w-50 mx-auto hover-btn check-primary-btn ">
                       Learn More
